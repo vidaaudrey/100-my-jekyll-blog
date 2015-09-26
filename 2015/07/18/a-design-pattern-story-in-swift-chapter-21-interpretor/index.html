@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift – Chapter 21: Interpretor &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/co-1080x675.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 21: Interpretor</h1>
+  <span class="post-date">18 Jul 2015</span>
+  <p>An interpreter translate our plain language expression into information and find out what we need. Here we have a  Unit Interpretor (Conversion Context) who does very diverse interpretation jobs.
+&lt;!&ndash;more&ndash;&gt;</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">enum UnitType: String {
+    case Gallon = &quot;Gallon&quot;
+    case Pint = &quot;Pint&quot;
+    case Cup = &quot;Cup&quot;
+    case USD = &quot;USD&quot;
+    case RMB = &quot;RMB&quot;
+    case EURO = &quot;EURO&quot;
+    case Meter = &quot;Meter&quot;
+    case Unkonwn = &quot;Unknown&quot;
+    init(str: String) {
+        switch str {
+            case &quot;Gallon&quot;, &quot;Gallons&quot;, &quot;gallons&quot;: self = .Gallon
+            case &quot;Pint&quot;, &quot;Pints&quot;, &quot;pints&quot;: self = .Pint
+            case &quot;Cup&quot;, &quot;Cups&quot;, &quot;cups&quot;: self = .Cup
+            case &quot;USD&quot;, &quot;usd&quot;, &quot;Usd&quot;: self = .USD
+            case &quot;EURO&quot;, &quot;euro&quot;, &quot;Euro&quot;: self = .EURO
+            case &quot;RMB&quot;, &quot;rmb&quot;, &quot;Rmb&quot;: self = .RMB
+        default: self = .Unkonwn
+        }
+    }
+}
+protocol Expression {
+    func getUnit(quantity: Double, targetUnit: String) -&amp;gt; Double
+}
+class Gallon: NSObject, Expression {
+    func getUnit(quantity: Double, targetUnit: String) -&amp;gt; Double {
+        let targetUnitType = UnitType(str: targetUnit)
+        switch targetUnitType {
+        case .Gallon: return quantity
+        case .Pint: return quantity * 8
+        case .Cup: return quantity * 16
+        default:
+            print(&quot;conversion not supported&quot;)
+            return -1 // just saying it&#39;s a wrong number
+        }
+    }
+}
+class Pint: NSObject, Expression {
+    func getUnit(quantity: Double, targetUnit: String) -&amp;gt; Double {
+        let targetUnitType = UnitType(str: targetUnit)
+        switch targetUnitType {
+        case .Gallon: return quantity * 0.125
+        case .Pint: return quantity
+        case .Cup: return quantity * 2
+        default:
+            print(&quot;conversion not supported&quot;)
+            return -1
+        }
+        
+    }
+}
+class USD: NSObject, Expression {
+    func getUnit(quantity: Double, targetUnit: String) -&amp;gt; Double {
+        let targetUnitType = UnitType(str: targetUnit)
+        switch targetUnitType {
+        case .USD: return quantity
+        case .EURO: return quantity * 0.92
+        case .RMB: return quantity * 6.21
+        default:
+            print(&quot;conversion not supported&quot;)
+            return -1
+        }
+        
+    }
+}
+
+class RMB: NSObject, Expression {
+    func getUnit(quantity: Double, targetUnit: String) -&amp;gt; Double {
+
+        let targetUnitType = UnitType(str: targetUnit)
+        switch targetUnitType {
+        case .USD: return quantity * 0.16
+        case .EURO: return quantity * 0.15
+        case .RMB: return quantity
+        default:
+            print(&quot;conversion not supported&quot;)
+            return -1
+        }
+    }
+}
+
+struct AppConfig {
+    static let AppName = &quot;interpretor&quot;
+}
+// The context to translate a sentence into related command and get the result.
+class ConversionContext {
+    static let sharedInstance = ConversionContext()
+    private func getTargetQuantity(fromConversion: String, toConversion: String, quantity: Double) -&amp;gt; Double {
+        if fromConversion != &quot;&quot; {
+            let classStr = UnitType(str: fromConversion).rawValue
+            guard let anyObjecType : AnyObject.Type = NSClassFromString(&quot;\(AppConfig.AppName).\(classStr)&quot;)
+                else {
+                    if classStr == &quot;EURO&quot; || classStr == &quot;Cup&quot; {
+                        return -1
+                    } else {
+                        return -3
+                    }
+            }
+            let nsObjecType : NSObject.Type = anyObjecType as! NSObject.Type
+            
+            guard let object = nsObjecType() as? Expression else {return -4 }
+            return  object.getUnit(quantity, targetUnit: toConversion)
+        
+        }
+        return -2
+    }
+    func getConversionFromInput(input:String) -&amp;gt; String {
+        let partsOfQues = input.componentsSeparatedByString(&quot; &quot;)
+        let fromConversion = partsOfQues[1]
+        let toConversion = partsOfQues[3]
+        let quantity = Double(partsOfQues[0])!
+        
+        let targetQuantity = getTargetQuantity(fromConversion, toConversion: toConversion, quantity: quantity)
+        switch targetQuantity {
+        case -1: return &quot;Currently we only support conversion from RMB, USD, Gallon and Pint. \(fromConversion) is not supported&quot;
+        case -3: return &quot;We can&#39;t recognize your input yet. Try something like RMB, rmb, Gallon, Gallons...&quot;
+        case -2: return &quot;Sorry, we couldn&#39;t identify the source conversion. Try something like [ 10 Gallons to Pints ]&quot;
+        case -4: return &quot;Couldn&#39;t convert. The object we created doesn&#39;t conform with Expression protocol&quot;
+        case let x where x &amp;gt;= 0 :  return &quot;\(partsOfQues[0]) \(partsOfQues[1]) equals \(targetQuantity) \(partsOfQues[3])&quot;
+        default: return &quot;Some other unknow error happened &quot;
+        }
+    }
+}
+
+func getOutput(input: String) -&amp;gt; String {
+    print(&quot;Getting user input:[ \(input) ]&quot;)
+    let context = ConversionContext.sharedInstance
+    return context.getConversionFromInput(input)
+}
+
+// Testing. User inputs a sentence and the conversionContext will translate it
+let userInput = [
+    &quot;10 Gallons is Pints&quot;,
+    &quot;231 Gallo is Pints&quot;,
+    &quot;32.11 Pints in Gallon&quot;,
+    &quot;2001.99 USD to RMB&quot;,
+    &quot;984.2323 rmb in EURO&quot;,
+    &quot;23 Euro in RMB&quot;
+]
+userInput.map{ print(&quot;Output: [ \(getOutput($0)) ] \n&quot;) }</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/interpretor.png"><img class="aligncenter size-full wp-image-1086" src="/assets/wp-content/uploads/2015/07/interpretor.png" alt="interpretor" width="693" height="290" /></a></p>
+
+<p><p class="p1"></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/15/a-design-pattern-story-in-swift-chapter-18-visitor/">
+            A Design Pattern Story in Swift – Chapter 18: Visitor
+            <small>15 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

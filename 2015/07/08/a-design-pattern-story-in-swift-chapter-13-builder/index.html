@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift – Chapter 13: Builder &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/flower.png')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 13: Builder</h1>
+  <span class="post-date">08 Jul 2015</span>
+  <p>The process of making a fragrance is quite complex, that&#8217;s why we have a fragrance builder who will help config the default ingredient.</p>
+
+<blockquote>
+<p>The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm. An external class controls the construction algorithm. &#8211;<a href="https://github.com/ochococo/Design-Patterns-In-Swift">From</a></p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: 1. Simple FragranceBuilder
+class Fragrance: CustomStringConvertible {
+    let name: String
+    let ingFlower: String
+    let ingFruit: String
+    let ingWood: String
+    let ingSpecial: String
+    let powerLevel: Int
+    var description: String {
+        return &quot;Fragrance:\(name)\n&quot; +
+        &quot;Flower:\(ingFlower)\n&quot; +
+        &quot;Fruit: \(ingFruit)\n&quot; +
+        &quot;Wood: \(ingWood)\n&quot; +
+        &quot;Special Ingredience: \(ingSpecial)\n&quot; +
+        &quot;Power Level: \(powerLevel)\n&quot;
+    }
+    
+    init(name:String, ingFlower: String, ingFruit: String, ingWood: String, ingSpecial:String, powerLevel: Int) {
+        self.name = name
+        self.ingFlower = ingFlower
+        self.ingFruit = ingFruit
+        self.ingWood = ingWood
+        self.ingSpecial = ingSpecial
+        self.powerLevel = powerLevel
+    }
+}
+
+class FragranceBuilder {
+    private var ingFlower = &quot;Jasmine&quot;
+    private var ingFruit = &quot;Strawberry&quot;
+    private var ingWood = &quot;Sandalwood&quot;
+    private var ingSpecial = &quot;Fish&#39;s tear&quot;
+    private var powerLevel = 0
+    func setIngFlower(ingFlower: String){
+        self.ingFlower = ingFlower
+    }
+    func setIngFruit(ingFruit: String){
+        self.ingFruit = ingFruit
+    }
+    func setIngWood(ingWood: String){
+        self.ingWood = ingWood
+    }
+    func setIngSpecial(ingSpecial: String){
+        self.ingSpecial = ingSpecial
+    }
+    func setPowerLevel(powerLevel: Int){
+        self.powerLevel = powerLevel
+    }
+    
+    func buildFragrance(name: String) -&amp;gt; Fragrance {
+        return Fragrance(name: name, ingFlower: ingFlower, ingFruit: ingFruit, ingWood: ingWood, ingSpecial: ingSpecial, powerLevel: powerLevel)
+    }
+}
+
+let builder = FragranceBuilder()
+builder.setIngFlower(&quot;Rose&quot;)
+builder.setIngSpecial(&quot;First Raindrop in Spring&quot;)
+let roseFragrance = builder.buildFragrance(&quot;Rose in Spring&quot;)
+print(roseFragrance.description)
+
+
+//: 2. Use specialized FragranceBuilderFactory to build different fragrance
+enum FragranceType {
+    case Floral
+    case Fruity
+    case Oceanic
+}
+
+class FragranceBuilderFactory {
+    private var ingFlower = &quot;Jasmine&quot;
+    private var ingFruit = &quot;Strawberry&quot;
+    private var ingWood = &quot;Sandalwood&quot;
+    private var ingSpecial = &quot;Fish&#39;s tear&quot;
+    private var powerLevel = 0
+    private init(){
+        // do nothing
+    }
+    func setIngFlower(ingFlower: String){
+        self.ingFlower = ingFlower
+    }
+    func setIngFruit(ingFruit: String){
+        self.ingFruit = ingFruit
+    }
+    func setIngWood(ingWood: String){
+        self.ingWood = ingWood
+    }
+    func setIngSpecial(ingSpecial: String){
+        self.ingSpecial = ingSpecial
+    }
+    func setPowerLevel(powerLevel: Int){
+        self.powerLevel = powerLevel
+    }
+    
+    func buildFragrance(name: String) -&amp;gt; Fragrance {
+        return Fragrance(name: name, ingFlower: ingFlower, ingFruit: ingFruit, ingWood: ingWood, ingSpecial: ingSpecial, powerLevel: powerLevel)
+    }
+    
+    class func getFragranceBuilder(fragranceType: FragranceType) -&amp;gt; FragranceBuilderFactory {
+        switch fragranceType {
+        case .Floral: return FloralFrangranceBuilder()
+        case .Fruity: return FruityFrangranceBuilder()
+        case .Oceanic: return OceanicFrangranceBuilder()
+        }
+    }
+}
+
+class FloralFrangranceBuilder: FragranceBuilderFactory {
+    override init(){
+        super.init()
+        self.ingFlower = &quot;Rose&quot;
+        self.powerLevel = 99
+    }
+    
+}
+class FruityFrangranceBuilder: FragranceBuilderFactory {
+    override init(){
+        super.init()
+        self.ingFruit = &quot;Apple&quot;
+        self.powerLevel = 99
+    }
+
+    
+}
+class OceanicFrangranceBuilder: FragranceBuilderFactory {
+    override init(){
+        super.init()
+        self.ingWood = &quot;Pine&quot;
+        self.powerLevel = 80
+    }
+}
+
+let builder1 = FragranceBuilderFactory.getFragranceBuilder(FragranceType.Oceanic)
+builder.setIngSpecial(&quot;Mermaid Scale&quot;)
+let fragrance1 = builder.buildFragrance(&quot;Ocean Song&quot;)
+print(fragrance1.description)
+
+
+//: 3. Use closure to config the FragranceBuilder
+struct TearInHeavenFragrance {
+    let name: String
+    let ingFlower: String
+    let ingFruit: String
+    let ingWood: String
+    let ingSpecial: String
+    let powerLevel: Int
+    var description: String {
+        return &quot;Fragrance:\(name)\n&quot; +
+            &quot;Flower:\(ingFlower)\n&quot; +
+            &quot;Fruit: \(ingFruit)\n&quot; +
+            &quot;Wood: \(ingWood)\n&quot; +
+            &quot;Special Ingredience: \(ingSpecial)\n&quot; +
+        &quot;Power Level: \(powerLevel)\n&quot;
+    }
+    
+    init(name: String, builder: TearInHeavenFragranceBuilder) {
+        self.name = name
+        self.ingFlower = builder.ingFlower
+        self.ingFruit = builder.ingFruit
+        self.ingWood = builder.ingWood
+        self.ingSpecial = builder.ingSpecial
+        self.powerLevel = builder.powerLevel
+    }
+}
+
+class TearInHeavenFragranceBuilder {
+    var ingFlower = &quot;Jasmine&quot;
+    var ingFruit = &quot;Strawberry&quot;
+    var ingWood = &quot;Sandalwood&quot;
+    var ingSpecial = &quot;Fish&#39;s tear&quot;
+    var powerLevel = 0
+    init(builderHandler: (TearInHeavenFragranceBuilder) -&amp;gt; Void) {
+        builderHandler(self)
+    }
+}
+let builder2 = TearInHeavenFragranceBuilder { (builder) -&amp;gt; Void in
+    builder.ingFlower = &quot;White Lily&quot;
+    builder.powerLevel = 78
+}
+
+let fragrance2 = TearInHeavenFragrance(name: &quot;Tear in Heaven&quot;, builder: builder2)
+print(fragrance2.description)</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/builder.png"><img class="aligncenter size-full wp-image-1043" src="/assets/wp-content/uploads/2015/07/builder.png" alt="builder" width="371" height="285" /></a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

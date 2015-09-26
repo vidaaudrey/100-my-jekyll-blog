@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift – Chapter 15: Bridge &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/bridge-.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 15: Bridge</h1>
+  <span class="post-date">13 Jul 2015</span>
+  <p>An IOT Bridge can handle different outgoing and incoming messages for the connected devices, regardless of the message format and the device types.</p>
+
+<blockquote>
+<p class="p1">
+  <span class="s1">The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction.</span>
+</p>
+</blockquote>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: an IOT device can send two kinds of messages: IOTMessage which is the basic format, and EncryptIOTMessage which is encrypted message
+protocol Message {
+    var messageString: String { get }
+    var contentToSend:String { get }
+    func prepareMessage() -&amp;gt; String
+}
+
+struct IOTMessage: Message {
+    var messageString: String
+    var contentToSend: String {return prepareMessage()}
+    func prepareMessage() -&amp;gt; String {
+        return &quot;Basic Message: \(messageString)&quot;
+    }
+}
+struct EncryptIOTMessage: Message {
+    var messageString: String
+    var contentToSend: String {return prepareMessage()}
+    func prepareMessage() -&amp;gt; String {
+        return &quot;Encrypted Message: \(String(Array(messageString.characters.reverse())))&quot;
+    }
+}
+
+
+//: Since an IOT Device is connected, it can process outgoing and incoming messages
+protocol IOTDevice: CustomStringConvertible {
+    func processMessage(msg: Message, isIncomingMsg: Bool)
+}
+
+//: The base class for any kind of IOT devices
+class Device: IOTDevice {
+    var description: String { return &quot;Basic Device returned, Error&quot; }
+    
+    enum Devices {
+        case WeigthScale
+        case HumidityDetector
+    }
+    
+    class func getDevice(deviceType: Devices) -&amp;gt; Device {
+        switch deviceType {
+        case .WeigthScale: return WeightScale()
+        case .HumidityDetector: return HumidityDetector()
+        }
+    }
+    func processMessage(msg: Message, isIncomingMsg: Bool) {
+        fatalError(&quot;Something wrong!&quot;)
+    }
+}
+
+//: A connected Weight Scale
+class WeightScale: Device {
+    override var description: String { return &quot;Weight Scale&quot; }
+    override func processMessage(msg: Message, isIncomingMsg: Bool) {
+        if isIncomingMsg {
+            print(&quot;Incoming message:[\(msg.contentToSend)]&quot;)
+        } else {
+            print(&quot;Outgoing message: [\(msg.contentToSend)]&quot;)
+        }
+    }
+}
+//: A connected HumidityDetector
+class HumidityDetector: Device {
+    override var description: String { return &quot;Humidity Detector&quot; }
+    override func processMessage(msg: Message, isIncomingMsg: Bool) {
+        if isIncomingMsg {
+            print(&quot;Incoming message:[\(msg.contentToSend)]&quot;)
+        } else {
+            print(&quot;Outgoing message:[\(msg.contentToSend)]&quot;)
+        }
+    }
+}
+
+//: Just a communication protocol, not important here
+protocol IOTCommunication {
+    var device:IOTDevice { get set }
+    func processBridgeMessage(msg: Message, isIncomingMsg: Bool)
+}
+
+//: The bridge to handle the message processing of IOT devices
+struct IOTBridge: IOTCommunication {
+    var device: IOTDevice {
+        didSet {
+            print(&quot;\nset bridge device to:\(device.description)&quot;)
+        }
+    }
+
+    internal func processBridgeMessage(msg: Message, isIncomingMsg: Bool) {
+        device.processMessage(msg, isIncomingMsg: isIncomingMsg)
+    }
+    func sendMessage(msg: String, encrypted: Bool = false ){
+        let msgStr = device.description + &quot; &quot; +  msg
+        let iotMsg: Message = encrypted ? EncryptIOTMessage(messageString: msgStr) : IOTMessage(messageString: msgStr)
+        processBridgeMessage(iotMsg, isIncomingMsg: false)
+    }
+    func receiveMessage(msg: String, encrypted: Bool = false) {
+        let clearMsg = encrypted ? String(Array(msg.characters.reverse())) : msg
+        var msgStr =  &quot;\(device.description)  \(msg)&quot;
+        if encrypted {
+            msgStr += &quot;(decrypted: \(clearMsg))&quot;
+        }
+        processBridgeMessage(IOTMessage(messageString: msgStr), isIncomingMsg: true)
+    }
+
+}
+
+//: Testing 
+print(&quot;Create the IOT bridge and set the device to Weight Scale&quot;)
+var bridge = IOTBridge(device: WeightScale())
+bridge.sendMessage(&quot;120lb&quot;)
+bridge.receiveMessage(&quot;History Weigth: 110 lb Oct. 20, 2014&quot;)
+
+bridge.device =  HumidityDetector()
+bridge.sendMessage(&quot;91%&quot;)
+bridge.receiveMessage(&quot;History Humidity: 45% Aug. 30, 2014, 98% Dec. 21, 2014&quot;)
+bridge.sendMessage(&quot;45% Aug. 30, 2014&quot;, encrypted: true)
+bridge.receiveMessage(&quot;4102 ,03 .guA %54 rotceteD ytidimuH&quot;, encrypted: true)</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/bridge.png"><img class="aligncenter size-full wp-image-1056" src="/assets/wp-content/uploads/2015/07/bridge.png" alt="bridge" width="918" height="137" /></a><a href="/assets/wp-content/uploads/2015/07/chain-of-responsbility1.png"><br>
+</a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

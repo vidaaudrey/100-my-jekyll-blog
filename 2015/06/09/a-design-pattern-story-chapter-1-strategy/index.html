@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift- Chapter 1: Strategy &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/06/animal.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift- Chapter 1: Strategy</h1>
+  <span class="post-date">09 Jun 2015</span>
+  <blockquote>
+<p>Happy families are all alike; every unhappy family is unhappy in its own way. &#8211; Leo Tolstoy&#8217;s</p>
+</blockquote>
+
+<p>Once upon a time, there was a girl living happily in the deep forrest. She did not know where she came, nor where she is suppose to be. The only unfamiliar memory she had is that many years ago, before she could wake up from the cold and molded stone, she heard a distance whisper, saying “home, home, this is your home”.</p>
+
+<p>She was terrified of the world when she woke up. Everything is so strange, so unspeakably complicated. And worst of all, there was even no language in her head that can explain what she is going through.</p>
+
+<p>She stood up and started to walk, then she noticed something different which helped her understand the world a little better: a lot of moving creatures were afraid of her!</p>
+
+<p>Rabbits jumped away.<br>
+Birds flied away.<br>
+Squirrels climbed up the trees.<br>
+Hedgehog put their heads under the shells…</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">class Creature {
+    let name:String
+    var escapeStrategy: EscapeStrategy
+    init(name: String, escapeStrategy: EscapeStrategy){
+        self.name = name
+        self.escapeStrategy = escapeStrategy
+    }
+    func performEscape() {
+        escapeStrategy.executeEscapePlan()
+        println(&quot;\(name) successfully escaped&quot;)
+    }
+}
+
+
+protocol EscapeStrategy {
+    func executeEscapePlan()
+}
+
+class EscapeByFlying: EscapeStrategy {
+    func executeEscapePlan() {
+        println(&quot;I escaped by flying&quot;)
+    }
+}
+class EscapeByJumping: EscapeStrategy {
+    func executeEscapePlan() {
+        println(&quot;I escaped by jumping&quot;)
+    }
+}
+class EscapeByClimbing: EscapeStrategy {
+    func executeEscapePlan() {
+        println(&quot;I escaped by climbing&quot;)
+    }
+}
+
+class Rabbit: Creature {
+    init(name: String) {
+        super.init(name: name, escapeStrategy: EscapeByJumping())
+    }
+}
+
+class Squirrel: Creature {
+    init(name: String) {
+        super.init(name: name, escapeStrategy: EscapeByClimbing())
+    }
+}
+// don&#39;t know the name of the bird yet
+class Bird: Creature {
+    init(name: String) {
+        super.init(name: name, escapeStrategy: EscapeByFlying())
+    }
+}
+
+// Testing Code 
+let rabbit = Rabbit(name: &quot;Miss Rabbit　Ｒ&quot;)
+let squirrel = Squirrel(name: &quot;Mr. Squirrel S&quot;)
+let bird = Bird(name: &quot;Madam. Bird B&quot;)
+rabbit.performEscape()
+squirrel.performEscape()
+bird.performEscape()</code></pre></div>
+
+<p>Output:</p>
+
+<p><a href="/assets/wp-content/uploads/2015/06/Screen-Shot-2015-06-09-at-8.39.59-PM.png"><img class=" size-full wp-image-885 alignnone" src="/assets/wp-content/uploads/2015/06/Screen-Shot-2015-06-09-at-8.39.59-PM.png" alt="Screen Shot 2015-06-09 at 8.39.59 PM" width="291" height="102" /></a></p>
+
+<p>“Ha, I have the power to expel creatures!” She felt a current of great excitement going through her body and she continued walking.</p>
+
+<p>Animals spoke in the background, &#8220;yes, we all escape. You got it. But we do it differently.&#8221;</p>
+
+<p>P.S.</p>
+
+<blockquote>
+<p>The Strategy Pattern defines a family of algorithms, encapsulates each one and makes them interchangeable. Strategy lets the algorithm vary independently from clients that use it. &#8212; HeadFirst</p>
+</blockquote>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

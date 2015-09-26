@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift  &#8211; Chapter 3: Decorator &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/06/magicmagic.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift  &#8211; Chapter 3: Decorator</h1>
+  <span class="post-date">30 Jun 2015</span>
+  <p>There is a powerful sorcerer in town. He sells magic potions and only charges them for blue diamonds. Blue diamond is a special kind of currency in the magic world and people are born with certain amount of that. The sorcerer would give old customers or his favorite customers different discounts.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">class MagicSale {
+    let name: String
+    let price: Int
+    var totalPrice: Int { return price }
+    var description: String { return name }
+    init(name: String, price: Int) {
+        self.name = name
+        self.price = price
+    }
+    
+}
+
+//: Sale for all kinds of magic accessories
+class MagicDecoratorSale: MagicSale {
+    private let wrapperMagicSale: MagicSale
+    init(magicSale: MagicSale){
+        wrapperMagicSale = magicSale
+        super.init(name: magicSale.description, price: magicSale.totalPrice)
+    }
+}
+
+//: Discounts
+class DiscountDecoratorSale: MagicSale {
+    private let wrapperMagicSale: MagicSale
+    var discountAmount: Int { return 0 }
+    init(magicSale: MagicSale, totalDiscountAmount: Int = 0 ){
+        wrapperMagicSale = magicSale
+        super.init(name: magicSale.description, price: magicSale.totalPrice)
+    }
+    
+    func totalDiscounts() -&amp;gt; Int {
+        var total = 1
+        guard let discounter = wrapperMagicSale as? DiscountDecoratorSale else {
+             return total
+        }
+        total += discounter.totalDiscounts()
+        return total
+    }
+}
+
+//: For added power options
+class PowerDecoratorSale: MagicSale {
+    private let wrapperMagicSale: MagicSale
+    private let powerOptions: [PowerOption]
+    enum PowerOption {
+        case Fly
+        case Teleport
+        case Invisible
+    }
+    init(magicSale: MagicSale, powerOptions: PowerOption... ){
+        wrapperMagicSale = magicSale
+        self.powerOptions = powerOptions
+        super.init(name: magicSale.description, price: magicSale.totalPrice)
+    }
+    override var description: String {
+        var des = super.description
+        for option in powerOptions {
+            switch option {
+            case .Fly: des += &quot; Flying Power  &quot;
+            case .Invisible: des += &quot; Invisible Power&quot;
+            case .Teleport: des += &quot; Teleport Power&quot;
+            }
+        }
+        return des
+    }
+    override var totalPrice: Int {
+        var pri = wrapperMagicSale.totalPrice
+        for option in powerOptions {
+            switch option {
+            case .Fly: pri += 2
+            case .Invisible: pri += 3
+            case .Teleport: pri += 4
+            }
+        }
+        return pri
+    }
+    
+}
+
+//: Discount for favorite customers
+class CustomerFavDiscountSale: DiscountDecoratorSale {
+    override var totalPrice: Int { return super.totalPrice - discountAmount }
+    override var discountAmount: Int { return 2 }
+    override var description: String {return &quot;\(super.description) // Fav Discount&quot;}
+}
+//: Discount for important customers
+class CustomerPriorityDiscountSale: DiscountDecoratorSale {
+    override var totalPrice: Int { return super.totalPrice - discountAmount }
+    override var discountAmount: Int { return 1 }
+    override var description: String {return &quot;\(super.description) // Priorty Discount&quot;}
+}
+
+
+//: Add Sprite as the magic accessory
+class MagicSaleWithSprite: MagicDecoratorSale {
+    override var description: String { return &quot;\(super.description) + Sprite&quot; }
+    override var totalPrice: Int { return super.totalPrice + 2 }
+}
+//: Add MagicStarterKit as the magic accessory
+class MagicSaleWithMagicStarterKit: MagicDecoratorSale {
+    override var description: String { return &quot;\(super.description) + MagicStarterKit&quot; }
+    override var totalPrice: Int { return super.totalPrice + 1 }
+}
+
+
+//: keep track of the purchases of a customer
+class MagicPurchase: CustomStringConvertible {
+    let name: String
+    var magicPurchases: [MagicSale] = []
+    init(name: String){
+        self.name = name
+    }
+    func addPurchase(magicSale: MagicSale) {
+        self.magicPurchases.append(magicSale)
+        print(&quot;\(magicSale.description) added: \(magicSale.totalPrice)# [\(magicSale.name): \(magicSale.price)#] &quot;)
+    }
+    
+    var description: String {
+        return &quot;\(name)&#39;s Magic Purchases:\(magicPurchases)&quot;
+    }
+    func printReceipt(){
+        print(&quot;\n  Receipt: \n\(name)&#39;s Magic Purchases:&quot;)
+   
+        var totalDiscountTimes = 0
+        let totalPriceFinal =  magicPurchases.map{
+            print( &quot;\($0.description) : \($0.totalPrice) #&quot; )
+            if let d1 =  $0 as? DiscountDecoratorSale {
+                totalDiscountTimes += d1.totalDiscounts()
+            }
+            return $0.totalPrice
+        }.reduce(0, combine: +)
+
+        print(&quot;Total Price after discount: \(totalPriceFinal ) # &quot;)
+        print(&quot;\(totalDiscountTimes) discounts in total\n&quot;)
+    }
+}
+
+//: Test
+let loveWithSprite = MagicSaleWithSprite(magicSale: MagicSale(name: &quot;Love Potion&quot;, price: 5))
+let randomFavDiscountForSleep =  CustomerFavDiscountSale(magicSale: MagicSale(name: &quot;Sleep Potion&quot;, price: 3))
+let disguise = MagicSale(name: &quot;Disguise Potion&quot;, price: 10)
+
+let ariaPurchase = MagicPurchase(name: &quot;Aria&quot;)
+ariaPurchase.addPurchase(loveWithSprite)
+ariaPurchase.addPurchase(randomFavDiscountForSleep)
+ariaPurchase.addPurchase(disguise)
+ariaPurchase.printReceipt()</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/06/Decorator.png"><img class="aligncenter size-full wp-image-970" src="/assets/wp-content/uploads/2015/06/Decorator.png" alt="Decorator" width="457" height="201" /></a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

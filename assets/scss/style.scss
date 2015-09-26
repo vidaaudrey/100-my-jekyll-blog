@@ -27,12 +27,13 @@ $dark-foreround-hover-color: #fff;
 
 $header-height:180px;
 $jumbotron-height:800px;
-$main-wrap-max-width:850px;
+$main-wrap-max-width:750px;
 $side-bar-width: 25%;
 $side-max-width: 120px;
 
 $break-point-mobile: 400px;
 
+$feature-thumb-height: 300px;
 //spacing 
 $content-padding: 30px;
 
@@ -224,6 +225,22 @@ main {
         margin: 0 auto;
         background: $text-icon-color;
         padding: $content-padding;
+    }
+}
+
+.posts{
+    .post{
+        padding-bottom: 50px;
+        
+        .feature-thumb{
+            width: 100%;
+            max-height: $feature-thumb-height;
+            overflow: hidden;
+
+            img{
+                width: 100%;
+            }
+        }
     }
 }
 

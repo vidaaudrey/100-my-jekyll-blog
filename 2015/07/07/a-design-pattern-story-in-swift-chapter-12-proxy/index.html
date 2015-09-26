@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift – Chapter 12: Proxy &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/cats.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 12: Proxy</h1>
+  <span class="post-date">07 Jul 2015</span>
+  <p>Life is too short to do everything by ourselves, so we often let others do things for us.</p>
+
+<p>When the good people of the village need their own cat pets, they go to different proxies. The proxies would then do some god-knows-what kind of trick and get the villagers some cats.</p>
+
+<p>First, it&#8217;s the entry-level Simple Cat Proxy called &#8211; &#8220;SimpleCatRequestProxy&#8221;. You request a cat and he&#8217;ll get a cat from the remote cat house.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">protocol SimpleCatRequest {
+    func getCat(url: String, name: String) -&amp;gt; Cat?
+}
+
+//: Use CatRequestProxy to get cat photo from a remote place
+class SimpleCatRequestProxy: SimpleCatRequest {
+    private let semaphore = dispatch_semaphore_create(0)
+    func getCat(url: String, name: String) -&amp;gt; Cat? {
+        print(&quot;Trying to get \(name) from the SimpleCatProxy&quot;)
+        var cat: Cat?
+        guard let url: NSURL = NSURL(string:url) else { return nil }
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) {
+            (data, _, _) -&amp;gt; Void in
+            cat = Cat(name: name, image: UIImage(data: data!))
+            print(&quot;Got \(name) from remote \n&quot;)
+            dispatch_semaphore_signal(self.semaphore)
+        }
+        task?.resume()
+        dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
+        return cat
+    }
+}
+//: Creating the proxy and get a cat from the proxy
+let simpleCatProxy = SimpleCatRequestProxy()
+let cat = simpleCatProxy.getCat(Config.RandomCatURL, name: &quot;Cat Ada&quot;)
+cat?.view</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/remote.png"><img class="aligncenter size-full wp-image-1030" src="/assets/wp-content/uploads/2015/07/remote.png" alt="remote" width="744" height="298" /></a>The next is the Clone (cache) Cat Proxy. He will create a local clone once he got a cat from the remote cat house. When others request the cat, he will first look at his cloned list. If the clone exists, he will return a clone. If not, he will get the cat from the remote cat house.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">class ClonedCatRequestProxy: SimpleCatRequest {
+    private let semaphore = dispatch_semaphore_create(0)
+    private let queue = dispatch_queue_create(&quot;remoteCatQ&quot;, DISPATCH_QUEUE_SERIAL)
+    private var clonedCats:[String : Cat] = [:]
+    
+    func getCat(url: String, name: String) -&amp;gt; Cat? {
+        print(&quot;Trying to get \(name) from the ClonedCatProxy&quot;)
+        var cat: Cat?
+        dispatch_sync(queue) { () -&amp;gt; Void in
+            if let clonedCat = self.clonedCats[name] {
+                cat = clonedCat
+                print(&quot;We already got \(name). No need to get remotely&quot;)
+            } else {
+                guard let url: NSURL = NSURL(string:url) else { return }
+                let task = NSURLSession.sharedSession().dataTaskWithURL(url) {
+                    (data, _, _) -&amp;gt; Void in
+                     cat = Cat(name: name, image: UIImage(data: data!))
+                    self.clonedCats[name] = cat
+                    print(&quot;Got \(name) from remote \n&quot;)
+                    dispatch_semaphore_signal(self.semaphore)
+                }
+                task?.resume()
+                dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_FOREVER)
+            }
+        }
+        return cat
+    }
+}
+
+let cloneCatProxy = ClonedCatRequestProxy()
+let catBebe = cloneCatProxy.getCat(Config.RandomCatURL, name: &quot;Cat Bebe&quot;)
+let catDodo = cloneCatProxy.getCat(Config.RandomCatURL, name: &quot;Cat Dodo&quot;)
+let catDidi = cloneCatProxy.getCat(Config.RandomCatURL, name: &quot;Cat Didi&quot;)
+
+let catDidiClone = cloneCatProxy.getCat(Config.RandomCatURL, name: &quot;Cat Dodo&quot;)
+catBebe?.view
+
+catDodo?.view
+catDidiClone?.view
+
+catDidi?.view</code></pre></div>
+
+<p><img class="aligncenter size-full wp-image-1035" src="/assets/wp-content/uploads/2015/07/cached.png" alt="cached" width="774" height="874" /> The third one is Batch (Virtual) Cat Proxy. When people request cats, he simply writes down their requests and later fetch the cats from remote cat house in a big batch.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">protocol BatchCatRequest {
+    init(url: String, numberOfCats: Int)
+    func getCat(name: String, callback: (String: Cat) -&amp;gt; Void)
+    func execute()
+}
+
+class BatchCatRequestProxy: BatchCatRequest {
+    let url: String
+    var batchedCatRequest:[String: (Cat) -&amp;gt; Void] = [:]
+    
+    required init(url: String, numberOfCats: Int = 1){
+        self.url = url
+    }
+    func getCat(name: String, callback: (String: Cat)  -&amp;gt; Void) {
+        batchedCatRequest[name] = callback
+    }
+    func execute() {
+        guard let url: NSURL = NSURL(string:url) else { return }
+        
+        let task = NSURLSession.sharedSession().dataTaskWithURL(url) {
+            (data, _, _) -&amp;gt; Void in
+            print(&quot;\n Trying to get \(self.batchedCatRequest.keys.array) from the BatchCatProxy&quot;)
+            for (name, callback) in self.batchedCatRequest {
+                let cat = Cat(name: name, image: UIImage(data: data!))
+                callback(cat)
+                print(&quot;Got \(name) from remote \n&quot;)
+            }
+        }
+        task?.resume()
+    }
+}
+
+let batchCatProxy = BatchCatRequestProxy(url: Config.RandomCatURL)
+batchCatProxy.getCat(&quot;Xixi1&quot;){
+    $0.view
+    
+}
+
+batchCatProxy.getCat(&quot;DongDong1&quot;) { (cat) -&amp;gt; Void in
+    cat.view!
+}
+batchCatProxy.execute()</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/batchProxydefer.png"><img class="aligncenter size-full wp-image-1034" src="/assets/wp-content/uploads/2015/07/batchProxydefer.png" alt="batchProxy(defer)" width="778" height="1066" /></a></p>
+
+<p>The first Batch Cat Proxy always retrieves the same cats remotely but people want different cats. So they go to the batch unique cat proxy, who keeps a number of different options of cats.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">class BatchUniqueCatRequestProxy: BatchCatRequest {
+    var catURLs:[String] = []
+    var batchedCatRequest:[String: (Cat) -&amp;gt; Void] = [:]
+    
+    required init(url: String, numberOfCats: Int){
+        let fullURL = &quot;\(url)\(numberOfCats)&quot;
+        self.catURLs = getCatURLs(fullURL)
+    }
+    func getCat(name: String, callback: (String: Cat)  -&amp;gt; Void) {
+        batchedCatRequest[name] = callback
+    }
+    func execute() {
+        if catURLs.count &amp;gt; 0 &amp;&amp; batchedCatRequest.count &amp;gt; 0 &amp;&amp; catURLs.count &amp;gt; batchedCatRequest.count {
+            var i = 0
+             print(&quot;\n Trying to get \(self.batchedCatRequest.keys.array) from the BatchUniqueCatProxy&quot;)
+            for (name, callback) in self.batchedCatRequest {
+                guard let url: NSURL = NSURL(string:self.catURLs[i]) else { return }
+                print(&quot;&quot;)
+                let task = NSURLSession.sharedSession().dataTaskWithURL(url) {
+                    (data, _, _) -&amp;gt; Void in
+                    let cat = Cat(name: name, image: UIImage(data: data!))
+                    print(&quot;Got \(name) from remote \n&quot;)
+                    callback(cat)
+                }
+                i++
+                task?.resume()
+            }
+        }
+    }
+    
+    private func getCatURLs(url: String) -&amp;gt; [String] {
+        var urls:[String] = []
+        do {
+            let str = try String(contentsOfURL: NSURL(string: url)!, encoding: NSUTF8StringEncoding)
+            let xml1 = SWXMLHash.parse(str)
+            let images = xml1[&quot;response&quot;][&quot;data&quot;][&quot;images&quot;][&quot;image&quot;].all
+            
+            for image in images {
+                if let str:String = image[&quot;url&quot;].element?.text {
+                    let url = str.stringByReplacingOccurrencesOfString(&quot;\n&quot;,withString: &quot;&quot;).stringByReplacingOccurrencesOfString(&quot; &quot;, withString: &quot;&quot;)
+                    urls.append(url)
+                }
+            }
+        } catch {
+            print(&quot;error getting the cat urls &quot;)
+        }
+         return urls
+    }
+}</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/batchUnique.png"><img class="aligncenter size-full wp-image-1031" src="/assets/wp-content/uploads/2015/07/batchUnique.png" alt="batchUnique" width="895" height="676" /></a></p>
+
+<p>The last one is the Secure(Protection) Proxy.  He is always quite serious and have to check everybody&#8217;s &#8220;passcode&#8221; before giving them any cats.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">class UserAuthentication {
+    var user:String?;
+    var authenticated:Bool = false;
+    
+    private init() {
+        // do nothing - stops instances being created
+    }
+    
+    func authenticate(user:String, pass:String) {
+        if (pass == &quot;secret&quot;) {
+            self.user = user;
+            self.authenticated = true;
+            print(&quot;user authenticated&quot;)
+        } else {
+            self.user = nil;
+            self.authenticated = false;
+            print(&quot;user not authenticated&quot;)
+        }
+    }
+    
+   static let sharedInstance: UserAuthentication = UserAuthentication()
+}
+//:ControlAccessProxy 
+class SecuredCatRequestProxy: BatchCatRequest {
+    private let wrapperObject: BatchCatRequest
+    required init(url: String, numberOfCats: Int = 1){
+        wrapperObject = BatchCatRequestProxy(url: url)
+    }
+    func getCat(name: String, callback: (String: Cat) -&amp;gt; Void) {
+        wrapperObject.getCat(name, callback: callback)
+    }
+    func execute() {
+        if UserAuthentication.sharedInstance.authenticated {
+            wrapperObject.execute()
+        } else {
+            print(&quot;Can&#39;t get cat if you are not authorized&quot;)
+            fatalError(&quot;Can&#39;t get cat if you are not authorized&quot;)
+        }
+    }
+}
+
+
+
+let secureProxy = SecuredCatRequestProxy(url: Config.RandomCatURL)
+secureProxy.getCat(&quot;XixiSecure&quot;){
+    $0.view
+}
+
+UserAuthentication.sharedInstance.authenticate(&quot;Jane&quot;, pass: &quot;secret&quot;)
+secureProxy.execute()</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/secure.png"><img class="aligncenter size-full wp-image-1032" src="/assets/wp-content/uploads/2015/07/secure.png" alt="secure" width="848" height="595" /></a></p>
+
+<p>The rest of the code:</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">import Foundation
+import UIKit
+import XCPlayground
+XCPSetExecutionShouldContinueIndefinitely(true)
+
+func getCat(state:CatNames, caption: String) -&amp;gt; UIView{
+    let image = UIImage(named: state.rawValue)
+    return getCatView(image!, caption: caption)
+}
+func getCatView(image: UIImage, caption: String) -&amp;gt; UIView {
+    let view = UIView(frame: CGRectMake(0, 0, 400, 300))
+    view.clipsToBounds = true
+    let labelView = UILabel(frame: CGRectMake(0, 10, 400, 100))
+    labelView.text = caption
+    labelView.numberOfLines = 0
+    labelView.lineBreakMode = NSLineBreakMode.ByWordWrapping
+    labelView.font = labelView.font.fontWithSize(30)
+    labelView.textColor = UIColor.redColor()
+    labelView.textAlignment = NSTextAlignment.Center
+    let imageView = UIImageView(image: image)
+    imageView.frame = view.frame
+    imageView.contentMode = UIViewContentMode.ScaleAspectFit
+    view.addSubview(imageView)
+    view.addSubview(labelView)
+    return view
+    
+}
+
+struct Cat:CustomStringConvertible {
+    let name: String
+    var image: UIImage?
+    var description: String {
+        let str = image == nil ? &quot;Still requesting&quot; : &quot;Got it&quot;
+        return &quot;\(name) (\(str))&quot;
+    }
+    var view: UIView? {
+        let tempImage = image ?? UIImage(named: &quot;catPlaceholder.jpg&quot;)
+        return getCatView(tempImage!, caption: name)
+    }
+}
+struct Config{
+    static let RandomCatURL = &quot;http://thecatapi.com/api/images/get?format=src&amp;type=gif&quot;
+    static let RandomCatGroupURLPrefix = &quot;http://thecatapi.com/api/images/get?format=xml&amp;results_per_page=&quot;
+}
+enum CatNames:String {
+    case Bored = &quot;bored.jpg&quot;
+    case Happy = &quot;happy.jpg&quot;
+    case PlaceHolder = &quot;catPlaceholder.jpg&quot;
+}</code></pre></div>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<blockquote>
+<p>The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object. The proxy provides the same public interface as the underlying subject class, adding a level of indirection by accepting requests from a client object and passing these to the real subject object as necessary. &#8212; <strong><em>Gang Of Four</em> </strong></p>
+</blockquote>
+
+<p>More info:</p>
+
+<blockquote>
+<p><strong>Remote Proxy</strong> – Represents an object locally which belongs to a different address space. Think of an ATM implementation, it will hold proxy objects for bank information that exists in the remote server.</p>
+
+<p><strong>Virtual Proxy</strong> – In place of a complex or heavy object, use a skeleton representation. When an underlying image is huge in size, just represent it using a virtual proxy object and on demand load the real object. You know that the real object is expensive in terms of instantiation and so without the real need we are not going to use the real object. Until the need arises we will use the virtual proxy.</p>
+
+<p><strong>Protection Proxy</strong> – Are you working on an MNC? If so, we might be well aware of the proxy server that provides us internet by restricting access to some sort of websites like public e-mail, social networking, data storage etc. The management feels that, it is better to block some content and provide only work related web pages. Proxy server does that job. This is a type of proxy design pattern. &#8212; <em>Wiki</em></p>
+</blockquote>
+
+<p>Ref: <a href="www.apress.com/9781484203958">Design Pattern in Swift</a><br>
+Cat API: <a href="http://thecatapi.com/">http://thecatapi.com/</a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift – Chapter 18: Visitor &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/door-682x675.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 18: Visitor</h1>
+  <span class="post-date">15 Jul 2015</span>
+  <p class="p1">
+  <span class="s1"> It was Confucius who said isn&#8217;t it great when friends visit from distant places. </span><span class="s2">子曰，</span><span class="s1"> “</span><span class="s2">有朋自远方来，不亦乐乎</span><span class="s1">” </span>
+</p>
+
+<blockquote>
+<p class="p1">
+  <span class="s1">The visitor pattern allows new algorithms to operate on collections of heterogeneous objects without needing to modify or subclass the collection class. It&#8217;s similar to the strategy pattern. &#8212; <em><a href="http://www.apress.com/9781484203958">Design Pattern in Swift</a></em></span>
+</p>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">protocol Person {
+    func accept(visitor: Visitor)
+}
+
+protocol Visitor {
+    func visit(person: Dwarf)
+    func visit(person: Maiden)
+    func visit(person: Knight)
+    
+}
+
+struct Dwarf: Person {
+    let name: String
+    let expectedAge: Int
+    func accept(visitor: Visitor) {
+        visitor.visit(self)
+    }
+}
+
+struct Maiden: Person {
+    let name: String
+    let expectedAge: Int
+    func accept(visitor: Visitor) {
+        visitor.visit(self)
+    }
+}
+struct Knight: Person {
+    let name: String
+    let expectedAge: Int
+    let skillLevel: Int
+    func accept(visitor: Visitor) {
+        visitor.visit(self)
+    }
+}
+
+struct People: Person {
+    let group: [Person]
+    func accept(visitor: Visitor) {
+        group.map{ $0.accept(visitor) }
+    }
+}
+//: A healthProVisitor can increase each person&#39;s age by different amount of years
+class HealthProVisitor: Visitor {
+    var totalExpectedAgeOld = 0
+    var totalExpectedAge = 0
+    func visit(person: Dwarf) {
+        totalExpectedAgeOld += person.expectedAge
+        totalExpectedAge += person.expectedAge + 1
+    }
+    func visit(person: Knight) {
+        totalExpectedAgeOld += person.expectedAge
+        totalExpectedAge += person.expectedAge + 5
+    }
+    func visit(person: Maiden) {
+        totalExpectedAgeOld += person.expectedAge
+        totalExpectedAge += person.expectedAge + 10
+    }
+}
+
+//: a prettyNameVisitor can form memoriable names for others to remember
+class PrettyNameVisitor: Visitor {
+    var names: [String] = []
+    func visit(person: Maiden) {
+        names.append(&quot;Pretty Maiden \(person.name)&quot;)
+    }
+    func visit(person: Knight) {
+        names.append(&quot;Knight \(person.name) with \(person.skillLevel) level of skills&quot;)
+    }
+    func visit(person: Dwarf) {
+        names.append(&quot;A plain dwarf named \(person.name) &quot;)
+    }
+}
+
+//: Testing 
+print(&quot;Created a group of people Helen (32), Joe (99), Eleot(45)...&quot;)
+let people = People(group: [Maiden(name: &quot;Helen&quot;, expectedAge: 32),
+        Dwarf(name: &quot;Joe&quot;, expectedAge: 99),
+        Knight(name: &quot;Eleot&quot;, expectedAge: 32, skillLevel: 45)
+    ])
+
+let healthProVisitor = HealthProVisitor()
+let prettyNameVisitor = PrettyNameVisitor()
+print(&quot;The healthProVisitor is visiting the group...&quot;)
+people.accept(healthProVisitor)
+print(&quot;Before visit, total expected age:\(healthProVisitor.totalExpectedAgeOld)&quot;)
+print(&quot;After visit, total expected age:\(healthProVisitor.totalExpectedAge)\n&quot;)
+print(&quot;The prettyNameVisitor is visiting the group...&quot;)
+people.accept(prettyNameVisitor)
+print(&quot;After visit, people&#39;s names: \(prettyNameVisitor.names) \n&quot;)
+
+
+class InsuranceVisitor: Visitor {
+    var salesRecord:[String: Bool] = [:]
+    func visit(person: Dwarf) {
+        salesRecord[person.name] = getQualification(person.expectedAge)
+    }
+    func visit(person: Knight) {
+         salesRecord[person.name] = getQualification(person.expectedAge)
+     }
+    func visit(person: Maiden) {
+         salesRecord[person.name] = getQualification(person.expectedAge)
+    }
+    
+    private func getQualification(expectedAge: Int) -&amp;gt; Bool {
+        return expectedAge &amp;gt; 45
+    }
+}
+
+
+//: Testing
+print(&quot;A new visitor, the insurance guy! Let&#39;s see what&#39;s his sales record say after the visit&quot;)
+let insuranceVisitor = InsuranceVisitor()
+people.accept(insuranceVisitor)
+insuranceVisitor.salesRecord.map{
+    print(&quot;\($0.0), is eligiable for insurance?: \($0.1)&quot;)
+}</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/visitor.png"><img class="aligncenter size-full wp-image-1070" src="/assets/wp-content/uploads/2015/07/visitor.png" alt="visitor" width="792" height="195" /></a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

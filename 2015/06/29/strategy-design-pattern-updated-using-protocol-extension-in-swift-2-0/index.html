@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Strategy Design Pattern Updated Using Protocol Extension in Swift 2.0 &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">Strategy Design Pattern Updated Using Protocol Extension in Swift 2.0</h1>
+  <span class="post-date">29 Jun 2015</span>
+  <p>I came across the Protocol-Oriented programming concept recently and I found it quite fascinating, so I decided to rewrite my previous story with protocols and value-based approaches.</p>
+
+<p>The first thing I need to do is layout all the requirements:</p>
+
+<ul>
+<li>I want to model all the creatures in the world including animals and plants.</li>
+<li>Basically all creatures have names. The difference between animals and plants is whether they can move, generally speaking.</li>
+<li>All the moving animals have their own &#8216;Escape Strategy&#8217;. But how do they execute their strategies varies.</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: Create the base protocol &#39;Creature&#39;
+public protocol Creature: CustomStringConvertible {
+    static var entityName: String { get }
+    var name: String { get }
+    var canMove: Bool { get }
+}
+
+//: Protocol &#39;Animal&#39; inherit from &#39;Creature&#39; protocol and it has a &#39;escapeStrategy&#39;, can &#39;performEscape&#39;
+public protocol Animal: Creature {
+    var escapeStrategy: EscapeStrategy { get }
+    func performEscape()
+}
+//: &#39;Plant&#39; also conforms to &#39;Creature&#39; protocol
+public protocol Plant: Creature {
+}
+
+//: It&#39;s a wonder that we can actually extend a protocol and have it carry out the default implementation of other protocols. This case, all animals can &#39;performEscape&#39;
+extension Animal {
+    public func performEscape(){
+        print(&quot;\(name) about to execute a Escape Plan&quot;)
+        escapeStrategy.executeEscapePlan()
+        print(&quot;\(name) successfully escaped&quot;)
+    }
+}
+
+//: Here is the key. All animals have &#39;EscapeStrategy&#39;, but how they implement will be different. Have a protocol enables the runtime execution to be different
+public protocol EscapeStrategy {
+    func executeEscapePlan()
+}
+
+public class EscapeByFlying: EscapeStrategy {
+    public func executeEscapePlan() {
+        print(&quot;Escape by flying&quot;)
+    }
+     public init() {}
+}
+
+public class EscapeByRunning: EscapeStrategy {
+   public func executeEscapePlan() {
+        print(&quot;Escape by running&quot;)
+    }
+    public init() {}
+}
+public class EscapeByOther: EscapeStrategy {
+   public func executeEscapePlan() {
+        print(&quot;Mysteriously escape&quot;)
+    }
+     public init() {}
+}
+
+//: All animals can move
+extension Moveable where Self: Animal {
+    public var canMove: Bool { return true }
+}</code></pre></div>
+
+<p>&nbsp;</p>
+
+<p>The next step is to write some concrete struct / class to actually conform to the protocols. The power of protocol inheritance and composition makes it quite easy and flexible to do so.</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: Cat
+public struct Cat: Animal, Moveable {
+    public static var entityName: String { return &quot;Cat&quot; }
+    public var name: String
+    
+    public static func randomMove() { print(&quot;I am moving randomly&quot;) }
+    public var movingSpeed = 12.1
+    
+    public var escapeStrategy: EscapeStrategy
+    
+    public init(name: String, movingSpeed: Double, escapeStrategy: EscapeStrategy){
+        self.name = name
+        self.movingSpeed = movingSpeed
+        self.escapeStrategy = escapeStrategy
+    }
+    
+}
+//:Rose
+public struct Rose: Plant {
+    public static var entityName: String { return &quot;Rose&quot; }
+    public var name: String
+    public var canMove: Bool { return false }
+    
+    public init(name: String){
+        self.name = name
+    }
+}
+
+
+public protocol Aged {
+    var age: Int { get }
+}
+
+public protocol FullyNamed {
+    var fullName: String { get }
+}
+//: &#39;Person&#39; also confirms to &#39;Animal&#39; protocol 
+public struct Person: Animal, FullyNamed, Moveable, Aged {
+    public static var entityName: String { return &quot;Person&quot; }
+    public var name: String
+    
+    public var fullName: String
+    
+    public static func randomMove() { print(&quot;I am moving randomly&quot;) }
+    public var movingSpeed = 15.1
+    
+    public var age: Int { return 20 }
+    
+    public var escapeStrategy: EscapeStrategy
+    
+    public init(name: String, fullName:String,  movingSpeed: Double, escapeStrategy: EscapeStrategy){
+        self.name = name
+        self.fullName = fullName
+        self.movingSpeed = movingSpeed
+        self.escapeStrategy = escapeStrategy
+    }
+}
+
+//: protocol composition 
+public func showCreatureAge(creature: protocol &amp;lt;Creature, Aged&amp;gt;) {
+    print(&quot;\(creature.name) is \(creature.age) years\&#39; old&quot;)
+}</code></pre></div>
+
+<p>Finally test the code:</p>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">var rose = Rose(name: &quot;Pretty Rose Flower&quot;)
+var person = Person(name: &quot;Mia&quot;, fullName: &quot;Mia Zhu&quot;, movingSpeed: 2121, escapeStrategy: EscapeByFlying() )
+var cat = Cat(name: &quot;Kitty&quot;, movingSpeed: 10, escapeStrategy: EscapeByRunning())
+
+var creatures:[Creature] = [cat, rose, person]
+creatures.filter { $0 is Animal}.map{ ($0 as! Animal).performEscape()}</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png"><img class=" size-full wp-image-957 aligncenter" src="/assets/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png" alt="Strategy Pattern in Swift 2.0" width="305" height="119" /></a></p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

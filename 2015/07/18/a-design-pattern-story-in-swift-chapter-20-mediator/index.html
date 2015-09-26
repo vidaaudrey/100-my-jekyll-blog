@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift – Chapter 20: Mediator &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/ca-1024x675.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 20: Mediator</h1>
+  <span class="post-date">18 Jul 2015</span>
+  <div class="page" title="Page 414">
+  <div class="layoutArea">
+    <div class="column">
+      <p class="p1">
+        <span class="s1"> Artists paint, musicians compose, different jobs for different pros.  It&#8217;s not easy for a person to find a pro directly to do a job without some sort of agent in the middle, and even harder for a pro to find a client among all the people.  A command mediator (aka. command dispatch center) takes all the burden away. It can process task according to the task requirement such as:</span>
+      </p>
+      
+      <ul>
+        <li class="p1">
+          Group task will be sent to all the pros who can do the jobs
+        </li>
+        <li class="p1">
+          Normal task will be sent to the appropriate pros and get their quotations
+        </li>
+        <li class="p1">
+          Once the user has chosen the pro based on the quotations, the mediator will send the task to the chosen pro
+        </li>
+        <li class="p1">
+          Upon getting the work back from the pro, the mediator will send the work to the customer for confirmation
+        </li>
+      </ul>
+      
+      <p>
+        The mediator pattern simplifies peer-to-peer communication between objects by introducing a mediator object that acts as a communications broker between the objects. Instead of having to keep track of and communicate with of all of its peers individually, an object just deals with the mediator.  <em><a href="http://www.apress.com/9781484203958">Design Pattern in Swift</a></em>
+      </p>
+      
+      
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">typealias CommandBlock = CommandPeer -&amp;gt; Any
+enum ProType: String {
+    case Artist = &quot;Artist&quot;
+    case Musician = &quot;Musician&quot;
+    case PartyPlanner = &quot;Party Planner&quot;
+    case Other = &quot;Other skills&quot;
+    case None = &quot;No registered skills&quot;
+}
+enum TaskStatus: String {
+    case S0_Created = &quot;Task Created&quot;
+    case S1_Submited = &quot;Task Submitted&quot;
+    case S2_BroadCasted = &quot;Task sent to pros&quot;
+    case S3_QuoteGathered = &quot;Gathered quotes from pros&quot;
+    case S4_ProChosen = &quot;Customer has chosen the pro to work with&quot;
+    case S5_SendToPro = &quot;Task Center has sent the task to the pro&quot;
+    case S6_ProFinished = &quot;Pro has finished the task&quot;
+    case S7_CustomConfirmWork = &quot;Customer has confirmed the finished work&quot;
+    case Unknown = &quot;Some unknown state&quot;
+}
+// To make it simply, a customer and a pro are both command peers. They can initiate a task as a customer or finish a task as a pro.
+protocol CommandPeer: CustomStringConvertible {
+    var name:String { get }
+    var tasks:[Task] { get set }
+    var works:[Task] { get set }
+    var isPro: Bool { get }
+    var proType: ProType { get }
+
+    func choosePro(var task: Task) -&amp;gt; Task
+    func confirmWork(var task: Task) -&amp;gt; Task
+    func submitQuote(task: Task) -&amp;gt; (name: String, price: Int, message: String)
+    func finishTask(var task: Task) -&amp;gt; (task:Task, result: Any?)
+}
+
+// All that is needed to make a task a command, leaving for possibilities of different tasks and different task mediators.  If I use class implementation, the commandMediator just need to use the command protocol to talk, instead of the concrete task. But I used struct for concret task. As a result, the mediator is coupled with the task struct implementation.
+protocol Command {
+    var id: Int { get }
+    var name: String { get }
+    var proType: ProType { get }
+    var isGroupTask: Bool { get set }
+    var startBy:String { get set }
+    var finishedBy: String { get set }
+    var status: TaskStatus { get set }
+    var quotes: [(name:String, price: Int, message: String)] { get set }
+    var function:CommandBlock { get }
+    func execute(peer: CommandPeer) -&amp;gt; Any
+}
+
+// commandMediator is kind of a task dispatch center. When the center receives tasks, it will look at the task configuration:
+// * Group task -&amp;gt; Send to every registered pro who can do the task and get the work back 
+// * Regular task  -&amp;gt; Check status of the task
+// *** - Submited -&amp;gt; Send the task to the pros who can do the task and get their quotation
+// *** - ProChosen -&amp;gt; Send the task to the chosen pros and get the final work, then send the work to the customer for confirmation
+// For simplicity reason, a lof of things are left behind, such as what if the customer did not approve the work? Can I always expect work being returned from a pro? Can the pro be more proactive and submit their work at their own time? How do we track payment, can we keep only one copy of the task... Well, too many cases @_@
+class CommandMediator {
+    private var peers = [String:CommandPeer]()
+
+    func registerPeer(peer:CommandPeer) {
+        peers[peer.name] = peer
+    }
+
+    func unregisterPeer(peer:CommandPeer) {
+        peers.removeValueForKey(peer.name)
+    }
+    // the core control logic, evaluate the task configuration and process accordingly.
+    func dispatchCommand(caller:CommandPeer, task:Task) -&amp;gt; Any? {
+        var result: Any?
+        // this task will be execute by everyone who can do the work
+        if task.isGroupTask {
+            result = sendTaskToChosenProAndGetWork(caller, task: task, isGroupTask: true)
+        } else {
+            switch task.status {
+            case .S1_Submited: result = sendTaskAndGatherQuotes(caller, task: task)
+            case .S4_ProChosen: result = sendTaskToChosenProAndGetWork(caller, task: task)
+            case .Unknown:  print(&quot;Something unknow, check the status&quot;)
+            default: print(&quot;do nothing, check later.....!&quot;)
+            }
+        }
+        return result
+    }
+
+    private func sendTaskAndGatherQuotes(caller: CommandPeer, var task: Task) -&amp;gt; Task {
+        var quotes:[(name: String, price: Int, message: String)] = []
+        for peer in peers.values {
+            if (peer.name != caller.name) &amp;&amp; peer.isPro &amp;&amp; (peer.proType == task.proType) {
+                quotes.append(peer.submitQuote(task))
+            }
+        }
+        task.quotes = quotes
+        task.status = TaskStatus.S3_QuoteGathered
+        return task
+    }
+    private func sendTaskToChosenProAndGetWork(caller: CommandPeer, var task: Task, isGroupTask: Bool = false) -&amp;gt; (task:Task, result: Any?) {
+        var fullResult:(Task, Any?) = (task, nil)
+       // task.status = TaskStatus.S6_ProFinished
+        var groupResult:[Any?] = []
+
+        var groupNames:String = &quot;&quot;
+         if !isGroupTask {
+            let choosenProName = task.quotes[0].name
+            for peer in peers.values {
+                if peer.name == choosenProName {
+                    fullResult = peer.finishTask(task)
+                }
+            }
+         } else {
+             for peer in peers.values {
+                if (peer.name != caller.name) &amp;&amp; peer.isPro &amp;&amp; (peer.proType == task.proType) {
+                    groupResult.append(peer.finishTask(task).result)
+                    groupNames += &quot;\(peer.name) , &quot;
+                }
+            }
+        }
+        if groupResult.count &amp;gt; 0 {
+            task.finishedBy = groupNames
+            fullResult = (task, groupResult)
+        }
+        return fullResult
+    }
+}
+
+
+func ==(lhs: Task, rhs: Task) -&amp;gt; Bool {
+    return lhs.id == rhs.id
+}
+
+// Command implementation as Task
+struct Task: Command, CustomStringConvertible {
+    static var idCount = 1
+    let id: Int
+    let name: String
+    var price: Int
+    let function: CommandBlock
+    let proType: ProType
+    var finishedBy: String = &quot;&quot;
+    var startBy: String = &quot;&quot;
+    var isGroupTask: Bool
+    var quotes: [(name:String, price: Int, message: String)] = []
+    var status: TaskStatus { didSet { print(status.rawValue) } } 
+    var description: String {
+        return &quot;\nCurrent Task Info: #\(id)\n --name: \(name) - \(proType.rawValue) job\n --started by: \(startBy) \n --finished by: \(finishedBy)\n --current status: \(status.rawValue)\n --quotations: \(quotes) \n&quot;
+    }
+
+    init(name: String,price: Int, proType: ProType = .Artist, isGroupTask:Bool = false, function: CommandBlock){
+        self.id = Task.idCount++
+        self.name = name
+        self.function = function
+        self.proType = proType
+        self.status = .S0_Created
+        self.price = price
+        self.isGroupTask = isGroupTask
+    }
+    func execute(peer: CommandPeer) -&amp;gt; Any {
+        if peer.proType == self.proType {
+            print(&quot;Passing pro \(peer.name) the job...&quot;)
+            return function(peer)
+        } else {
+            return &quot;Got no work from pro&quot;
+        }
+    }
+
+}
+// CommandPeer implementation as a User, who can be a customer and a pro at the same time
+class User: CommandPeer {
+    var name: String
+    let mediator: CommandMediator
+    var tasks:[Task]
+    var works:[Task]
+    var isPro: Bool = true
+    var proType: ProType
+    var description: String {
+        return &quot;\(name) - \(proType.rawValue)\nTasks: \(tasks.map{$0.name}).  Works:\(works.map{$0.name})\n&quot;
+    }
+    init(name: String, mediator: CommandMediator, isPro: Bool = true, proType: ProType = .None){
+        self.name = name
+        self.mediator = mediator
+        tasks = []
+        works = []
+        self.isPro = isPro
+        self.proType = proType
+        mediator.registerPeer(self)
+    }
+
+    func sendTaskToGroupAndGetFinalWork(var task: Task) -&amp;gt; (task: Task, result: Any?){
+        task.isGroupTask = true
+        tasks.append(task)
+        return mediator.dispatchCommand(self, task: task) as! (Task, Any?)
+    }
+    func sendTaskAndGetTaskWithQuotes(var task: Task) -&amp;gt; Task {
+        task.startBy = name
+        task.status = TaskStatus.S1_Submited
+        tasks.append(task)
+        return mediator.dispatchCommand(self, task: task) as! Task
+    }
+
+    func choseProAndGetFinalWork(var task: Task) -&amp;gt; (task: Task, result: Any?){
+        task.status = TaskStatus.S4_ProChosen
+        return mediator.dispatchCommand(self, task: task) as! (Task, Any?)
+    }
+
+    // function for customer: choose pro and confirm work. Mediator only sends task back if there is at least one quotation.
+    func choosePro(var task: Task) -&amp;gt; Task{
+        // assume customer is business, only randomly choose one quote
+        let index = arc4random_uniform(UInt32(task.quotes.count))
+        task.quotes = [task.quotes[Int(index)]]
+        print(&quot;Choose the pro\(task.quotes[0])&quot;)
+        task.status = TaskStatus.S4_ProChosen
+        task.finishedBy = task.quotes[0].name
+        return task
+    }
+
+    func confirmWork(var task: Task) -&amp;gt; Task{
+        let index = tasks.indexOf {$0.id == task.id}
+        task.status = .S7_CustomConfirmWork
+        if index != nil {
+            tasks[index!] = task
+        }
+        return task
+    }
+
+    // function for pro: submit quotes and finish task
+    func submitQuote(task: Task) -&amp;gt; (name: String, price: Int, message: String) {
+        let quote = task.price * (Int(arc4random_uniform(3)) + 1)
+        let message = &quot;Some random message for the customer: choose me...&quot;
+        return (name, quote, message)
+    }
+
+    // let&#39;s assume a pro always finishes the job and give back the result now. Deal with bad pros later
+    func finishTask(var task: Task) -&amp;gt; (task:Task, result: Any?){
+        let result = task.execute(self)
+        task.finishedBy = name
+        task.status = TaskStatus.S6_ProFinished
+        self.works.append(task)
+        return (task, result)
+    }
+
+}
+
+// Testing. Create some tasks and users
+let partyTask = Task(name: &quot;Host a Party of the Century&quot;, price: 2000000, proType: .PartyPlanner) { peer in
+    print(&quot;\(peer.name) is doing the job&quot;)
+    print(&quot;Inviting people...&quot;)
+    return &quot;Final work: the greatest party ever...&quot;
+}
+let partyTask1 = Task(name: &quot;Host a Party of the Next Century&quot;, price: 2220000, proType: .PartyPlanner) { peer in
+    print(&quot;\(peer.name) is doing the job&quot;)
+    print(&quot;Inviting people...&quot;)
+    return &quot;Final work: the greatest party ever....&quot;
+}
+let musicTask = Task(name: &quot;Write A Mountain-Moving Song&quot;, price: 80000000, proType: .Musician) { peer in
+    print(&quot;\(peer.name) is doing the job...&quot;)
+    print(&quot;Composing ♭♮♯♯♮♭♭♫♬♩♪...&quot;)
+    return &quot;Final work: a beautiful song&quot;
+}
+let paintTask = Task(name: &quot;The Finest Paint Collection&quot;, price: 2010000, proType: .Artist, isGroupTask: true) { peer in
+    print(&quot;\(peer.name) is doing the job...&quot;)
+    print(&quot;Painting...&quot;)
+    return &quot;Final work: Paint Work&quot;
+}
+
+let mediator = CommandMediator()
+let u1 = User(name: &quot;The Queue &quot;, mediator: mediator)
+var u2 = User(name: &quot;Michelangelo&quot;, mediator: mediator, proType: .Artist)
+let u3 = User(name: &quot;Johannes&quot;, mediator: mediator, proType: .Musician)
+let u6 = User(name: &quot;Ludwig&quot;, mediator: mediator, proType: .Musician)
+let u4 = User(name: &quot;Eugène&quot;, mediator: mediator, proType: .Artist)
+let u5 = User(name: &quot;Josh&quot;, mediator: mediator, proType: .PartyPlanner)
+let tasks = [partyTask, paintTask, musicTask, partyTask1]
+for task in tasks {
+    if task.isGroupTask {
+        print(&quot;\nSending a task called [\(task.name)]  that require a GROUP to finish....&quot;)
+        let groupResults = u1.sendTaskToGroupAndGetFinalWork(task)
+        print(&quot;The final work: \(groupResults.1)&quot;)
+    } else {
+        print(&quot;\nCreating a task called [\(task.name)] that require a single pro to finish ...&quot;)
+        let taskWithQuotes = u1.sendTaskAndGetTaskWithQuotes(task)
+        print(taskWithQuotes)
+        print(&quot;Getting finished work and task....&quot;)
+        let taskFinishedByProAndWork = u1.choseProAndGetFinalWork(taskWithQuotes)
+        print(&quot;The final work: \(taskFinishedByProAndWork.1)&quot;)
+        u1.confirmWork((taskFinishedByProAndWork.0))
+    }
+}
+
+
+let users = [u1, u2, u3, u4, u5, u6]
+users.map{print(&quot;\($0.description)&quot;)}</code></pre></div>
+
+      
+      <p>
+        <a href="/assets/wp-content/uploads/2015/07/mediator.png"><img class="aligncenter size-full wp-image-1077" src="/assets/wp-content/uploads/2015/07/mediator.png" alt="mediator" width="746" height="970" /></a>
+      </p>
+      
+      <p>
+        Upon seeing the tasks, I can&#8217;t help wonder: don&#8217;t we all serve the pleasure of the queue?
+      </p>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/15/a-design-pattern-story-in-swift-chapter-18-visitor/">
+            A Design Pattern Story in Swift – Chapter 18: Visitor
+            <small>15 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>

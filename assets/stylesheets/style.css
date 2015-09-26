@@ -317,10 +317,19 @@ main {
   -webkit-transition: all .5s ease;
           transition: all .5s ease; }
   main .main-wrap {
-    max-width: 850px;
+    max-width: 750px;
     margin: 0 auto;
     background: #FFFFFF;
     padding: 30px; }
+
+.posts .post {
+  padding-bottom: 50px; }
+  .posts .post .feature-thumb {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden; }
+    .posts .post .feature-thumb img {
+      width: 100%; }
 
 footer {
   background: #ddd;

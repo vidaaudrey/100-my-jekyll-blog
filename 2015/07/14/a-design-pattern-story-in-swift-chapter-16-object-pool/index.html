@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      A Design Pattern Story in Swift – Chapter 16: Object Pool &middot; Audrey Li's Personal Blog
+    
+  </title>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+
+ 
+  <!-- CSS -->
+  <!-- build:css /assets/stylesheets/style.min.css -->
+  <link rel="stylesheet" href="/assets/stylesheets/style.css">
+  <!-- endbuild -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=RobotoDraft:100,300,400|Roboto:300,300italic,400">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/assets/images/favicons/manifest.json">
+  <meta name="apple-mobile-web-app-title" content="Audrey's Blog">
+  <meta name="application-name" content="Audrey's Blog">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/assets/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+</head>
+
+  
+  <body>
+    <nav id="push_sidebar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    
+    <div class="social-icons">
+        <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
+
+        <a href="https://github.com/vidaaudrey" title="Audrey's Github">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+            </span>
+
+        <a href="https://www.facebook.com/audreyauli" title="Audrey's Facebook">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+    
+        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+        
+        <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-weixin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
+
+    </div>
+
+</nav>
+    <div id="main-wrap">
+      <header class="nav-down"  id="wrapper">
+    <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
+
+    <div class="container-fluid">
+       <span class="nav_trigger"><span class="glyphicon glyphicon-menu-hamburger"></span></span>
+    </div>
+</header>
+      
+
+<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/diamond.jpg')">
+
+
+  <div class="container">
+    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
+    <p>Javascript, Swift, Ruby, learning...</p>
+  </div>
+</div>
+     
+      <main class="row">
+          <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+              <div class="main-wrap">
+               <div class="post">
+  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 16: Object Pool</h1>
+  <span class="post-date">14 Jul 2015</span>
+  <p class="p1">
+  <span class="s1">There is a MagicHouse where people can borrow magic objects. The house has a pool which manages the magic objects.</span>
+</p>
+
+<div class="page" title="Page 138">
+  <div class="layoutArea">
+    <div class="column">
+      <blockquote>
+        <p>
+          The object pool pattern manages a collection of reusable objects that are provided to calling components. A component obtains an object from the pool, uses it to perform work, and returns it to the pool so that it can be allocated to satisfy future requests. An object that has been allocated to a caller is not available for use by other components until it has been returned to the pool. &#8212;<em>  <a href="http://www.apress.com/9781484203958">Design Pattern in Swift</a></em>
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<div class="highlight"><pre><code class="language-swift" data-lang="swift">struct MagicObject {
+    let name: String
+    let serialNumber: Int
+    var occupier: [String] = []
+    var borrowedCount: Int = 0
+}
+
+//: a basic pool which allows getting and returning any objects.
+class Pool&amp;lt;T&amp;gt; {
+    private var data = [T]()
+    private let arrayQ = dispatch_queue_create(&quot;arrayQ&quot;, DISPATCH_QUEUE_SERIAL)
+    private let semaphore: dispatch_semaphore_t
+    
+    init(items: [T]) {
+        data.reserveCapacity(data.count)
+        for item in items {
+            data.append(item)
+        }
+        // create a counter semaphore for the available items in the pool
+        semaphore = dispatch_semaphore_create(items.count)
+    }
+    
+    func getFromPool() -&amp;gt; T? {
+        var result: T?
+        // the semaphore count is decreased each time when the wait is called. If the count is 0, the function will block
+        if dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) == 0 {
+            if data.count &amp;gt; 0 {
+                dispatch_sync(arrayQ, { () -&amp;gt; Void in
+                    result = self.data.removeAtIndex(0)
+                })
+            }
+        }
+        return result
+    }
+    
+    func returnToPool(item: T){
+        dispatch_sync(arrayQ, { () -&amp;gt; Void in
+            self.data.append(item)
+            // increase the counter by 1
+            dispatch_semaphore_signal(self.semaphore)
+        })
+    }
+}
+
+extension Int {
+    func times(action: (Int)-&amp;gt;()) {
+        for i in 0..&amp;lt;self {
+            action(i)
+        }
+    }
+}
+class MagicHouse {
+    private let pool: Pool&amp;lt;MagicObject&amp;gt;
+    static var sharedInstance = MagicHouse()
+    static var magicDebtInfo:[(String, Int, String)] = []
+    private init(){
+        var magicObjects:[MagicObject] = []
+        2.times{
+            magicObjects.append(MagicObject(name: &quot;Red Diamond&quot;, serialNumber: $0, occupier: [], borrowedCount: 0))
+        }
+        3.times{
+            magicObjects.append(MagicObject(name: &quot;Blue Heart&quot;, serialNumber: $0, occupier: [], borrowedCount: 0))
+        }
+        self.pool = Pool(items: magicObjects)
+    }
+    
+    class func lendMagicObject(occupier: String) -&amp;gt; MagicObject? {
+        var magicObject = sharedInstance.pool.getFromPool()
+        if magicObject != nil {
+            magicObject!.occupier.append(occupier)
+            magicObject!.borrowedCount++
+            magicDebtInfo.append((magicObject!.name, magicObject!.serialNumber, occupier))
+            print(&quot;\(occupier) is borrowing \(magicObject!.name) #\(magicObject!.serialNumber)&quot;)
+        }
+        return magicObject
+    }
+    
+    class func receiveMagicObject(obj: MagicObject) {
+        magicDebtInfo = magicDebtInfo.filter{
+            $0.0 != obj.name &amp;&amp; $0.1 != obj.serialNumber
+        }
+        sharedInstance.pool.returnToPool(obj)
+        print(&quot;\(obj.occupier.last!) returning \(obj.name) #\(obj.serialNumber)&quot;)
+    }
+    
+    class func printReport(){
+        print(&quot;\nShow Report: Magic House currently has \(sharedInstance.pool.data.count) magic object(s) in stock&quot;)
+        (sharedInstance.pool.data as [MagicObject]).map{
+            print(&quot;\($0.name) #\($0.serialNumber) \nBorrowed \($0.borrowedCount) time(s) by \($0.occupier)&quot;)
+        }
+       
+        if magicDebtInfo.count &amp;gt; 0 {
+            print(&quot;\nMagic Objects currently lent out:&quot;)
+            magicDebtInfo.map{
+                print(&quot;\($0.0) #\($0.1) by \($0.2)&quot;)
+            }
+        }
+    }
+}
+
+//: Testing
+var queue = dispatch_queue_create(&quot;workQ&quot;, DISPATCH_QUEUE_CONCURRENT)
+var group = dispatch_group_create()
+
+print(&quot;\n------Starting test...&quot;)
+
+for i in 1 ... 7 {
+    dispatch_group_async(group, queue, {() in
+        var obj = MagicHouse.lendMagicObject(&quot;person #\(i)&quot;)
+        if obj != nil {
+            NSThread.sleepForTimeInterval(Double(rand() % 3))
+            MagicHouse.receiveMagicObject(obj!)
+        }
+    })
+}
+
+dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
+let m1 = MagicHouse.lendMagicObject(&quot;William&quot;)
+let m3 = MagicHouse.lendMagicObject(&quot;Tato&quot;)
+MagicHouse.printReport()</code></pre></div>
+
+<p><a href="/assets/wp-content/uploads/2015/07/object-pool.png"><img class="aligncenter size-full wp-image-1060" src="/assets/wp-content/uploads/2015/07/object-pool.png" alt="object-pool" width="504" height="523" /></a></p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+            A Design Pattern Story in Swift – Chapter 21: Interpretor
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+            A Design Pattern Story in Swift – Chapter 20: Mediator
+            <small>18 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+            A Design Pattern Story in Swift – Chapter 19: Flyweight
+            <small>17 Jul 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'audreyli';
+    
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+              </div>
+          </div>
+          
+      </main>
+    
+     <footer class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+        &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
+    </div>
+    
+</footer>
+
+
+     <!-- Latest compiled and minified JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<!-- JS -->
+<!-- build:js /assets/javascript/all.min.js -->
+<script src="/assets/javascript/javascript.js"></script> 
+<script src="/assets/javascript/main.js"></script> 
+<!-- endbuild -->
+  </div>
+  </body>
+</html>
