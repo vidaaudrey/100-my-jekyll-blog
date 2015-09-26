@@ -1,8 +1,6 @@
 //nav
 $(".nav_trigger").click(function() {
   $("body").toggleClass("show_sidebar");
-  $("main").toggleClass("show_sidebar");
-  // $(".nav_trigger .fa").toggleClass("fa-navicon fa-times")
   $(".nav_trigger span").toggleClass("glyphicon-menu-hamburger").toggleClass("glyphicon-remove");
 });
 
@@ -48,3 +46,12 @@ function hasScrolled() {
     
     lastScrollTop = st;
 }
+
+//Disqus
+ var disqus_shortname = 'audreyli';
+  (function () {
+     var s = document.createElement('script'); s.async = true;
+     s.type = 'text/javascript';
+     s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+     (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+ }());
