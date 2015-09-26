@@ -332,10 +332,10 @@ main {
       width: 100%;
       height: auto; }
 
-.post a {
+.post p a {
   display: block;
   text-align: center; }
-  .post a img {
+  .post p a img {
     max-width: 100%;
     height: auto; }
 .post img {
