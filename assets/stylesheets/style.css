@@ -329,7 +329,18 @@ main {
     max-height: 300px;
     overflow: hidden; }
     .posts .post .feature-thumb img {
-      width: 100%; }
+      width: 100%;
+      height: auto; }
+
+.post a {
+  display: block;
+  text-align: center; }
+  .post a img {
+    max-width: 100%;
+    height: auto; }
+.post img {
+  max-width: 100%;
+  height: auto; }
 
 footer {
   background: #ddd;
