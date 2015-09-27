@@ -26,7 +26,9 @@ $dark-forground-color:rgba(255,255,255,0.8);
 $dark-foreround-hover-color: #fff; 
 
 $header-height:180px;
-$jumbotron-height:800px;
+$jumbotron-height:600px;
+$jumbotron-height-plain:500px;
+$jumbotron-height-long-feature: 800px;
 $main-wrap-max-width:750px;
 $side-bar-width: 25%;
 $side-max-width: 120px;
@@ -122,7 +124,7 @@ body {
 }
 
 
-#main-wrap{
+#body-wrap{
     width: 100%;
     transition: all .5s ease;
 
@@ -142,17 +144,35 @@ body {
             font-size: 26px;
             margin: 5px 0 0 50px;
             float:right;
+            color: $dark-background-color;
 
             .nav_trigger {
                 margin-right: 5px;
             }
         }
+        &.nav-up {
+            top: -$header-height;
+        }
 
+    }
+    
+
+    main {
+        min-height: 1000px;
+        transition: all .5s ease;
+        .main-wrap{
+            max-width: $main-wrap-max-width;
+            margin: 0 auto;
+            background: $text-icon-color;
+            padding: $content-padding;
+        }
     }
 }
 
+
+
 .show_sidebar {
-    #wrapper, #main-wrap {
+    #body-wrap {
         margin-right: 25%;
         width: 75%;
     }
@@ -162,9 +182,7 @@ body {
 }
 
 
-.nav-up {
-    top: -$header-height;
-}
+
 
 
 @media (max-width: 767px) {
@@ -206,47 +224,134 @@ body {
 .jumbotron{
     min-height:$jumbotron-height;
     margin-top: -$header-height;
-    padding-top: 20%;
-    width: 120%;
-    padding-right: 10%;
-    background: url('/assets/images/bg1.jpeg') no-repeat center center fixed;
-    -webkit-background-size: cover;
-     -moz-background-size: cover;
-     -o-background-size: cover;
-     background-size: cover;
-}
-
-
-main {
-    min-height: 1000px;
-    transition: all .5s ease;
+    padding-top: $header-height * 1.1;
+    width: 110%;
+    color: white;
+   
+     .container{
+        width: 100%;
+        float: left;
+     }
+    .fullwidth-wrapper{
+        width: 91%;
+        overflow: hidden;
+    }
     .main-wrap{
         max-width: $main-wrap-max-width;
         margin: 0 auto;
-        background: $text-icon-color;
-        padding: $content-padding;
+    }
+
+
+     &.jumbotron-home{
+        background: url('/assets/images/home-default-bg-compressor.jpeg') no-repeat center center fixed;
+        @include cover-background;
+        .container p, .container h1{
+            margin-right: 10%;
+        }
+    }
+    &.jumbotron-page{
+        position: relative;
+        .container{
+            position: absolute;
+            bottom: 0;
+            padding: 30px 0 15px 0;
+            @include linear-gradient(rgba(black,0), rgba(black,0.6));
+        }
+    }
+    &.jumbotron-page-plain{
+        background: url('/assets/images/page-default-bg-compressor.jpg') no-repeat center center fixed;
+        position: relative;
+        min-height: $jumbotron-height-plain;
+        .container{
+            position: absolute;
+            bottom: 0;
+            padding: 30px 0 15px 0;
+            @include linear-gradient(rgba(black,0), rgba(black,0.6));
+        }
+    }
+    &.jumbotron-post{
+        position: relative;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        @include cover-background;
+
+        .fullwidth-wrapper{
+            position: absolute;
+            bottom: 0;
+            padding: 30px 0 15px 0;
+            @include linear-gradient(rgba(black,0), rgba(black,0.6));
+        }
+    }
+    &.jumbotron-post-long-feature{
+        position: relative;
+        background-color: #000;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        min-height: $jumbotron-height-long-feature;
+        .fullwidth-wrapper{
+            position: absolute;
+            bottom: 0;
+            padding: 30px 0 15px 0;
+            @include linear-gradient(rgba(black,0), rgba(black,0.6));
+        }
+    }
+    &.jumbotron-post-plain{
+         background: url('/assets/images/post-default-bg-compressor.jpg') no-repeat center center fixed;
+         position: relative;
+        .fullwidth-wrapper{
+            position: absolute;
+            bottom: 0;
+            padding: 30px 0 15px 0;
+            @include linear-gradient(rgba(black,0), rgba(black,0.6));
+        }      
     }
 }
+
+
 
 .posts{
     .post{
         padding-bottom: 50px;
-        
+
         .feature-thumb{
             width: 100%;
             max-height: $feature-thumb-height;
             overflow: hidden;
-
             img{
                 width: 100%;
+                height: auto 
             }
         }
     }
+}
+.post{
+    p {
+        a{
+            img{
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+    a{
+        img{
+            width: 100%;
+            height: auto;
+            border: 1px solid $divider-color;
+        }
+    }
+    
 }
 
 footer { 
     background: #ddd;
     padding: 20px;
+}
+
+#wuf-adv {
+    display: none !important;
 }
 
 /** { color: transparent}*/

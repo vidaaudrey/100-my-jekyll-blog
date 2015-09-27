@@ -64,9 +64,10 @@
   <body>
     <nav id="push_sidebar">
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="/archive">Archive</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
     
     <div class="social-icons">
@@ -91,6 +92,13 @@
               <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
+
+        <a href="https://www.linkedin.com/in/audreyauli" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
         
         <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
             <span class="fa-stack fa-lg">
@@ -102,7 +110,8 @@
     </div>
 
 </nav>
-    <div id="main-wrap">
+
+    <div id="body-wrap">
       <header class="nav-down"  id="wrapper">
     <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
 
@@ -112,22 +121,34 @@
 </header>
       
 
-<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/03/snapshortcn-416x675.png')">
+<!-- jumbotron for pages -->
 
-
-  <div class="container">
-    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
-    <p>Javascript, Swift, Ruby, learning...</p>
-  </div>
+<!-- jumbotron for post page, with feature image -->
+  
+     <div class="jumbotron jumbotron-post-long-feature" style="background-image: url('/assets/wp-content/uploads/2015/03/snapshortcn-416x675.png')">
+         <div class="fullwidth-wrapper">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+      <div class="main-wrap">
+           <h2 class="post-title">Day 2 &#8211; iOS App Internationalization &#8211; A Simple Multi-lingo Greeting App</h2>
+            <p class="post-date">14 Mar 2015</p>
+      </div>
+    </div>
 </div>
-     
+      </div>
+
+  <!-- jumbotron for post page, without feature image -->
+  
+
+
+
+
+
+
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-               <div class="post">
-  <h1 class="post-title">Day 2 &#8211; iOS App Internationalization &#8211; A Simple Multi-lingo Greeting App</h1>
-  <span class="post-date">14 Mar 2015</span>
-  <div>
+                <div class="post">
+   <div>
   I wanted to start something that is related to 3D perspective with Sketch today but somehow I got interested in App Internationalization while watching a little WWDC video. So I decided to build a simple multi-lingo app to test some ideas.
 </div>
 
@@ -201,70 +222,29 @@
 </ol>
 
 <div>
-  <div id="attachment_689" style="width: 760px" class="wp-caption aligncenter">
     <a href="/assets/wp-content/uploads/2015/03/sketch-design.png"><img class="size-full wp-image-689" src="/assets/wp-content/uploads/2015/03/sketch-design.png" alt="sketch design  (quite different from the final result )" width="750" height="1334" /></a>
-    
-    <p class="wp-caption-text">
-      sketch design (quite different from the final result )
-    </p>
-  </div>
-  
-  <div id="attachment_684" style="width: 546px" class="wp-caption aligncenter">
+
     <a href="/assets/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png"><img class="size-full wp-image-684" src="/assets/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png" alt="how nice sketch support folder export" width="536" height="681" /></a>
     
-    <p class="wp-caption-text">
-      how nice sketch support folder export
-    </p>
-  </div>
+ 
   
-  <div id="attachment_682" style="width: 1134px" class="wp-caption aligncenter">
     <a href="/assets/wp-content/uploads/2015/03/image-assets.png"><img class="size-full wp-image-682" src="/assets/wp-content/uploads/2015/03/image-assets.png" alt="Xcode manages image assets very nicely" width="1124" height="796" /></a>
-    
-    <p class="wp-caption-text">
-      Xcode manages image assets very nicely
-    </p>
-  </div>
+
   
-  <div id="attachment_687" style="width: 383px" class="wp-caption aligncenter">
     <a href="/assets/wp-content/uploads/2015/03/first-version-in-english.png"><img class="size-full wp-image-687" src="/assets/wp-content/uploads/2015/03/first-version-in-english.png" alt="first version in english" width="373" height="690" /></a>
-    
-    <p class="wp-caption-text">
-      first version in english
-    </p>
-  </div>
+ 
   
-  <div id="attachment_683" style="width: 674px" class="wp-caption aligncenter">
     <a href="/assets/wp-content/uploads/2015/03/my-headach-in-landscape.png"><img class="size-full wp-image-683" src="/assets/wp-content/uploads/2015/03/my-headach-in-landscape.png" alt="my headache in landscape view" width="664" height="379" /></a>
-    
-    <p class="wp-caption-text">
-      my headache in landscape view
-    </p>
-  </div>
+ 
   
-  <div id="attachment_688" style="width: 890px" class="wp-caption alignnone">
     <a href="/assets/wp-content/uploads/2015/03/autolayout-and-constrains.png"><img class="size-full wp-image-688" src="/assets/wp-content/uploads/2015/03/autolayout-and-constrains.png" alt="autolayout and constrains" width="880" height="783" /></a>
-    
-    <p class="wp-caption-text">
-      autolayout and constrains
-    </p>
-  </div>
   
-  <div id="attachment_686" style="width: 426px" class="wp-caption aligncenter">
+  
     <a href="/assets/wp-content/uploads/2015/03/snapshortcn.png"><img class="size-full wp-image-686" src="/assets/wp-content/uploads/2015/03/snapshortcn.png" alt="App in my mother tongue " width="416" height="712" /></a>
-    
-    <p class="wp-caption-text">
-      App in my mother tongue
-    </p>
-  </div>
   
-  <div id="attachment_685" style="width: 381px" class="wp-caption aligncenter">
+  
     <a href="/assets/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png"><img class="size-full wp-image-685" src="/assets/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png" alt="second version with multi-lingo support" width="371" height="686" /></a>
-    
-    <p class="wp-caption-text">
-      second version with multi-lingo support
-    </p>
-  </div>
-</div>
+
 
 <div>
   <b>Lesson Learned</b>
@@ -318,43 +298,41 @@
 <div>
 </div>
 
-</div>
-
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-            A Design Pattern Story in Swift – Chapter 21: Interpretor
-            <small>18 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-            A Design Pattern Story in Swift – Chapter 20: Mediator
-            <small>18 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-            A Design Pattern Story in Swift – Chapter 19: Flyweight
-            <small>17 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
-
-<div id="disqus_thread"></div>
+ </div>
+ <div class="related">
+   <h2>Related Posts</h2>
+   <ul class="related-posts">
+     
+       <li>
+         <h3>
+           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+             A Design Pattern Story in Swift – Chapter 21: Interpretor
+             <small>18 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+       <li>
+         <h3>
+           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+             A Design Pattern Story in Swift – Chapter 20: Mediator
+             <small>18 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+       <li>
+         <h3>
+           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+             A Design Pattern Story in Swift – Chapter 19: Flyweight
+             <small>17 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+   </ul>
+ </div>
+ <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
     
@@ -365,14 +343,18 @@
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      
+    
+
+
 
 
               </div>
           </div>
           
       </main>
-    
-     <footer class="row">
+
+      <footer class="row">
     <div class="col-md-8 col-md-offset-2 text-center">
         &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
     </div>
@@ -380,7 +362,7 @@
 </footer>
 
 
-     <!-- Latest compiled and minified JavaScript -->
+      <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 

@@ -64,9 +64,10 @@
   <body>
     <nav id="push_sidebar">
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="/archive">Archive</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
     
     <div class="social-icons">
@@ -91,6 +92,13 @@
               <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
+
+        <a href="https://www.linkedin.com/in/audreyauli" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
         
         <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
             <span class="fa-stack fa-lg">
@@ -102,7 +110,8 @@
     </div>
 
 </nav>
-    <div id="main-wrap">
+
+    <div id="body-wrap">
       <header class="nav-down"  id="wrapper">
     <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
 
@@ -111,21 +120,36 @@
     </div>
 </header>
       
-<div class="jumbotron text-center">
 
-  <div class="container">
-    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
-    <p>Javascript, Swift, Ruby, learning...</p>
-  </div>
+<!-- jumbotron for pages -->
+
+<!-- jumbotron for post page, with feature image -->
+  
+      <div class="jumbotron jumbotron-post" style="background-image: url('')">
+         <div class="fullwidth-wrapper">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+      <div class="main-wrap">
+           <h2 class="post-title">Welcome to Jekyll!</h2>
+            <p class="post-date">03 Mar 2014</p>
+      </div>
+    </div>
 </div>
-     
+        
+      </div>
+
+  <!-- jumbotron for post page, without feature image -->
+  
+
+
+
+
+
+
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-               <div class="post">
-  <h1 class="post-title">Welcome to Jekyll!</h1>
-  <span class="post-date">03 Mar 2014</span>
-  <p>You&rsquo;ll find this post in your <code>_posts</code> directory - edit this post and re-build
+                <div class="post">
+   <p>You&rsquo;ll find this post in your <code>_posts</code> directory - edit this post and re-build
 (or run with the <code>-w</code> switch) to see your changes! To add new posts, simply add
 a file in the <code>_posts</code> directory that follows the convention:
 YYYY-MM-DD-name-of-post.ext.</p>
@@ -162,43 +186,41 @@ Jekyll. File all bugs/feature requests at <a href="https://github.com/mojombo/je
 </ol>
 </div>
 
-</div>
-
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-            A Design Pattern Story in Swift – Chapter 21: Interpretor
-            <small>18 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-            A Design Pattern Story in Swift – Chapter 20: Mediator
-            <small>18 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-            A Design Pattern Story in Swift – Chapter 19: Flyweight
-            <small>17 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
-
-<div id="disqus_thread"></div>
+ </div>
+ <div class="related">
+   <h2>Related Posts</h2>
+   <ul class="related-posts">
+     
+       <li>
+         <h3>
+           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+             A Design Pattern Story in Swift – Chapter 21: Interpretor
+             <small>18 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+       <li>
+         <h3>
+           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+             A Design Pattern Story in Swift – Chapter 20: Mediator
+             <small>18 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+       <li>
+         <h3>
+           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+             A Design Pattern Story in Swift – Chapter 19: Flyweight
+             <small>17 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+   </ul>
+ </div>
+ <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
     
@@ -209,14 +231,18 @@ Jekyll. File all bugs/feature requests at <a href="https://github.com/mojombo/je
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      
+    
+
+
 
 
               </div>
           </div>
           
       </main>
-    
-     <footer class="row">
+
+      <footer class="row">
     <div class="col-md-8 col-md-offset-2 text-center">
         &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
     </div>
@@ -224,7 +250,7 @@ Jekyll. File all bugs/feature requests at <a href="https://github.com/mojombo/je
 </footer>
 
 
-     <!-- Latest compiled and minified JavaScript -->
+      <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 

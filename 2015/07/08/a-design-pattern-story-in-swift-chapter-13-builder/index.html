@@ -64,9 +64,10 @@
   <body>
     <nav id="push_sidebar">
     <ul>
-      <li><a href="#">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="#">Portfolio</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="/archive">Archive</a></li>
+      <li><a href="/about">About</a></li>
     </ul>
     
     <div class="social-icons">
@@ -91,6 +92,13 @@
               <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
+
+        <a href="https://www.linkedin.com/in/audreyauli" title="Audrey's Google Plus">
+            <span class="fa-stack fa-lg">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+            </span>
+        </a>
         
         <a href="/assets/images/wechat.jpg" title="Audrey's Wechat">
             <span class="fa-stack fa-lg">
@@ -102,7 +110,8 @@
     </div>
 
 </nav>
-    <div id="main-wrap">
+
+    <div id="body-wrap">
       <header class="nav-down"  id="wrapper">
     <a class="navbar-brand" href="/"><img alt="Brand" src="/assets/images/normal/logo-dark-round.png"></a>
 
@@ -112,22 +121,35 @@
 </header>
       
 
-<div class="jumbotron text-center" style="background-image: url('/assets/wp-content/uploads/2015/07/flower.png')">
+<!-- jumbotron for pages -->
 
-
-  <div class="container">
-    <a href="/" title="Home Page"><h1>Audrey Li</h1></a>
-    <p>Javascript, Swift, Ruby, learning...</p>
-  </div>
+<!-- jumbotron for post page, with feature image -->
+  
+      <div class="jumbotron jumbotron-post" style="background-image: url('/assets/wp-content/uploads/2015/07/flower.png')">
+         <div class="fullwidth-wrapper">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+      <div class="main-wrap">
+           <h2 class="post-title">A Design Pattern Story in Swift – Chapter 13: Builder</h2>
+            <p class="post-date">08 Jul 2015</p>
+      </div>
+    </div>
 </div>
-     
+        
+      </div>
+
+  <!-- jumbotron for post page, without feature image -->
+  
+
+
+
+
+
+
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-               <div class="post">
-  <h1 class="post-title">A Design Pattern Story in Swift – Chapter 13: Builder</h1>
-  <span class="post-date">08 Jul 2015</span>
-  <p>The process of making a fragrance is quite complex, that&#8217;s why we have a fragrance builder who will help config the default ingredient.</p>
+                <div class="post">
+   <p>The process of making a fragrance is quite complex, that&#8217;s why we have a fragrance builder who will help config the default ingredient.</p>
 
 <blockquote>
 <p>The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm. An external class controls the construction algorithm. &#8211;<a href="https://github.com/ochococo/Design-Patterns-In-Swift">From</a></p>
@@ -317,43 +339,41 @@ print(fragrance2.description)</code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/builder.png"><img class="aligncenter size-full wp-image-1043" src="/assets/wp-content/uploads/2015/07/builder.png" alt="builder" width="371" height="285" /></a></p>
 
-</div>
-
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-            A Design Pattern Story in Swift – Chapter 21: Interpretor
-            <small>18 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-            A Design Pattern Story in Swift – Chapter 20: Mediator
-            <small>18 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-            A Design Pattern Story in Swift – Chapter 19: Flyweight
-            <small>17 Jul 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
-
-<div id="disqus_thread"></div>
+ </div>
+ <div class="related">
+   <h2>Related Posts</h2>
+   <ul class="related-posts">
+     
+       <li>
+         <h3>
+           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
+             A Design Pattern Story in Swift – Chapter 21: Interpretor
+             <small>18 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+       <li>
+         <h3>
+           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
+             A Design Pattern Story in Swift – Chapter 20: Mediator
+             <small>18 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+       <li>
+         <h3>
+           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
+             A Design Pattern Story in Swift – Chapter 19: Flyweight
+             <small>17 Jul 2015</small>
+           </a>
+         </h3>
+       </li>
+     
+   </ul>
+ </div>
+ <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
     
@@ -364,14 +384,18 @@ print(fragrance2.description)</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      
+    
+
+
 
 
               </div>
           </div>
           
       </main>
-    
-     <footer class="row">
+
+      <footer class="row">
     <div class="col-md-8 col-md-offset-2 text-center">
         &copy Copyright 2015 &nbsp; &nbsp; AudreyLi.me &nbsp; &nbsp;<a href="mailto:me@audreyli.me">Get in touch</a>
     </div>
@@ -379,7 +403,7 @@ print(fragrance2.description)</code></pre></div>
 </footer>
 
 
-     <!-- Latest compiled and minified JavaScript -->
+      <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 

@@ -10,7 +10,7 @@
 
   <title>
     
-      A Design Pattern Story in Swift – Chapter 8: Template &middot; Audrey Li's Personal Blog
+      Audrey Li's Personal Blog &middot; Curious soul
     
   </title>
 
@@ -123,23 +123,18 @@
 
 <!-- jumbotron for pages -->
 
-<!-- jumbotron for post page, with feature image -->
-  
-     <div class="jumbotron jumbotron-post-long-feature" style="background-image: url('/assets/wp-content/uploads/2015/07/magic-potion.jpg')">
-         <div class="fullwidth-wrapper">
-    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
-      <div class="main-wrap">
-           <h2 class="post-title">A Design Pattern Story in Swift – Chapter 8: Template</h2>
-            <p class="post-date">04 Jul 2015</p>
-      </div>
-    </div>
-</div>
+<!-- jumbotron for pages -->
+<!-- jumbotron for home page -->
+   
+      <div class="jumbotron text-center jumbotron-home">
+        <div class="container">
+          <h1>Home</h1>
+          <p></p>
+        </div>
       </div>
 
-  <!-- jumbotron for post page, without feature image -->
+  <!-- jumbotron for home page -->
   
-
-
 
 
 
@@ -147,136 +142,43 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post">
-   <p class="p1">
-  <span class="s1">There is very little difference between magic and art. It&#8217;s an act to create something from nothing. </span>
-</p>
+               
 
-<blockquote>
-<p class="p1">
-  <span class="s1"> The template method pattern is a behavioral design pattern that defines the program skeleton of an algorithm in a method, called template method, which defers some steps to subclasses. &#8211; Wiki</span>
-</p>
-</blockquote>
+<!-- jumbotron for pages -->
 
-<pre class="lang:swift decode:true " title="Template">protocol MagicRecipe {
-    var isDarkMagic: Bool { get }
-    func makeMagic()
-    func addSpecialIngredience()
-    func testMagic()
-}
+<!-- jumbotron for pages -->
+<!-- jumbotron for home page -->
+   
+      <div class="jumbotron text-center jumbotron-home">
+        <div class="container">
+          <h1>Home</h1>
+          <p></p>
+        </div>
+      </div>
 
-//: create the template for making the Magic Recipe. All whiteMagic needs to be tested before being released.
-extension MagicRecipe {
-    final func makeMagic(){
-        print("Starting the magic-making process...")
-        addSpecialIngredience()
-        if !isDarkMagic {
-           testMagic()
-        }
-        let magicType = isDarkMagic ? "Dark Magic" : "White Magic"
-        print("A new \(magicType) is created! \n")
-    }
-}
-
-//: The magic recipe for getting love
- class MagicRecipeForLove: MagicRecipe {
-    var isDarkMagic: Bool
-    var name: String
-    var description: String { return name }
-    init(isDarkMagic: Bool = false, name: String){
-        self.isDarkMagic = isDarkMagic
-        self.name = name
-        print("Creating the magic: \(name)")
-    }
-    func addSpecialIngredience() {
-        let ingredience = isDarkMagic ? "black diamond" : "red diamond"
-        print("Adding \(ingredience) as special ingredience")
-    }
-    func testMagic() {
-        print("testMagicing \(name)")
-    }
-}
-
-//: Sleep Magic is always bad (dark magic)
- class MagicRecipeForSleep: MagicRecipe {
-    var isDarkMagic: Bool { return true }
-    var name: String
-    var description: String { return name }
-    init(name: String){
-        self.name = name
-        print("Creating the magic: \(name)")
-    }
-    func addSpecialIngredience() {
-        print("Adding tears from the black witch as special ingredience")
-    }
-    func testMagic() {
-        print("testMagicing \(name)")
-    }
-}
+  <!-- jumbotron for home page -->
+  
 
 
-let l1 = MagicRecipeForLove(name: "Long Lasting Love")
-l1.makeMagic()
-let l2 = MagicRecipeForLove(isDarkMagic: true, name: "Crazy Stupid Love")
-l2.makeMagic()
-let s1 = MagicRecipeForSleep(name: "Sleeping in Emptiness")
-s1.makeMagic()
-let s2 = MagicRecipeForSleep(name: "Sleeping and Dreaming")
-s2.makeMagic()</pre>
 
-<p><a href="http://audreyli.me/wp-content/uploads/2015/07/template.png"><img class="aligncenter size-full wp-image-1006" src="http://audreyli.me/wp-content/uploads/2015/07/template.png" alt="template" width="390" height="275" /></a></p>
 
- </div>
- <div class="related">
-   <h2>Related Posts</h2>
-   <ul class="related-posts">
-     
-       <li>
-         <h3>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
-           </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
-       </li>
-     
-   </ul>
- </div>
- <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'audreyli';
+<main class="row">
+    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
+        <div class="main-wrap">
+         <div class="posts">
+  
+</div>
+ 
+
+
+<div class="pagination">
+  
+</div>
+
+        </div>
+    </div>
     
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-      
-    
-
-
-
-
+</main>
               </div>
           </div>
           

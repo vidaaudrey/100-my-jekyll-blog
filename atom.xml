@@ -4,7 +4,7 @@
  <title>Audrey Li's Personal Blog</title>
  <link href="localhost:4000/atom.xml" rel="self"/>
  <link href="localhost:4000/"/>
- <updated>2015-09-25T22:52:16-07:00</updated>
+ <updated>2015-09-26T18:24:13-07:00</updated>
  <id>localhost:4000</id>
  <author>
    <name>Audrey Li</name>
@@ -18,7 +18,7 @@
    <updated>2015-07-18T00:00:00-07:00</updated>
    <id>localhost:4000/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor</id>
    <content type="html">&lt;p&gt;An interpreter translate our plain language expression into information and find out what we need. Here we have a  Unit Interpretor (Conversion Context) who does very diverse interpretation jobs.
-&amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;&lt;/p&gt;
+&amp;lt;!&amp;ndash; more &amp;ndash;&amp;gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;enum UnitType: String {
     case Gallon = &amp;quot;Gallon&amp;quot;
@@ -4216,6 +4216,14 @@ class ViewController: UIViewController {
  </entry>
  
  <entry>
+   <title>018 Swift Currency Converter</title>
+   <link href="localhost:4000/2015/04/29/018-swift-currency-converter/"/>
+   <updated>2015-04-29T00:00:00-07:00</updated>
+   <id>localhost:4000/2015/04/29/018-swift-currency-converter</id>
+   <content type="html"></content>
+ </entry>
+ 
+ <entry>
    <title>Day 17..  &#8211; iOS Emoji Flags</title>
    <link href="localhost:4000/2015/04/24/day-17-ios-emoji-flags/"/>
    <updated>2015-04-24T00:00:00-07:00</updated>
@@ -4838,70 +4846,29 @@ progressView.animateProgressView()&lt;/p&gt;
 &lt;/ol&gt;
 
 &lt;div&gt;
-  &lt;div id=&quot;attachment_689&quot; style=&quot;width: 760px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/sketch-design.png&quot;&gt;&lt;img class=&quot;size-full wp-image-689&quot; src=&quot;/assets/wp-content/uploads/2015/03/sketch-design.png&quot; alt=&quot;sketch design  (quite different from the final result )&quot; width=&quot;750&quot; height=&quot;1334&quot; /&gt;&lt;/a&gt;
-    
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      sketch design (quite different from the final result )
-    &lt;/p&gt;
-  &lt;/div&gt;
-  
-  &lt;div id=&quot;attachment_684&quot; style=&quot;width: 546px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png&quot;&gt;&lt;img class=&quot;size-full wp-image-684&quot; src=&quot;/assets/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png&quot; alt=&quot;how nice sketch support folder export&quot; width=&quot;536&quot; height=&quot;681&quot; /&gt;&lt;/a&gt;
     
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      how nice sketch support folder export
-    &lt;/p&gt;
-  &lt;/div&gt;
+ 
   
-  &lt;div id=&quot;attachment_682&quot; style=&quot;width: 1134px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/image-assets.png&quot;&gt;&lt;img class=&quot;size-full wp-image-682&quot; src=&quot;/assets/wp-content/uploads/2015/03/image-assets.png&quot; alt=&quot;Xcode manages image assets very nicely&quot; width=&quot;1124&quot; height=&quot;796&quot; /&gt;&lt;/a&gt;
-    
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      Xcode manages image assets very nicely
-    &lt;/p&gt;
-  &lt;/div&gt;
+
   
-  &lt;div id=&quot;attachment_687&quot; style=&quot;width: 383px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/first-version-in-english.png&quot;&gt;&lt;img class=&quot;size-full wp-image-687&quot; src=&quot;/assets/wp-content/uploads/2015/03/first-version-in-english.png&quot; alt=&quot;first version in english&quot; width=&quot;373&quot; height=&quot;690&quot; /&gt;&lt;/a&gt;
-    
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      first version in english
-    &lt;/p&gt;
-  &lt;/div&gt;
+ 
   
-  &lt;div id=&quot;attachment_683&quot; style=&quot;width: 674px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/my-headach-in-landscape.png&quot;&gt;&lt;img class=&quot;size-full wp-image-683&quot; src=&quot;/assets/wp-content/uploads/2015/03/my-headach-in-landscape.png&quot; alt=&quot;my headache in landscape view&quot; width=&quot;664&quot; height=&quot;379&quot; /&gt;&lt;/a&gt;
-    
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      my headache in landscape view
-    &lt;/p&gt;
-  &lt;/div&gt;
+ 
   
-  &lt;div id=&quot;attachment_688&quot; style=&quot;width: 890px&quot; class=&quot;wp-caption alignnone&quot;&gt;
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/autolayout-and-constrains.png&quot;&gt;&lt;img class=&quot;size-full wp-image-688&quot; src=&quot;/assets/wp-content/uploads/2015/03/autolayout-and-constrains.png&quot; alt=&quot;autolayout and constrains&quot; width=&quot;880&quot; height=&quot;783&quot; /&gt;&lt;/a&gt;
-    
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      autolayout and constrains
-    &lt;/p&gt;
-  &lt;/div&gt;
   
-  &lt;div id=&quot;attachment_686&quot; style=&quot;width: 426px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshortcn.png&quot;&gt;&lt;img class=&quot;size-full wp-image-686&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshortcn.png&quot; alt=&quot;App in my mother tongue &quot; width=&quot;416&quot; height=&quot;712&quot; /&gt;&lt;/a&gt;
-    
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      App in my mother tongue
-    &lt;/p&gt;
-  &lt;/div&gt;
   
-  &lt;div id=&quot;attachment_685&quot; style=&quot;width: 381px&quot; class=&quot;wp-caption aligncenter&quot;&gt;
+  
     &lt;a href=&quot;/assets/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png&quot;&gt;&lt;img class=&quot;size-full wp-image-685&quot; src=&quot;/assets/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png&quot; alt=&quot;second version with multi-lingo support&quot; width=&quot;371&quot; height=&quot;686&quot; /&gt;&lt;/a&gt;
-    
-    &lt;p class=&quot;wp-caption-text&quot;&gt;
-      second version with multi-lingo support
-    &lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
+
 
 &lt;div&gt;
   &lt;b&gt;Lesson Learned&lt;/b&gt;
@@ -5012,37 +4979,13 @@ progressView.animateProgressView()&lt;/p&gt;
 &lt;/ol&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div id=&quot;attachment_667&quot; style=&quot;width: 1110px&quot; class=&quot;wp-caption alignnone&quot;&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot;&gt;&lt;img class=&quot;wp-image-667 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot; alt=&quot;Angular Material Start Project&quot; width=&quot;1100&quot; height=&quot;764&quot; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&quot;wp-caption-text&quot;&gt;
-    4. Angular Material Start Project
-  &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot;&gt;&lt;img class=&quot;wp-image-667 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot; alt=&quot;Angular Material Start Project&quot; width=&quot;1100&quot; height=&quot;764&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;div id=&quot;attachment_669&quot; style=&quot;width: 775px&quot; class=&quot;wp-caption alignnone&quot;&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/03/Basic-setup.png&quot;&gt;&lt;img class=&quot;wp-image-669 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Basic-setup.png&quot; alt=&quot;Basic setup&quot; width=&quot;765&quot; height=&quot;587&quot; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&quot;wp-caption-text&quot;&gt;
-    6. Basic Todo App with AngularJS
-  &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Basic-setup.png&quot;&gt;&lt;img class=&quot;wp-image-669 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Basic-setup.png&quot; alt=&quot;Basic setup&quot; width=&quot;765&quot; height=&quot;587&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;div id=&quot;attachment_671&quot; style=&quot;width: 1277px&quot; class=&quot;wp-caption alignnone&quot;&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/03/Sketch.png&quot;&gt;&lt;img class=&quot;wp-image-671 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Sketch.png&quot; alt=&quot;Sketch&quot; width=&quot;1267&quot; height=&quot;765&quot; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&quot;wp-caption-text&quot;&gt;
-    7. Create &amp;#8220;Add&amp;#8221; Icon in Sketch.
-  &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Sketch.png&quot;&gt;&lt;img class=&quot;wp-image-671 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Sketch.png&quot; alt=&quot;Sketch&quot; width=&quot;1267&quot; height=&quot;765&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;div id=&quot;attachment_670&quot; style=&quot;width: 658px&quot; class=&quot;wp-caption alignnone&quot;&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/03/Input-State-Change.png&quot;&gt;&lt;img class=&quot;wp-image-670 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Input-State-Change.png&quot; alt=&quot;Input State Change&quot; width=&quot;648&quot; height=&quot;920&quot; /&gt;&lt;/a&gt;
-  
-  &lt;p class=&quot;wp-caption-text&quot;&gt;
-    Final App with Input Animation
-  &lt;/p&gt;
-&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Input-State-Change.png&quot;&gt;&lt;img class=&quot;wp-image-670 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Input-State-Change.png&quot; alt=&quot;Input State Change&quot; width=&quot;648&quot; height=&quot;920&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Todo-App.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-668&quot; src=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Todo-App.png&quot; alt=&quot;Angular Material Todo App&quot; width=&quot;654&quot; height=&quot;874&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
@@ -5063,23 +5006,6 @@ progressView.animateProgressView()&lt;/p&gt;
     Github: &lt;a href=&quot;http://stackoverflow.com/questions/10298291/cannot-push-to-github-keeps-saying-need-merge&quot;&gt;http://stackoverflow.com/questions/10298291/cannot-push-to-github-keeps-saying-need-merge&lt;/a&gt;
   &lt;/div&gt;
   
-  &lt;div&gt;
-  &lt;/div&gt;
-  
-  &lt;div&gt;
-    // End day one project with one of my fav song:
-  &lt;/div&gt;
-  
-  &lt;div&gt;
-    &lt;div class=&#39;et_post_video&#39;&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  
-  &lt;div&gt;
-  &lt;/div&gt;
-  
-  &lt;div&gt;
-  &lt;/div&gt;
 &lt;/div&gt;
 </content>
  </entry>
