@@ -19,6 +19,7 @@ $text-icon-color: #FFFFFF;
 $dark-transparent-color: rgba(0,0,0, 0.1);
 
 $lighter-dark: #2B2A2A;
+$light-light: #F3F3F3;
 
 $dark-background-color: #000; 
 $dark-background-hover-color: #2B2A2A; 
@@ -163,9 +164,17 @@ body {
         .main-wrap{
             max-width: $main-wrap-max-width;
             margin: 0 auto;
-            background: $text-icon-color;
-            padding: $content-padding;
+            .about {
+                padding: 5px;
+                margin-bottom: 50px;
+            }
+            .card {
+                background: $text-icon-color;
+                padding: $content-padding;
+                margin-bottom: 15px;
+            }
         }
+
     }
 }
 
@@ -319,9 +328,19 @@ body {
             width: 100%;
             max-height: $feature-thumb-height;
             overflow: hidden;
+            margin: 10px 0;
             img{
                 width: 100%;
                 height: auto 
+            }
+        }
+        .photo-long{
+            text-align: center;
+            background-color: $light-light;
+            max-height: $feature-thumb-height * 1.5;
+            img{
+                width: auto;
+                height: 100%;
             }
         }
     }
