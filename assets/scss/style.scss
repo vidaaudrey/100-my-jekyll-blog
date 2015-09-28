@@ -29,8 +29,8 @@ $dark-foreround-hover-color: #fff;
 
 $header-height:180px;
 $logo-size: 120px;
-$jumbotron-height:600px;
-$jumbotron-height-plain:600px;
+$jumbotron-height:650px;
+$jumbotron-height-plain:400px;
 $jumbotron-height-long-feature: 800px;
 $main-wrap-max-width:750px;
 $side-bar-width: 30%;
@@ -140,20 +140,23 @@ body {
         transition: all .5s ease;
         width: 100%;
         overflow: hidden;
-
+        .container-fluid{
+            padding: 15px;
+        }
         .navbar-brand {
             width: $logo-size;
             height: $logo-size;
             img {
                 width: 100%;
                 height: 100%;
+                animation: logoAppear 1s;
             }
         }
         .nav_trigger {
             cursor: pointer;
             display: inline-block;
             font-size: 26px;
-            margin: 12px 0 0 50px;
+            padding: 15px;
             float:right;
             color: $dark-background-color;
 
@@ -204,26 +207,38 @@ body {
 
 @media (max-width: 767px) {
     #push_sidebar {
-        width: 80%;
-    } 
-    .navbar-brand{
+        width: 70%;
     } 
     .jumbotron{
         background-attachment: scroll;
     }
+
     .show_sidebar {
         #push_sidebar {
-             left: 20%;
+             left: 30%;
         }
         #body-wrap, #body-wrap>header {
-            margin-right: 80%;
-            width: 20%;
+            margin-right: 70%;
+            width: 30%;
+            .navbar-brand{
+                width: 100%;
+                height: auto;
+                max-height: 100px;
+                padding: 0;
+                img{
+                    animation: logoDisappear 1s;
+                    width: 50%;
+                    height: 50%;
+                    margin: 0 auto;
+                }
+            }
+            .nav_trigger{
+                width: 100%;
+                text-align: center;
+            }
+            
         }
-        .navbar-brand, navbar-brand img{
-            animation: logoDisappear 1s;
-            width: 0.5 * $logo-size;
-            height: 0.5 * $logo-size;
-        }
+        
         main, .jumbotron, footer{
             min-width: $break-point-mobile;
         }
@@ -249,9 +264,9 @@ body {
 
 
 .jumbotron{
-    min-height:$jumbotron-height;
+    height:$jumbotron-height;
     margin-top: -$header-height;
-    padding-top: $header-height * 1.1;
+    padding-top: $header-height * 0.5;
     width: 110%;
     color: white;
    
@@ -299,7 +314,7 @@ body {
     &.jumbotron-post{
         position: relative;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: scroll;
         @include cover-background;
 
         .fullwidth-wrapper{
@@ -325,7 +340,7 @@ body {
         }
     }
     &.jumbotron-post-plain{
-         background: url('/assets/images/post-default-bg-compressor.jpg') no-repeat center center fixed;
+         background: url('/assets/images/post-default-bg-compressor.jpg') no-repeat center center scroll;
          position: relative;
         .fullwidth-wrapper{
             position: absolute;
@@ -386,8 +401,89 @@ footer {
     padding: 20px;
 }
 
+.pagination{
+    text-align: center;
+    width: 100%;
+}
+.page-nav{
+    width: 100%;
+    height: auto;
+    min-height: 20px;
+    vertical-align:middle;
+    padding-bottom: 40px;
+    div{
+        width: 50%;
+        min-height: 100%;
+        float: left;
+        a{
+            max-height: 40px;
+            display: block;
+            float: left;
+            overflow: hidden;
+            font-size:1.1em;
+            -ms-text-overflow: ellipsis ;
+            text-overflow: ellipsis;
+            &:first-child{
+                width: 10%;
+                margin-right: 2%;
+                line-height: 40px;
+                text-align: left;
+            }
+            &:last-child{
+                width: 80%;
+                margin-left: 2%;
+            }
+        }
+    }
+    div{
+        &:last-child{
+            a{
+                &:first-child{
+                    width: 80%;
+                    margin-right: 2%;
+                    text-align: right;
+                    line-height: 20px;
+                }
+                &:last-child{
+                    line-height: 40px;
+                    width: 10%;
+                    margin-left: 2%;
+                    text-align: right;
+                }
+            }
+        }
+    }
+}
+
 #wuf-adv {
     display: none !important;
 }
 
-/** { color: transparent}*/
+
+/* Related posts */
+.related {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.related-posts {
+  padding-left: 0;
+  list-style: none;
+  h3 {
+    margin-top: 0;
+  }
+  li {
+    small {
+      font-size: 75%;
+      color: #999;
+    }
+    a:hover {
+      color: #268bd2;
+      text-decoration: none;
+      small {
+        color: inherit;
+      }
+    }
+  }
+}

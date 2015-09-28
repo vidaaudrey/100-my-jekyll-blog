@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -158,118 +151,138 @@
 </p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">protocol Pass:CustomStringConvertible{
-    var name: String { get }
-    var price: Int { get }
-    var countNumber: Int { get }
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">protocol</span> <span class="nl">Pass</span><span class="p">:</span><span class="n">CustomStringConvertible</span><span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">countNumber</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
 
-struct SinglePass: Pass {
-    let name: String
-    let price: Int
-    var countNumber: Int { return 1 }
-    var description: String { return &quot;\(name) (Single Pass \(price)#)&quot; }
-}
-struct GroupPass: Pass {
-    let name: String
-    var passes:[Pass]
-    var countNumber: Int {
-        return passes.map{$0.countNumber}.reduce(0, combine: +)
-    }
-    var description: String {
-        var str = &quot;\(name) (Group Pass \(price)#)&quot;
-        str += passes.map{$0.name}.reduce(&quot;&quot;, combine: {$0 + &quot;\n&quot; + $1})
-        return str + &quot;\n&quot;
-    }
-    var price: Int {
-        return passes.map{$0.price}.reduce(0, combine: +)
-    }
-    mutating func addPass(pass: Pass){
-        passes.append(pass)
-    }
-}
+<span class="k">struct</span> <span class="nl">SinglePass</span><span class="p">:</span> <span class="n">Pass</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">countNumber</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;\(name) (Single Pass \(price)#)&quot;</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">GroupPass</span><span class="p">:</span> <span class="n">Pass</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">passes</span><span class="p">:[</span><span class="n">Pass</span><span class="p">]</span>
+    <span class="k">var</span> <span class="nl">countNumber</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">passes</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">countNumber</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">str</span> <span class="o">=</span> <span class="s">&quot;\(name) (Group Pass \(price)#)&quot;</span>
+        <span class="n">str</span> <span class="o">+=</span> <span class="n">passes</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">name</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="p">{</span><span class="err">$</span><span class="mi">0</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span> <span class="err">$</span><span class="mi">1</span><span class="p">})</span>
+        <span class="k">return</span> <span class="n">str</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+    <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">passes</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">price</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">addPass</span><span class="p">(</span><span class="nl">pass</span><span class="p">:</span> <span class="n">Pass</span><span class="p">){</span>
+        <span class="n">passes</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">pass</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: The ConfHost oversees the conference, including total passes, total number of participants, costs, etc.
-class ConfHost{
-    private var passes: [Pass] = []
-    init(passes: Pass...){
-        self.passes = passes
-    }
-    func printParticipantList(){
-        passes.map{print($0.description)}
-    }
-    var totalPrice: Int {
-        return passes.map{$0.price}.reduce(0, combine: +)
-    }
-    var totalNumberOfParticipants: Int {
-        return passes.map{$0.countNumber}.reduce(0, combine: +)
-    }
+<span class="c1">//: The ConfHost oversees the conference, including total passes, total number of participants, costs, etc.</span>
+<span class="k">class</span> <span class="n">ConfHost</span><span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">passes</span><span class="p">:</span> <span class="p">[</span><span class="n">Pass</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">passes</span><span class="p">:</span> <span class="n">Pass</span><span class="p">...){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">passes</span> <span class="o">=</span> <span class="n">passes</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">printParticipantList</span><span class="p">(){</span>
+        <span class="n">passes</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="n">print</span><span class="p">(</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">)}</span>
+    <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">totalPrice</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">passes</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">price</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">totalNumberOfParticipants</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">passes</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">countNumber</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func getConfOverview(){
-        print(&quot;MagicConf has sold \(passes.count) passes for \(totalNumberOfParticipants) participants&quot;)
-        printParticipantList()
-        print(&quot;Total Revenue: \(totalPrice)#&quot;)
-    }
+    <span class="k">func</span> <span class="n">getConfOverview</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;MagicConf has sold \(passes.count) passes for \(totalNumberOfParticipants) participants&quot;</span><span class="p">)</span>
+        <span class="n">printParticipantList</span><span class="p">()</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Total Revenue: \(totalPrice)#&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
     
-}
+<span class="p">}</span>
 
-//: Just a helper extension
-extension Int {
-    func times(action: (Int)-&amp;gt;()) {
-        for i in 0..&amp;lt;self {
-            action(i)
-        }
-    }
-}
-//: Adding 7 dwarfs
-var dwarfGroup = GroupPass(name: &quot;Dwarf Group&quot;, passes: [])
-7.times { dwarfGroup.addPass(SinglePass(name: &quot;Dwarf # \($0)&quot;, price: 10))}
+<span class="c1">//: Just a helper extension</span>
+<span class="k">extension</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">times</span><span class="p">(</span><span class="nl">action</span><span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;())</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="nb">self</span> <span class="p">{</span>
+            <span class="n">action</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: Adding 7 dwarfs</span>
+<span class="k">var</span> <span class="n">dwarfGroup</span> <span class="o">=</span> <span class="n">GroupPass</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Dwarf Group&quot;</span><span class="p">,</span> <span class="nl">passes</span><span class="p">:</span> <span class="p">[])</span>
+<span class="mf">7.</span><span class="n">times</span> <span class="p">{</span> <span class="n">dwarfGroup</span><span class="p">.</span><span class="n">addPass</span><span class="p">(</span><span class="n">SinglePass</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Dwarf # \($0)&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">))}</span>
 
-let singleP1 = SinglePass(name: &quot;Cinderela&quot;, price: 12)
-let singleP2 = SinglePass(name: &quot;SnowWhite&quot;, price: 10)
-let singleP3 = SinglePass(name: &quot;The Wicked Witch&quot;, price: 10)
+<span class="k">let</span> <span class="n">singleP1</span> <span class="o">=</span> <span class="n">SinglePass</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Cinderela&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">12</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">singleP2</span> <span class="o">=</span> <span class="n">SinglePass</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;SnowWhite&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">singleP3</span> <span class="o">=</span> <span class="n">SinglePass</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;The Wicked Witch&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
 
-let groupP1 = GroupPass(name: &quot;Beauty Group&quot;, passes: [singleP1, singleP2])
+<span class="k">let</span> <span class="n">groupP1</span> <span class="o">=</span> <span class="n">GroupPass</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Beauty Group&quot;</span><span class="p">,</span> <span class="nl">passes</span><span class="p">:</span> <span class="p">[</span><span class="n">singleP1</span><span class="p">,</span> <span class="n">singleP2</span><span class="p">])</span>
 
-let confHost = ConfHost(passes: groupP1, singleP3, dwarfGroup)
-confHost.getConfOverview()</code></pre></div>
+<span class="k">let</span> <span class="n">confHost</span> <span class="o">=</span> <span class="n">ConfHost</span><span class="p">(</span><span class="nl">passes</span><span class="p">:</span> <span class="n">groupP1</span><span class="p">,</span> <span class="n">singleP3</span><span class="p">,</span> <span class="n">dwarfGroup</span><span class="p">)</span>
+<span class="n">confHost</span><span class="p">.</span><span class="n">getConfOverview</span><span class="p">()</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/composite.png"><img class="aligncenter size-full wp-image-1021" src="/assets/wp-content/uploads/2015/07/composite.png" alt="composite" width="354" height="240" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-9-iteratorsequence-and-generator/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-9-iteratorsequence-and-generator/"> A Design Pattern Story in Swift – Chapter 9: Iterator(Sequence and Generator)</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/05/a-design-pattern-story-in-swift-chapter-11-state/">A Design Pattern Story in Swift – Chapter 11: State </a>
+         <a class="prev" href="/2015/07/05/a-design-pattern-story-in-swift-chapter-11-state/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -281,6 +294,7 @@ confHost.getConfOverview()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

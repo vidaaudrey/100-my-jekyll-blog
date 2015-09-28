@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -154,123 +147,143 @@
 <p>The memento pattern captures the complete state of an object into a memento that can be used to reset the object at a later date. It allows a complete reset of an object without the need to track and apply individual undo commands. –<em>  <a href="http://www.apress.com/9781484203958">Design Pattern in Swift</a></em></p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: Just a sign to show the class / struct is a memento, nothing special
-protocol Memento {
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: Just a sign to show the class / struct is a memento, nothing special</span>
+<span class="k">protocol</span> <span class="n">Memento</span> <span class="p">{</span>
+<span class="p">}</span>
 
-//: The originator can create and restore game state
-protocol Originator {
-    func createMemento() -&amp;gt; Memento
-    func applyMemento(memento: Memento)
-}
+<span class="c1">//: The originator can create and restore game state</span>
+<span class="k">protocol</span> <span class="n">Originator</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">createMemento</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Memento</span>
+    <span class="k">func</span> <span class="nf">applyMemento</span><span class="p">(</span><span class="nl">memento</span><span class="p">:</span> <span class="n">Memento</span><span class="p">)</span>
+<span class="p">}</span>
 
-//: a game state entry
-struct GameStateEntry {
-    var level: Int
-    var weapon: String
-    var points: Int
-}
+<span class="c1">//: a game state entry</span>
+<span class="k">struct</span> <span class="n">GameStateEntry</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">level</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">points</span><span class="p">:</span> <span class="n">Int</span>
+<span class="p">}</span>
 
-//: A GameState memento, which contains all the information the CheckPoint needed to restore the state
-struct GameMemento: Memento {
-    private let entries: [Int: GameStateEntry]
-    private let nextId: Int
-    private let totalPoints: Int
-    init(checkPoint: CheckPoint){
-        self.entries = checkPoint.entries
-        self.nextId = checkPoint.nextId
-        self.totalPoints = checkPoint.totalPoints
-    }
-    func apply(checkPoint: CheckPoint) {
-        print(&quot;Restoring a game state to a checkpoint...&quot;)
-        checkPoint.nextId = nextId
-        checkPoint.totalPoints = totalPoints
-        checkPoint.entries = entries
-    }
-}
-//: A CheckPoint can create and restore game state
-class CheckPoint: Originator {
-    private var entries: [Int: GameStateEntry] = [:]
-    private var totalPoints: Int  = 0
-    private var nextId: Int = 0
+<span class="c1">//: A GameState memento, which contains all the information the CheckPoint needed to restore the state</span>
+<span class="k">struct</span> <span class="nl">GameMemento</span><span class="p">:</span> <span class="n">Memento</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">entries</span><span class="p">:</span> <span class="p">[</span><span class="nl">Int</span><span class="p">:</span> <span class="n">GameStateEntry</span><span class="p">]</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">nextId</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">totalPoints</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">checkPoint</span><span class="p">:</span> <span class="n">CheckPoint</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">entries</span> <span class="o">=</span> <span class="n">checkPoint</span><span class="p">.</span><span class="n">entries</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">nextId</span> <span class="o">=</span> <span class="n">checkPoint</span><span class="p">.</span><span class="n">nextId</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">totalPoints</span> <span class="o">=</span> <span class="n">checkPoint</span><span class="p">.</span><span class="n">totalPoints</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="nf">apply</span><span class="p">(</span><span class="nl">checkPoint</span><span class="p">:</span> <span class="n">CheckPoint</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Restoring a game state to a checkpoint...&quot;</span><span class="p">)</span>
+        <span class="n">checkPoint</span><span class="p">.</span><span class="n">nextId</span> <span class="o">=</span> <span class="n">nextId</span>
+        <span class="n">checkPoint</span><span class="p">.</span><span class="n">totalPoints</span> <span class="o">=</span> <span class="n">totalPoints</span>
+        <span class="n">checkPoint</span><span class="p">.</span><span class="n">entries</span> <span class="o">=</span> <span class="n">entries</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: A CheckPoint can create and restore game state</span>
+<span class="k">class</span> <span class="nl">CheckPoint</span><span class="p">:</span> <span class="n">Originator</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">entries</span><span class="p">:</span> <span class="p">[</span><span class="nl">Int</span><span class="p">:</span> <span class="n">GameStateEntry</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">:</span><span class="p">]</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">totalPoints</span><span class="p">:</span> <span class="n">Int</span>  <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">nextId</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="mi">0</span>
     
-    func addGameStateEntry(level: Int, weapon: String, points: Int) {
-        let entry = GameStateEntry(level: level, weapon: weapon, points: points)
-        entries[nextId++] = entry
-        totalPoints += points
-    }
+    <span class="k">func</span> <span class="n">addGameStateEntry</span><span class="p">(</span><span class="nl">level</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">points</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">GameStateEntry</span><span class="p">(</span><span class="nl">level</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">weapon</span><span class="p">,</span> <span class="nl">points</span><span class="p">:</span> <span class="n">points</span><span class="p">)</span>
+        <span class="n">entries</span><span class="p">[</span><span class="n">nextId</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry</span>
+        <span class="n">totalPoints</span> <span class="o">+=</span> <span class="n">points</span>
+    <span class="p">}</span>
     
-    func createMemento() -&amp;gt; Memento {
-        return GameMemento(checkPoint: self)
-    }
+    <span class="k">func</span> <span class="n">createMemento</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Memento</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GameMemento</span><span class="p">(</span><span class="nl">checkPoint</span><span class="p">:</span> <span class="nb">self</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func applyMemento(memento: Memento) {
-        guard let m = memento as? GameMemento  else { return }
-        m.apply(self)
-    }
+    <span class="k">func</span> <span class="n">applyMemento</span><span class="p">(</span><span class="nl">memento</span><span class="p">:</span> <span class="n">Memento</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">guard</span> <span class="k">let</span> <span class="n">m</span> <span class="o">=</span> <span class="n">memento</span> <span class="kt">as</span><span class="o">?</span> <span class="n">GameMemento</span>  <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+        <span class="n">m</span><span class="p">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func printCheckPoint() {
-        print(&quot;Printing checkPoint....&quot;)
-        entries.sort {$0.0 &amp;lt; $1.0}
-            .map {
-                print(&quot;Level: \($0.1.level)   Weapon: \($0.1.weapon)   Points: \($0.1.points) &quot;)
-        }
-        print(&quot;Total Points: \(totalPoints)\n&quot;)
+    <span class="k">func</span> <span class="n">printCheckPoint</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Printing checkPoint....&quot;</span><span class="p">)</span>
+        <span class="n">entries</span><span class="p">.</span><span class="n">sort</span> <span class="p">{</span><span class="err">$</span><span class="mf">0.0</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="err">$</span><span class="mf">1.0</span><span class="p">}</span>
+            <span class="p">.</span><span class="n">map</span> <span class="p">{</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Level: \($0.1.level)   Weapon: \($0.1.weapon)   Points: \($0.1.points) &quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Total Points: \(totalPoints)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
         
-    }
-}
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//:Testing
+<span class="c1">//:Testing</span>
 
-let checkPoint = CheckPoint()
-checkPoint.addGameStateEntry(0, weapon: &quot;Fire Ball&quot;, points: 20)
-checkPoint.addGameStateEntry(1, weapon: &quot;Flood&quot;, points: 10)
-checkPoint.printCheckPoint()
-let memento = GameMemento(checkPoint: checkPoint)
-checkPoint.addGameStateEntry(2, weapon: &quot;Crusher&quot;, points: 30)
-checkPoint.addGameStateEntry(4, weapon: &quot;Flower&quot;, points: 30)
-checkPoint.printCheckPoint()
+<span class="k">let</span> <span class="n">checkPoint</span> <span class="o">=</span> <span class="n">CheckPoint</span><span class="p">()</span>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">addGameStateEntry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="s">&quot;Fire Ball&quot;</span><span class="p">,</span> <span class="nl">points</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">addGameStateEntry</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="s">&quot;Flood&quot;</span><span class="p">,</span> <span class="nl">points</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">printCheckPoint</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">memento</span> <span class="o">=</span> <span class="n">GameMemento</span><span class="p">(</span><span class="nl">checkPoint</span><span class="p">:</span> <span class="n">checkPoint</span><span class="p">)</span>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">addGameStateEntry</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="s">&quot;Crusher&quot;</span><span class="p">,</span> <span class="nl">points</span><span class="p">:</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">addGameStateEntry</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="s">&quot;Flower&quot;</span><span class="p">,</span> <span class="nl">points</span><span class="p">:</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">printCheckPoint</span><span class="p">()</span>
 
-checkPoint.applyMemento(memento)
-checkPoint.printCheckPoint()</code></pre></div>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">applyMemento</span><span class="p">(</span><span class="n">memento</span><span class="p">)</span>
+<span class="n">checkPoint</span><span class="p">.</span><span class="n">printCheckPoint</span><span class="p">()</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/memento.png"><img class="aligncenter size-full wp-image-1065" src="/assets/wp-content/uploads/2015/07/memento.png" alt="memento" width="374" height="286" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/14/a-design-pattern-story-in-swift-chapter-16-object-pool/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/14/a-design-pattern-story-in-swift-chapter-16-object-pool/"> A Design Pattern Story in Swift – Chapter 16: Object Pool</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/15/a-design-pattern-story-in-swift-chapter-18-visitor/">A Design Pattern Story in Swift – Chapter 18: Visitor </a>
+         <a class="prev" href="/2015/07/15/a-design-pattern-story-in-swift-chapter-18-visitor/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -282,6 +295,7 @@ checkPoint.printCheckPoint()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

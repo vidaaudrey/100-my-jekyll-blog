@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -158,173 +151,193 @@
 <li>All the moving animals have their own &#8216;Escape Strategy&#8217;. But how do they execute their strategies varies.</li>
 </ul>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: Create the base protocol &#39;Creature&#39;
-public protocol Creature: CustomStringConvertible {
-    static var entityName: String { get }
-    var name: String { get }
-    var canMove: Bool { get }
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: Create the base protocol &#39;Creature&#39;</span>
+<span class="n">public</span> <span class="k">protocol</span> <span class="nl">Creature</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">var</span> <span class="nl">entityName</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">canMove</span><span class="p">:</span> <span class="n">Bool</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
 
-//: Protocol &#39;Animal&#39; inherit from &#39;Creature&#39; protocol and it has a &#39;escapeStrategy&#39;, can &#39;performEscape&#39;
-public protocol Animal: Creature {
-    var escapeStrategy: EscapeStrategy { get }
-    func performEscape()
-}
-//: &#39;Plant&#39; also conforms to &#39;Creature&#39; protocol
-public protocol Plant: Creature {
-}
+<span class="c1">//: Protocol &#39;Animal&#39; inherit from &#39;Creature&#39; protocol and it has a &#39;escapeStrategy&#39;, can &#39;performEscape&#39;</span>
+<span class="n">public</span> <span class="k">protocol</span> <span class="nl">Animal</span><span class="p">:</span> <span class="n">Creature</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeStrategy</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">performEscape</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="c1">//: &#39;Plant&#39; also conforms to &#39;Creature&#39; protocol</span>
+<span class="n">public</span> <span class="k">protocol</span> <span class="nl">Plant</span><span class="p">:</span> <span class="n">Creature</span> <span class="p">{</span>
+<span class="p">}</span>
 
-//: It&#39;s a wonder that we can actually extend a protocol and have it carry out the default implementation of other protocols. This case, all animals can &#39;performEscape&#39;
-extension Animal {
-    public func performEscape(){
-        print(&quot;\(name) about to execute a Escape Plan&quot;)
-        escapeStrategy.executeEscapePlan()
-        print(&quot;\(name) successfully escaped&quot;)
-    }
-}
+<span class="c1">//: It&#39;s a wonder that we can actually extend a protocol and have it carry out the default implementation of other protocols. This case, all animals can &#39;performEscape&#39;</span>
+<span class="k">extension</span> <span class="n">Animal</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="k">func</span> <span class="n">performEscape</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(name) about to execute a Escape Plan&quot;</span><span class="p">)</span>
+        <span class="n">escapeStrategy</span><span class="p">.</span><span class="n">executeEscapePlan</span><span class="p">()</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(name) successfully escaped&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Here is the key. All animals have &#39;EscapeStrategy&#39;, but how they implement will be different. Have a protocol enables the runtime execution to be different
-public protocol EscapeStrategy {
-    func executeEscapePlan()
-}
+<span class="c1">//: Here is the key. All animals have &#39;EscapeStrategy&#39;, but how they implement will be different. Have a protocol enables the runtime execution to be different</span>
+<span class="n">public</span> <span class="k">protocol</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span>
+<span class="p">}</span>
 
-public class EscapeByFlying: EscapeStrategy {
-    public func executeEscapePlan() {
-        print(&quot;Escape by flying&quot;)
-    }
-     public init() {}
-}
+<span class="n">public</span> <span class="k">class</span> <span class="nl">EscapeByFlying</span><span class="p">:</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Escape by flying&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+     <span class="n">public</span> <span class="k">init</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
 
-public class EscapeByRunning: EscapeStrategy {
-   public func executeEscapePlan() {
-        print(&quot;Escape by running&quot;)
-    }
-    public init() {}
-}
-public class EscapeByOther: EscapeStrategy {
-   public func executeEscapePlan() {
-        print(&quot;Mysteriously escape&quot;)
-    }
-     public init() {}
-}
+<span class="n">public</span> <span class="k">class</span> <span class="nl">EscapeByRunning</span><span class="p">:</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+   <span class="n">public</span> <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Escape by running&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">public</span> <span class="k">init</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+<span class="n">public</span> <span class="k">class</span> <span class="nl">EscapeByOther</span><span class="p">:</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+   <span class="n">public</span> <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Mysteriously escape&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+     <span class="n">public</span> <span class="k">init</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
 
-//: All animals can move
-extension Moveable where Self: Animal {
-    public var canMove: Bool { return true }
-}</code></pre></div>
+<span class="c1">//: All animals can move</span>
+<span class="k">extension</span> <span class="n">Moveable</span> <span class="k">where</span> <span class="nl">Self</span><span class="p">:</span> <span class="n">Animal</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">canMove</span><span class="p">:</span> <span class="n">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">true</span> <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
 <p>&nbsp;</p>
 
 <p>The next step is to write some concrete struct / class to actually conform to the protocols. The power of protocol inheritance and composition makes it quite easy and flexible to do so.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: Cat
-public struct Cat: Animal, Moveable {
-    public static var entityName: String { return &quot;Cat&quot; }
-    public var name: String
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: Cat</span>
+<span class="n">public</span> <span class="k">struct</span> <span class="nl">Cat</span><span class="p">:</span> <span class="n">Animal</span><span class="p">,</span> <span class="n">Moveable</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="k">static</span> <span class="k">var</span> <span class="nl">entityName</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Cat&quot;</span> <span class="p">}</span>
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
     
-    public static func randomMove() { print(&quot;I am moving randomly&quot;) }
-    public var movingSpeed = 12.1
+    <span class="n">public</span> <span class="k">static</span> <span class="k">func</span> <span class="n">randomMove</span><span class="p">()</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;I am moving randomly&quot;</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">public</span> <span class="k">var</span> <span class="n">movingSpeed</span> <span class="o">=</span> <span class="mf">12.1</span>
     
-    public var escapeStrategy: EscapeStrategy
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeStrategy</span>
     
-    public init(name: String, movingSpeed: Double, escapeStrategy: EscapeStrategy){
-        self.name = name
-        self.movingSpeed = movingSpeed
-        self.escapeStrategy = escapeStrategy
-    }
+    <span class="n">public</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">movingSpeed</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeStrategy</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">movingSpeed</span> <span class="o">=</span> <span class="n">movingSpeed</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">escapeStrategy</span> <span class="o">=</span> <span class="n">escapeStrategy</span>
+    <span class="p">}</span>
     
-}
-//:Rose
-public struct Rose: Plant {
-    public static var entityName: String { return &quot;Rose&quot; }
-    public var name: String
-    public var canMove: Bool { return false }
+<span class="p">}</span>
+<span class="c1">//:Rose</span>
+<span class="n">public</span> <span class="k">struct</span> <span class="nl">Rose</span><span class="p">:</span> <span class="n">Plant</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="k">static</span> <span class="k">var</span> <span class="nl">entityName</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Rose&quot;</span> <span class="p">}</span>
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">canMove</span><span class="p">:</span> <span class="n">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">false</span> <span class="p">}</span>
     
-    public init(name: String){
-        self.name = name
-    }
-}
+    <span class="n">public</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-public protocol Aged {
-    var age: Int { get }
-}
+<span class="n">public</span> <span class="k">protocol</span> <span class="n">Aged</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">age</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
 
-public protocol FullyNamed {
-    var fullName: String { get }
-}
-//: &#39;Person&#39; also confirms to &#39;Animal&#39; protocol 
-public struct Person: Animal, FullyNamed, Moveable, Aged {
-    public static var entityName: String { return &quot;Person&quot; }
-    public var name: String
+<span class="n">public</span> <span class="k">protocol</span> <span class="n">FullyNamed</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">fullName</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: &#39;Person&#39; also confirms to &#39;Animal&#39; protocol </span>
+<span class="n">public</span> <span class="k">struct</span> <span class="nl">Person</span><span class="p">:</span> <span class="n">Animal</span><span class="p">,</span> <span class="n">FullyNamed</span><span class="p">,</span> <span class="n">Moveable</span><span class="p">,</span> <span class="n">Aged</span> <span class="p">{</span>
+    <span class="n">public</span> <span class="k">static</span> <span class="k">var</span> <span class="nl">entityName</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Person&quot;</span> <span class="p">}</span>
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
     
-    public var fullName: String
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">fullName</span><span class="p">:</span> <span class="n">String</span>
     
-    public static func randomMove() { print(&quot;I am moving randomly&quot;) }
-    public var movingSpeed = 15.1
+    <span class="n">public</span> <span class="k">static</span> <span class="k">func</span> <span class="n">randomMove</span><span class="p">()</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;I am moving randomly&quot;</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">public</span> <span class="k">var</span> <span class="n">movingSpeed</span> <span class="o">=</span> <span class="mf">15.1</span>
     
-    public var age: Int { return 20 }
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">age</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">20</span> <span class="p">}</span>
     
-    public var escapeStrategy: EscapeStrategy
+    <span class="n">public</span> <span class="k">var</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeStrategy</span>
     
-    public init(name: String, fullName:String,  movingSpeed: Double, escapeStrategy: EscapeStrategy){
-        self.name = name
-        self.fullName = fullName
-        self.movingSpeed = movingSpeed
-        self.escapeStrategy = escapeStrategy
-    }
-}
+    <span class="n">public</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">fullName</span><span class="p">:</span><span class="n">String</span><span class="p">,</span>  <span class="nl">movingSpeed</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeStrategy</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">fullName</span> <span class="o">=</span> <span class="n">fullName</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">movingSpeed</span> <span class="o">=</span> <span class="n">movingSpeed</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">escapeStrategy</span> <span class="o">=</span> <span class="n">escapeStrategy</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: protocol composition 
-public func showCreatureAge(creature: protocol &amp;lt;Creature, Aged&amp;gt;) {
-    print(&quot;\(creature.name) is \(creature.age) years\&#39; old&quot;)
-}</code></pre></div>
+<span class="c1">//: protocol composition </span>
+<span class="n">public</span> <span class="k">func</span> <span class="n">showCreatureAge</span><span class="p">(</span><span class="nl">creature</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Creature</span><span class="p">,</span> <span class="n">Aged</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;)</span> <span class="p">{</span>
+    <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(creature.name) is \(creature.age) years</span><span class="se">\&#39;</span><span class="s"> old&quot;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
 
 <p>Finally test the code:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">var rose = Rose(name: &quot;Pretty Rose Flower&quot;)
-var person = Person(name: &quot;Mia&quot;, fullName: &quot;Mia Zhu&quot;, movingSpeed: 2121, escapeStrategy: EscapeByFlying() )
-var cat = Cat(name: &quot;Kitty&quot;, movingSpeed: 10, escapeStrategy: EscapeByRunning())
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">var</span> <span class="n">rose</span> <span class="o">=</span> <span class="n">Rose</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Pretty Rose Flower&quot;</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">person</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Mia&quot;</span><span class="p">,</span> <span class="nl">fullName</span><span class="p">:</span> <span class="s">&quot;Mia Zhu&quot;</span><span class="p">,</span> <span class="nl">movingSpeed</span><span class="p">:</span> <span class="mi">2121</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeByFlying</span><span class="p">()</span> <span class="p">)</span>
+<span class="k">var</span> <span class="n">cat</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Kitty&quot;</span><span class="p">,</span> <span class="nl">movingSpeed</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeByRunning</span><span class="p">())</span>
 
-var creatures:[Creature] = [cat, rose, person]
-creatures.filter { $0 is Animal}.map{ ($0 as! Animal).performEscape()}</code></pre></div>
+<span class="k">var</span> <span class="nl">creatures</span><span class="p">:[</span><span class="n">Creature</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">cat</span><span class="p">,</span> <span class="n">rose</span><span class="p">,</span> <span class="n">person</span><span class="p">]</span>
+<span class="n">creatures</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="err">$</span><span class="mi">0</span> <span class="kt">is</span> <span class="n">Animal</span><span class="p">}.</span><span class="n">map</span><span class="p">{</span> <span class="p">(</span><span class="err">$</span><span class="mi">0</span> <span class="kt">as</span><span class="o">!</span> <span class="n">Animal</span><span class="p">).</span><span class="n">performEscape</span><span class="p">()}</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png"><img class=" size-full wp-image-957 aligncenter" src="/assets/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png" alt="Strategy Pattern in Swift 2.0" width="305" height="119" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/06/29/a-design-pattern-story-in-swift-chapter-two-observer/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/06/29/a-design-pattern-story-in-swift-chapter-two-observer/"> A Design Pattern Story in Swift &#8211; Chapter 2: Observer</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/06/30/a-design-pattern-in-swift-chapter-3-decorator/">A Design Pattern Story in Swift  &#8211; Chapter 3: Decorator </a>
+         <a class="prev" href="/2015/06/30/a-design-pattern-in-swift-chapter-3-decorator/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -336,6 +349,7 @@ creatures.filter { $0 is Animal}.map{ ($0 as! Animal).performEscape()}</code></p
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -152,155 +145,175 @@
   <span class="s1"> Long before the seven kingdoms were created, there was a pen &#8211; a pen that can write stories into realities. In the vast universe, there is only one pen of this kind. </span>
 </p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">final class StoryPen: CustomStringConvertible {
-    static let sharedInstance = StoryPen()
-    private var storyBook:[String] = []
-    var description: String {return &quot;The Story Pen&quot;}
-    private init(){
-       StoryTeller.sharedInstance.tell(&quot;The Story Pen came to exist&quot;)
-    }
-    func addAStory(story: String){
-        storyBook.append(story)
-    }
-    func showStoryBook(){
-        storyBook.map{StoryTeller.sharedInstance.tell($0)}
-    }
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">final</span> <span class="k">class</span> <span class="nl">StoryPen</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">StoryPen</span><span class="p">()</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">storyBook</span><span class="p">:[</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="s">&quot;The Story Pen&quot;</span><span class="p">}</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(){</span>
+       <span class="n">StoryTeller</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">tell</span><span class="p">(</span><span class="s">&quot;The Story Pen came to exist&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">addAStory</span><span class="p">(</span><span class="nl">story</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="n">storyBook</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">story</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">showStoryBook</span><span class="p">(){</span>
+        <span class="n">storyBook</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="n">StoryTeller</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">tell</span><span class="p">(</span><span class="err">$</span><span class="mi">0</span><span class="p">)}</span>
+    <span class="p">}</span>
     
-}
+<span class="p">}</span>
 
-final class StoryTeller {
-    static let sharedInstance = StoryTeller(name: &quot;August&quot;)
-    var name: String
-    private init(name: String){
-        self.name = name
-        print(&quot;The Story Teller \(name)is born and he tells stories to the world. Here it goes...&quot;)
-    }
-    func tell(story: String){
-        print(story)
-    }
-}
+<span class="n">final</span> <span class="k">class</span> <span class="n">StoryTeller</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">StoryTeller</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;August&quot;</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;The Story Teller \(name)is born and he tells stories to the world. Here it goes...&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">tell</span><span class="p">(</span><span class="nl">story</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">story</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-enum StoryType{
-    case Love
-    case Peace
-    case Log
-}
-func storify(storyType: StoryType = .Log, subject: CustomStringConvertible, content: String){
+<span class="k">enum</span> <span class="n">StoryType</span><span class="p">{</span>
+    <span class="k">case</span> <span class="n">Love</span>
+    <span class="k">case</span> <span class="n">Peace</span>
+    <span class="k">case</span> <span class="n">Log</span>
+<span class="p">}</span>
+<span class="k">func</span> <span class="n">storify</span><span class="p">(</span><span class="nl">storyType</span><span class="p">:</span> <span class="n">StoryType</span> <span class="o">=</span> <span class="p">.</span><span class="n">Log</span><span class="p">,</span> <span class="nl">subject</span><span class="p">:</span> <span class="n">CustomStringConvertible</span><span class="p">,</span> <span class="nl">content</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
     
-    switch storyType {
-    case .Log: StoryPen.sharedInstance.addAStory(&quot;\(subject.description) // \(content)&quot;)
-    case .Peace: StoryPen.sharedInstance.addAStory(&quot;A Story about Peace and \(subject.description)// \(content)&quot;)
-    case .Love: StoryPen.sharedInstance.addAStory(&quot;A Story about Love and \(subject.description)// \(content)&quot;)
-    }
-}
-protocol Kindom: CustomStringConvertible {
-    var name: String { get }
-}
+    <span class="k">switch</span> <span class="n">storyType</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="p">.</span><span class="nl">Log</span><span class="p">:</span> <span class="n">StoryPen</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">addAStory</span><span class="p">(</span><span class="s">&quot;\(subject.description) // \(content)&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">.</span><span class="nl">Peace</span><span class="p">:</span> <span class="n">StoryPen</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">addAStory</span><span class="p">(</span><span class="s">&quot;A Story about Peace and \(subject.description)// \(content)&quot;</span><span class="p">)</span>
+    <span class="k">case</span> <span class="p">.</span><span class="nl">Love</span><span class="p">:</span> <span class="n">StoryPen</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">addAStory</span><span class="p">(</span><span class="s">&quot;A Story about Love and \(subject.description)// \(content)&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">protocol</span> <span class="nl">Kindom</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
 
-final class KindomOfDemon:Kindom {
-    static let sharedInstance = KindomOfDemon(name: &quot;The Kindom of Demon&quot;)
-    var name: String
-    var description: String { return self.name }
-    private init(name: String){
-        self.name = name
-        storify(subject: self, content: &quot; created&quot;)
-    }
-}
-final class KindomOfGod:Kindom {
-    static let sharedInstance = KindomOfDemon(name: &quot;The Kindom of God&quot;)
-    var name: String
-    var description: String { return self.name }
-    private init(name: String){
-        self.name = name
-        storify(subject: self, content: &quot;created&quot;)
-    }
-}
-final class KindomOfFairy:Kindom {
-    static let sharedInstance = KindomOfFairy(name: &quot;The Kindom of Fairy&quot;)
-    var name: String
-    var description: String { return self.name }
-    private init(name: String){
-        self.name = name
-        storify(subject: self, content: &quot;created&quot;)
-    }
-}
-final class KindomOfHell:Kindom {
-    static let sharedInstance = KindomOfHell(name: &quot;The Kindom of Hell&quot;)
-    var name: String
-    var description: String { return self.name }
-    private init(name: String){
-        self.name = name
-        storify(subject: self, content: &quot;created&quot;)
-    }
-}
-final class KindomOfMonster:Kindom {
-    static let sharedInstance = KindomOfMonster(name: &quot;The Kindom of Monster&quot;)
-    var name: String
-    var description: String { return self.name }
-    private init(name: String){
-        self.name = name
-        storify(subject: self, content: &quot;created&quot;)
-    }
-}
-final class KindomOfHuman:Kindom {
-    static let sharedInstance = KindomOfHuman(name: &quot;The Kindom of Human&quot;)
-    var name: String
-    var description: String { return self.name }
-    private init(name: String){
-        self.name = name
-        storify(subject: self, content: &quot;created&quot;)
-    }
-}
+<span class="n">final</span> <span class="k">class</span> <span class="nl">KindomOfDemon</span><span class="p">:</span><span class="n">Kindom</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">KindomOfDemon</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;The Kindom of Demon&quot;</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">storify</span><span class="p">(</span><span class="nl">subject</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">content</span><span class="p">:</span> <span class="s">&quot; created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">final</span> <span class="k">class</span> <span class="nl">KindomOfGod</span><span class="p">:</span><span class="n">Kindom</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">KindomOfDemon</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;The Kindom of God&quot;</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">storify</span><span class="p">(</span><span class="nl">subject</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">content</span><span class="p">:</span> <span class="s">&quot;created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">final</span> <span class="k">class</span> <span class="nl">KindomOfFairy</span><span class="p">:</span><span class="n">Kindom</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">KindomOfFairy</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;The Kindom of Fairy&quot;</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">storify</span><span class="p">(</span><span class="nl">subject</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">content</span><span class="p">:</span> <span class="s">&quot;created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">final</span> <span class="k">class</span> <span class="nl">KindomOfHell</span><span class="p">:</span><span class="n">Kindom</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">KindomOfHell</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;The Kindom of Hell&quot;</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">storify</span><span class="p">(</span><span class="nl">subject</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">content</span><span class="p">:</span> <span class="s">&quot;created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">final</span> <span class="k">class</span> <span class="nl">KindomOfMonster</span><span class="p">:</span><span class="n">Kindom</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">KindomOfMonster</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;The Kindom of Monster&quot;</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">storify</span><span class="p">(</span><span class="nl">subject</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">content</span><span class="p">:</span> <span class="s">&quot;created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">final</span> <span class="k">class</span> <span class="nl">KindomOfHuman</span><span class="p">:</span><span class="n">Kindom</span> <span class="p">{</span>
+    <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">KindomOfHuman</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;The Kindom of Human&quot;</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="n">storify</span><span class="p">(</span><span class="nl">subject</span><span class="p">:</span> <span class="nb">self</span><span class="p">,</span> <span class="nl">content</span><span class="p">:</span> <span class="s">&quot;created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Testing
-KindomOfGod.sharedInstance
-KindomOfFairy.sharedInstance
-KindomOfMonster.sharedInstance
-KindomOfHell.sharedInstance
-KindomOfDemon.sharedInstance
-KindomOfHuman.sharedInstance
+<span class="c1">//: Testing</span>
+<span class="n">KindomOfGod</span><span class="p">.</span><span class="n">sharedInstance</span>
+<span class="n">KindomOfFairy</span><span class="p">.</span><span class="n">sharedInstance</span>
+<span class="n">KindomOfMonster</span><span class="p">.</span><span class="n">sharedInstance</span>
+<span class="n">KindomOfHell</span><span class="p">.</span><span class="n">sharedInstance</span>
+<span class="n">KindomOfDemon</span><span class="p">.</span><span class="n">sharedInstance</span>
+<span class="n">KindomOfHuman</span><span class="p">.</span><span class="n">sharedInstance</span>
 
-StoryPen.sharedInstance.showStoryBook()</code></pre></div>
+<span class="n">StoryPen</span><span class="p">.</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">showStoryBook</span><span class="p">()</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/Singleton.png"><img class="aligncenter size-full wp-image-988" src="/assets/wp-content/uploads/2015/07/Singleton.png" alt="Singleton" width="543" height="119" /></a></p>
 
 <p><p class="p1"></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-4-factory/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-4-factory/"> A Design Pattern Story in Swift  &#8211; Chapter 4:  Factory</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/03/a-design-pattern-story-in-swift-chapter-6-command/">A Design Pattern Story in Swift – Chapter 6: Command </a>
+         <a class="prev" href="/2015/07/03/a-design-pattern-story-in-swift-chapter-6-command/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -312,6 +325,7 @@ StoryPen.sharedInstance.showStoryBook()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

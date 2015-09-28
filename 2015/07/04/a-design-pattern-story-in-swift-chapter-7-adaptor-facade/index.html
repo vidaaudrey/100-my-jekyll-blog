@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -161,164 +154,164 @@
 
 <p class="p1">
   
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: we all have dreams
-protocol Dreamful{
-    func dream()
-}
-//: we all express our emotions
-protocol Expressful {
-    func expressEmotion()
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: we all have dreams</span>
+<span class="k">protocol</span> <span class="n">Dreamful</span><span class="p">{</span>
+    <span class="k">func</span> <span class="n">dream</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="c1">//: we all express our emotions</span>
+<span class="k">protocol</span> <span class="n">Expressful</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">expressEmotion</span><span class="p">()</span>
+<span class="p">}</span>
 
-protocol Aged {
-    var age: Int { get }
-}
-protocol DreamRealizable {
-    var isDreamRealized: Bool { get set}
-}
+<span class="k">protocol</span> <span class="n">Aged</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">age</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">protocol</span> <span class="n">DreamRealizable</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">isDreamRealized</span><span class="p">:</span> <span class="n">Bool</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span><span class="p">}</span>
+<span class="p">}</span>
 
-//: some arbitrary class that we can&#39;t change (assume)
-class LittlePrince{
-    var princeAge = 102
-    var isDreamRealized = true
-    func seeFlower(){
-        print(&quot;Prince&#39;s dream is to see my flowers everyday&quot;)
-    }
-}
+<span class="c1">//: some arbitrary class that we can&#39;t change (assume)</span>
+<span class="k">class</span> <span class="n">LittlePrince</span><span class="p">{</span>
+    <span class="k">var</span> <span class="n">princeAge</span> <span class="o">=</span> <span class="mi">102</span>
+    <span class="k">var</span> <span class="n">isDreamRealized</span> <span class="o">=</span> <span class="nb">true</span>
+    <span class="k">func</span> <span class="n">seeFlower</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Prince&#39;s dream is to see my flowers everyday&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class Angel {
-     var isDreamRealized = true
-    var angelAge = 121
-    func fall(){
-        print(&quot;Angel&#39;s dream is to fall on the earth and experience life&quot;)
-    }
-}
+<span class="k">class</span> <span class="n">Angel</span> <span class="p">{</span>
+     <span class="k">var</span> <span class="n">isDreamRealized</span> <span class="o">=</span> <span class="nb">true</span>
+    <span class="k">var</span> <span class="n">angelAge</span> <span class="o">=</span> <span class="mi">121</span>
+    <span class="k">func</span> <span class="n">fall</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Angel&#39;s dream is to fall on the earth and experience life&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class AryaStark {
-    var isDreamRealized = false
-    var humanAge = 13
-    func revenge(){
-        print(&quot;Arya&#39;s dream is to take revenge for the Stalk Family&quot;)
-    }
-}
+<span class="k">class</span> <span class="n">AryaStark</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">isDreamRealized</span> <span class="o">=</span> <span class="nb">false</span>
+    <span class="k">var</span> <span class="n">humanAge</span> <span class="o">=</span> <span class="mi">13</span>
+    <span class="k">func</span> <span class="n">revenge</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Arya&#39;s dream is to take revenge for the Stalk Family&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: just a convenient extension so that the arbitrary class of people can express themselves
-extension LittlePrince: Expressful{
-    func expressEmotion(){
-        if isDreamRealized {
-            print(&quot;Little Prince is quite happy&quot;)
-        } else {
-            print(&quot;Little Prince is very sad&quot;)
-        }
-    }
-}
-extension AryaStark: Expressful{
-    func expressEmotion(){
-        if isDreamRealized {
-            print(&quot;Arya is quite happy&quot;)
-        } else {
-            print(&quot;Arya is very sad&quot;)
-        }
-    }
-}
-extension Angel: Expressful{
-    func expressEmotion(){
-        if isDreamRealized {
-            print(&quot;Angel is quite happy&quot;)
-        } else {
-            print(&quot;Angel is very sad&quot;)
-        }
-    }
-}
+<span class="c1">//: just a convenient extension so that the arbitrary class of people can express themselves</span>
+<span class="k">extension</span> <span class="nl">LittlePrince</span><span class="p">:</span> <span class="n">Expressful</span><span class="p">{</span>
+    <span class="k">func</span> <span class="n">expressEmotion</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="n">isDreamRealized</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Little Prince is quite happy&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Little Prince is very sad&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">extension</span> <span class="nl">AryaStark</span><span class="p">:</span> <span class="n">Expressful</span><span class="p">{</span>
+    <span class="k">func</span> <span class="n">expressEmotion</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="n">isDreamRealized</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Arya is quite happy&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Arya is very sad&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">extension</span> <span class="nl">Angel</span><span class="p">:</span> <span class="n">Expressful</span><span class="p">{</span>
+    <span class="k">func</span> <span class="n">expressEmotion</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="n">isDreamRealized</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Angel is quite happy&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Angel is very sad&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//: The core adaptor. Even Arbitrary, we are all people with dreams
-class PersonWithDreamAdapter: Aged, Dreamful, CustomStringConvertible{
-    private let person: AnyObject
-    var age: Int {
-        if person.isKindOfClass(LittlePrince) { return (person as! LittlePrince).princeAge }
-        else if person.isKindOfClass(AryaStark) { return(person as! AryaStark).humanAge }
-        else { return (person as! Angel).angelAge }
-    }
+<span class="c1">//: The core adaptor. Even Arbitrary, we are all people with dreams</span>
+<span class="k">class</span> <span class="nl">PersonWithDreamAdapter</span><span class="p">:</span> <span class="n">Aged</span><span class="p">,</span> <span class="n">Dreamful</span><span class="p">,</span> <span class="n">CustomStringConvertible</span><span class="p">{</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">person</span><span class="p">:</span> <span class="n">AnyObject</span>
+    <span class="k">var</span> <span class="nl">age</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">LittlePrince</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">person</span> <span class="kt">as</span><span class="o">!</span> <span class="n">LittlePrince</span><span class="p">).</span><span class="n">princeAge</span> <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">AryaStark</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span><span class="p">(</span><span class="n">person</span> <span class="kt">as</span><span class="o">!</span> <span class="n">AryaStark</span><span class="p">).</span><span class="n">humanAge</span> <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">(</span><span class="n">person</span> <span class="kt">as</span><span class="o">!</span> <span class="n">Angel</span><span class="p">).</span><span class="n">angelAge</span> <span class="p">}</span>
+    <span class="p">}</span>
     
-    var description: String {
-        if person.isKindOfClass(LittlePrince) { return &quot;I am a prince and I am \(age) years&#39; old&quot; }
-        else if person.isKindOfClass(AryaStark)  { return &quot;I am AryaStark and I am \(age) years&#39; old&quot; }
-        else  { return &quot;I am an angel and I am \(age) years&#39; old&quot; }
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">LittlePrince</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;I am a prince and I am \(age) years&#39; old&quot;</span> <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">AryaStark</span><span class="p">)</span>  <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;I am AryaStark and I am \(age) years&#39; old&quot;</span> <span class="p">}</span>
+        <span class="k">else</span>  <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;I am an angel and I am \(age) years&#39; old&quot;</span> <span class="p">}</span>
 
-    }
-    init(person: AnyObject){
-        print(&quot;Adapting \(person)&quot;)
-        if person.isKindOfClass(LittlePrince) || person.isKindOfClass(AryaStark) || person.isKindOfClass(Angel) {
-            self.person = person
-        } else {
-            fatalError(&quot;Unexpected type of person&quot;)
-        }
-    }
+    <span class="p">}</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">AnyObject</span><span class="p">){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Adapting \(person)&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">LittlePrince</span><span class="p">)</span> <span class="o">||</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">AryaStark</span><span class="p">)</span> <span class="o">||</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">Angel</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">person</span> <span class="o">=</span> <span class="n">person</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">fatalError</span><span class="p">(</span><span class="s">&quot;Unexpected type of person&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    func dream() {
-        if person.isKindOfClass(LittlePrince) { (person as! LittlePrince).seeFlower()}
-        else if person.isKindOfClass(AryaStark) {(person as! AryaStark).revenge() }
-        else if person.isKindOfClass(Angel) { (person as! Angel).fall() }
-    }
-}
+    <span class="k">func</span> <span class="n">dream</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">LittlePrince</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">person</span> <span class="kt">as</span><span class="o">!</span> <span class="n">LittlePrince</span><span class="p">).</span><span class="n">seeFlower</span><span class="p">()}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">AryaStark</span><span class="p">)</span> <span class="p">{(</span><span class="n">person</span> <span class="kt">as</span><span class="o">!</span> <span class="n">AryaStark</span><span class="p">).</span><span class="n">revenge</span><span class="p">()</span> <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">isKindOfClass</span><span class="p">(</span><span class="n">Angel</span><span class="p">)</span> <span class="p">{</span> <span class="p">(</span><span class="n">person</span> <span class="kt">as</span><span class="o">!</span> <span class="n">Angel</span><span class="p">).</span><span class="n">fall</span><span class="p">()</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//: The GodOfDreamsFacade can manage everybody&#39;s dreams in a batch
-class GodOfDreamsFacade{
-    let prince: LittlePrince
-    let angel: Angel
-    let arya: AryaStark
-    init(prince: LittlePrince, angel: Angel, arya: AryaStark){
-        self.prince = prince
-        self.angel = angel
-        self.arya = arya
+<span class="c1">//: The GodOfDreamsFacade can manage everybody&#39;s dreams in a batch</span>
+<span class="k">class</span> <span class="n">GodOfDreamsFacade</span><span class="p">{</span>
+    <span class="k">let</span> <span class="nl">prince</span><span class="p">:</span> <span class="n">LittlePrince</span>
+    <span class="k">let</span> <span class="nl">angel</span><span class="p">:</span> <span class="n">Angel</span>
+    <span class="k">let</span> <span class="nl">arya</span><span class="p">:</span> <span class="n">AryaStark</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">prince</span><span class="p">:</span> <span class="n">LittlePrince</span><span class="p">,</span> <span class="nl">angel</span><span class="p">:</span> <span class="n">Angel</span><span class="p">,</span> <span class="nl">arya</span><span class="p">:</span> <span class="n">AryaStark</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">prince</span> <span class="o">=</span> <span class="n">prince</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">angel</span> <span class="o">=</span> <span class="n">angel</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">arya</span> <span class="o">=</span> <span class="n">arya</span>
         
-    }
-    func checkDreamState(){
-        print(&quot;-----checking everybody&#39;s dreams-----&quot;)
-        prince.seeFlower()
-        angel.fall()
-        arya.revenge()
-        expressEmotion()
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">checkDreamState</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;-----checking everybody&#39;s dreams-----&quot;</span><span class="p">)</span>
+        <span class="n">prince</span><span class="p">.</span><span class="n">seeFlower</span><span class="p">()</span>
+        <span class="n">angel</span><span class="p">.</span><span class="n">fall</span><span class="p">()</span>
+        <span class="n">arya</span><span class="p">.</span><span class="n">revenge</span><span class="p">()</span>
+        <span class="n">expressEmotion</span><span class="p">()</span>
        
-    }
-    func crushDreams(){
-        print(&quot;-----GodOfDreamsFacade is crushing everybody&#39;s dreams-----&quot;)
-        prince.isDreamRealized = false
-        angel.isDreamRealized = false
-        arya.isDreamRealized = false
-        expressEmotion()
-    }
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">crushDreams</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;-----GodOfDreamsFacade is crushing everybody&#39;s dreams-----&quot;</span><span class="p">)</span>
+        <span class="n">prince</span><span class="p">.</span><span class="n">isDreamRealized</span> <span class="o">=</span> <span class="nb">false</span>
+        <span class="n">angel</span><span class="p">.</span><span class="n">isDreamRealized</span> <span class="o">=</span> <span class="nb">false</span>
+        <span class="n">arya</span><span class="p">.</span><span class="n">isDreamRealized</span> <span class="o">=</span> <span class="nb">false</span>
+        <span class="n">expressEmotion</span><span class="p">()</span>
+    <span class="p">}</span>
     
-    private func expressEmotion() {
-        prince.expressEmotion()
-        angel.expressEmotion()
-        arya.expressEmotion()
-    }
+    <span class="n">private</span> <span class="k">func</span> <span class="n">expressEmotion</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">prince</span><span class="p">.</span><span class="n">expressEmotion</span><span class="p">()</span>
+        <span class="n">angel</span><span class="p">.</span><span class="n">expressEmotion</span><span class="p">()</span>
+        <span class="n">arya</span><span class="p">.</span><span class="n">expressEmotion</span><span class="p">()</span>
+    <span class="p">}</span>
     
-}
+<span class="p">}</span>
 
-//: Testing the adaptor
-print(&quot;\n Using Adapter&quot;)
-let prince = LittlePrince()
-let s1 = PersonWithDreamAdapter(person: prince)
-let arya = AryaStark()
-let angel = Angel()
-print(s1)
-s1.dream()
-let s2 = PersonWithDreamAdapter(person: arya)
-print(s2)
-s2.dream()
-let s3 = PersonWithDreamAdapter(person: angel)
-print(s3)
-s3.dream()
+<span class="c1">//: Testing the adaptor</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Using Adapter&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">prince</span> <span class="o">=</span> <span class="n">LittlePrince</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">PersonWithDreamAdapter</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">prince</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">arya</span> <span class="o">=</span> <span class="n">AryaStark</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">angel</span> <span class="o">=</span> <span class="n">Angel</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span>
+<span class="n">s1</span><span class="p">.</span><span class="n">dream</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">s2</span> <span class="o">=</span> <span class="n">PersonWithDreamAdapter</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">arya</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span>
+<span class="n">s2</span><span class="p">.</span><span class="n">dream</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">s3</span> <span class="o">=</span> <span class="n">PersonWithDreamAdapter</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">angel</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">s3</span><span class="p">)</span>
+<span class="n">s3</span><span class="p">.</span><span class="n">dream</span><span class="p">()</span>
 
-//: Testing the facade
-print(&quot;\n Using Facade&quot;)
-let facade = GodOfDreamsFacade(prince: prince, angel: angel, arya: arya)
-facade.checkDreamState()
-facade.crushDreams()</code></pre></div>
+<span class="c1">//: Testing the facade</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s"> Using Facade&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">facade</span> <span class="o">=</span> <span class="n">GodOfDreamsFacade</span><span class="p">(</span><span class="nl">prince</span><span class="p">:</span> <span class="n">prince</span><span class="p">,</span> <span class="nl">angel</span><span class="p">:</span> <span class="n">angel</span><span class="p">,</span> <span class="nl">arya</span><span class="p">:</span> <span class="n">arya</span><span class="p">)</span>
+<span class="n">facade</span><span class="p">.</span><span class="n">checkDreamState</span><span class="p">()</span>
+<span class="n">facade</span><span class="p">.</span><span class="n">crushDreams</span><span class="p">()</span></code></pre></div>
 
   
   <p>
@@ -326,39 +319,59 @@ facade.crushDreams()</code></pre></div>
   </p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/03/a-design-pattern-story-in-swift-chapter-6-command/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/03/a-design-pattern-story-in-swift-chapter-6-command/"> A Design Pattern Story in Swift – Chapter 6: Command</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-8-template/">A Design Pattern Story in Swift – Chapter 8: Template </a>
+         <a class="prev" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-8-template/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -370,6 +383,7 @@ facade.crushDreams()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -163,65 +156,65 @@ Birds flied away.<br>
 Squirrels climbed up the trees.<br>
 Hedgehog put their heads under the shells…</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">class Creature {
-    let name:String
-    var escapeStrategy: EscapeStrategy
-    init(name: String, escapeStrategy: EscapeStrategy){
-        self.name = name
-        self.escapeStrategy = escapeStrategy
-    }
-    func performEscape() {
-        escapeStrategy.executeEscapePlan()
-        println(&quot;\(name) successfully escaped&quot;)
-    }
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="n">Creature</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span><span class="n">String</span>
+    <span class="k">var</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeStrategy</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeStrategy</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">escapeStrategy</span> <span class="o">=</span> <span class="n">escapeStrategy</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">performEscape</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">escapeStrategy</span><span class="p">.</span><span class="n">executeEscapePlan</span><span class="p">()</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;\(name) successfully escaped&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-protocol EscapeStrategy {
-    func executeEscapePlan()
-}
+<span class="k">protocol</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span>
+<span class="p">}</span>
 
-class EscapeByFlying: EscapeStrategy {
-    func executeEscapePlan() {
-        println(&quot;I escaped by flying&quot;)
-    }
-}
-class EscapeByJumping: EscapeStrategy {
-    func executeEscapePlan() {
-        println(&quot;I escaped by jumping&quot;)
-    }
-}
-class EscapeByClimbing: EscapeStrategy {
-    func executeEscapePlan() {
-        println(&quot;I escaped by climbing&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">EscapeByFlying</span><span class="p">:</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;I escaped by flying&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nl">EscapeByJumping</span><span class="p">:</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;I escaped by jumping&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nl">EscapeByClimbing</span><span class="p">:</span> <span class="n">EscapeStrategy</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">executeEscapePlan</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">println</span><span class="p">(</span><span class="s">&quot;I escaped by climbing&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class Rabbit: Creature {
-    init(name: String) {
-        super.init(name: name, escapeStrategy: EscapeByJumping())
-    }
-}
+<span class="k">class</span> <span class="nl">Rabbit</span><span class="p">:</span> <span class="n">Creature</span> <span class="p">{</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeByJumping</span><span class="p">())</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class Squirrel: Creature {
-    init(name: String) {
-        super.init(name: name, escapeStrategy: EscapeByClimbing())
-    }
-}
-// don&#39;t know the name of the bird yet
-class Bird: Creature {
-    init(name: String) {
-        super.init(name: name, escapeStrategy: EscapeByFlying())
-    }
-}
+<span class="k">class</span> <span class="nl">Squirrel</span><span class="p">:</span> <span class="n">Creature</span> <span class="p">{</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeByClimbing</span><span class="p">())</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// don&#39;t know the name of the bird yet</span>
+<span class="k">class</span> <span class="nl">Bird</span><span class="p">:</span> <span class="n">Creature</span> <span class="p">{</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">escapeStrategy</span><span class="p">:</span> <span class="n">EscapeByFlying</span><span class="p">())</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-// Testing Code 
-let rabbit = Rabbit(name: &quot;Miss Rabbit　Ｒ&quot;)
-let squirrel = Squirrel(name: &quot;Mr. Squirrel S&quot;)
-let bird = Bird(name: &quot;Madam. Bird B&quot;)
-rabbit.performEscape()
-squirrel.performEscape()
-bird.performEscape()</code></pre></div>
+<span class="c1">// Testing Code </span>
+<span class="k">let</span> <span class="n">rabbit</span> <span class="o">=</span> <span class="n">Rabbit</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Miss Rabbit　Ｒ&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">squirrel</span> <span class="o">=</span> <span class="n">Squirrel</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Mr. Squirrel S&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">bird</span> <span class="o">=</span> <span class="n">Bird</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Madam. Bird B&quot;</span><span class="p">)</span>
+<span class="n">rabbit</span><span class="p">.</span><span class="n">performEscape</span><span class="p">()</span>
+<span class="n">squirrel</span><span class="p">.</span><span class="n">performEscape</span><span class="p">()</span>
+<span class="n">bird</span><span class="p">.</span><span class="n">performEscape</span><span class="p">()</span></code></pre></div>
 
 <p>Output:</p>
 
@@ -238,39 +231,59 @@ bird.performEscape()</code></pre></div>
 </blockquote>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/06/08/notes-for-wwdc-2015-keynote/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/06/08/notes-for-wwdc-2015-keynote/"> Notes for WWDC 2015 Keynote</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/06/29/a-design-pattern-story-in-swift-chapter-two-observer/">A Design Pattern Story in Swift &#8211; Chapter 2: Observer </a>
+         <a class="prev" href="/2015/06/29/a-design-pattern-story-in-swift-chapter-two-observer/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -282,6 +295,7 @@ bird.performEscape()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -152,405 +145,425 @@
   <span class="s1">We all have our special weapons. And we fight for what we believed in. </span>
 </p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">enum PersonType{
-    case God
-    case Knight
-    case Wizard
-    case Dwarf
-    case Poet
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">enum</span> <span class="n">PersonType</span><span class="p">{</span>
+    <span class="k">case</span> <span class="n">God</span>
+    <span class="k">case</span> <span class="n">Knight</span>
+    <span class="k">case</span> <span class="n">Wizard</span>
+    <span class="k">case</span> <span class="n">Dwarf</span>
+    <span class="k">case</span> <span class="n">Poet</span>
+<span class="p">}</span>
 
-protocol Personable {
-    var personType: PersonType { get }
-    var name: String { get }
-    var weapon: Weapon? { get set}
-}
+<span class="k">protocol</span> <span class="n">Personable</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span><span class="p">}</span>
+<span class="p">}</span>
 
-class Person: Personable, CustomStringConvertible {
-    var personType: PersonType
-    var name: String
-    var weapon: Weapon?
-    var description: String {
-        return name + (weapon == nil ? &quot; - no weapon \n&quot; : &quot; - Weapon: \(weapon!.name) (price: \(weapon!.price)#) \n&quot;)
-    }
+<span class="k">class</span> <span class="nl">Person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">,</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span><span class="o">?</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="p">(</span><span class="n">weapon</span> <span class="o">==</span> <span class="nb">nil</span> <span class="o">?</span> <span class="s">&quot; - no weapon </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">:</span> <span class="s">&quot; - Weapon: \(weapon!.name) (price: \(weapon!.price)#) </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    init(personType: PersonType,name: String, weapon: Weapon?){
-        self.name = name
-        self.personType = personType
-        self.weapon = weapon
-    }
-}
-//: HouseOfWeapon is a new family that has rised since the first war in the seven kindom. They are the only place where people can get their weapons.
-protocol Weapon {
-    var name: String { get }
-    var price: Int { get set }
-    func fight()
-}
+    <span class="k">init</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">,</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span><span class="o">?</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">personType</span> <span class="o">=</span> <span class="n">personType</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="n">weapon</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: HouseOfWeapon is a new family that has rised since the first war in the seven kindom. They are the only place where people can get their weapons.</span>
+<span class="k">protocol</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span>
+<span class="p">}</span>
 
-struct Sword: Weapon {
-    var name: String
-    var price: Int
-    func fight() {
-        print(&quot;fight with sword&quot;)
-    }
-}
-struct Pen: Weapon {
-    var name: String
-    var price: Int
-    func fight() {
-        print(&quot;fight with pen&quot;)
-    }
-}
-struct Magic: Weapon {
-    var name: String
-    var price: Int
-    func fight() {
-        print(&quot;fight with magic&quot;)
-    }
-}
-struct Hammer: Weapon {
-    var name: String
-    var price: Int
-    func fight() {
-        print(&quot;fight with hammer&quot;)
-    }
-}
+<span class="k">struct</span> <span class="nl">Sword</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with sword&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Pen</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with pen&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Magic</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with magic&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Hammer</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with hammer&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: In the beginning, people would randomly drop at the HouseOfWeapon and ask for their weapon of choice. The choices sometimes turn out to be terribly wrong and people would come back to demand for exchanges. There is no system
+<span class="c1">//: In the beginning, people would randomly drop at the HouseOfWeapon and ask for their weapon of choice. The choices sometimes turn out to be terribly wrong and people would come back to demand for exchanges. There is no system</span>
 
-//: LordOfWeapon is the head of HouseOfWeapon and he has the knowledge of what kind of weapon should be create for what kind of person.
-class LordOfWeapon {
-    class func weaponMatch(person: Person) -&amp;gt; Weapon {
-        switch person.personType {
-        case .Dwarf: return Hammer(name: &quot;Hammer&quot;, price: 10)
-        case .God, .Wizard: return Magic(name: &quot;Magic&quot;, price: 20)
-        case .Knight: return Sword(name: &quot;Sword&quot;, price: 15)
-        case .Poet: return Pen(name: &quot;Pen&quot;, price: 25)
-        }
-    }
-}
+<span class="c1">//: LordOfWeapon is the head of HouseOfWeapon and he has the knowledge of what kind of weapon should be create for what kind of person.</span>
+<span class="k">class</span> <span class="n">LordOfWeapon</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">God</span><span class="p">,</span> <span class="p">.</span><span class="nl">Wizard</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Knight</span><span class="p">:</span> <span class="k">return</span> <span class="n">Sword</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Sword&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Poet</span><span class="p">:</span> <span class="k">return</span> <span class="n">Pen</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Pen&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">25</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: create a group of people
-let knight = Person(personType: PersonType.Knight, name: &quot;Knight William&quot;, weapon: nil)
-let dwarf = Person(personType: PersonType.Dwarf, name: &quot;Dwarf Jim&quot;, weapon: nil)
-let poet = Person(personType: PersonType.Poet, name: &quot;Poet Shelly&quot;, weapon: nil)
-let god = Person(personType: PersonType.God, name: &quot;God of Music&quot;, weapon: nil)
-var group:[Person] = [knight, dwarf, poet, god]
+<span class="c1">//: create a group of people</span>
+<span class="k">let</span> <span class="n">knight</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">Knight</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Knight William&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">dwarf</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">Dwarf</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Dwarf Jim&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">poet</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">Poet</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Poet Shelly&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">god</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">God</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;God of Music&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">)</span>
+<span class="k">var</span> <span class="nl">group</span><span class="p">:[</span><span class="n">Person</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">knight</span><span class="p">,</span> <span class="n">dwarf</span><span class="p">,</span> <span class="n">poet</span><span class="p">,</span> <span class="n">god</span><span class="p">]</span>
 
-print(&quot;----------People Group Created---------&quot;)
-print(group.map{$0.description})
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;----------People Group Created---------&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">})</span>
 
-group = group.map({ (var p) -&amp;gt; Person in
-    p.weapon = LordOfWeapon.weaponMatch(p)
-    return p
-})
-print(&quot;----------Weapon Added---------&quot;)
-print(group.map{$0.description})
+<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Person</span> <span class="k">in</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="n">LordOfWeapon</span><span class="p">.</span><span class="n">weaponMatch</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+<span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;----------Weapon Added---------&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">})</span>
 
-//:## Now, the new LordOfCoin want to reset the price of the weapons
+<span class="c1">//:## Now, the new LordOfCoin want to reset the price of the weapons</span>
 
-class LordOfCoin {
-    class func adjustWeaponPrice( person: Person) -&amp;gt; Int  {
-        guard person.weapon != nil else { return 0 }
-        switch person.personType {
-        case .Dwarf: return 1
-        case .God,; .Wizard: return  50
-        case; .Knight: return 5
-        case; .Poet: return  -20
-        }
-    }
-}
+<span class="k">class</span> <span class="n">LordOfCoin</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span>  <span class="p">{</span>
+        <span class="n">guard</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
+        <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">God</span><span class="p">,;</span> <span class="p">.</span><span class="nl">Wizard</span><span class="p">:</span> <span class="k">return</span>  <span class="mi">50</span>
+        <span class="k">case</span><span class="p">;</span> <span class="p">.</span><span class="nl">Knight</span><span class="p">:</span> <span class="k">return</span> <span class="mi">5</span>
+        <span class="k">case</span><span class="p">;</span> <span class="p">.</span><span class="nl">Poet</span><span class="p">:</span> <span class="k">return</span>  <span class="o">-</span><span class="mi">20</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-print(&quot;\n----------LordOfCoin adjusted the price of weapons ---------&quot;)
-group = group.map({ (var p) -&amp;gt; Person in
-    p.weapon?.price += LordOfCoin.adjustWeaponPrice(p)
-    return p
-})
-print(group.map{$0.description})
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">----------LordOfCoin adjusted the price of weapons ---------&quot;</span><span class="p">)</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Person</span> <span class="k">in</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">weapon</span><span class="o">?</span><span class="p">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">LordOfCoin</span><span class="p">.</span><span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+<span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">})</span>
 
 
-//: The problem is that both LordOfCoin and LordOfWeapon are doing the same kind of checking for person&#39;s type. Can they outsource this work to someone else? Perhaps a RuleBook? Say a universalWeaponMatch rule
-func universalWeaponMatch(var person: Personable) -&amp;gt; Personable {
-    if person.weapon == nil {
-        var weapon: Weapon
-        switch person.personType {
-        case .Dwarf: weapon =  Hammer(name: &quot;Hammer&quot;, price: 10)
-        case .God, .Wizard: weapon = Magic(name: &quot;Magic&quot;, price: 20)
-        case .Knight: weapon = Sword(name: &quot;Sword&quot;, price: 15)
-        case .Poet: weapon = Pen(name: &quot;Pen&quot;, price: 25)
+<span class="c1">//: The problem is that both LordOfCoin and LordOfWeapon are doing the same kind of checking for person&#39;s type. Can they outsource this work to someone else? Perhaps a RuleBook? Say a universalWeaponMatch rule</span>
+<span class="k">func</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Personable</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">==</span> <span class="nb">nil</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span>
+        <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span>  <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">God</span><span class="p">,</span> <span class="p">.</span><span class="nl">Wizard</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Knight</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span> <span class="n">Sword</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Sword&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Poet</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span> <span class="n">Pen</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Pen&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">25</span><span class="p">)</span>
             
-        }
-        person.weapon = weapon
-    }
-    return person
-}
+        <span class="p">}</span>
+        <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="n">weapon</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">person</span>
+<span class="p">}</span>
 
-//: The LordOfWeapon refers the &#39;universalWeaponMatch&#39; to create the right weapon for each person
-class LordOfWeaponAdvanced {
-    class func weaponMatch(person: Personable) -&amp;gt; Weapon? {
-        return universalWeaponMatch(person).weapon
-    }
-}
+<span class="c1">//: The LordOfWeapon refers the &#39;universalWeaponMatch&#39; to create the right weapon for each person</span>
+<span class="k">class</span> <span class="n">LordOfWeaponAdvanced</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: CoinOfWeapon refers the &#39;universalWeaponMatch&#39; to check and adjust the weapon price.
-class LordOfCoinAdvanced {
-    class func getWeaponPrice(person: Personable) -&amp;gt; Int? {
-        return universalWeaponMatch(person).weapon?.price
-    }
-    class func adjustWeaponPrice(var person: Personable) -&amp;gt; Personable {
-        //: equip the person with weapon
-        person = universalWeaponMatch(person)
-        guard person.weapon != nil else { return person }
-        // Fav Poet and give them free weapons
-        if person.weapon!.price &amp;gt; 0 &amp;&amp; person.personType == .Poet {
-            print(&quot;Through the &#39;universalWeaponMatch&#39; book, LordOfCoinAdvanced adjusted the weapon price for \(person.name) from \(person.weapon!.price)# to 0# &quot;)
-            person.weapon!.price = 0
-        }
-        return person
-    }
-}
+<span class="c1">//: CoinOfWeapon refers the &#39;universalWeaponMatch&#39; to check and adjust the weapon price.</span>
+<span class="k">class</span> <span class="n">LordOfCoinAdvanced</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">getWeaponPrice</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span><span class="o">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span><span class="o">?</span><span class="p">.</span><span class="n">price</span>
+    <span class="p">}</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Personable</span> <span class="p">{</span>
+        <span class="c1">//: equip the person with weapon</span>
+        <span class="n">person</span> <span class="o">=</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
+        <span class="n">guard</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="n">person</span> <span class="p">}</span>
+        <span class="c1">// Fav Poet and give them free weapons</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="o">==</span> <span class="p">.</span><span class="n">Poet</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Through the &#39;universalWeaponMatch&#39; book, LordOfCoinAdvanced adjusted the weapon price for \(person.name) from \(person.weapon!.price)# to 0# &quot;</span><span class="p">)</span>
+            <span class="n">person</span><span class="p">.</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">person</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-print(&quot;\n---------- &#39;universalWeaponMatch&#39; book is created ---------&quot;)
-LordOfCoinAdvanced.adjustWeaponPrice(group[2])
-print(group[2] )</code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">---------- &#39;universalWeaponMatch&#39; book is created ---------&quot;</span><span class="p">)</span>
+<span class="n">LordOfCoinAdvanced</span><span class="p">.</span><span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/factory-1.png"><img class="aligncenter size-full wp-image-981" src="/assets/wp-content/uploads/2015/07/factory-1.png" alt="factory 1" width="797" height="355" /></a></p>
 
 <p>Rework on the code, add weapon factories and let them decide the weapon details.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">enum PersonType{
-    case God
-    case Knight
-    case Wizard
-    case Dwarf
-    case Poet
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">enum</span> <span class="n">PersonType</span><span class="p">{</span>
+    <span class="k">case</span> <span class="n">God</span>
+    <span class="k">case</span> <span class="n">Knight</span>
+    <span class="k">case</span> <span class="n">Wizard</span>
+    <span class="k">case</span> <span class="n">Dwarf</span>
+    <span class="k">case</span> <span class="n">Poet</span>
+<span class="p">}</span>
 
-enum WeaponType {
-    case Sword
-    case Magic
-    case Pen
-    case Hammer
-}
-
-
-//: We all have our special weapons. And we fight for what we believed in.
-protocol Personable {
-    var personType: PersonType { get }
-    var name: String { get }
-    var weapon: Weapon? { get set}
-    var skillLevel: Int { get set}
-}
-
-class Person: Personable, CustomStringConvertible {
-    var personType: PersonType
-    var name: String
-    var weapon: Weapon?
-    var skillLevel: Int
-    var description: String {
-        return name + (weapon == nil ? &quot; - no weapon \n&quot; : &quot; - Weapon: \(weapon!.name) (price: \(weapon!.price)#) \n&quot;)
-    }
-    init(personType: PersonType,name: String, weapon: Weapon?, skillLevel: Int  = 0){
-        self.name = name
-        self.personType = personType
-        self.weapon = weapon
-        self.skillLevel = skillLevel
-    }
-}
+<span class="k">enum</span> <span class="n">WeaponType</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">Sword</span>
+    <span class="k">case</span> <span class="n">Magic</span>
+    <span class="k">case</span> <span class="n">Pen</span>
+    <span class="k">case</span> <span class="n">Hammer</span>
+<span class="p">}</span>
 
 
-protocol Weapon {
-    var name: String { get }
-    var price: Int { get set }
-    var powerLevel: Int { get }
+<span class="c1">//: We all have our special weapons. And we fight for what we believed in.</span>
+<span class="k">protocol</span> <span class="n">Personable</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span><span class="p">}</span>
+    <span class="k">var</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nl">Person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">,</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span><span class="o">?</span>
+    <span class="k">var</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">name</span> <span class="o">+</span> <span class="p">(</span><span class="n">weapon</span> <span class="o">==</span> <span class="nb">nil</span> <span class="o">?</span> <span class="s">&quot; - no weapon </span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">:</span> <span class="s">&quot; - Weapon: \(weapon!.name) (price: \(weapon!.price)#) </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">,</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span><span class="o">?</span><span class="p">,</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="n">Int</span>  <span class="o">=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">personType</span> <span class="o">=</span> <span class="n">personType</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="n">weapon</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">skillLevel</span> <span class="o">=</span> <span class="n">skillLevel</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="k">protocol</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
     
-    func fight()
-}
-struct Sword: Weapon {
-    var name: String
-    var price: Int
-    var powerLevel: Int
-    func fight() {
-        print(&quot;fight with sword&quot;)
-    }
-}
-struct Pen: Weapon {
-    var name: String
-    var price: Int
-    var powerLevel: Int
-    func fight() {
-        print(&quot;fight with pen&quot;)
-    }
-}
-struct Magic: Weapon {
-    var name: String
-    var price: Int
-    var powerLevel: Int
-    func fight() {
-        print(&quot;fight with magic&quot;)
-    }
-}
-struct Hammer: Weapon {
-    var name: String
-    var price: Int
-    var powerLevel: Int
-    func fight() {
-        print(&quot;fight with hammer&quot;)
-    }
-}
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Sword</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with sword&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Pen</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with pen&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Magic</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with magic&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Hammer</span><span class="p">:</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">fight</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;fight with hammer&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//: Previously the &quot;universalWeaponMatch&quot; takes over the responsibility for creating the matching weapon for each person. But as the amount of weapon grows, the matching book exploded and became hard to manage.
-//: In general, the HouseOfWeapon makes 3 kinds weapons:
-//: * WeaponFromTheSouth: good for entry level, flexbile
-//: * WeaponFromTheNorth: requires heavy mastery, very powerful
-//: * WeaponFromTheVast: a mix of materials from everywhere, can be very weak or very powerful. Hard to expect the result
+<span class="c1">//: Previously the &quot;universalWeaponMatch&quot; takes over the responsibility for creating the matching weapon for each person. But as the amount of weapon grows, the matching book exploded and became hard to manage.</span>
+<span class="c1">//: In general, the HouseOfWeapon makes 3 kinds weapons:</span>
+<span class="c1">//: * WeaponFromTheSouth: good for entry level, flexbile</span>
+<span class="c1">//: * WeaponFromTheNorth: requires heavy mastery, very powerful</span>
+<span class="c1">//: * WeaponFromTheVast: a mix of materials from everywhere, can be very weak or very powerful. Hard to expect the result</span>
 
-protocol WeaponFactory {
-    func makeAWeapon(weaponType: WeaponType) -&amp;gt; Weapon
-}
+<span class="k">protocol</span> <span class="n">WeaponFactory</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span>
+<span class="p">}</span>
 
-class WeaponFactoryFromTheNorth:WeaponFactory {
-     func makeAWeapon(weaponType: WeaponType) -&amp;gt; Weapon {
-        switch weaponType {
-        case .Hammer: return Hammer(name: &quot;Hammer from North&quot;, price: 100, powerLevel: 90)
-        case .Magic: return Magic(name: &quot;Magic from North&quot;, price: 100, powerLevel: 80)
-        case .Pen: return Pen(name: &quot;Pen from North&quot;, price: 90, powerLevel: 99)
-        case .Sword: return Sword(name: &quot;Sword from North&quot;, price: 70, powerLevel: 65)
-        }
-    }
-}
+<span class="k">class</span> <span class="nl">WeaponFactoryFromTheNorth</span><span class="p">:</span><span class="n">WeaponFactory</span> <span class="p">{</span>
+     <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">weaponType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Hammer</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer from North&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">90</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Magic</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic from North&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">80</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Pen</span><span class="p">:</span> <span class="k">return</span> <span class="n">Pen</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Pen from North&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">90</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">99</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Sword</span><span class="p">:</span> <span class="k">return</span> <span class="n">Sword</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Sword from North&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">70</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">65</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class WeaponFactoryFromTheSouth:WeaponFactory {
-    func makeAWeapon(weaponType: WeaponType) -&amp;gt; Weapon {
-        switch weaponType {
-        case .Hammer: return Hammer(name: &quot;Hammer from South&quot;, price: 100, powerLevel: 1)
-        case .Magic: return Magic(name: &quot;Magic from South&quot;, price: 10, powerLevel: 18)
-        case .Pen: return Pen(name: &quot;Pen from South&quot;, price: 9, powerLevel: 9)
-        case .Sword: return Sword(name: &quot;Sword from South&quot;, price: 7, powerLevel: 5)
-        }
-    }
-}
-class WeaponFactoryFromTheVast:WeaponFactory {
-    func makeAWeapon(weaponType: WeaponType) -&amp;gt; Weapon {
-        switch weaponType {
-        case .Hammer: return Hammer(name: &quot;Hammer from Vast&quot;, price: 80, powerLevel: 99)
-        case .Magic: return Magic(name: &quot;Magic from Vast&quot;, price: 30, powerLevel: 1)
-        case .Pen: return Pen(name: &quot;Pen from Vast&quot;, price: 9, powerLevel: 67)
-        case .Sword: return Sword(name: &quot;Sword from Vast&quot;, price: 78, powerLevel: 2)
-        }
-    }
-}
+<span class="k">class</span> <span class="nl">WeaponFactoryFromTheSouth</span><span class="p">:</span><span class="n">WeaponFactory</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">weaponType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Hammer</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer from South&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Magic</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic from South&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">18</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Pen</span><span class="p">:</span> <span class="k">return</span> <span class="n">Pen</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Pen from South&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">9</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Sword</span><span class="p">:</span> <span class="k">return</span> <span class="n">Sword</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Sword from South&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nl">WeaponFactoryFromTheVast</span><span class="p">:</span><span class="n">WeaponFactory</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">weaponType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Hammer</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer from Vast&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">99</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Magic</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic from Vast&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Pen</span><span class="p">:</span> <span class="k">return</span> <span class="n">Pen</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Pen from Vast&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">67</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Sword</span><span class="p">:</span> <span class="k">return</span> <span class="n">Sword</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Sword from Vast&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: the &#39;universalWeaponMatchAdvanced&#39; checks the person&#39;s skill level first and send the order to one of the three Weapon Factories to make the weapon. It doesn&#39;t need to care about the details of each weapon (price, name...). It&#39;s not their business anyway.
-func universalWeaponMatchAdvaned(var person: Personable) -&amp;gt; Personable {
-    var weaponFactory: WeaponFactory
-    switch person.skillLevel {
-        case 0...20: weaponFactory = WeaponFactoryFromTheSouth()
-        case; 21...100: weaponFactory = WeaponFactoryFromTheNorth();
-        default: weaponFactory = WeaponFactoryFromTheVast()
-    }
+<span class="c1">//: the &#39;universalWeaponMatchAdvanced&#39; checks the person&#39;s skill level first and send the order to one of the three Weapon Factories to make the weapon. It doesn&#39;t need to care about the details of each weapon (price, name...). It&#39;s not their business anyway.</span>
+<span class="k">func</span> <span class="n">universalWeaponMatchAdvaned</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Personable</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">weaponFactory</span><span class="p">:</span> <span class="n">WeaponFactory</span>
+    <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">skillLevel</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mf">0.</span><span class="p">.</span><span class="mf">.20</span><span class="o">:</span> <span class="n">weaponFactory</span> <span class="o">=</span> <span class="n">WeaponFactoryFromTheSouth</span><span class="p">()</span>
+        <span class="k">case</span><span class="p">;</span> <span class="mf">21.</span><span class="p">.</span><span class="mf">.100</span><span class="o">:</span> <span class="n">weaponFactory</span> <span class="o">=</span> <span class="n">WeaponFactoryFromTheNorth</span><span class="p">();</span>
+        <span class="k">default</span><span class="o">:</span> <span class="n">weaponFactory</span> <span class="o">=</span> <span class="n">WeaponFactoryFromTheVast</span><span class="p">()</span>
+    <span class="p">}</span>
     
-    if person.weapon == nil {
-        var weapon: Weapon
-        switch person.personType {
-        case .Dwarf: weapon =  weaponFactory.makeAWeapon(WeaponType.Hammer)
-        case .God,; .Wizard: weapon = weaponFactory.makeAWeapon(WeaponType.Magic)
-        case; .Knight: weapon = weaponFactory.makeAWeapon(WeaponType.Sword)
-        case; .Poet: weapon = weaponFactory.makeAWeapon(WeaponType.Pen)
-        }
-        person.weapon = weapon
-    }
-    return person
-}
+    <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">==</span> <span class="nb">nil</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span>
+        <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span>  <span class="n">weaponFactory</span><span class="p">.</span><span class="n">makeAWeapon</span><span class="p">(</span><span class="n">WeaponType</span><span class="p">.</span><span class="n">Hammer</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">God</span><span class="p">,;</span> <span class="p">.</span><span class="nl">Wizard</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span> <span class="n">weaponFactory</span><span class="p">.</span><span class="n">makeAWeapon</span><span class="p">(</span><span class="n">WeaponType</span><span class="p">.</span><span class="n">Magic</span><span class="p">)</span>
+        <span class="k">case</span><span class="p">;</span> <span class="p">.</span><span class="nl">Knight</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span> <span class="n">weaponFactory</span><span class="p">.</span><span class="n">makeAWeapon</span><span class="p">(</span><span class="n">WeaponType</span><span class="p">.</span><span class="n">Sword</span><span class="p">)</span>
+        <span class="k">case</span><span class="p">;</span> <span class="p">.</span><span class="nl">Poet</span><span class="p">:</span> <span class="n">weapon</span> <span class="o">=</span> <span class="n">weaponFactory</span><span class="p">.</span><span class="n">makeAWeapon</span><span class="p">(</span><span class="n">WeaponType</span><span class="p">.</span><span class="n">Pen</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="n">weapon</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">person</span>
+<span class="p">}</span>
 
-class LordOfWeapon {
-    class func weaponMatch(person: Personable) -&amp;gt; Weapon? {
-        return universalWeaponMatchAdvaned(person).weapon
-    }
-}
+<span class="k">class</span> <span class="n">LordOfWeapon</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">universalWeaponMatchAdvaned</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Testing
-print(&quot;----------Created a group of people ---------&quot;)
-let knight = Person(personType: PersonType.Knight, name: &quot;Knight William&quot;, weapon: nil, skillLevel: 56)
-let dwarf = Person(personType: PersonType.Dwarf, name: &quot;Dwarf Jim&quot;, weapon: nil, skillLevel: 99)
-let poet = Person(personType: PersonType.Poet, name: &quot;Poet Shelly&quot;, weapon: nil, skillLevel: 142)
-let god = Person(personType: PersonType.God, name: &quot;God of Music&quot;, weapon: nil, skillLevel: 1)
-var group:[Person] = [knight, dwarf, poet, god]
+<span class="c1">//: Testing</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;----------Created a group of people ---------&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">knight</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">Knight</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Knight William&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="mi">56</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">dwarf</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">Dwarf</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Dwarf Jim&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="mi">99</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">poet</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">Poet</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Poet Shelly&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="mi">142</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">god</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="nl">personType</span><span class="p">:</span> <span class="n">PersonType</span><span class="p">.</span><span class="n">God</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;God of Music&quot;</span><span class="p">,</span> <span class="nl">weapon</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">var</span> <span class="nl">group</span><span class="p">:[</span><span class="n">Person</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">knight</span><span class="p">,</span> <span class="n">dwarf</span><span class="p">,</span> <span class="n">poet</span><span class="p">,</span> <span class="n">god</span><span class="p">]</span>
 
-print(group.map{$0.description})
-print(&quot;----------Add Weapon to each person according to their skill level ---------&quot;)
-group.map{LordOfWeapon.weaponMatch($0)}
-print(group.map{$0.description})
+<span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;----------Add Weapon to each person according to their skill level ---------&quot;</span><span class="p">)</span>
+<span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="n">LordOfWeapon</span><span class="p">.</span><span class="n">weaponMatch</span><span class="p">(</span><span class="err">$</span><span class="mi">0</span><span class="p">)}</span>
+<span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">})</span>
 
 
-//:## Now, the new LordOfCoin want to reset the price of the weapons. He is also responsible for calculating the tax for each person&#39;s weapon
+<span class="c1">//:## Now, the new LordOfCoin want to reset the price of the weapons. He is also responsible for calculating the tax for each person&#39;s weapon</span>
 
-class LordOfCoin {
-    class func calculateWeaponCostAfterTax(person: Personable) -&amp;gt; Int {
-        if person.weapon == nil { return 0 }
-        else { return universalWeaponMatchAdvaned(person).weapon!.price * 2 }
-    }
-    class func adjustWeaponPrice( person: Person) -&amp;gt; Int  {
-        guard person.weapon != nil else { return 0 }
-        switch person.personType {
-        case .Dwarf: return 1
-        case .God, .Wizard: return  50
-        case .Knight: return 5
-        case .Poet: return  20
-        }
-    }
-}
+<span class="k">class</span> <span class="n">LordOfCoin</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">calculateWeaponCostAfterTax</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">==</span> <span class="nb">nil</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="n">universalWeaponMatchAdvaned</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span>  <span class="p">{</span>
+        <span class="n">guard</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
+        <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">case</span> <span class="p">.</span><span class="n">God</span><span class="p">,</span> <span class="p">.</span><span class="nl">Wizard</span><span class="p">:</span> <span class="k">return</span>  <span class="mi">50</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Knight</span><span class="p">:</span> <span class="k">return</span> <span class="mi">5</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Poet</span><span class="p">:</span> <span class="k">return</span>  <span class="mi">20</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-print(&quot;\n----------LordOfCoin adjusted the price of weapons ---------&quot;)
-group = group.map({ (var p) -&amp;gt; Person in
-    p.weapon?.price += LordOfCoin.adjustWeaponPrice(p)
-    return p
-})
-print(group.map{$0.description})
-print(&quot;\n----------LordOfCoin calculate the total cost after tax ---------&quot;)
-let totalCost = group.map{LordOfCoin.calculateWeaponCostAfterTax($0)}.reduce(0, combine: +)
-let totalCostBeforeTax = group.map{$0.weapon!.price}.reduce(0, combine: +)
-print(&quot;total cost after tax: \(totalCost)#  (before tax: \(totalCostBeforeTax)#)\n&quot;)</code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">----------LordOfCoin adjusted the price of weapons ---------&quot;</span><span class="p">)</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Person</span> <span class="k">in</span>
+    <span class="n">p</span><span class="p">.</span><span class="n">weapon</span><span class="o">?</span><span class="p">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">LordOfCoin</span><span class="p">.</span><span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+<span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">})</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">----------LordOfCoin calculate the total cost after tax ---------&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">totalCost</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="n">LordOfCoin</span><span class="p">.</span><span class="n">calculateWeaponCostAfterTax</span><span class="p">(</span><span class="err">$</span><span class="mi">0</span><span class="p">)}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">totalCostBeforeTax</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;total cost after tax: \(totalCost)#  (before tax: \(totalCostBeforeTax)#)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/factory-2.png&#x27;"><img class="aligncenter size-full wp-image-982" src="/assets/wp-content/uploads/2015/07/factory-2.png" alt="factory 2" width="530" height="358" /></a></p>
 
 <p><p class="p1"></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/06/30/a-design-pattern-in-swift-chapter-3-decorator/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/06/30/a-design-pattern-in-swift-chapter-3-decorator/"> A Design Pattern Story in Swift  &#8211; Chapter 3: Decorator</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-5-singleton/">A Design Pattern Story in Swift – Chapter 5: Singleton </a>
+         <a class="prev" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-5-singleton/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -562,6 +575,7 @@ print(&quot;total cost after tax: \(totalCost)#  (before tax: \(totalCostBeforeT
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

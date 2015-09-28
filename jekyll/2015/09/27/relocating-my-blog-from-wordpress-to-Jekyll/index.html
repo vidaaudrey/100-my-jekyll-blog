@@ -10,7 +10,7 @@
 
   <title>
     
-      Introducing Poole &middot; Audrey Li's Personal Blog
+      Relocating My Blog from Wordpress to Jekyll &middot; Audrey Li's Personal Blog
     
   </title>
 
@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -85,13 +85,6 @@
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
             </span>
         </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
 
         <a href="https://www.linkedin.com/in/audreyauli" title="Audrey's Google Plus">
             <span class="fa-stack fa-lg">
@@ -124,19 +117,16 @@
 
 <!-- jumbotron for post page, with feature image -->
   
-      <div class="jumbotron jumbotron-post" style="background-image: url('')">
+      <div class="jumbotron jumbotron-post-plain">
          <div class="fullwidth-wrapper">
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
       <div class="main-wrap">
-           <h2 class="post-title">Introducing Poole</h2>
-            <p class="post-date">02 Mar 2014</p>
+           <h2 class="post-title">Relocating My Blog from Wordpress to Jekyll</h2>
+            <p class="post-date">27 Sep 2015</p>
       </div>
     </div>
 </div>
-        
       </div>
-
-  <!-- jumbotron for post page, without feature image -->
   
 
 
@@ -148,96 +138,127 @@
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
                 <div class="post card">
-   <p><em>The Strange Case of Dr. Jeykll and Mr. Hyde</em> tells the story of a lawyer
-investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward
-Hyde. Chief among the novel&rsquo;s supporting cast is a man by the name of Mr. Poole,
-Dr. Jekyll&rsquo;s loyal butler.
-&lt;!&ndash;more&ndash;&gt;</p>
+   <p><em>A wise lady recently told me to write, always. I am not good at writing, but I am going to try anyway.</em></p>
 
 <hr>
 
-<p>Poole is the butler for <a href="http://jekyllrb.com">Jekyll</a>, the static site
-generator. It&rsquo;s designed and developed by <a href="https://twitter.com/mdo">@mdo</a> to
-provide a clear and concise foundational setup for any Jekyll site. It does so
-by furnishing a full vanilla Jekyll install with example templates, pages,
-posts, and styles.</p>
+<p>In this post, I am going to use different markup tags and format to show what styles are built in this new <a href="http://jekyllrb.com">Jekyll</a> blog. </p>
 
-<p>There are currently two themes built on Poole:</p>
+<p>My last blog entry was on July 18th, which was about 2 months ago. In the past 2 months, I&rsquo;ve spent some time trying to learn some front-end development skills and had two client projects. Although I love iOS, web development comes much more handy and useful in the day-to-day life. And I feel fortunate that I&rsquo;ll be attending Makersquare in early Novemeber for an intensive 3 months&rsquo; training program. </p>
 
-<ul>
-<li><a href="http://hyde.getpoole.com">Hyde</a></li>
-<li><a href="http://lanyon.getpoole.com">Lanyon</a></li>
-</ul>
+<!--more-->
 
-<p>Learn more and contribute on <a href="https://github.com/poole">GitHub</a>.</p>
+<h3>Background</h3>
 
-<h3>What&rsquo;s included</h3>
+<p>My precouse for the school will begin next week, so I spent last two days trying to relocate my blog from Wordpress to Jekyll, which I hope will give me more flexibility to do experiement on various front-end development topics. </p>
 
-<p>Poole is a streamlined Jekyll site designed and built as a foundation for
-building more meaningful themes. Poole, and every theme built on it, includes
-the following:</p>
+<h3>Learnings from this relocation</h3>
 
 <ul>
-<li>Complete Jekyll setup included (layouts, config, <a href="/404">404</a>, <a href="/atom.xml">RSS
-feed</a>, posts, and <a href="/about">example page</a>)</li>
-<li>Mobile friendly design and development</li>
-<li>Easily scalable text and component sizing with <code>rem</code> units in the CSS</li>
-<li>Support for a wide gamut of HTML elements</li>
-<li>Related posts (time-based, because Jekyll) below each post</li>
-<li>Syntax highlighting, courtesy Pygments (the Python-based code snippet
-highlighter)</li>
+<li>Definitely love Jekyll. It&rsquo;s much simpler than Wordpress and integration with Github is perfect. Moreover, I no longer need to pay for hosting fee. </li>
+<li>Powerful templating system, don&rsquo;t repeat yourself. </li>
+<li>Support for both html and markup. I never really used markup except for github before. But I defnitely will try to learn more. It&rsquo;s much less cluttered than HTML. </li>
 </ul>
 
-<p>Additional features are available in individual themes.</p>
+<h3>Tools used</h3>
 
-<h3>Browser support</h3>
+<ul>
+<li>SASS. Strictly speaking, SCSS, even I like SASS more, the conversion between existing css to SASS is much more work. </li>
+<li>Bootstrap. I&rsquo;ve struggled whether I should use any framework in the beginning since my blog is very minimalistic and Jekyll comes with a great buit-in support for a styling. But I went ahead and dropped Bootstrap in anyhow after some consideration for two reasons. First, it will greatly help speed up my development. Second, I&rsquo;ll definitely need it for some future experiements. </li>
+<li>Yeoman Generator - Jekyllized. <a href="https://github.com/robwierzbowski/generator-jekyllrb">Generator-jekyllrb</a> is the most popular Jekyll generator in Yeoman, and I&rsquo;ve loved it at first, especially the support for Compass, CoffeeScript, HTML5 Boilerplate Template makes it very attractive for a beginner like me. But I had hard time getting it work properly. And somehow, I&rsquo;ve developed a preference on Gulp over Grunt so I end up using <a href="https://github.com/sondr3/generator-jekyllized">Generator-jekyllized</a>. I had to do some minor tweeks to make it work as the way I intended, and overall, I am pretty happy with Jekyllized. Other benefits of using Jekyllized:
 
-<p>Poole and it&rsquo;s themes are by preference a forward-thinking project. In addition
-to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it
-is only compatible with Internet Explorer 9 and above.</p>
+<ul>
+<li>Complete setup including layouts, config, 404, RSS Feed, posts and an example page. </li>
+<li>Support for related posts </li>
+<li>Syntax highlighting </li>
+</ul></li>
+</ul>
 
-<h3>Download</h3>
+<h3>Cheatsheet for Styling</h3>
 
-<p>Poole is developed on and hosted with GitHub. Head to the <a
-href="https://github.com/poole/poole">GitHub repository</a> for downloads, bug
-reports, and features requests.</p>
+<ul>
+<li>Jekyll has a directory <code>_posts</code> which contains all the blog posts. </li>
+<li>Styles:
 
-<p>Thanks!</p>
+<ul>
+<li> <sup>superscript:</sup> <code>^superscript</code></li>
+<li> <u>underline</u>: <code>_underline_</code></li>
+<li> <mark>highlight</mark>: <code>==highlight==</code> </li>
+<li>** bold **:  <code>&lt;strong&gt;</code>.</li>
+<li>* italicize *:  <code>&lt;em&gt;</code>.</li>
+<li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> use<code>&lt;abbr&gt;</code>, with an optional <code>title</code> attribute for the full phrase.</li>
+<li>Citations, like <cite>&mdash; Mark otto</cite> uses <code>&lt;cite&gt;</code>.</li>
+<li><del>Deleted</del> uses <code>&lt;del&gt;</code> and <ins>inserted</ins> text: <code>&lt;ins&gt;</code>.</li>
+<li>Superscript <sup>text</sup> uses <code>&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code>&lt;sub&gt;</code>.</li>
+<li><code>&gt; Winter is coming</code></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>Winter is coming. </p>
+</blockquote>
+
+<ul>
+<li>syntax highlighting </li>
+</ul>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello, this is Audrey&#39;</span><span class="p">);</span></code></pre></div>
+
+<p><noscript><pre>Hallo! Hello! </p>
+
+<p><img src="http://25.media.tumblr.com/tumblr_m79ecda9Q61qzex9io1_1280.jpg" alt="Hello, world"></pre></noscript><script src="https://gist.github.com/vidaaudrey/d5a1ad6bb4b0d61c8a01.js"> </script></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/"> A Design Pattern Story in Swift – Chapter 21: Interpretor</a>
+        
+    </div>
+    <div>
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
              A Design Pattern Story in Swift – Chapter 19: Flyweight
              <small>17 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -249,6 +270,7 @@ reports, and features requests.</p>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

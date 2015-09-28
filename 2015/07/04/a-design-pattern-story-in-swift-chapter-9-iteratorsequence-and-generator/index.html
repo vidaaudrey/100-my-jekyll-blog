@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -158,160 +151,180 @@
 </p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">struct MenuItem: CustomStringConvertible{
-    let name: String
-    let price: Int
-    let isVegetable: Bool
-    var description: String {
-        let vegi = isVegetable ? &quot;Vegi&quot; : &quot;&quot;
-        return  &quot;\(name): (\(price)#) \(vegi) \n&quot;  }
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="nl">MenuItem</span><span class="p">:</span> <span class="n">CustomStringConvertible</span><span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">let</span> <span class="nl">isVegetable</span><span class="p">:</span> <span class="n">Bool</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">vegi</span> <span class="o">=</span> <span class="n">isVegetable</span> <span class="o">?</span> <span class="s">&quot;Vegi&quot;</span> <span class="o">:</span> <span class="s">&quot;&quot;</span>
+        <span class="k">return</span>  <span class="s">&quot;\(name): (\(price)#) \(vegi) </span><span class="se">\n</span><span class="s">&quot;</span>  <span class="p">}</span>
+<span class="p">}</span>
 
-//: helper protocols. Hashable and Equatable is necesary for storing MenuItem in a Set
-extension MenuItem: Hashable, Equatable{
-    var hashValue: Int {
-        return name.hashValue ^ price.hashValue
-    }
-}
-func ==(lhs:MenuItem, rhs:MenuItem) -&amp;gt; Bool {
-    return lhs.name == rhs.name
-}
+<span class="c1">//: helper protocols. Hashable and Equatable is necesary for storing MenuItem in a Set</span>
+<span class="k">extension</span> <span class="nl">MenuItem</span><span class="p">:</span> <span class="n">Hashable</span><span class="p">,</span> <span class="n">Equatable</span><span class="p">{</span>
+    <span class="k">var</span> <span class="nl">hashValue</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">name</span><span class="p">.</span><span class="n">hashValue</span> <span class="o">^</span> <span class="n">price</span><span class="p">.</span><span class="n">hashValue</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">func</span> <span class="o">==</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span><span class="n">MenuItem</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span><span class="n">MenuItem</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="n">name</span>
+<span class="p">}</span>
 
 
-protocol PrettyDescription: CustomStringConvertible {
-    var prettyDescription: String { get }
-}
+<span class="k">protocol</span> <span class="nl">PrettyDescription</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">prettyDescription</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+<span class="p">}</span>
 
-//: provide default implementation to describe the elements of the sequence. As the PrettyDescription inherit CustomStringConvertible, we can safely downcast the sequence elements to CustomStringConvertible
-extension PrettyDescription where Self: protocol &amp;lt;SequenceType&amp;gt; {
-    var prettyDescription: String {
-        var temStr = &quot;\nMenu Items:\n&quot;
-        self.map{temStr += ($0 as! CustomStringConvertible).description} 
-        return temStr
-    }
-}
+<span class="c1">//: provide default implementation to describe the elements of the sequence. As the PrettyDescription inherit CustomStringConvertible, we can safely downcast the sequence elements to CustomStringConvertible</span>
+<span class="k">extension</span> <span class="n">PrettyDescription</span> <span class="k">where</span> <span class="nl">Self</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">SequenceType</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">prettyDescription</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">temStr</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Menu Items:</span><span class="se">\n</span><span class="s">&quot;</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="n">temStr</span> <span class="o">+=</span> <span class="p">(</span><span class="err">$</span><span class="mi">0</span> <span class="kt">as</span><span class="o">!</span> <span class="n">CustomStringConvertible</span><span class="p">).</span><span class="n">description</span><span class="p">}</span> 
+        <span class="k">return</span> <span class="n">temStr</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: how next element is generated from a MenuItem Array
-struct MenuGeneratorFromArray: GeneratorType {
-    let menuItems:[MenuItem]
-    var index = 0
-    mutating func next() -&amp;gt; MenuItem? {
-        return index &amp;lt; menuItems.count ? menuItems[index++] : nil
-    }
-}
+<span class="c1">//: how next element is generated from a MenuItem Array</span>
+<span class="k">struct</span> <span class="nl">MenuGeneratorFromArray</span><span class="p">:</span> <span class="n">GeneratorType</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">menuItems</span><span class="p">:[</span><span class="n">MenuItem</span><span class="p">]</span>
+    <span class="k">var</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">next</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuItem</span><span class="o">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">index</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="o">?</span> <span class="n">menuItems</span><span class="p">[</span><span class="n">index</span><span class="o">++</span><span class="p">]</span> <span class="o">:</span> <span class="nb">nil</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: how next element is generated from a MenuItem Set
-struct MenuGeneratorFromSet: GeneratorType {
-    let menuItems:Set&amp;lt;MenuItem&amp;gt;
-    var index = 0
-    mutating func next() -&amp;gt; MenuItem? {
-        return index &amp;lt; (menuItems.count) ? menuItems[advance(menuItems.startIndex, index++)] : nil
-    }
-}
+<span class="c1">//: how next element is generated from a MenuItem Set</span>
+<span class="k">struct</span> <span class="nl">MenuGeneratorFromSet</span><span class="p">:</span> <span class="n">GeneratorType</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">menuItems</span><span class="p">:</span><span class="n">Set</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MenuItem</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+    <span class="k">var</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">next</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuItem</span><span class="o">?</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">index</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="p">(</span><span class="n">menuItems</span><span class="p">.</span><span class="n">count</span><span class="p">)</span> <span class="o">?</span> <span class="n">menuItems</span><span class="p">[</span><span class="n">advance</span><span class="p">(</span><span class="n">menuItems</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">index</span><span class="o">++</span><span class="p">)]</span> <span class="o">:</span> <span class="nb">nil</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: The VIPMenu using Array
-struct VIPMenu:SequenceType, PrettyDescription {
-    var menuItems:[MenuItem] = []
-    var description: String { return &quot;VIP Menu&quot; + prettyDescription }
-    func generate() -&amp;gt; MenuGeneratorFromArray {
-        return MenuGeneratorFromArray(menuItems: menuItems, index: 0)
-    }
-    func underestimateCount() -&amp;gt; Int { return menuItems.count }
+<span class="c1">//: The VIPMenu using Array</span>
+<span class="k">struct</span> <span class="nl">VIPMenu</span><span class="p">:</span><span class="n">SequenceType</span><span class="p">,</span> <span class="n">PrettyDescription</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">menuItems</span><span class="p">:[</span><span class="n">MenuItem</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;VIP Menu&quot;</span> <span class="o">+</span> <span class="n">prettyDescription</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">generate</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuGeneratorFromArray</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">MenuGeneratorFromArray</span><span class="p">(</span><span class="nl">menuItems</span><span class="p">:</span> <span class="n">menuItems</span><span class="p">,</span> <span class="nl">index</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">underestimateCount</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="p">}</span>
     
-    init(){
-        addItem(&quot;Tiran Goose&quot;, price: 10)
-        addItem(&quot;Fairy Cake&quot;, price: 13)
-        addItem(&quot;Heaven Grass&quot;, price: 4, isVegetable: true)
-        print(&quot;VIPMenu Created&quot;)
-    }
-    mutating func addItem(name: String, price: Int, isVegetable:Bool = false){
-        let item = MenuItem(name: name, price: price, isVegetable: isVegetable)
-        menuItems.append(item)
-    }
-}
+    <span class="k">init</span><span class="p">(){</span>
+        <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Tiran Goose&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Fairy Cake&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">13</span><span class="p">)</span>
+        <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Heaven Grass&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nl">isVegetable</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;VIPMenu Created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">addItem</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">isVegetable</span><span class="p">:</span><span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">){</span>
+        <span class="k">let</span> <span class="n">item</span> <span class="o">=</span> <span class="n">MenuItem</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">price</span><span class="p">,</span> <span class="nl">isVegetable</span><span class="p">:</span> <span class="n">isVegetable</span><span class="p">)</span>
+        <span class="n">menuItems</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: The FastfoodMenu using Set
-class FastfoodMenu: SequenceType, PrettyDescription {
-    var menuItems = Set&amp;lt;MenuItem&amp;gt;()
-    var description: String { return &quot;Fastfood Menu&quot; + prettyDescription }
-    var nextIndex = -1
-    func generate() -&amp;gt; MenuGeneratorFromSet {
-        return MenuGeneratorFromSet(menuItems: menuItems, index: 0)
-    }
-    func underestimateCount() -&amp;gt; Int { return menuItems.count }
+<span class="c1">//: The FastfoodMenu using Set</span>
+<span class="k">class</span> <span class="nl">FastfoodMenu</span><span class="p">:</span> <span class="n">SequenceType</span><span class="p">,</span> <span class="n">PrettyDescription</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">menuItems</span> <span class="o">=</span> <span class="n">Set</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MenuItem</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;()</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Fastfood Menu&quot;</span> <span class="o">+</span> <span class="n">prettyDescription</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="n">nextIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+    <span class="k">func</span> <span class="n">generate</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuGeneratorFromSet</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">MenuGeneratorFromSet</span><span class="p">(</span><span class="nl">menuItems</span><span class="p">:</span> <span class="n">menuItems</span><span class="p">,</span> <span class="nl">index</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">underestimateCount</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="p">}</span>
     
-    init(){
-        addItem(&quot;Cheese Cake&quot;, price: 10)
-        addItem(&quot;Lettus&quot;, price: 4, isVegetable: true)
-        addItem(&quot;Ham&quot;, price: 13)
-        print(&quot;FastfoodMenu Created&quot;)
-    }
-    func addItem(name: String, price: Int, isVegetable:Bool = false){
-        let item = MenuItem(name: name, price: price, isVegetable: isVegetable)
-        menuItems.insert(item)
-    }
-}
+    <span class="k">init</span><span class="p">(){</span>
+        <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Cheese Cake&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Lettus&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nl">isVegetable</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+        <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Ham&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">13</span><span class="p">)</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;FastfoodMenu Created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">addItem</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">isVegetable</span><span class="p">:</span><span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">){</span>
+        <span class="k">let</span> <span class="n">item</span> <span class="o">=</span> <span class="n">MenuItem</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">price</span><span class="p">,</span> <span class="nl">isVegetable</span><span class="p">:</span> <span class="n">isVegetable</span><span class="p">)</span>
+        <span class="n">menuItems</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Every waitress has two menus at hand and they can print the menus
-class Waitress {
-    let vipMenu: VIPMenu
-    let fastfoodMenu: FastfoodMenu
-    init(vipMenu: VIPMenu, fastfoodMenu: FastfoodMenu){
-        self.vipMenu = vipMenu
-        self.fastfoodMenu = fastfoodMenu
-        print(&quot;Waitress with two menus created&quot;)
-    }
-    func printMenu() {
-        print(&quot;\nWaitress is printing the menu&quot;)
-        let menus:[CustomStringConvertible] = [vipMenu, fastfoodMenu]
-        menus.map{print($0)}
-    }
-}
+<span class="c1">//: Every waitress has two menus at hand and they can print the menus</span>
+<span class="k">class</span> <span class="n">Waitress</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">vipMenu</span><span class="p">:</span> <span class="n">VIPMenu</span>
+    <span class="k">let</span> <span class="nl">fastfoodMenu</span><span class="p">:</span> <span class="n">FastfoodMenu</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">vipMenu</span><span class="p">:</span> <span class="n">VIPMenu</span><span class="p">,</span> <span class="nl">fastfoodMenu</span><span class="p">:</span> <span class="n">FastfoodMenu</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">vipMenu</span> <span class="o">=</span> <span class="n">vipMenu</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">fastfoodMenu</span> <span class="o">=</span> <span class="n">fastfoodMenu</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Waitress with two menus created&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">printMenu</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Waitress is printing the menu&quot;</span><span class="p">)</span>
+        <span class="k">let</span> <span class="nl">menus</span><span class="p">:[</span><span class="n">CustomStringConvertible</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">vipMenu</span><span class="p">,</span> <span class="n">fastfoodMenu</span><span class="p">]</span>
+        <span class="n">menus</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="n">print</span><span class="p">(</span><span class="err">$</span><span class="mi">0</span><span class="p">)}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//:Testing
-var vipMenu = VIPMenu()
-var fastfoodMenu = FastfoodMenu()
+<span class="c1">//:Testing</span>
+<span class="k">var</span> <span class="n">vipMenu</span> <span class="o">=</span> <span class="n">VIPMenu</span><span class="p">()</span>
+<span class="k">var</span> <span class="n">fastfoodMenu</span> <span class="o">=</span> <span class="n">FastfoodMenu</span><span class="p">()</span>
 
-let waitress = Waitress(vipMenu: vipMenu, fastfoodMenu: fastfoodMenu)
-waitress.printMenu()</code></pre></div>
+<span class="k">let</span> <span class="n">waitress</span> <span class="o">=</span> <span class="n">Waitress</span><span class="p">(</span><span class="nl">vipMenu</span><span class="p">:</span> <span class="n">vipMenu</span><span class="p">,</span> <span class="nl">fastfoodMenu</span><span class="p">:</span> <span class="n">fastfoodMenu</span><span class="p">)</span>
+<span class="n">waitress</span><span class="p">.</span><span class="n">printMenu</span><span class="p">()</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/iterator.png"><img class="aligncenter size-full wp-image-1013" src="/assets/wp-content/uploads/2015/07/iterator.png" alt="iterator" width="238" height="249" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-8-template/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-8-template/"> A Design Pattern Story in Swift – Chapter 8: Template</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/05/a-design-pattern-story-in-swift-chapter-10-composite/">A Design Pattern Story in Swift – Chapter 10: Composite </a>
+         <a class="prev" href="/2015/07/05/a-design-pattern-story-in-swift-chapter-10-composite/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -323,6 +336,7 @@ waitress.printMenu()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

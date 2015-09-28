@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -164,126 +157,126 @@
   </div>
 </div>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">struct MagicObject {
-    let name: String
-    let serialNumber: Int
-    var occupier: [String] = []
-    var borrowedCount: Int = 0
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">struct</span> <span class="n">MagicObject</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">serialNumber</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">occupier</span><span class="p">:</span> <span class="p">[</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">var</span> <span class="nl">borrowedCount</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">}</span>
 
-//: a basic pool which allows getting and returning any objects.
-class Pool&amp;lt;T&amp;gt; {
-    private var data = [T]()
-    private let arrayQ = dispatch_queue_create(&quot;arrayQ&quot;, DISPATCH_QUEUE_SERIAL)
-    private let semaphore: dispatch_semaphore_t
+<span class="c1">//: a basic pool which allows getting and returning any objects.</span>
+<span class="k">class</span> <span class="n">Pool</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">T</span><span class="p">]()</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="n">arrayQ</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&quot;arrayQ&quot;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_SERIAL</span><span class="p">)</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">semaphore</span><span class="p">:</span> <span class="kt">dispatch_semaphore_t</span>
     
-    init(items: [T]) {
-        data.reserveCapacity(data.count)
-        for item in items {
-            data.append(item)
-        }
-        // create a counter semaphore for the available items in the pool
-        semaphore = dispatch_semaphore_create(items.count)
-    }
+    <span class="k">init</span><span class="p">(</span><span class="nl">items</span><span class="p">:</span> <span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">data</span><span class="p">.</span><span class="n">reserveCapacity</span><span class="p">(</span><span class="n">data</span><span class="p">.</span><span class="n">count</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">items</span> <span class="p">{</span>
+            <span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// create a counter semaphore for the available items in the pool</span>
+        <span class="n">semaphore</span> <span class="o">=</span> <span class="n">dispatch_semaphore_create</span><span class="p">(</span><span class="n">items</span><span class="p">.</span><span class="n">count</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func getFromPool() -&amp;gt; T? {
-        var result: T?
-        // the semaphore count is decreased each time when the wait is called. If the count is 0, the function will block
-        if dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER) == 0 {
-            if data.count &amp;gt; 0 {
-                dispatch_sync(arrayQ, { () -&amp;gt; Void in
-                    result = self.data.removeAtIndex(0)
-                })
-            }
-        }
-        return result
-    }
+    <span class="k">func</span> <span class="n">getFromPool</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">T</span><span class="o">?</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="nl">result</span><span class="p">:</span> <span class="n">T</span><span class="o">?</span>
+        <span class="c1">// the semaphore count is decreased each time when the wait is called. If the count is 0, the function will block</span>
+        <span class="k">if</span> <span class="n">dispatch_semaphore_wait</span><span class="p">(</span><span class="n">semaphore</span><span class="p">,</span> <span class="n">DISPATCH_TIME_FOREVER</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">.</span><span class="n">count</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">arrayQ</span><span class="p">,</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+                    <span class="n">result</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="p">})</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="p">}</span>
     
-    func returnToPool(item: T){
-        dispatch_sync(arrayQ, { () -&amp;gt; Void in
-            self.data.append(item)
-            // increase the counter by 1
-            dispatch_semaphore_signal(self.semaphore)
-        })
-    }
-}
+    <span class="k">func</span> <span class="n">returnToPool</span><span class="p">(</span><span class="nl">item</span><span class="p">:</span> <span class="n">T</span><span class="p">){</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">arrayQ</span><span class="p">,</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+            <span class="c1">// increase the counter by 1</span>
+            <span class="n">dispatch_semaphore_signal</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">semaphore</span><span class="p">)</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-extension Int {
-    func times(action: (Int)-&amp;gt;()) {
-        for i in 0..&amp;lt;self {
-            action(i)
-        }
-    }
-}
-class MagicHouse {
-    private let pool: Pool&amp;lt;MagicObject&amp;gt;
-    static var sharedInstance = MagicHouse()
-    static var magicDebtInfo:[(String, Int, String)] = []
-    private init(){
-        var magicObjects:[MagicObject] = []
-        2.times{
-            magicObjects.append(MagicObject(name: &quot;Red Diamond&quot;, serialNumber: $0, occupier: [], borrowedCount: 0))
-        }
-        3.times{
-            magicObjects.append(MagicObject(name: &quot;Blue Heart&quot;, serialNumber: $0, occupier: [], borrowedCount: 0))
-        }
-        self.pool = Pool(items: magicObjects)
-    }
+<span class="k">extension</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">times</span><span class="p">(</span><span class="nl">action</span><span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;())</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="nb">self</span> <span class="p">{</span>
+            <span class="n">action</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="n">MagicHouse</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">pool</span><span class="p">:</span> <span class="n">Pool</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MagicObject</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+    <span class="k">static</span> <span class="k">var</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">MagicHouse</span><span class="p">()</span>
+    <span class="k">static</span> <span class="k">var</span> <span class="nl">magicDebtInfo</span><span class="p">:[(</span><span class="n">String</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">String</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(){</span>
+        <span class="k">var</span> <span class="nl">magicObjects</span><span class="p">:[</span><span class="n">MagicObject</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="mf">2.</span><span class="n">times</span><span class="p">{</span>
+            <span class="n">magicObjects</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">MagicObject</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Red Diamond&quot;</span><span class="p">,</span> <span class="nl">serialNumber</span><span class="p">:</span> <span class="err">$</span><span class="mi">0</span><span class="p">,</span> <span class="nl">occupier</span><span class="p">:</span> <span class="p">[],</span> <span class="nl">borrowedCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="p">}</span>
+        <span class="mf">3.</span><span class="n">times</span><span class="p">{</span>
+            <span class="n">magicObjects</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">MagicObject</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Blue Heart&quot;</span><span class="p">,</span> <span class="nl">serialNumber</span><span class="p">:</span> <span class="err">$</span><span class="mi">0</span><span class="p">,</span> <span class="nl">occupier</span><span class="p">:</span> <span class="p">[],</span> <span class="nl">borrowedCount</span><span class="p">:</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="p">}</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="nl">items</span><span class="p">:</span> <span class="n">magicObjects</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    class func lendMagicObject(occupier: String) -&amp;gt; MagicObject? {
-        var magicObject = sharedInstance.pool.getFromPool()
-        if magicObject != nil {
-            magicObject!.occupier.append(occupier)
-            magicObject!.borrowedCount++
-            magicDebtInfo.append((magicObject!.name, magicObject!.serialNumber, occupier))
-            print(&quot;\(occupier) is borrowing \(magicObject!.name) #\(magicObject!.serialNumber)&quot;)
-        }
-        return magicObject
-    }
+    <span class="k">class</span> <span class="k">func</span> <span class="n">lendMagicObject</span><span class="p">(</span><span class="nl">occupier</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MagicObject</span><span class="o">?</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">magicObject</span> <span class="o">=</span> <span class="n">sharedInstance</span><span class="p">.</span><span class="n">pool</span><span class="p">.</span><span class="n">getFromPool</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">magicObject</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
+            <span class="n">magicObject</span><span class="o">!</span><span class="p">.</span><span class="n">occupier</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">occupier</span><span class="p">)</span>
+            <span class="n">magicObject</span><span class="o">!</span><span class="p">.</span><span class="n">borrowedCount</span><span class="o">++</span>
+            <span class="n">magicDebtInfo</span><span class="p">.</span><span class="n">append</span><span class="p">((</span><span class="n">magicObject</span><span class="o">!</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="n">magicObject</span><span class="o">!</span><span class="p">.</span><span class="n">serialNumber</span><span class="p">,</span> <span class="n">occupier</span><span class="p">))</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(occupier) is borrowing \(magicObject!.name) #\(magicObject!.serialNumber)&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">magicObject</span>
+    <span class="p">}</span>
     
-    class func receiveMagicObject(obj: MagicObject) {
-        magicDebtInfo = magicDebtInfo.filter{
-            $0.0 != obj.name &amp;&amp; $0.1 != obj.serialNumber
-        }
-        sharedInstance.pool.returnToPool(obj)
-        print(&quot;\(obj.occupier.last!) returning \(obj.name) #\(obj.serialNumber)&quot;)
-    }
+    <span class="k">class</span> <span class="k">func</span> <span class="n">receiveMagicObject</span><span class="p">(</span><span class="nl">obj</span><span class="p">:</span> <span class="n">MagicObject</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">magicDebtInfo</span> <span class="o">=</span> <span class="n">magicDebtInfo</span><span class="p">.</span><span class="n">filter</span><span class="p">{</span>
+            <span class="err">$</span><span class="mf">0.0</span> <span class="o">!=</span> <span class="n">obj</span><span class="p">.</span><span class="n">name</span> <span class="o">&amp;&amp;</span> <span class="err">$</span><span class="mf">0.1</span> <span class="o">!=</span> <span class="n">obj</span><span class="p">.</span><span class="n">serialNumber</span>
+        <span class="p">}</span>
+        <span class="n">sharedInstance</span><span class="p">.</span><span class="n">pool</span><span class="p">.</span><span class="n">returnToPool</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(obj.occupier.last!) returning \(obj.name) #\(obj.serialNumber)&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    class func printReport(){
-        print(&quot;\nShow Report: Magic House currently has \(sharedInstance.pool.data.count) magic object(s) in stock&quot;)
-        (sharedInstance.pool.data as [MagicObject]).map{
-            print(&quot;\($0.name) #\($0.serialNumber) \nBorrowed \($0.borrowedCount) time(s) by \($0.occupier)&quot;)
-        }
+    <span class="k">class</span> <span class="k">func</span> <span class="n">printReport</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Show Report: Magic House currently has \(sharedInstance.pool.data.count) magic object(s) in stock&quot;</span><span class="p">)</span>
+        <span class="p">(</span><span class="n">sharedInstance</span><span class="p">.</span><span class="n">pool</span><span class="p">.</span><span class="n">data</span> <span class="kt">as</span> <span class="p">[</span><span class="n">MagicObject</span><span class="p">]).</span><span class="n">map</span><span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;\($0.name) #\($0.serialNumber) </span><span class="se">\n</span><span class="s">Borrowed \($0.borrowedCount) time(s) by \($0.occupier)&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
        
-        if magicDebtInfo.count &amp;gt; 0 {
-            print(&quot;\nMagic Objects currently lent out:&quot;)
-            magicDebtInfo.map{
-                print(&quot;\($0.0) #\($0.1) by \($0.2)&quot;)
-            }
-        }
-    }
-}
+        <span class="k">if</span> <span class="n">magicDebtInfo</span><span class="p">.</span><span class="n">count</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Magic Objects currently lent out:&quot;</span><span class="p">)</span>
+            <span class="n">magicDebtInfo</span><span class="p">.</span><span class="n">map</span><span class="p">{</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;\($0.0) #\($0.1) by \($0.2)&quot;</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Testing
-var queue = dispatch_queue_create(&quot;workQ&quot;, DISPATCH_QUEUE_CONCURRENT)
-var group = dispatch_group_create()
+<span class="c1">//: Testing</span>
+<span class="k">var</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&quot;workQ&quot;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_CONCURRENT</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">group</span> <span class="o">=</span> <span class="n">dispatch_group_create</span><span class="p">()</span>
 
-print(&quot;\n------Starting test...&quot;)
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">------Starting test...&quot;</span><span class="p">)</span>
 
-for i in 1 ... 7 {
-    dispatch_group_async(group, queue, {() in
-        var obj = MagicHouse.lendMagicObject(&quot;person #\(i)&quot;)
-        if obj != nil {
-            NSThread.sleepForTimeInterval(Double(rand() % 3))
-            MagicHouse.receiveMagicObject(obj!)
-        }
-    })
-}
+<span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">...</span> <span class="mi">7</span> <span class="p">{</span>
+    <span class="n">dispatch_group_async</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">queue</span><span class="p">,</span> <span class="p">{()</span> <span class="k">in</span>
+        <span class="k">var</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">MagicHouse</span><span class="p">.</span><span class="n">lendMagicObject</span><span class="p">(</span><span class="s">&quot;person #\(i)&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">obj</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
+            <span class="bp">NSThread</span><span class="p">.</span><span class="n">sleepForTimeInterval</span><span class="p">(</span><span class="n">Double</span><span class="p">(</span><span class="n">rand</span><span class="p">()</span> <span class="o">%</span> <span class="mi">3</span><span class="p">))</span>
+            <span class="n">MagicHouse</span><span class="p">.</span><span class="n">receiveMagicObject</span><span class="p">(</span><span class="n">obj</span><span class="o">!</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">})</span>
+<span class="p">}</span>
 
-dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
-let m1 = MagicHouse.lendMagicObject(&quot;William&quot;)
-let m3 = MagicHouse.lendMagicObject(&quot;Tato&quot;)
-MagicHouse.printReport()</code></pre></div>
+<span class="n">dispatch_group_wait</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">DISPATCH_TIME_FOREVER</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">m1</span> <span class="o">=</span> <span class="n">MagicHouse</span><span class="p">.</span><span class="n">lendMagicObject</span><span class="p">(</span><span class="s">&quot;William&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">m3</span> <span class="o">=</span> <span class="n">MagicHouse</span><span class="p">.</span><span class="n">lendMagicObject</span><span class="p">(</span><span class="s">&quot;Tato&quot;</span><span class="p">)</span>
+<span class="n">MagicHouse</span><span class="p">.</span><span class="n">printReport</span><span class="p">()</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/object-pool.png"><img class="aligncenter size-full wp-image-1060" src="/assets/wp-content/uploads/2015/07/object-pool.png" alt="object-pool" width="504" height="523" /></a></p>
 
@@ -294,39 +287,59 @@ MagicHouse.printReport()</code></pre></div>
 <p>&nbsp;</p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-15-bridge/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-15-bridge/"> A Design Pattern Story in Swift – Chapter 15: Bridge</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/15/a-design-pattern-story-in-swift-chapter-17-memento/">A Design Pattern Story in Swift – Chapter 17: Memento </a>
+         <a class="prev" href="/2015/07/15/a-design-pattern-story-in-swift-chapter-17-memento/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -338,6 +351,7 @@ MagicHouse.printReport()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

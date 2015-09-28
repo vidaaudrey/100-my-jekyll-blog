@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -156,161 +149,161 @@
   <span class="s1">So she told the good people of the village that if they want to know her update, they can tune in to listen to her music station and they shall know the message from the music.</span>
 </p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: Define the message  for the all parties
-enum WitchMessageType: String {
-    case IsChrystalBadLuck = &quot;Bad_Luck&quot;
-    case IsChrystalGoodLuck = &quot;Good_Luck&quot;
-    case StationCreated = &quot;Station_Created&quot;
-    case StationDestroyed = &quot;Station_Destroyed&quot;
-}
-class WitchMessage {
-    let type: WitchMessageType
-    let data: Any?
-    init(type: WitchMessageType, data: Any?) {
-        self.type = type
-        self.data = data
-    }
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: Define the message  for the all parties</span>
+<span class="k">enum</span> <span class="nl">WitchMessageType</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">IsChrystalBadLuck</span> <span class="o">=</span> <span class="s">&quot;Bad_Luck&quot;</span>
+    <span class="k">case</span> <span class="n">IsChrystalGoodLuck</span> <span class="o">=</span> <span class="s">&quot;Good_Luck&quot;</span>
+    <span class="k">case</span> <span class="n">StationCreated</span> <span class="o">=</span> <span class="s">&quot;Station_Created&quot;</span>
+    <span class="k">case</span> <span class="n">StationDestroyed</span> <span class="o">=</span> <span class="s">&quot;Station_Destroyed&quot;</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="n">WitchMessage</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">type</span><span class="p">:</span> <span class="n">WitchMessageType</span>
+    <span class="k">let</span> <span class="nl">data</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">type</span><span class="p">:</span> <span class="n">WitchMessageType</span><span class="p">,</span> <span class="nl">data</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">type</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//: the Good Witch will tell everybody the name of the person she tells fortune for. Bad witch may not.
-class GoodWitchMessage: WitchMessage {
-    var name: String
-    var isBadLuck: Bool { return self.type == WitchMessageType.IsChrystalBadLuck }
+<span class="c1">//: the Good Witch will tell everybody the name of the person she tells fortune for. Bad witch may not.</span>
+<span class="k">class</span> <span class="nl">GoodWitchMessage</span><span class="p">:</span> <span class="n">WitchMessage</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">isBadLuck</span><span class="p">:</span> <span class="n">Bool</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">WitchMessageType</span><span class="p">.</span><span class="n">IsChrystalBadLuck</span> <span class="p">}</span>
     
-    init(name: String, type: WitchMessageType, data: Any?){
-        self.name = name
-        super.init(type: type, data: data)
-    }
-}
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">type</span><span class="p">:</span> <span class="n">WitchMessageType</span><span class="p">,</span> <span class="nl">data</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="nl">type</span><span class="p">:</span> <span class="n">type</span><span class="p">,</span> <span class="nl">data</span><span class="p">:</span> <span class="n">data</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-// People who listen to her music station are observers
-protocol Observer {
-    var name:String { get }
-    func notify(witchMessage: WitchMessage)
-}
-
-
-extension CustomStringConvertible where Self: Observer {
-    var description: String { return self.name }
-}
+<span class="c1">// People who listen to her music station are observers</span>
+<span class="k">protocol</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span><span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">notify</span><span class="p">(</span><span class="nl">witchMessage</span><span class="p">:</span> <span class="n">WitchMessage</span><span class="p">)</span>
+<span class="p">}</span>
 
 
-protocol Station {
-    func addObserver(observers: Observer...)
-    func removerObserver(observer: Observer)
-}
+<span class="k">extension</span> <span class="n">CustomStringConvertible</span> <span class="k">where</span> <span class="nl">Self</span><span class="p">:</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="p">}</span>
+<span class="p">}</span>
 
 
-class BaseStation: Station, CustomStringConvertible {
-    private var observers: [Observer] = []
-    var description: String { return &quot;I am a Station and my observers are: \(observers)&quot; }
-    private var orderedQueue = dispatch_queue_create(&quot;orQ&quot;, DISPATCH_QUEUE_CONCURRENT)
+<span class="k">protocol</span> <span class="n">Station</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">addObserver</span><span class="p">(</span><span class="nl">observers</span><span class="p">:</span> <span class="n">Observer</span><span class="p">...)</span>
+    <span class="k">func</span> <span class="n">removerObserver</span><span class="p">(</span><span class="nl">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span>
+<span class="p">}</span>
+
+
+<span class="k">class</span> <span class="nl">BaseStation</span><span class="p">:</span> <span class="n">Station</span><span class="p">,</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">observers</span><span class="p">:</span> <span class="p">[</span><span class="n">Observer</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;I am a Station and my observers are: \(observers)&quot;</span> <span class="p">}</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">orderedQueue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&quot;orQ&quot;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_CONCURRENT</span><span class="p">)</span>
     
-    //: She can only add or remove one person at a time
-    func addObserver(observers: Observer...) {
-        dispatch_barrier_sync(orderedQueue) {
-            observers.map { self.observers.append($0) }
-        }
-    }
+    <span class="c1">//: She can only add or remove one person at a time</span>
+    <span class="k">func</span> <span class="n">addObserver</span><span class="p">(</span><span class="nl">observers</span><span class="p">:</span> <span class="n">Observer</span><span class="p">...)</span> <span class="p">{</span>
+        <span class="n">dispatch_barrier_sync</span><span class="p">(</span><span class="n">orderedQueue</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">observers</span><span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="nb">self</span><span class="p">.</span><span class="n">observers</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="err">$</span><span class="mi">0</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
     
-    func removerObserver(observer: Observer) {
-        dispatch_barrier_sync(orderedQueue) { () -&amp;gt; Void in
-            self.observers.filter{ $0.name == observer.name}
-            print(&quot;removed observer \(observer.name)&quot;)
-        }
-    }
-    func sendNotificationToAll(witchMessage: WitchMessage) {
-        dispatch_sync(orderedQueue) { () -&amp;gt; Void in
-            self.observers.map{ $0.notify(witchMessage) }
-        }
-    }
-}
+    <span class="k">func</span> <span class="n">removerObserver</span><span class="p">(</span><span class="nl">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dispatch_barrier_sync</span><span class="p">(</span><span class="n">orderedQueue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">observers</span><span class="p">.</span><span class="n">filter</span><span class="p">{</span> <span class="err">$</span><span class="mf">0.</span><span class="n">name</span> <span class="o">==</span> <span class="n">observer</span><span class="p">.</span><span class="n">name</span><span class="p">}</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;removed observer \(observer.name)&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">sendNotificationToAll</span><span class="p">(</span><span class="nl">witchMessage</span><span class="p">:</span> <span class="n">WitchMessage</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">orderedQueue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">observers</span><span class="p">.</span><span class="n">map</span><span class="p">{</span> <span class="err">$</span><span class="mf">0.</span><span class="n">notify</span><span class="p">(</span><span class="n">witchMessage</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class WitchStation: BaseStation {
+<span class="k">class</span> <span class="nl">WitchStation</span><span class="p">:</span> <span class="n">BaseStation</span> <span class="p">{</span>
     
-    func checkCrystalBall(name: String) -&amp;gt; Bool {
-        var messageType = WitchMessageType.IsChrystalGoodLuck
+    <span class="k">func</span> <span class="n">checkCrystalBall</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">messageType</span> <span class="o">=</span> <span class="n">WitchMessageType</span><span class="p">.</span><span class="n">IsChrystalGoodLuck</span>
         
-        if RandomYesOrNoGeneratorByInt.random() {
-            print(&quot;Witch Tell: Good luck ahead&quot;)
-        } else {
-            messageType = WitchMessageType.IsChrystalBadLuck
-            print(&quot;Witch Tell: Bad luck ahead&quot;)
-        }
+        <span class="k">if</span> <span class="n">RandomYesOrNoGeneratorByInt</span><span class="p">.</span><span class="n">random</span><span class="p">()</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Witch Tell: Good luck ahead&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">messageType</span> <span class="o">=</span> <span class="n">WitchMessageType</span><span class="p">.</span><span class="n">IsChrystalBadLuck</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Witch Tell: Bad luck ahead&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
         
-        sendNotificationToAll(GoodWitchMessage(name: name, type: messageType, data: nil))
-        return messageType == WitchMessageType.IsChrystalGoodLuck
-    }
-}
+        <span class="n">sendNotificationToAll</span><span class="p">(</span><span class="n">GoodWitchMessage</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">type</span><span class="p">:</span> <span class="n">messageType</span><span class="p">,</span> <span class="nl">data</span><span class="p">:</span> <span class="nb">nil</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">messageType</span> <span class="o">==</span> <span class="n">WitchMessageType</span><span class="p">.</span><span class="n">IsChrystalGoodLuck</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: all that listen to her messages
-class Villager: Observer {
-    var name: String
-    init(name: String){
-        self.name = name
-    }
-    func notify(witchMessage: WitchMessage) {
-        print(&quot;Villager \(name) got notified&quot;)
-        guard let message = witchMessage as? GoodWitchMessage else {
-            print(&quot;This message might come from the Bad Witch&quot;)
-            return
-        }
-        print(&quot;Message for \(message.name). Is Bad Luck? \(witchMessage.type)&quot;)
-    }
+<span class="c1">//: all that listen to her messages</span>
+<span class="k">class</span> <span class="nl">Villager</span><span class="p">:</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">notify</span><span class="p">(</span><span class="nl">witchMessage</span><span class="p">:</span> <span class="n">WitchMessage</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Villager \(name) got notified&quot;</span><span class="p">)</span>
+        <span class="n">guard</span> <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">witchMessage</span> <span class="kt">as</span><span class="o">?</span> <span class="n">GoodWitchMessage</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;This message might come from the Bad Witch&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Message for \(message.name). Is Bad Luck? \(witchMessage.type)&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func logMyFortune(fortune: String) {
-        print(&quot;Log: \(fortune)&quot;)
-    }
-}
+    <span class="k">func</span> <span class="n">logMyFortune</span><span class="p">(</span><span class="nl">fortune</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Log: \(fortune)&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class AlarmSystem: Observer {
-    var name: String
-    init(name: String){
-        self.name = name
-    }
-    func notify(witchMessage: WitchMessage) {
-        print(&quot;\(name) got notified&quot;)
-        guard let message = witchMessage as? GoodWitchMessage else {
-            print(&quot;This message might come from the Bad Witch&quot;)
-            return
-        }
-        if witchMessage.type == WitchMessageType.IsChrystalBadLuck  {
-            print(&quot;Something unfortunate will happen to \(message.name). An alarm is being sent out&quot;)
-        }
-    }
-}
+<span class="k">class</span> <span class="nl">AlarmSystem</span><span class="p">:</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">notify</span><span class="p">(</span><span class="nl">witchMessage</span><span class="p">:</span> <span class="n">WitchMessage</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(name) got notified&quot;</span><span class="p">)</span>
+        <span class="n">guard</span> <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="n">witchMessage</span> <span class="kt">as</span><span class="o">?</span> <span class="n">GoodWitchMessage</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;This message might come from the Bad Witch&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">witchMessage</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">WitchMessageType</span><span class="p">.</span><span class="n">IsChrystalBadLuck</span>  <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Something unfortunate will happen to \(message.name). An alarm is being sent out&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class Hero: Observer {
-    var name: String
-    init(name: String){
-        self.name = name
-    }
-    func notify(witchMessage: WitchMessage) {
-        print(&quot;Hero got notified&quot;)
-        if witchMessage.type == WitchMessageType.IsChrystalBadLuck {
-            saveTheUnfortunate()
-        }
-    }
-    func saveTheUnfortunate() {
-        print(&quot;A hero will come to save you&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">Hero</span><span class="p">:</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">notify</span><span class="p">(</span><span class="nl">witchMessage</span><span class="p">:</span> <span class="n">WitchMessage</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hero got notified&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">witchMessage</span><span class="p">.</span><span class="n">type</span> <span class="o">==</span> <span class="n">WitchMessageType</span><span class="p">.</span><span class="n">IsChrystalBadLuck</span> <span class="p">{</span>
+            <span class="n">saveTheUnfortunate</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">saveTheUnfortunate</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;A hero will come to save you&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Test the system
-let jane = Villager(name: &quot;Jane&quot;)
-let alarm = AlarmSystem(name: &quot;Alarm System&quot;)
-let jack = Hero(name: &quot;Hero Jack&quot;)
+<span class="c1">//: Test the system</span>
+<span class="k">let</span> <span class="n">jane</span> <span class="o">=</span> <span class="n">Villager</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Jane&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">alarm</span> <span class="o">=</span> <span class="n">AlarmSystem</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Alarm System&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">jack</span> <span class="o">=</span> <span class="n">Hero</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hero Jack&quot;</span><span class="p">)</span>
 
-let witchStation = WitchStation()
-witchStation.addObserver(jane, alarm, jack)
-print(witchStation.description)
-print(&quot;--check luck for Nicole ---&quot;)
-witchStation.checkCrystalBall(&quot;Nicole&quot;)
+<span class="k">let</span> <span class="n">witchStation</span> <span class="o">=</span> <span class="n">WitchStation</span><span class="p">()</span>
+<span class="n">witchStation</span><span class="p">.</span><span class="n">addObserver</span><span class="p">(</span><span class="n">jane</span><span class="p">,</span> <span class="n">alarm</span><span class="p">,</span> <span class="n">jack</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">witchStation</span><span class="p">.</span><span class="n">description</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;--check luck for Nicole ---&quot;</span><span class="p">)</span>
+<span class="n">witchStation</span><span class="p">.</span><span class="n">checkCrystalBall</span><span class="p">(</span><span class="s">&quot;Nicole&quot;</span><span class="p">)</span>
 
-print(&quot;---check luck for Mia --&quot;)
-witchStation.checkCrystalBall(&quot;Mia&quot;)</code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;---check luck for Mia --&quot;</span><span class="p">)</span>
+<span class="n">witchStation</span><span class="p">.</span><span class="n">checkCrystalBall</span><span class="p">(</span><span class="s">&quot;Mia&quot;</span><span class="p">)</span></code></pre></div>
 
 <p>&nbsp;</p>
 
@@ -321,39 +314,59 @@ witchStation.checkCrystalBall(&quot;Mia&quot;)</code></pre></div>
 <p><a href="https://hdwallpapers.cat/do_not_listen_to_him_forest_girl_fruit_hd-wallpaper-1852331/">Image</a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/06/09/a-design-pattern-story-chapter-1-strategy/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/06/09/a-design-pattern-story-chapter-1-strategy/"> A Design Pattern Story in Swift- Chapter 1: Strategy</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/06/29/strategy-design-pattern-updated-using-protocol-extension-in-swift-2-0/">Strategy Design Pattern Updated Using Protocol Extension in Swift 2.0 </a>
+         <a class="prev" href="/2015/06/29/strategy-design-pattern-updated-using-protocol-extension-in-swift-2-0/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -365,6 +378,7 @@ witchStation.checkCrystalBall(&quot;Mia&quot;)</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

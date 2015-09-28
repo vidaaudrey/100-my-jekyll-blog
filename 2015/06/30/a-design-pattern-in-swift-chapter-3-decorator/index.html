@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -85,13 +85,6 @@
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
             </span>
         </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
 
         <a href="https://www.linkedin.com/in/audreyauli" title="Audrey's Google Plus">
             <span class="fa-stack fa-lg">
@@ -150,190 +143,210 @@
                 <div class="post card">
    <p>There is a powerful sorcerer in town. He sells magic potions and only charges them for blue diamonds. Blue diamond is a special kind of currency in the magic world and people are born with certain amount of that. The sorcerer would give old customers or his favorite customers different discounts.</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">class MagicSale {
-    let name: String
-    let price: Int
-    var totalPrice: Int { return price }
-    var description: String { return name }
-    init(name: String, price: Int) {
-        self.name = name
-        self.price = price
-    }
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="n">MagicSale</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">totalPrice</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">price</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="n">name</span> <span class="p">}</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
+    <span class="p">}</span>
     
-}
+<span class="p">}</span>
 
-//: Sale for all kinds of magic accessories
-class MagicDecoratorSale: MagicSale {
-    private let wrapperMagicSale: MagicSale
-    init(magicSale: MagicSale){
-        wrapperMagicSale = magicSale
-        super.init(name: magicSale.description, price: magicSale.totalPrice)
-    }
-}
+<span class="c1">//: Sale for all kinds of magic accessories</span>
+<span class="k">class</span> <span class="nl">MagicDecoratorSale</span><span class="p">:</span> <span class="n">MagicSale</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">wrapperMagicSale</span><span class="p">:</span> <span class="n">MagicSale</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">magicSale</span><span class="p">:</span> <span class="n">MagicSale</span><span class="p">){</span>
+        <span class="n">wrapperMagicSale</span> <span class="o">=</span> <span class="n">magicSale</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">magicSale</span><span class="p">.</span><span class="n">description</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">magicSale</span><span class="p">.</span><span class="n">totalPrice</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Discounts
-class DiscountDecoratorSale: MagicSale {
-    private let wrapperMagicSale: MagicSale
-    var discountAmount: Int { return 0 }
-    init(magicSale: MagicSale, totalDiscountAmount: Int = 0 ){
-        wrapperMagicSale = magicSale
-        super.init(name: magicSale.description, price: magicSale.totalPrice)
-    }
+<span class="c1">//: Discounts</span>
+<span class="k">class</span> <span class="nl">DiscountDecoratorSale</span><span class="p">:</span> <span class="n">MagicSale</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">wrapperMagicSale</span><span class="p">:</span> <span class="n">MagicSale</span>
+    <span class="k">var</span> <span class="nl">discountAmount</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">magicSale</span><span class="p">:</span> <span class="n">MagicSale</span><span class="p">,</span> <span class="nl">totalDiscountAmount</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">){</span>
+        <span class="n">wrapperMagicSale</span> <span class="o">=</span> <span class="n">magicSale</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">magicSale</span><span class="p">.</span><span class="n">description</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">magicSale</span><span class="p">.</span><span class="n">totalPrice</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func totalDiscounts() -&amp;gt; Int {
-        var total = 1
-        guard let discounter = wrapperMagicSale as? DiscountDecoratorSale else {
-             return total
-        }
-        total += discounter.totalDiscounts()
-        return total
-    }
-}
+    <span class="k">func</span> <span class="n">totalDiscounts</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">total</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">guard</span> <span class="k">let</span> <span class="n">discounter</span> <span class="o">=</span> <span class="n">wrapperMagicSale</span> <span class="kt">as</span><span class="o">?</span> <span class="n">DiscountDecoratorSale</span> <span class="k">else</span> <span class="p">{</span>
+             <span class="k">return</span> <span class="n">total</span>
+        <span class="p">}</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">discounter</span><span class="p">.</span><span class="n">totalDiscounts</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">total</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: For added power options
-class PowerDecoratorSale: MagicSale {
-    private let wrapperMagicSale: MagicSale
-    private let powerOptions: [PowerOption]
-    enum PowerOption {
-        case Fly
-        case Teleport
-        case Invisible
-    }
-    init(magicSale: MagicSale, powerOptions: PowerOption... ){
-        wrapperMagicSale = magicSale
-        self.powerOptions = powerOptions
-        super.init(name: magicSale.description, price: magicSale.totalPrice)
-    }
-    override var description: String {
-        var des = super.description
-        for option in powerOptions {
-            switch option {
-            case .Fly: des += &quot; Flying Power  &quot;
-            case .Invisible: des += &quot; Invisible Power&quot;
-            case .Teleport: des += &quot; Teleport Power&quot;
-            }
-        }
-        return des
-    }
-    override var totalPrice: Int {
-        var pri = wrapperMagicSale.totalPrice
-        for option in powerOptions {
-            switch option {
-            case .Fly: pri += 2
-            case .Invisible: pri += 3
-            case .Teleport: pri += 4
-            }
-        }
-        return pri
-    }
+<span class="c1">//: For added power options</span>
+<span class="k">class</span> <span class="nl">PowerDecoratorSale</span><span class="p">:</span> <span class="n">MagicSale</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">wrapperMagicSale</span><span class="p">:</span> <span class="n">MagicSale</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">powerOptions</span><span class="p">:</span> <span class="p">[</span><span class="n">PowerOption</span><span class="p">]</span>
+    <span class="k">enum</span> <span class="n">PowerOption</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">Fly</span>
+        <span class="k">case</span> <span class="n">Teleport</span>
+        <span class="k">case</span> <span class="n">Invisible</span>
+    <span class="p">}</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">magicSale</span><span class="p">:</span> <span class="n">MagicSale</span><span class="p">,</span> <span class="nl">powerOptions</span><span class="p">:</span> <span class="n">PowerOption</span><span class="p">...</span> <span class="p">){</span>
+        <span class="n">wrapperMagicSale</span> <span class="o">=</span> <span class="n">magicSale</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerOptions</span> <span class="o">=</span> <span class="n">powerOptions</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">magicSale</span><span class="p">.</span><span class="n">description</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">magicSale</span><span class="p">.</span><span class="n">totalPrice</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">des</span> <span class="o">=</span> <span class="nb">super</span><span class="p">.</span><span class="n">description</span>
+        <span class="k">for</span> <span class="n">option</span> <span class="k">in</span> <span class="n">powerOptions</span> <span class="p">{</span>
+            <span class="k">switch</span> <span class="n">option</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="p">.</span><span class="nl">Fly</span><span class="p">:</span> <span class="n">des</span> <span class="o">+=</span> <span class="s">&quot; Flying Power  &quot;</span>
+            <span class="k">case</span> <span class="p">.</span><span class="nl">Invisible</span><span class="p">:</span> <span class="n">des</span> <span class="o">+=</span> <span class="s">&quot; Invisible Power&quot;</span>
+            <span class="k">case</span> <span class="p">.</span><span class="nl">Teleport</span><span class="p">:</span> <span class="n">des</span> <span class="o">+=</span> <span class="s">&quot; Teleport Power&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">des</span>
+    <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">totalPrice</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
+        <span class="k">var</span> <span class="n">pri</span> <span class="o">=</span> <span class="n">wrapperMagicSale</span><span class="p">.</span><span class="n">totalPrice</span>
+        <span class="k">for</span> <span class="n">option</span> <span class="k">in</span> <span class="n">powerOptions</span> <span class="p">{</span>
+            <span class="k">switch</span> <span class="n">option</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="p">.</span><span class="nl">Fly</span><span class="p">:</span> <span class="n">pri</span> <span class="o">+=</span> <span class="mi">2</span>
+            <span class="k">case</span> <span class="p">.</span><span class="nl">Invisible</span><span class="p">:</span> <span class="n">pri</span> <span class="o">+=</span> <span class="mi">3</span>
+            <span class="k">case</span> <span class="p">.</span><span class="nl">Teleport</span><span class="p">:</span> <span class="n">pri</span> <span class="o">+=</span> <span class="mi">4</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">pri</span>
+    <span class="p">}</span>
     
-}
+<span class="p">}</span>
 
-//: Discount for favorite customers
-class CustomerFavDiscountSale: DiscountDecoratorSale {
-    override var totalPrice: Int { return super.totalPrice - discountAmount }
-    override var discountAmount: Int { return 2 }
-    override var description: String {return &quot;\(super.description) // Fav Discount&quot;}
-}
-//: Discount for important customers
-class CustomerPriorityDiscountSale: DiscountDecoratorSale {
-    override var totalPrice: Int { return super.totalPrice - discountAmount }
-    override var discountAmount: Int { return 1 }
-    override var description: String {return &quot;\(super.description) // Priorty Discount&quot;}
-}
-
-
-//: Add Sprite as the magic accessory
-class MagicSaleWithSprite: MagicDecoratorSale {
-    override var description: String { return &quot;\(super.description) + Sprite&quot; }
-    override var totalPrice: Int { return super.totalPrice + 2 }
-}
-//: Add MagicStarterKit as the magic accessory
-class MagicSaleWithMagicStarterKit: MagicDecoratorSale {
-    override var description: String { return &quot;\(super.description) + MagicStarterKit&quot; }
-    override var totalPrice: Int { return super.totalPrice + 1 }
-}
+<span class="c1">//: Discount for favorite customers</span>
+<span class="k">class</span> <span class="nl">CustomerFavDiscountSale</span><span class="p">:</span> <span class="n">DiscountDecoratorSale</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">totalPrice</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">totalPrice</span> <span class="o">-</span> <span class="n">discountAmount</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">discountAmount</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">2</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="s">&quot;\(super.description) // Fav Discount&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: Discount for important customers</span>
+<span class="k">class</span> <span class="nl">CustomerPriorityDiscountSale</span><span class="p">:</span> <span class="n">DiscountDecoratorSale</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">totalPrice</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">totalPrice</span> <span class="o">-</span> <span class="n">discountAmount</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">discountAmount</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="s">&quot;\(super.description) // Priorty Discount&quot;</span><span class="p">}</span>
+<span class="p">}</span>
 
 
-//: keep track of the purchases of a customer
-class MagicPurchase: CustomStringConvertible {
-    let name: String
-    var magicPurchases: [MagicSale] = []
-    init(name: String){
-        self.name = name
-    }
-    func addPurchase(magicSale: MagicSale) {
-        self.magicPurchases.append(magicSale)
-        print(&quot;\(magicSale.description) added: \(magicSale.totalPrice)# [\(magicSale.name): \(magicSale.price)#] &quot;)
-    }
+<span class="c1">//: Add Sprite as the magic accessory</span>
+<span class="k">class</span> <span class="nl">MagicSaleWithSprite</span><span class="p">:</span> <span class="n">MagicDecoratorSale</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;\(super.description) + Sprite&quot;</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">totalPrice</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">totalPrice</span> <span class="o">+</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: Add MagicStarterKit as the magic accessory</span>
+<span class="k">class</span> <span class="nl">MagicSaleWithMagicStarterKit</span><span class="p">:</span> <span class="n">MagicDecoratorSale</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;\(super.description) + MagicStarterKit&quot;</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">totalPrice</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">totalPrice</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1">//: keep track of the purchases of a customer</span>
+<span class="k">class</span> <span class="nl">MagicPurchase</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">magicPurchases</span><span class="p">:</span> <span class="p">[</span><span class="n">MagicSale</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">addPurchase</span><span class="p">(</span><span class="nl">magicSale</span><span class="p">:</span> <span class="n">MagicSale</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">magicPurchases</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">magicSale</span><span class="p">)</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(magicSale.description) added: \(magicSale.totalPrice)# [\(magicSale.name): \(magicSale.price)#] &quot;</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    var description: String {
-        return &quot;\(name)&#39;s Magic Purchases:\(magicPurchases)&quot;
-    }
-    func printReceipt(){
-        print(&quot;\n  Receipt: \n\(name)&#39;s Magic Purchases:&quot;)
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;\(name)&#39;s Magic Purchases:\(magicPurchases)&quot;</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">printReceipt</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">  Receipt: </span><span class="se">\n</span><span class="s">\(name)&#39;s Magic Purchases:&quot;</span><span class="p">)</span>
    
-        var totalDiscountTimes = 0
-        let totalPriceFinal =  magicPurchases.map{
-            print( &quot;\($0.description) : \($0.totalPrice) #&quot; )
-            if let d1 =  $0 as? DiscountDecoratorSale {
-                totalDiscountTimes += d1.totalDiscounts()
-            }
-            return $0.totalPrice
-        }.reduce(0, combine: +)
+        <span class="k">var</span> <span class="n">totalDiscountTimes</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">let</span> <span class="n">totalPriceFinal</span> <span class="o">=</span>  <span class="n">magicPurchases</span><span class="p">.</span><span class="n">map</span><span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span> <span class="s">&quot;\($0.description) : \($0.totalPrice) #&quot;</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="n">d1</span> <span class="o">=</span>  <span class="err">$</span><span class="mi">0</span> <span class="kt">as</span><span class="o">?</span> <span class="n">DiscountDecoratorSale</span> <span class="p">{</span>
+                <span class="n">totalDiscountTimes</span> <span class="o">+=</span> <span class="n">d1</span><span class="p">.</span><span class="n">totalDiscounts</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="err">$</span><span class="mf">0.</span><span class="n">totalPrice</span>
+        <span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
 
-        print(&quot;Total Price after discount: \(totalPriceFinal ) # &quot;)
-        print(&quot;\(totalDiscountTimes) discounts in total\n&quot;)
-    }
-}
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Total Price after discount: \(totalPriceFinal ) # &quot;</span><span class="p">)</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(totalDiscountTimes) discounts in total</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Test
-let loveWithSprite = MagicSaleWithSprite(magicSale: MagicSale(name: &quot;Love Potion&quot;, price: 5))
-let randomFavDiscountForSleep =  CustomerFavDiscountSale(magicSale: MagicSale(name: &quot;Sleep Potion&quot;, price: 3))
-let disguise = MagicSale(name: &quot;Disguise Potion&quot;, price: 10)
+<span class="c1">//: Test</span>
+<span class="k">let</span> <span class="n">loveWithSprite</span> <span class="o">=</span> <span class="n">MagicSaleWithSprite</span><span class="p">(</span><span class="nl">magicSale</span><span class="p">:</span> <span class="n">MagicSale</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Love Potion&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">let</span> <span class="n">randomFavDiscountForSleep</span> <span class="o">=</span>  <span class="n">CustomerFavDiscountSale</span><span class="p">(</span><span class="nl">magicSale</span><span class="p">:</span> <span class="n">MagicSale</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Sleep Potion&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">3</span><span class="p">))</span>
+<span class="k">let</span> <span class="n">disguise</span> <span class="o">=</span> <span class="n">MagicSale</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Disguise Potion&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
 
-let ariaPurchase = MagicPurchase(name: &quot;Aria&quot;)
-ariaPurchase.addPurchase(loveWithSprite)
-ariaPurchase.addPurchase(randomFavDiscountForSleep)
-ariaPurchase.addPurchase(disguise)
-ariaPurchase.printReceipt()</code></pre></div>
+<span class="k">let</span> <span class="n">ariaPurchase</span> <span class="o">=</span> <span class="n">MagicPurchase</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Aria&quot;</span><span class="p">)</span>
+<span class="n">ariaPurchase</span><span class="p">.</span><span class="n">addPurchase</span><span class="p">(</span><span class="n">loveWithSprite</span><span class="p">)</span>
+<span class="n">ariaPurchase</span><span class="p">.</span><span class="n">addPurchase</span><span class="p">(</span><span class="n">randomFavDiscountForSleep</span><span class="p">)</span>
+<span class="n">ariaPurchase</span><span class="p">.</span><span class="n">addPurchase</span><span class="p">(</span><span class="n">disguise</span><span class="p">)</span>
+<span class="n">ariaPurchase</span><span class="p">.</span><span class="n">printReceipt</span><span class="p">()</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/06/Decorator.png"><img class="aligncenter size-full wp-image-970" src="/assets/wp-content/uploads/2015/06/Decorator.png" alt="Decorator" width="457" height="201" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/06/29/strategy-design-pattern-updated-using-protocol-extension-in-swift-2-0/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/06/29/strategy-design-pattern-updated-using-protocol-extension-in-swift-2-0/"> Strategy Design Pattern Updated Using Protocol Extension in Swift 2.0</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-4-factory/">A Design Pattern Story in Swift  &#8211; Chapter 4:  Factory </a>
+         <a class="prev" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-4-factory/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -345,6 +358,7 @@ ariaPurchase.printReceipt()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

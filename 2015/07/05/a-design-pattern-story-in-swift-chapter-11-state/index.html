@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -160,193 +153,213 @@
 
 <p>&nbsp;</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">class FlowerHouseContext: CustomStringConvertible {
-    // need a special inital state, but really no use here
-    private var state: State = NoDiamondState()
-    private var numberOfFlowers: Int = 5
-    private var gotDiamond = false
-    private var wonBet = false
-    private var totalReceivedDiamonds: Int = 0
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">class</span> <span class="nl">FlowerHouseContext</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="c1">// need a special inital state, but really no use here</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">state</span><span class="p">:</span> <span class="n">State</span> <span class="o">=</span> <span class="n">NoDiamondState</span><span class="p">()</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">numberOfFlowers</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">gotDiamond</span> <span class="o">=</span> <span class="nb">false</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">wonBet</span> <span class="o">=</span> <span class="nb">false</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">totalReceivedDiamonds</span><span class="p">:</span> <span class="n">Int</span> <span class="o">=</span> <span class="mi">0</span>
     
-    var description:String { return &quot;--FlowerHouse: total flowers: \(numberOfFlowers)@, total diamonds:\(totalReceivedDiamonds)#&quot;
-    }
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span><span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;--FlowerHouse: total flowers: \(numberOfFlowers)@, total diamonds:\(totalReceivedDiamonds)#&quot;</span>
+    <span class="p">}</span>
     
-    func receiveDiamond(){
-        if numberOfFlowers &amp;lt;= 0 {
-            state = SoldOutState()
-            state.getFlower(self)
-        } else {
-            state.giveDiamond(self)
-            state = HasDiamondState()
-            gotDiamond = true
-            totalReceivedDiamonds++
-        }
-    }
+    <span class="k">func</span> <span class="n">receiveDiamond</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="n">numberOfFlowers</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">SoldOutState</span><span class="p">()</span>
+            <span class="n">state</span><span class="p">.</span><span class="n">getFlower</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">state</span><span class="p">.</span><span class="n">giveDiamond</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">HasDiamondState</span><span class="p">()</span>
+            <span class="n">gotDiamond</span> <span class="o">=</span> <span class="nb">true</span>
+            <span class="n">totalReceivedDiamonds</span><span class="o">++</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    func startBet(){
-        if !gotDiamond {
-            state.willGiveDiamond()
-        } else {
-            if arc4random_uniform(2) == 1 {
-                wonBet = true
-            } else {
-                print(&quot;You lose the bet, no flowers&quot;)
-                state = NoDiamondState()
-                gotDiamond = false
-            }
-        }
-    }
+    <span class="k">func</span> <span class="n">startBet</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">gotDiamond</span> <span class="p">{</span>
+            <span class="n">state</span><span class="p">.</span><span class="n">willGiveDiamond</span><span class="p">()</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">arc4random_uniform</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+                <span class="n">wonBet</span> <span class="o">=</span> <span class="nb">true</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;You lose the bet, no flowers&quot;</span><span class="p">)</span>
+                <span class="n">state</span> <span class="o">=</span> <span class="n">NoDiamondState</span><span class="p">()</span>
+                <span class="n">gotDiamond</span> <span class="o">=</span> <span class="nb">false</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
     
-    func giveFlower(){
-        if gotDiamond &amp;&amp; wonBet {
-            numberOfFlowers--
-            state = SoldState()
-            state.getFlower(self)
-            print(description)
-            state = NoDiamondState()
-            gotDiamond = false
-            wonBet = false
-        } else {
-            if let _ = state as? HasDiamondState {
-                print(&quot;You&#39;ll need to start a bet to get a flower&quot;)
-            } else {
-                print(state.description)
-            }
-        }
-    }
-}
+    <span class="k">func</span> <span class="n">giveFlower</span><span class="p">(){</span>
+        <span class="k">if</span> <span class="n">gotDiamond</span> <span class="o">&amp;&amp;</span> <span class="n">wonBet</span> <span class="p">{</span>
+            <span class="n">numberOfFlowers</span><span class="o">--</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">SoldState</span><span class="p">()</span>
+            <span class="n">state</span><span class="p">.</span><span class="n">getFlower</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+            <span class="n">print</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+            <span class="n">state</span> <span class="o">=</span> <span class="n">NoDiamondState</span><span class="p">()</span>
+            <span class="n">gotDiamond</span> <span class="o">=</span> <span class="nb">false</span>
+            <span class="n">wonBet</span> <span class="o">=</span> <span class="nb">false</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="n">_</span> <span class="o">=</span> <span class="n">state</span> <span class="kt">as</span><span class="o">?</span> <span class="n">HasDiamondState</span> <span class="p">{</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;You&#39;ll need to start a bet to get a flower&quot;</span><span class="p">)</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">print</span><span class="p">(</span><span class="n">state</span><span class="p">.</span><span class="n">description</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: the context Parameter is not necessary here, but maybe for future usage.
-protocol State: CustomStringConvertible {
-    func willGiveDiamond()
-    func giveDiamond(context: FlowerHouseContext)
-    func startBet(context: FlowerHouseContext)
-    func getFlower(context: FlowerHouseContext)
-}
+<span class="c1">//: the context Parameter is not necessary here, but maybe for future usage.</span>
+<span class="k">protocol</span> <span class="nl">State</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">willGiveDiamond</span><span class="p">()</span>
+    <span class="k">func</span> <span class="n">giveDiamond</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">startBet</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">getFlower</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span>
+<span class="p">}</span>
 
 
-class NoDiamondState:State {
-    var description:String {return &quot;No diamond yet. Need to give one&quot;}
-    func willGiveDiamond(){
-        print(&quot;You need to give a diamond to start the bet&quot;)
-    }
-    func giveDiamond(context: FlowerHouseContext) {
-         print(&quot;You are giving a diamond&quot;)
-    }
-    func startBet(context: FlowerHouseContext) {
-        print(&quot;Can&#39;t start bet without a diamond&quot;)
-    }
-    func getFlower(context: FlowerHouseContext) {
-        print(&quot;Can&#39;t get flower without a diamond&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">NoDiamondState</span><span class="p">:</span><span class="n">State</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span><span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="s">&quot;No diamond yet. Need to give one&quot;</span><span class="p">}</span>
+    <span class="k">func</span> <span class="n">willGiveDiamond</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;You need to give a diamond to start the bet&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">giveDiamond</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">print</span><span class="p">(</span><span class="s">&quot;You are giving a diamond&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">startBet</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Can&#39;t start bet without a diamond&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">getFlower</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Can&#39;t get flower without a diamond&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class HasDiamondState:State {
-    var description:String {return &quot;You gave one diamond. Will start the bet&quot;}
-    func willGiveDiamond(){
-        print(&quot;You already gave a diamond&quot;)
-    }
-    func giveDiamond(context: FlowerHouseContext) {
-        print(&quot;You already gave a diamond&quot;)
-    }
-    func startBet(context: FlowerHouseContext) {
-        print(&quot;The best is starting&quot;)
-    }
-    func getFlower(context: FlowerHouseContext) {
-        print(&quot;No bet, no flower&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">HasDiamondState</span><span class="p">:</span><span class="n">State</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span><span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="s">&quot;You gave one diamond. Will start the bet&quot;</span><span class="p">}</span>
+    <span class="k">func</span> <span class="n">willGiveDiamond</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;You already gave a diamond&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">giveDiamond</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;You already gave a diamond&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">startBet</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;The best is starting&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">getFlower</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;No bet, no flower&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class SoldState:State {
-    var description: String {return &quot;You won the bet, will give you a flower&quot;}
-    func willGiveDiamond(){
-       print(&quot;You already gave a diamond&quot;)
-    }
-    func giveDiamond(context: FlowerHouseContext) {
-        print(&quot;You already gave a diamond&quot;)
-    }
-    func startBet(context: FlowerHouseContext) {
-        print(&quot;The bet is already over&quot;)
-    }
-    func getFlower(context: FlowerHouseContext) {
-        print(&quot;you won the bed and you get one flower&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">SoldState</span><span class="p">:</span><span class="n">State</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="s">&quot;You won the bet, will give you a flower&quot;</span><span class="p">}</span>
+    <span class="k">func</span> <span class="n">willGiveDiamond</span><span class="p">(){</span>
+       <span class="n">print</span><span class="p">(</span><span class="s">&quot;You already gave a diamond&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">giveDiamond</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;You already gave a diamond&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">startBet</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;The bet is already over&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">getFlower</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;you won the bed and you get one flower&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class SoldOutState:State {
-    var description:String {return &quot;Sold out, come back later&quot;}
-    func willGiveDiamond(){
-        print(&quot;Sold out, come back later&quot;)
-    }
-    func giveDiamond(context: FlowerHouseContext) {
-        print(&quot;Sold out, come back later&quot;)
-    }
-    func startBet(context: FlowerHouseContext) {
-        print(&quot;Sold out, come back later&quot;)
-    }
-    func getFlower(context: FlowerHouseContext) {
-        print(&quot;Sold out, come back later&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">SoldOutState</span><span class="p">:</span><span class="n">State</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span><span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="s">&quot;Sold out, come back later&quot;</span><span class="p">}</span>
+    <span class="k">func</span> <span class="n">willGiveDiamond</span><span class="p">(){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sold out, come back later&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">giveDiamond</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sold out, come back later&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">startBet</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sold out, come back later&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">getFlower</span><span class="p">(</span><span class="nl">context</span><span class="p">:</span> <span class="n">FlowerHouseContext</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sold out, come back later&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//:Testing
-let context = FlowerHouseContext()
-print(context)
-context.receiveDiamond()
-context.startBet()
-context.giveFlower()
-print(&quot;\n&quot;)
+<span class="c1">//:Testing</span>
+<span class="k">let</span> <span class="n">context</span> <span class="o">=</span> <span class="n">FlowerHouseContext</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+<span class="n">context</span><span class="p">.</span><span class="n">receiveDiamond</span><span class="p">()</span>
+<span class="n">context</span><span class="p">.</span><span class="n">startBet</span><span class="p">()</span>
+<span class="n">context</span><span class="p">.</span><span class="n">giveFlower</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
-context.startBet()
-context.receiveDiamond()
-context.startBet()
-context.giveFlower()
+<span class="n">context</span><span class="p">.</span><span class="n">startBet</span><span class="p">()</span>
+<span class="n">context</span><span class="p">.</span><span class="n">receiveDiamond</span><span class="p">()</span>
+<span class="n">context</span><span class="p">.</span><span class="n">startBet</span><span class="p">()</span>
+<span class="n">context</span><span class="p">.</span><span class="n">giveFlower</span><span class="p">()</span>
 
-print(&quot;\n&quot;)
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
-context.startBet()
-context.giveFlower()
+<span class="n">context</span><span class="p">.</span><span class="n">startBet</span><span class="p">()</span>
+<span class="n">context</span><span class="p">.</span><span class="n">giveFlower</span><span class="p">()</span>
 
-print(&quot;\n&quot;)
-context.receiveDiamond()
-context.giveFlower()</code></pre></div>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">context</span><span class="p">.</span><span class="n">receiveDiamond</span><span class="p">()</span>
+<span class="n">context</span><span class="p">.</span><span class="n">giveFlower</span><span class="p">()</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/state.png"><img class="aligncenter size-full wp-image-1027" src="/assets/wp-content/uploads/2015/07/state.png" alt="state" width="394" height="272" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/05/a-design-pattern-story-in-swift-chapter-10-composite/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/05/a-design-pattern-story-in-swift-chapter-10-composite/"> A Design Pattern Story in Swift – Chapter 10: Composite</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/07/a-design-pattern-story-in-swift-chapter-12-proxy/">A Design Pattern Story in Swift – Chapter 12: Proxy </a>
+         <a class="prev" href="/2015/07/07/a-design-pattern-story-in-swift-chapter-12-proxy/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -358,6 +371,7 @@ context.giveFlower()</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

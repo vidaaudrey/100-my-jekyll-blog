@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -154,224 +147,244 @@
 <p>The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm. An external class controls the construction algorithm. &#8211;<a href="https://github.com/ochococo/Design-Patterns-In-Swift">From</a></p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: 1. Simple FragranceBuilder
-class Fragrance: CustomStringConvertible {
-    let name: String
-    let ingFlower: String
-    let ingFruit: String
-    let ingWood: String
-    let ingSpecial: String
-    let powerLevel: Int
-    var description: String {
-        return &quot;Fragrance:\(name)\n&quot; +
-        &quot;Flower:\(ingFlower)\n&quot; +
-        &quot;Fruit: \(ingFruit)\n&quot; +
-        &quot;Wood: \(ingWood)\n&quot; +
-        &quot;Special Ingredience: \(ingSpecial)\n&quot; +
-        &quot;Power Level: \(powerLevel)\n&quot;
-    }
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: 1. Simple FragranceBuilder</span>
+<span class="k">class</span> <span class="nl">Fragrance</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingFlower</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingFruit</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingWood</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingSpecial</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;Fragrance:\(name)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;Flower:\(ingFlower)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;Fruit: \(ingFruit)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;Wood: \(ingWood)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;Special Ingredience: \(ingSpecial)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;Power Level: \(powerLevel)</span><span class="se">\n</span><span class="s">&quot;</span>
+    <span class="p">}</span>
     
-    init(name:String, ingFlower: String, ingFruit: String, ingWood: String, ingSpecial:String, powerLevel: Int) {
-        self.name = name
-        self.ingFlower = ingFlower
-        self.ingFruit = ingFruit
-        self.ingWood = ingWood
-        self.ingSpecial = ingSpecial
-        self.powerLevel = powerLevel
-    }
-}
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="nl">ingFlower</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">ingFruit</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">ingWood</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">ingSpecial</span><span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFlower</span> <span class="o">=</span> <span class="n">ingFlower</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFruit</span> <span class="o">=</span> <span class="n">ingFruit</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingWood</span> <span class="o">=</span> <span class="n">ingWood</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingSpecial</span> <span class="o">=</span> <span class="n">ingSpecial</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="n">powerLevel</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class FragranceBuilder {
-    private var ingFlower = &quot;Jasmine&quot;
-    private var ingFruit = &quot;Strawberry&quot;
-    private var ingWood = &quot;Sandalwood&quot;
-    private var ingSpecial = &quot;Fish&#39;s tear&quot;
-    private var powerLevel = 0
-    func setIngFlower(ingFlower: String){
-        self.ingFlower = ingFlower
-    }
-    func setIngFruit(ingFruit: String){
-        self.ingFruit = ingFruit
-    }
-    func setIngWood(ingWood: String){
-        self.ingWood = ingWood
-    }
-    func setIngSpecial(ingSpecial: String){
-        self.ingSpecial = ingSpecial
-    }
-    func setPowerLevel(powerLevel: Int){
-        self.powerLevel = powerLevel
-    }
+<span class="k">class</span> <span class="n">FragranceBuilder</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingFlower</span> <span class="o">=</span> <span class="s">&quot;Jasmine&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingFruit</span> <span class="o">=</span> <span class="s">&quot;Strawberry&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingWood</span> <span class="o">=</span> <span class="s">&quot;Sandalwood&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingSpecial</span> <span class="o">=</span> <span class="s">&quot;Fish&#39;s tear&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">powerLevel</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">func</span> <span class="n">setIngFlower</span><span class="p">(</span><span class="nl">ingFlower</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFlower</span> <span class="o">=</span> <span class="n">ingFlower</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setIngFruit</span><span class="p">(</span><span class="nl">ingFruit</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFruit</span> <span class="o">=</span> <span class="n">ingFruit</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setIngWood</span><span class="p">(</span><span class="nl">ingWood</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingWood</span> <span class="o">=</span> <span class="n">ingWood</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setIngSpecial</span><span class="p">(</span><span class="nl">ingSpecial</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingSpecial</span> <span class="o">=</span> <span class="n">ingSpecial</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setPowerLevel</span><span class="p">(</span><span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="n">powerLevel</span>
+    <span class="p">}</span>
     
-    func buildFragrance(name: String) -&amp;gt; Fragrance {
-        return Fragrance(name: name, ingFlower: ingFlower, ingFruit: ingFruit, ingWood: ingWood, ingSpecial: ingSpecial, powerLevel: powerLevel)
-    }
-}
+    <span class="k">func</span> <span class="n">buildFragrance</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Fragrance</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Fragrance</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">ingFlower</span><span class="p">:</span> <span class="n">ingFlower</span><span class="p">,</span> <span class="nl">ingFruit</span><span class="p">:</span> <span class="n">ingFruit</span><span class="p">,</span> <span class="nl">ingWood</span><span class="p">:</span> <span class="n">ingWood</span><span class="p">,</span> <span class="nl">ingSpecial</span><span class="p">:</span> <span class="n">ingSpecial</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">powerLevel</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-let builder = FragranceBuilder()
-builder.setIngFlower(&quot;Rose&quot;)
-builder.setIngSpecial(&quot;First Raindrop in Spring&quot;)
-let roseFragrance = builder.buildFragrance(&quot;Rose in Spring&quot;)
-print(roseFragrance.description)
+<span class="k">let</span> <span class="n">builder</span> <span class="o">=</span> <span class="n">FragranceBuilder</span><span class="p">()</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">setIngFlower</span><span class="p">(</span><span class="s">&quot;Rose&quot;</span><span class="p">)</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">setIngSpecial</span><span class="p">(</span><span class="s">&quot;First Raindrop in Spring&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">roseFragrance</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">buildFragrance</span><span class="p">(</span><span class="s">&quot;Rose in Spring&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">roseFragrance</span><span class="p">.</span><span class="n">description</span><span class="p">)</span>
 
 
-//: 2. Use specialized FragranceBuilderFactory to build different fragrance
-enum FragranceType {
-    case Floral
-    case Fruity
-    case Oceanic
-}
+<span class="c1">//: 2. Use specialized FragranceBuilderFactory to build different fragrance</span>
+<span class="k">enum</span> <span class="n">FragranceType</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">Floral</span>
+    <span class="k">case</span> <span class="n">Fruity</span>
+    <span class="k">case</span> <span class="n">Oceanic</span>
+<span class="p">}</span>
 
-class FragranceBuilderFactory {
-    private var ingFlower = &quot;Jasmine&quot;
-    private var ingFruit = &quot;Strawberry&quot;
-    private var ingWood = &quot;Sandalwood&quot;
-    private var ingSpecial = &quot;Fish&#39;s tear&quot;
-    private var powerLevel = 0
-    private init(){
-        // do nothing
-    }
-    func setIngFlower(ingFlower: String){
-        self.ingFlower = ingFlower
-    }
-    func setIngFruit(ingFruit: String){
-        self.ingFruit = ingFruit
-    }
-    func setIngWood(ingWood: String){
-        self.ingWood = ingWood
-    }
-    func setIngSpecial(ingSpecial: String){
-        self.ingSpecial = ingSpecial
-    }
-    func setPowerLevel(powerLevel: Int){
-        self.powerLevel = powerLevel
-    }
+<span class="k">class</span> <span class="n">FragranceBuilderFactory</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingFlower</span> <span class="o">=</span> <span class="s">&quot;Jasmine&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingFruit</span> <span class="o">=</span> <span class="s">&quot;Strawberry&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingWood</span> <span class="o">=</span> <span class="s">&quot;Sandalwood&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">ingSpecial</span> <span class="o">=</span> <span class="s">&quot;Fish&#39;s tear&quot;</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">powerLevel</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">private</span> <span class="k">init</span><span class="p">(){</span>
+        <span class="c1">// do nothing</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setIngFlower</span><span class="p">(</span><span class="nl">ingFlower</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFlower</span> <span class="o">=</span> <span class="n">ingFlower</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setIngFruit</span><span class="p">(</span><span class="nl">ingFruit</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFruit</span> <span class="o">=</span> <span class="n">ingFruit</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setIngWood</span><span class="p">(</span><span class="nl">ingWood</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingWood</span> <span class="o">=</span> <span class="n">ingWood</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setIngSpecial</span><span class="p">(</span><span class="nl">ingSpecial</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingSpecial</span> <span class="o">=</span> <span class="n">ingSpecial</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">setPowerLevel</span><span class="p">(</span><span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="n">powerLevel</span>
+    <span class="p">}</span>
     
-    func buildFragrance(name: String) -&amp;gt; Fragrance {
-        return Fragrance(name: name, ingFlower: ingFlower, ingFruit: ingFruit, ingWood: ingWood, ingSpecial: ingSpecial, powerLevel: powerLevel)
-    }
+    <span class="k">func</span> <span class="n">buildFragrance</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Fragrance</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">Fragrance</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="nl">ingFlower</span><span class="p">:</span> <span class="n">ingFlower</span><span class="p">,</span> <span class="nl">ingFruit</span><span class="p">:</span> <span class="n">ingFruit</span><span class="p">,</span> <span class="nl">ingWood</span><span class="p">:</span> <span class="n">ingWood</span><span class="p">,</span> <span class="nl">ingSpecial</span><span class="p">:</span> <span class="n">ingSpecial</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">powerLevel</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    class func getFragranceBuilder(fragranceType: FragranceType) -&amp;gt; FragranceBuilderFactory {
-        switch fragranceType {
-        case .Floral: return FloralFrangranceBuilder()
-        case .Fruity: return FruityFrangranceBuilder()
-        case .Oceanic: return OceanicFrangranceBuilder()
-        }
-    }
-}
+    <span class="k">class</span> <span class="k">func</span> <span class="n">getFragranceBuilder</span><span class="p">(</span><span class="nl">fragranceType</span><span class="p">:</span> <span class="n">FragranceType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">FragranceBuilderFactory</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">fragranceType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Floral</span><span class="p">:</span> <span class="k">return</span> <span class="n">FloralFrangranceBuilder</span><span class="p">()</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Fruity</span><span class="p">:</span> <span class="k">return</span> <span class="n">FruityFrangranceBuilder</span><span class="p">()</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Oceanic</span><span class="p">:</span> <span class="k">return</span> <span class="n">OceanicFrangranceBuilder</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class FloralFrangranceBuilder: FragranceBuilderFactory {
-    override init(){
-        super.init()
-        self.ingFlower = &quot;Rose&quot;
-        self.powerLevel = 99
-    }
+<span class="k">class</span> <span class="nl">FloralFrangranceBuilder</span><span class="p">:</span> <span class="n">FragranceBuilderFactory</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">init</span><span class="p">(){</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">()</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFlower</span> <span class="o">=</span> <span class="s">&quot;Rose&quot;</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="mi">99</span>
+    <span class="p">}</span>
     
-}
-class FruityFrangranceBuilder: FragranceBuilderFactory {
-    override init(){
-        super.init()
-        self.ingFruit = &quot;Apple&quot;
-        self.powerLevel = 99
-    }
+<span class="p">}</span>
+<span class="k">class</span> <span class="nl">FruityFrangranceBuilder</span><span class="p">:</span> <span class="n">FragranceBuilderFactory</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">init</span><span class="p">(){</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">()</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFruit</span> <span class="o">=</span> <span class="s">&quot;Apple&quot;</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="mi">99</span>
+    <span class="p">}</span>
 
     
-}
-class OceanicFrangranceBuilder: FragranceBuilderFactory {
-    override init(){
-        super.init()
-        self.ingWood = &quot;Pine&quot;
-        self.powerLevel = 80
-    }
-}
+<span class="p">}</span>
+<span class="k">class</span> <span class="nl">OceanicFrangranceBuilder</span><span class="p">:</span> <span class="n">FragranceBuilderFactory</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">init</span><span class="p">(){</span>
+        <span class="nb">super</span><span class="p">.</span><span class="k">init</span><span class="p">()</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingWood</span> <span class="o">=</span> <span class="s">&quot;Pine&quot;</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="mi">80</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-let builder1 = FragranceBuilderFactory.getFragranceBuilder(FragranceType.Oceanic)
-builder.setIngSpecial(&quot;Mermaid Scale&quot;)
-let fragrance1 = builder.buildFragrance(&quot;Ocean Song&quot;)
-print(fragrance1.description)
+<span class="k">let</span> <span class="n">builder1</span> <span class="o">=</span> <span class="n">FragranceBuilderFactory</span><span class="p">.</span><span class="n">getFragranceBuilder</span><span class="p">(</span><span class="n">FragranceType</span><span class="p">.</span><span class="n">Oceanic</span><span class="p">)</span>
+<span class="n">builder</span><span class="p">.</span><span class="n">setIngSpecial</span><span class="p">(</span><span class="s">&quot;Mermaid Scale&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">fragrance1</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">buildFragrance</span><span class="p">(</span><span class="s">&quot;Ocean Song&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">fragrance1</span><span class="p">.</span><span class="n">description</span><span class="p">)</span>
 
 
-//: 3. Use closure to config the FragranceBuilder
-struct TearInHeavenFragrance {
-    let name: String
-    let ingFlower: String
-    let ingFruit: String
-    let ingWood: String
-    let ingSpecial: String
-    let powerLevel: Int
-    var description: String {
-        return &quot;Fragrance:\(name)\n&quot; +
-            &quot;Flower:\(ingFlower)\n&quot; +
-            &quot;Fruit: \(ingFruit)\n&quot; +
-            &quot;Wood: \(ingWood)\n&quot; +
-            &quot;Special Ingredience: \(ingSpecial)\n&quot; +
-        &quot;Power Level: \(powerLevel)\n&quot;
-    }
+<span class="c1">//: 3. Use closure to config the FragranceBuilder</span>
+<span class="k">struct</span> <span class="n">TearInHeavenFragrance</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingFlower</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingFruit</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingWood</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">ingSpecial</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;Fragrance:\(name)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+            <span class="s">&quot;Flower:\(ingFlower)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+            <span class="s">&quot;Fruit: \(ingFruit)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+            <span class="s">&quot;Wood: \(ingWood)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+            <span class="s">&quot;Special Ingredience: \(ingSpecial)</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">+</span>
+        <span class="s">&quot;Power Level: \(powerLevel)</span><span class="se">\n</span><span class="s">&quot;</span>
+    <span class="p">}</span>
     
-    init(name: String, builder: TearInHeavenFragranceBuilder) {
-        self.name = name
-        self.ingFlower = builder.ingFlower
-        self.ingFruit = builder.ingFruit
-        self.ingWood = builder.ingWood
-        self.ingSpecial = builder.ingSpecial
-        self.powerLevel = builder.powerLevel
-    }
-}
+    <span class="k">init</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">builder</span><span class="p">:</span> <span class="n">TearInHeavenFragranceBuilder</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFlower</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">ingFlower</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingFruit</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">ingFruit</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingWood</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">ingWood</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">ingSpecial</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">ingSpecial</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="n">builder</span><span class="p">.</span><span class="n">powerLevel</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class TearInHeavenFragranceBuilder {
-    var ingFlower = &quot;Jasmine&quot;
-    var ingFruit = &quot;Strawberry&quot;
-    var ingWood = &quot;Sandalwood&quot;
-    var ingSpecial = &quot;Fish&#39;s tear&quot;
-    var powerLevel = 0
-    init(builderHandler: (TearInHeavenFragranceBuilder) -&amp;gt; Void) {
-        builderHandler(self)
-    }
-}
-let builder2 = TearInHeavenFragranceBuilder { (builder) -&amp;gt; Void in
-    builder.ingFlower = &quot;White Lily&quot;
-    builder.powerLevel = 78
-}
+<span class="k">class</span> <span class="n">TearInHeavenFragranceBuilder</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">ingFlower</span> <span class="o">=</span> <span class="s">&quot;Jasmine&quot;</span>
+    <span class="k">var</span> <span class="n">ingFruit</span> <span class="o">=</span> <span class="s">&quot;Strawberry&quot;</span>
+    <span class="k">var</span> <span class="n">ingWood</span> <span class="o">=</span> <span class="s">&quot;Sandalwood&quot;</span>
+    <span class="k">var</span> <span class="n">ingSpecial</span> <span class="o">=</span> <span class="s">&quot;Fish&#39;s tear&quot;</span>
+    <span class="k">var</span> <span class="n">powerLevel</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">builderHandler</span><span class="p">:</span> <span class="p">(</span><span class="n">TearInHeavenFragranceBuilder</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">builderHandler</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">let</span> <span class="n">builder2</span> <span class="o">=</span> <span class="n">TearInHeavenFragranceBuilder</span> <span class="p">{</span> <span class="p">(</span><span class="n">builder</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+    <span class="n">builder</span><span class="p">.</span><span class="n">ingFlower</span> <span class="o">=</span> <span class="s">&quot;White Lily&quot;</span>
+    <span class="n">builder</span><span class="p">.</span><span class="n">powerLevel</span> <span class="o">=</span> <span class="mi">78</span>
+<span class="p">}</span>
 
-let fragrance2 = TearInHeavenFragrance(name: &quot;Tear in Heaven&quot;, builder: builder2)
-print(fragrance2.description)</code></pre></div>
+<span class="k">let</span> <span class="n">fragrance2</span> <span class="o">=</span> <span class="n">TearInHeavenFragrance</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Tear in Heaven&quot;</span><span class="p">,</span> <span class="nl">builder</span><span class="p">:</span> <span class="n">builder2</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">fragrance2</span><span class="p">.</span><span class="n">description</span><span class="p">)</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/builder.png"><img class="aligncenter size-full wp-image-1043" src="/assets/wp-content/uploads/2015/07/builder.png" alt="builder" width="371" height="285" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/07/a-design-pattern-story-in-swift-chapter-12-proxy/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/07/a-design-pattern-story-in-swift-chapter-12-proxy/"> A Design Pattern Story in Swift – Chapter 12: Proxy</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-14-chain-of-responsibility/">A Design Pattern Story in Swift – Chapter 14: Chain Of Responsibility </a>
+         <a class="prev" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-14-chain-of-responsibility/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -383,6 +396,7 @@ print(fragrance2.description)</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

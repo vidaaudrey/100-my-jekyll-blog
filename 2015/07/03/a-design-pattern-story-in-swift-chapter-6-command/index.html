@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -160,115 +153,115 @@
       </p>
       
       
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">protocol Command {
-    func execute(receiver: Any)
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">protocol</span> <span class="n">Command</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span>
+<span class="p">}</span>
 
-//: A generic command can handle different kind of commands
-class GenericCommand&amp;lt;T&amp;gt;: Command {
-    private var instruction: T -&amp;gt; Void
-    init(instruction: T -&amp;gt; Void){
-        self.instruction = instruction
-    }
-    func execute(receiver: Any) {
-        guard let safeReceiver = receiver as? T else {
-            fatalError(&quot;Receiver is not an expected type&quot;)
-        }
-        instruction(safeReceiver)
-    }
-    class func createCommand(instruction: T -&amp;gt; Void) -&amp;gt; Command {
-        return GenericCommand(instruction: instruction)
-    }
-}
+<span class="c1">//: A generic command can handle different kind of commands</span>
+<span class="k">class</span> <span class="n">GenericCommand</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">:</span> <span class="n">Command</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span><span class="p">){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">instruction</span> <span class="o">=</span> <span class="n">instruction</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">guard</span> <span class="k">let</span> <span class="n">safeReceiver</span> <span class="o">=</span> <span class="n">receiver</span> <span class="kt">as</span><span class="o">?</span> <span class="n">T</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">fatalError</span><span class="p">(</span><span class="s">&quot;Receiver is not an expected type&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">instruction</span><span class="p">(</span><span class="n">safeReceiver</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">createCommand</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Command</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">GenericCommand</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">instruction</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-protocol LatestCommand {
-    func executeLatestCommand(receiver: Any)
-}
+<span class="k">protocol</span> <span class="n">LatestCommand</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">executeLatestCommand</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span>
+<span class="p">}</span>
 
-//: A commandWrapper manages the execution of multiple commands or the lastest command
-class CommandWrapper: Command, LatestCommand {
-    private let commands: [Command]
-    private var remainingCommands:[Command]
-    init(commands: [Command]){
-        self.commands = commands
-        self.remainingCommands = commands
-    }
-    func execute(receiver: Any) {
-        print(&quot;will excute all commands for \(receiver)&quot;)
-        commands.map{$0.execute(receiver)}
+<span class="c1">//: A commandWrapper manages the execution of multiple commands or the lastest command</span>
+<span class="k">class</span> <span class="nl">CommandWrapper</span><span class="p">:</span> <span class="n">Command</span><span class="p">,</span> <span class="n">LatestCommand</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">commands</span><span class="p">:</span> <span class="p">[</span><span class="n">Command</span><span class="p">]</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">remainingCommands</span><span class="p">:[</span><span class="n">Command</span><span class="p">]</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">commands</span><span class="p">:</span> <span class="p">[</span><span class="n">Command</span><span class="p">]){</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">commands</span> <span class="o">=</span> <span class="n">commands</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">remainingCommands</span> <span class="o">=</span> <span class="n">commands</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;will excute all commands for \(receiver)&quot;</span><span class="p">)</span>
+        <span class="n">commands</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">execute</span><span class="p">(</span><span class="n">receiver</span><span class="p">)}</span>
         
-    }
-    func executeLatestCommand(receiver: Any){
-        print(&quot;will execute the lastest command for \(receiver)&quot;)
-        remainingCommands.removeLast().execute(receiver)
-        print(&quot;\(remainingCommands.count) commands left.&quot;)
-    }
-}
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">executeLatestCommand</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;will execute the lastest command for \(receiver)&quot;</span><span class="p">)</span>
+        <span class="n">remainingCommands</span><span class="p">.</span><span class="n">removeLast</span><span class="p">().</span><span class="n">execute</span><span class="p">(</span><span class="n">receiver</span><span class="p">)</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(remainingCommands.count) commands left.&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class PeopleStandByCommand: Command {
-    func execute(receiver: Any) {
-        print(&quot;All people standby&quot;)
-    }
-}
-class PrepareWeaponCommand: Command {
-    func execute(receiver: Any) {
-        print(&quot;Weapons are ready&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">PeopleStandByCommand</span><span class="p">:</span> <span class="n">Command</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;All people standby&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">class</span> <span class="nl">PrepareWeaponCommand</span><span class="p">:</span> <span class="n">Command</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Weapons are ready&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class PrepareResourcesCommand: Command {
-    func execute(receiver: Any) {
-        print(&quot;All resources are ready&quot;)
-    }
-}
+<span class="k">class</span> <span class="nl">PrepareResourcesCommand</span><span class="p">:</span> <span class="n">Command</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;All resources are ready&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: An operation that has manages the preparation of the war. It creates multiple commands which will be executed at runtime
-class PrepareForWarOperation:CustomStringConvertible {
-    private var commands:[Command] = []
-    private var queue = dispatch_queue_create(&quot;arrayQueue&quot;, DISPATCH_QUEUE_SERIAL)
-    var name: String
-    var description: String { return name }
-    init(kindom: String){
-        print(&quot;PrepareForWar Operation for \(kindom) is created&quot;)
-        self.name = kindom
-        prepareEverything()
-    }
-    func notifyPeople(people: String){
-        print(&quot;Notified \(people) about the war&quot;)
-    }
+<span class="c1">//: An operation that has manages the preparation of the war. It creates multiple commands which will be executed at runtime</span>
+<span class="k">class</span> <span class="nl">PrepareForWarOperation</span><span class="p">:</span><span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">commands</span><span class="p">:[</span><span class="n">Command</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="n">queue</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&quot;arrayQueue&quot;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_SERIAL</span><span class="p">)</span>
+    <span class="k">var</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="n">name</span> <span class="p">}</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">kindom</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;PrepareForWar Operation for \(kindom) is created&quot;</span><span class="p">)</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">kindom</span>
+        <span class="n">prepareEverything</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">notifyPeople</span><span class="p">(</span><span class="nl">people</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Notified \(people) about the war&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    func prepareEverything(){
-        addCommand(PrepareForWarOperation.notifyPeople, people: &quot;people of \(name)&quot;)
-        commands.append(PrepareResourcesCommand())
-        commands.append(PrepareWeaponCommand())
-        commands.append(PeopleStandByCommand())
-    }
+    <span class="k">func</span> <span class="n">prepareEverything</span><span class="p">(){</span>
+        <span class="n">addCommand</span><span class="p">(</span><span class="n">PrepareForWarOperation</span><span class="p">.</span><span class="n">notifyPeople</span><span class="p">,</span> <span class="nl">people</span><span class="p">:</span> <span class="s">&quot;people of \(name)&quot;</span><span class="p">)</span>
+        <span class="n">commands</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">PrepareResourcesCommand</span><span class="p">())</span>
+        <span class="n">commands</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">PrepareWeaponCommand</span><span class="p">())</span>
+        <span class="n">commands</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">PeopleStandByCommand</span><span class="p">())</span>
+    <span class="p">}</span>
 
-    private func addCommand(action: PrepareForWarOperation -&amp;gt; String -&amp;gt; Void, people: String){
-        dispatch_sync(queue) { () -&amp;gt; Void in
-            self.commands.append(GenericCommand.createCommand({ prep  in
-                action(prep)(people)
-            }))
-        }
-    }
-    func getACommandWrap() -&amp;gt; protocol &amp;lt;Command,LatestCommand&amp;gt;? {
-            var command: protocol &amp;lt;Command,LatestCommand&amp;gt;?
-            dispatch_sync(queue) { () -&amp;gt; Void in
-                command = CommandWrapper(commands: self.commands)
-            }
-            return command
-    }
-}
-//: Testing
-let p1 = PrepareForWarOperation(kindom: &quot;Daria&quot;)
-let commands = p1.getACommandWrap()
-commands?.executeLatestCommand(p1)
-commands?.execute(p1)
-print(&quot;\n&quot;)
+    <span class="n">private</span> <span class="k">func</span> <span class="n">addCommand</span><span class="p">(</span><span class="nl">action</span><span class="p">:</span> <span class="n">PrepareForWarOperation</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span><span class="p">,</span> <span class="nl">people</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+            <span class="nb">self</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">GenericCommand</span><span class="p">.</span><span class="n">createCommand</span><span class="p">({</span> <span class="n">prep</span>  <span class="k">in</span>
+                <span class="n">action</span><span class="p">(</span><span class="n">prep</span><span class="p">)(</span><span class="n">people</span><span class="p">)</span>
+            <span class="p">}))</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">getACommandWrap</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Command</span><span class="p">,</span><span class="n">LatestCommand</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">?</span> <span class="p">{</span>
+            <span class="k">var</span> <span class="nl">command</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Command</span><span class="p">,</span><span class="n">LatestCommand</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">?</span>
+            <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+                <span class="n">command</span> <span class="o">=</span> <span class="n">CommandWrapper</span><span class="p">(</span><span class="nl">commands</span><span class="p">:</span> <span class="nb">self</span><span class="p">.</span><span class="n">commands</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">command</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: Testing</span>
+<span class="k">let</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">PrepareForWarOperation</span><span class="p">(</span><span class="nl">kindom</span><span class="p">:</span> <span class="s">&quot;Daria&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">commands</span> <span class="o">=</span> <span class="n">p1</span><span class="p">.</span><span class="n">getACommandWrap</span><span class="p">()</span>
+<span class="n">commands</span><span class="o">?</span><span class="p">.</span><span class="n">executeLatestCommand</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="n">commands</span><span class="o">?</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">p1</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
-let p2 = PrepareForWarOperation(kindom: &quot;Secila&quot;)
-print(&quot;Use the same operation commands for another kindom called Secila&quot;)
-commands?.execute(p2)</code></pre></div>
+<span class="k">let</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">PrepareForWarOperation</span><span class="p">(</span><span class="nl">kindom</span><span class="p">:</span> <span class="s">&quot;Secila&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Use the same operation commands for another kindom called Secila&quot;</span><span class="p">)</span>
+<span class="n">commands</span><span class="o">?</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="n">p2</span><span class="p">)</span></code></pre></div>
 
       
       <p>
@@ -283,39 +276,59 @@ commands?.execute(p2)</code></pre></div>
 </div>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-5-singleton/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/01/a-design-pattern-story-in-swift-chapter-5-singleton/"> A Design Pattern Story in Swift – Chapter 5: Singleton</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-7-adaptor-facade/">A Design Pattern Story in Swift – Chapter 7: Adaptor &#038; Facade </a>
+         <a class="prev" href="/2015/07/04/a-design-pattern-story-in-swift-chapter-7-adaptor-facade/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -327,6 +340,7 @@ commands?.execute(p2)</code></pre></div>
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

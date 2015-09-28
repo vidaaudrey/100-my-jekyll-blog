@@ -191,21 +191,39 @@ The main SCSS file for everything, yep
 
 @-webkit-keyframes logoDisappear {
   0% {
-    width: 120px;
-    height: 120px; }
+    width: 90px;
+    height: 90px; }
 
   100% {
-    width: 100%;
-    height: auto; } }
+    width: 50%;
+    height: 50%; } }
 
 @keyframes logoDisappear {
   0% {
-    width: 120px;
-    height: 120px; }
+    width: 90px;
+    height: 90px; }
 
   100% {
-    width: 100%;
-    height: auto; } }
+    width: 50%;
+    height: 50%; } }
+
+@-webkit-keyframes logoAppear {
+  0% {
+    width: 50%;
+    height: 50%; }
+
+  100% {
+    width: 90px;
+    height: 90px; } }
+
+@keyframes logoAppear {
+  0% {
+    width: 50%;
+    height: 50%; }
+
+  100% {
+    width: 90px;
+    height: 90px; } }
 
 @-webkit-keyframes pulse {
   0% {
@@ -294,17 +312,21 @@ body {
             transition: all .5s ease;
     width: 100%;
     overflow: hidden; }
+    #body-wrap header .container-fluid {
+      padding: 15px; }
     #body-wrap header .navbar-brand {
       width: 120px;
       height: 120px; }
       #body-wrap header .navbar-brand img {
         width: 100%;
-        height: 100%; }
+        height: 100%;
+        -webkit-animation: logoAppear 1s;
+                animation: logoAppear 1s; }
     #body-wrap header .nav_trigger {
       cursor: pointer;
       display: inline-block;
       font-size: 26px;
-      margin: 12px 0 0 50px;
+      padding: 15px;
       float: right;
       color: #000; }
     #body-wrap header.nav-up {
@@ -332,23 +354,25 @@ body {
 
 @media (max-width: 767px) {
   #push_sidebar {
-    width: 80%; }
+    width: 70%; }
   .jumbotron {
     background-attachment: scroll; }
   .show_sidebar #push_sidebar {
-    left: 20%; }
+    left: 30%; }
   .show_sidebar #body-wrap, .show_sidebar #body-wrap > header {
-    margin-right: 80%;
-    width: 20%; }
+    margin-right: 70%;
+    width: 30%; }
     .show_sidebar #body-wrap .navbar-brand, .show_sidebar #body-wrap > header .navbar-brand {
       width: 100%;
       height: auto;
-      max-height: 100px; }
+      max-height: 100px;
+      padding: 0; }
       .show_sidebar #body-wrap .navbar-brand img, .show_sidebar #body-wrap > header .navbar-brand img {
         -webkit-animation: logoDisappear 1s;
                 animation: logoDisappear 1s;
-        width: 60px;
-        height: 60px; }
+        width: 50%;
+        height: 50%;
+        margin: 0 auto; }
     .show_sidebar #body-wrap .nav_trigger, .show_sidebar #body-wrap > header .nav_trigger {
       width: 100%;
       text-align: center; }
@@ -365,9 +389,9 @@ body {
     width: 80%; } }
 
 .jumbotron {
-  min-height: 600px;
+  height: 650px;
   margin-top: -180px;
-  padding-top: 198px;
+  padding-top: 90px;
   width: 110%;
   color: white; }
   .jumbotron .container {
@@ -397,7 +421,7 @@ body {
   .jumbotron.jumbotron-page-plain {
     background: url('/assets/images/page-default-bg-compressor.jpg') no-repeat center center fixed;
     position: relative;
-    min-height: 600px; }
+    min-height: 400px; }
     .jumbotron.jumbotron-page-plain .container {
       position: absolute;
       bottom: 0;
@@ -409,7 +433,7 @@ body {
   .jumbotron.jumbotron-post {
     position: relative;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-size: cover; }
     .jumbotron.jumbotron-post .fullwidth-wrapper {
       position: absolute;
@@ -436,7 +460,7 @@ body {
       background: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.6));
       background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6)); }
   .jumbotron.jumbotron-post-plain {
-    background: url('/assets/images/post-default-bg-compressor.jpg') no-repeat center center fixed;
+    background: url('/assets/images/post-default-bg-compressor.jpg') no-repeat center center scroll;
     position: relative; }
     .jumbotron.jumbotron-post-plain .fullwidth-wrapper {
       position: absolute;
@@ -476,7 +500,66 @@ body {
 footer {
   padding: 20px; }
 
+.pagination {
+  text-align: center;
+  width: 100%; }
+
+.page-nav {
+  width: 100%;
+  height: auto;
+  min-height: 20px;
+  vertical-align: middle;
+  padding-bottom: 40px; }
+  .page-nav div {
+    width: 50%;
+    min-height: 100%;
+    float: left; }
+    .page-nav div a {
+      max-height: 40px;
+      display: block;
+      float: left;
+      overflow: hidden;
+      font-size: 1.1em;
+      -ms-text-overflow: ellipsis;
+      text-overflow: ellipsis; }
+      .page-nav div a:first-child {
+        width: 10%;
+        margin-right: 2%;
+        line-height: 40px;
+        text-align: left; }
+      .page-nav div a:last-child {
+        width: 80%;
+        margin-left: 2%; }
+  .page-nav div:last-child a:first-child {
+    width: 80%;
+    margin-right: 2%;
+    text-align: right;
+    line-height: 20px; }
+  .page-nav div:last-child a:last-child {
+    line-height: 40px;
+    width: 10%;
+    margin-left: 2%;
+    text-align: right; }
+
 #wuf-adv {
   display: none !important; }
 
-/** { color: transparent}*/
+/* Related posts */
+.related {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #eee; }
+
+.related-posts {
+  padding-left: 0;
+  list-style: none; }
+  .related-posts h3 {
+    margin-top: 0; }
+  .related-posts li small {
+    font-size: 75%;
+    color: #999; }
+  .related-posts li a:hover {
+    color: #268bd2;
+    text-decoration: none; }
+    .related-posts li a:hover small {
+      color: inherit; }

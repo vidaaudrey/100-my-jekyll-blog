@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -158,124 +151,144 @@
 </p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">enum GuestType {
-    case VIP
-    case God
-    case Fairy
-    case Unwelcomed
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">enum</span> <span class="n">GuestType</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">VIP</span>
+    <span class="k">case</span> <span class="n">God</span>
+    <span class="k">case</span> <span class="n">Fairy</span>
+    <span class="k">case</span> <span class="n">Unwelcomed</span>
+<span class="p">}</span>
 
-struct Guest {
-    let guestType: GuestType
-    let name: String
-}
+<span class="k">struct</span> <span class="n">Guest</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">guestType</span><span class="p">:</span> <span class="n">GuestType</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+<span class="p">}</span>
 
-class Host{
-    var nextHost: Host?
-    required init(){}
+<span class="k">class</span> <span class="n">Host</span><span class="p">{</span>
+    <span class="k">var</span> <span class="nl">nextHost</span><span class="p">:</span> <span class="n">Host</span><span class="o">?</span>
+    <span class="n">required</span> <span class="k">init</span><span class="p">(){}</span>
     
-    func host(guest: Guest, handled: Bool = false) -&amp;gt; Bool {
-        if nextHost != nil {
-            return nextHost!.host(guest, handled: handled)
-        } else if !handled {
-            print(&quot;End of the chain. No host available for \(guest.name)\n&quot;)
-        }
-        return handled
-    }
+    <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">nextHost</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">nextHost</span><span class="o">!</span><span class="p">.</span><span class="n">host</span><span class="p">(</span><span class="n">guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">handled</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">!</span><span class="n">handled</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;End of the chain. No host available for \(guest.name)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">handled</span>
+    <span class="p">}</span>
     
-    class func createChain() -&amp;gt; Host?{
-        let host = VIPHost()
-        host.nextHost = GodHost()
-        host.nextHost?.nextHost = FairyHost()
-        return host
-    }
-}
+    <span class="k">class</span> <span class="k">func</span> <span class="n">createChain</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Host</span><span class="o">?</span><span class="p">{</span>
+        <span class="k">let</span> <span class="n">host</span> <span class="o">=</span> <span class="n">VIPHost</span><span class="p">()</span>
+        <span class="n">host</span><span class="p">.</span><span class="n">nextHost</span> <span class="o">=</span> <span class="n">GodHost</span><span class="p">()</span>
+        <span class="n">host</span><span class="p">.</span><span class="n">nextHost</span><span class="o">?</span><span class="p">.</span><span class="n">nextHost</span> <span class="o">=</span> <span class="n">FairyHost</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">host</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class FairyHost: Host {
-    override func host(guest: Guest, var handled: Bool) -&amp;gt; Bool {
-        if guest.guestType == .Fairy {
-            print(&quot;\(guest.name) is handled by FairyHost\n&quot;)
-            handled = true
-        }
-        return super.host(guest, handled: handled)
-    }
-}
+<span class="k">class</span> <span class="nl">FairyHost</span><span class="p">:</span> <span class="n">Host</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">guest</span><span class="p">.</span><span class="n">guestType</span> <span class="o">==</span> <span class="p">.</span><span class="n">Fairy</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(guest.name) is handled by FairyHost</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+            <span class="n">handled</span> <span class="o">=</span> <span class="nb">true</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">host</span><span class="p">(</span><span class="n">guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">handled</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class GodHost: Host {
-    override func host(guest: Guest, var handled: Bool) -&amp;gt; Bool {
-        if guest.guestType == .God {
-            print(&quot;\(guest.name) is handled by GodHost\n&quot;)
-            handled = true
-        }
-        return super.host(guest, handled: handled)
-    }
-}
+<span class="k">class</span> <span class="nl">GodHost</span><span class="p">:</span> <span class="n">Host</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">guest</span><span class="p">.</span><span class="n">guestType</span> <span class="o">==</span> <span class="p">.</span><span class="n">God</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(guest.name) is handled by GodHost</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+            <span class="n">handled</span> <span class="o">=</span> <span class="nb">true</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">host</span><span class="p">(</span><span class="n">guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">handled</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-class VIPHost: Host {
-    var totalGuests = 0
-    var vipGuests = 0
-    override func host(guest: Guest, var handled: Bool) -&amp;gt; Bool {
-        totalGuests++
-        if guest.guestType == .VIP {
-            print(&quot;\(guest.name) is handled by VIPHost&quot;)
-            handled = true
-            vipGuests++
-            print(&quot;Currently \(vipGuests) VIP out of \(totalGuests) guests\n&quot;)
-        }
-        return super.host(guest, handled: handled)
-    }
-}
+<span class="k">class</span> <span class="nl">VIPHost</span><span class="p">:</span> <span class="n">Host</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">totalGuests</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">var</span> <span class="n">vipGuests</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="n">totalGuests</span><span class="o">++</span>
+        <span class="k">if</span> <span class="n">guest</span><span class="p">.</span><span class="n">guestType</span> <span class="o">==</span> <span class="p">.</span><span class="n">VIP</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(guest.name) is handled by VIPHost&quot;</span><span class="p">)</span>
+            <span class="n">handled</span> <span class="o">=</span> <span class="nb">true</span>
+            <span class="n">vipGuests</span><span class="o">++</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Currently \(vipGuests) VIP out of \(totalGuests) guests</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">.</span><span class="n">host</span><span class="p">(</span><span class="n">guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">handled</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Testing 
-let guests = [Guest(guestType: .Fairy, name: &quot;Tinkle Fairy&quot;),
-              Guest(guestType: .God, name: &quot;God of Thunder&quot;),
-              Guest(guestType: .VIP, name: &quot;VIP Tor&quot;),
-              Guest(guestType: .Unwelcomed, name: &quot;Satan&quot;),
-              Guest(guestType: .VIP, name: &quot;VIP Helen&quot;)]
+<span class="c1">//: Testing </span>
+<span class="k">let</span> <span class="n">guests</span> <span class="o">=</span> <span class="p">[</span><span class="n">Guest</span><span class="p">(</span><span class="nl">guestType</span><span class="p">:</span> <span class="p">.</span><span class="n">Fairy</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Tinkle Fairy&quot;</span><span class="p">),</span>
+              <span class="n">Guest</span><span class="p">(</span><span class="nl">guestType</span><span class="p">:</span> <span class="p">.</span><span class="n">God</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;God of Thunder&quot;</span><span class="p">),</span>
+              <span class="n">Guest</span><span class="p">(</span><span class="nl">guestType</span><span class="p">:</span> <span class="p">.</span><span class="n">VIP</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;VIP Tor&quot;</span><span class="p">),</span>
+              <span class="n">Guest</span><span class="p">(</span><span class="nl">guestType</span><span class="p">:</span> <span class="p">.</span><span class="n">Unwelcomed</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Satan&quot;</span><span class="p">),</span>
+              <span class="n">Guest</span><span class="p">(</span><span class="nl">guestType</span><span class="p">:</span> <span class="p">.</span><span class="n">VIP</span><span class="p">,</span> <span class="nl">name</span><span class="p">:</span> <span class="s">&quot;VIP Helen&quot;</span><span class="p">)]</span>
 
 
-if let hostChain = Host.createChain() {
-    for guest in guests {
-        hostChain.host(guest)
-    }
-}</code></pre></div>
+<span class="k">if</span> <span class="k">let</span> <span class="n">hostChain</span> <span class="o">=</span> <span class="n">Host</span><span class="p">.</span><span class="n">createChain</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">guest</span> <span class="k">in</span> <span class="n">guests</span> <span class="p">{</span>
+        <span class="n">hostChain</span><span class="p">.</span><span class="n">host</span><span class="p">(</span><span class="n">guest</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/chain-of-responsbility.png"><img class="aligncenter size-full wp-image-1049" src="/assets/wp-content/uploads/2015/07/chain-of-responsbility.png" alt="chain-of-responsbility" width="326" height="169" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/08/a-design-pattern-story-in-swift-chapter-13-builder/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/08/a-design-pattern-story-in-swift-chapter-13-builder/"> A Design Pattern Story in Swift – Chapter 13: Builder</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-15-bridge/">A Design Pattern Story in Swift – Chapter 15: Bridge </a>
+         <a class="prev" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-15-bridge/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -287,6 +300,7 @@ if let hostChain = Host.createChain() {
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

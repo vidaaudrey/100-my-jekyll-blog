@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -159,93 +152,113 @@
 
 <p>&#8211; a separate TableView DataSource handles the data manipulation and give feedback to the main ViewController when the user interaction is performed. The ViewController can then perform the corresponding view updates or other actions. In fact, almost all actions that triggered by user interaction can use the same function to call back the main ViewController:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">func tableViewCellActionHandler(item: AnyObject, indexPath: NSIndexPath, action: TableViewActionType) {
-        switch action {
-        case .Edit:
-            println(&quot;editing&quot;)
-        case .Favoriate:
-            favShots.append(item as! Shot)
-            println(&quot;faved&quot;)
-            tableView.setEditing(false, animated: true)
-        case .Save:
-            if let cell = tableView.cellForRowAtIndexPath(indexPath) as? ShotTableViewCell {
-                if let image = cell.shotImageView?.image {
-                    Utils.saveImageToLibrary(image)
-                    tableView.setEditing(false, animated: true) // imp
-                }
-            }
-        case .DidSelect:
-            println(&quot;selecting \(indexPath.row)&quot;)
-        case .DidDeselect:
-           tableView.deselectRowAtIndexPath(indexPath, animated: true) // call it to make sure it does deselect. (Sometime, it doesn&#39;t)
-           println(&quot;deselected \(indexPath.row)&quot;)
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">func</span> <span class="nf">tableViewCellActionHandler</span><span class="p">(</span><span class="nl">item</span><span class="p">:</span> <span class="n">AnyObject</span><span class="p">,</span> <span class="nl">indexPath</span><span class="p">:</span> <span class="bp">NSIndexPath</span><span class="p">,</span> <span class="nl">action</span><span class="p">:</span> <span class="n">TableViewActionType</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">action</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Edit</span><span class="p">:</span>
+            <span class="n">println</span><span class="p">(</span><span class="s">&quot;editing&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Favoriate</span><span class="p">:</span>
+            <span class="n">favShots</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span> <span class="kt">as</span><span class="o">!</span> <span class="n">Shot</span><span class="p">)</span>
+            <span class="n">println</span><span class="p">(</span><span class="s">&quot;faved&quot;</span><span class="p">)</span>
+            <span class="n">tableView</span><span class="p">.</span><span class="n">setEditing</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Save</span><span class="p">:</span>
+            <span class="k">if</span> <span class="k">let</span> <span class="n">cell</span> <span class="o">=</span> <span class="n">tableView</span><span class="p">.</span><span class="n">cellForRowAtIndexPath</span><span class="p">(</span><span class="n">indexPath</span><span class="p">)</span> <span class="kt">as</span><span class="o">?</span> <span class="n">ShotTableViewCell</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="k">let</span> <span class="n">image</span> <span class="o">=</span> <span class="n">cell</span><span class="p">.</span><span class="n">shotImageView</span><span class="o">?</span><span class="p">.</span><span class="n">image</span> <span class="p">{</span>
+                    <span class="n">Utils</span><span class="p">.</span><span class="n">saveImageToLibrary</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+                    <span class="n">tableView</span><span class="p">.</span><span class="n">setEditing</span><span class="p">(</span><span class="nb">false</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span> <span class="c1">// imp</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">DidSelect</span><span class="p">:</span>
+            <span class="n">println</span><span class="p">(</span><span class="s">&quot;selecting \(indexPath.row)&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">DidDeselect</span><span class="p">:</span>
+           <span class="n">tableView</span><span class="p">.</span><span class="n">deselectRowAtIndexPath</span><span class="p">(</span><span class="n">indexPath</span><span class="p">,</span> <span class="nl">animated</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span> <span class="c1">// call it to make sure it does deselect. (Sometime, it doesn&#39;t)</span>
+           <span class="n">println</span><span class="p">(</span><span class="s">&quot;deselected \(indexPath.row)&quot;</span><span class="p">)</span>
 
-        case .Delete:
-            shots.removeAtIndex(indexPath.row)
-        case .More:
-            println(&quot;More&quot;)
-        }
-    }</code></pre></div>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">Delete</span><span class="p">:</span>
+            <span class="n">shots</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="n">indexPath</span><span class="p">.</span><span class="n">row</span><span class="p">)</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">More</span><span class="p">:</span>
+            <span class="n">println</span><span class="p">(</span><span class="s">&quot;More&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span></code></pre></div>
 
 <p>The TableView Action types are custom defined:</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">public enum TableViewActionType: String {
-    case Edit  = &quot;Edit&quot;
-    case Save = &quot;Save&quot;
-    case More = &quot;More&quot;
-    case Favoriate = &quot;Favoriate&quot;
-    case Delete = &quot;Delete&quot;
-    case DidSelect = &quot;DidSelect&quot;
-    case DidDeselect = &quot;DidDeselect&quot;
-}</code></pre></div>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">public</span> <span class="k">enum</span> <span class="nl">TableViewActionType</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="n">Edit</span>  <span class="o">=</span> <span class="s">&quot;Edit&quot;</span>
+    <span class="k">case</span> <span class="n">Save</span> <span class="o">=</span> <span class="s">&quot;Save&quot;</span>
+    <span class="k">case</span> <span class="n">More</span> <span class="o">=</span> <span class="s">&quot;More&quot;</span>
+    <span class="k">case</span> <span class="n">Favoriate</span> <span class="o">=</span> <span class="s">&quot;Favoriate&quot;</span>
+    <span class="k">case</span> <span class="n">Delete</span> <span class="o">=</span> <span class="s">&quot;Delete&quot;</span>
+    <span class="k">case</span> <span class="n">DidSelect</span> <span class="o">=</span> <span class="s">&quot;DidSelect&quot;</span>
+    <span class="k">case</span> <span class="n">DidDeselect</span> <span class="o">=</span> <span class="s">&quot;DidDeselect&quot;</span>
+<span class="p">}</span></code></pre></div>
 
 <p>&nbsp;</p>
 
 <p>The rounded UIView extension which can be called easily with:  <span class="s1">userImageView</span><span class="s2">.</span><span class="s1">round</span><span class="s2">()</span></p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">public extension UIView {
-        public func round() {
-        let width = bounds.width &amp;lt; bounds.height ? bounds.width : bounds.height
-        let mask = CAShapeLayer()
-        mask.path = UIBezierPath(ovalInRect: bounds.rectByCentering(width, height: width)).CGPath
-        self.layer.mask = mask
-    }
-}</code></pre></div>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="n">public</span> <span class="k">extension</span> <span class="bp">UIView</span> <span class="p">{</span>
+        <span class="n">public</span> <span class="k">func</span> <span class="n">round</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">width</span> <span class="o">=</span> <span class="n">bounds</span><span class="p">.</span><span class="n">width</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">bounds</span><span class="p">.</span><span class="n">height</span> <span class="o">?</span> <span class="n">bounds</span><span class="p">.</span><span class="nl">width</span> <span class="p">:</span> <span class="n">bounds</span><span class="p">.</span><span class="n">height</span>
+        <span class="k">let</span> <span class="n">mask</span> <span class="o">=</span> <span class="bp">CAShapeLayer</span><span class="p">()</span>
+        <span class="n">mask</span><span class="p">.</span><span class="n">path</span> <span class="o">=</span> <span class="bp">UIBezierPath</span><span class="p">(</span><span class="nl">ovalInRect</span><span class="p">:</span> <span class="n">bounds</span><span class="p">.</span><span class="n">rectByCentering</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="nl">height</span><span class="p">:</span> <span class="n">width</span><span class="p">)).</span><span class="bp">CGPath</span>
+        <span class="nb">self</span><span class="p">.</span><span class="n">layer</span><span class="p">.</span><span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span>
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></div>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/04/29/018-swift-currency-converter/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/04/29/018-swift-currency-converter/"> Day 18 - Swift Currency Converter</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/05/02/day-020-swift-color-picker/">Day 20 &#8211; Swift Color Picker </a>
+         <a class="prev" href="/2015/05/02/day-020-swift-color-picker/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -257,6 +270,7 @@
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

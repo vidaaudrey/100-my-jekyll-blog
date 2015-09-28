@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -156,159 +149,179 @@
 </p>
 </blockquote>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">//: an IOT device can send two kinds of messages: IOTMessage which is the basic format, and EncryptIOTMessage which is encrypted message
-protocol Message {
-    var messageString: String { get }
-    var contentToSend:String { get }
-    func prepareMessage() -&amp;gt; String
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: an IOT device can send two kinds of messages: IOTMessage which is the basic format, and EncryptIOTMessage which is encrypted message</span>
+<span class="k">protocol</span> <span class="n">Message</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">messageString</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">var</span> <span class="nl">contentToSend</span><span class="p">:</span><span class="n">String</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">prepareMessage</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span>
+<span class="p">}</span>
 
-struct IOTMessage: Message {
-    var messageString: String
-    var contentToSend: String {return prepareMessage()}
-    func prepareMessage() -&amp;gt; String {
-        return &quot;Basic Message: \(messageString)&quot;
-    }
-}
-struct EncryptIOTMessage: Message {
-    var messageString: String
-    var contentToSend: String {return prepareMessage()}
-    func prepareMessage() -&amp;gt; String {
-        return &quot;Encrypted Message: \(String(Array(messageString.characters.reverse())))&quot;
-    }
-}
+<span class="k">struct</span> <span class="nl">IOTMessage</span><span class="p">:</span> <span class="n">Message</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">messageString</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">contentToSend</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="n">prepareMessage</span><span class="p">()}</span>
+    <span class="k">func</span> <span class="n">prepareMessage</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;Basic Message: \(messageString)&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">EncryptIOTMessage</span><span class="p">:</span> <span class="n">Message</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">messageString</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">var</span> <span class="nl">contentToSend</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span><span class="k">return</span> <span class="n">prepareMessage</span><span class="p">()}</span>
+    <span class="k">func</span> <span class="n">prepareMessage</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;Encrypted Message: \(String(Array(messageString.characters.reverse())))&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//: Since an IOT Device is connected, it can process outgoing and incoming messages
-protocol IOTDevice: CustomStringConvertible {
-    func processMessage(msg: Message, isIncomingMsg: Bool)
-}
+<span class="c1">//: Since an IOT Device is connected, it can process outgoing and incoming messages</span>
+<span class="k">protocol</span> <span class="nl">IOTDevice</span><span class="p">:</span> <span class="n">CustomStringConvertible</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">processMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span>
+<span class="p">}</span>
 
-//: The base class for any kind of IOT devices
-class Device: IOTDevice {
-    var description: String { return &quot;Basic Device returned, Error&quot; }
+<span class="c1">//: The base class for any kind of IOT devices</span>
+<span class="k">class</span> <span class="nl">Device</span><span class="p">:</span> <span class="n">IOTDevice</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Basic Device returned, Error&quot;</span> <span class="p">}</span>
     
-    enum Devices {
-        case WeigthScale
-        case HumidityDetector
-    }
+    <span class="k">enum</span> <span class="n">Devices</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="n">WeigthScale</span>
+        <span class="k">case</span> <span class="n">HumidityDetector</span>
+    <span class="p">}</span>
     
-    class func getDevice(deviceType: Devices) -&amp;gt; Device {
-        switch deviceType {
-        case .WeigthScale: return WeightScale()
-        case .HumidityDetector: return HumidityDetector()
-        }
-    }
-    func processMessage(msg: Message, isIncomingMsg: Bool) {
-        fatalError(&quot;Something wrong!&quot;)
-    }
-}
+    <span class="k">class</span> <span class="k">func</span> <span class="n">getDevice</span><span class="p">(</span><span class="nl">deviceType</span><span class="p">:</span> <span class="n">Devices</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Device</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">deviceType</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">WeigthScale</span><span class="p">:</span> <span class="k">return</span> <span class="n">WeightScale</span><span class="p">()</span>
+        <span class="k">case</span> <span class="p">.</span><span class="nl">HumidityDetector</span><span class="p">:</span> <span class="k">return</span> <span class="n">HumidityDetector</span><span class="p">()</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">processMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">fatalError</span><span class="p">(</span><span class="s">&quot;Something wrong!&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: A connected Weight Scale
-class WeightScale: Device {
-    override var description: String { return &quot;Weight Scale&quot; }
-    override func processMessage(msg: Message, isIncomingMsg: Bool) {
-        if isIncomingMsg {
-            print(&quot;Incoming message:[\(msg.contentToSend)]&quot;)
-        } else {
-            print(&quot;Outgoing message: [\(msg.contentToSend)]&quot;)
-        }
-    }
-}
-//: A connected HumidityDetector
-class HumidityDetector: Device {
-    override var description: String { return &quot;Humidity Detector&quot; }
-    override func processMessage(msg: Message, isIncomingMsg: Bool) {
-        if isIncomingMsg {
-            print(&quot;Incoming message:[\(msg.contentToSend)]&quot;)
-        } else {
-            print(&quot;Outgoing message:[\(msg.contentToSend)]&quot;)
-        }
-    }
-}
+<span class="c1">//: A connected Weight Scale</span>
+<span class="k">class</span> <span class="nl">WeightScale</span><span class="p">:</span> <span class="n">Device</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Weight Scale&quot;</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">processMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">isIncomingMsg</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Incoming message:[\(msg.contentToSend)]&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Outgoing message: [\(msg.contentToSend)]&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: A connected HumidityDetector</span>
+<span class="k">class</span> <span class="nl">HumidityDetector</span><span class="p">:</span> <span class="n">Device</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Humidity Detector&quot;</span> <span class="p">}</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">processMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">isIncomingMsg</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Incoming message:[\(msg.contentToSend)]&quot;</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;Outgoing message:[\(msg.contentToSend)]&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Just a communication protocol, not important here
-protocol IOTCommunication {
-    var device:IOTDevice { get set }
-    func processBridgeMessage(msg: Message, isIncomingMsg: Bool)
-}
+<span class="c1">//: Just a communication protocol, not important here</span>
+<span class="k">protocol</span> <span class="n">IOTCommunication</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">device</span><span class="p">:</span><span class="n">IOTDevice</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">processBridgeMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span>
+<span class="p">}</span>
 
-//: The bridge to handle the message processing of IOT devices
-struct IOTBridge: IOTCommunication {
-    var device: IOTDevice {
-        didSet {
-            print(&quot;\nset bridge device to:\(device.description)&quot;)
-        }
-    }
+<span class="c1">//: The bridge to handle the message processing of IOT devices</span>
+<span class="k">struct</span> <span class="nl">IOTBridge</span><span class="p">:</span> <span class="n">IOTCommunication</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">device</span><span class="p">:</span> <span class="n">IOTDevice</span> <span class="p">{</span>
+        <span class="kr">didSet</span> <span class="p">{</span>
+            <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">set bridge device to:\(device.description)&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
 
-    internal func processBridgeMessage(msg: Message, isIncomingMsg: Bool) {
-        device.processMessage(msg, isIncomingMsg: isIncomingMsg)
-    }
-    func sendMessage(msg: String, encrypted: Bool = false ){
-        let msgStr = device.description + &quot; &quot; +  msg
-        let iotMsg: Message = encrypted ? EncryptIOTMessage(messageString: msgStr) : IOTMessage(messageString: msgStr)
-        processBridgeMessage(iotMsg, isIncomingMsg: false)
-    }
-    func receiveMessage(msg: String, encrypted: Bool = false) {
-        let clearMsg = encrypted ? String(Array(msg.characters.reverse())) : msg
-        var msgStr =  &quot;\(device.description)  \(msg)&quot;
-        if encrypted {
-            msgStr += &quot;(decrypted: \(clearMsg))&quot;
-        }
-        processBridgeMessage(IOTMessage(messageString: msgStr), isIncomingMsg: true)
-    }
+    <span class="n">internal</span> <span class="k">func</span> <span class="n">processBridgeMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">Message</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">device</span><span class="p">.</span><span class="n">processMessage</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="n">isIncomingMsg</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">sendMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">encrypted</span><span class="p">:</span> <span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span> <span class="p">){</span>
+        <span class="k">let</span> <span class="n">msgStr</span> <span class="o">=</span> <span class="n">device</span><span class="p">.</span><span class="n">description</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span>  <span class="n">msg</span>
+        <span class="k">let</span> <span class="nl">iotMsg</span><span class="p">:</span> <span class="n">Message</span> <span class="o">=</span> <span class="n">encrypted</span> <span class="o">?</span> <span class="n">EncryptIOTMessage</span><span class="p">(</span><span class="nl">messageString</span><span class="p">:</span> <span class="n">msgStr</span><span class="p">)</span> <span class="o">:</span> <span class="n">IOTMessage</span><span class="p">(</span><span class="nl">messageString</span><span class="p">:</span> <span class="n">msgStr</span><span class="p">)</span>
+        <span class="n">processBridgeMessage</span><span class="p">(</span><span class="n">iotMsg</span><span class="p">,</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="nb">false</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">receiveMessage</span><span class="p">(</span><span class="nl">msg</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">encrypted</span><span class="p">:</span> <span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">clearMsg</span> <span class="o">=</span> <span class="n">encrypted</span> <span class="o">?</span> <span class="n">String</span><span class="p">(</span><span class="n">Array</span><span class="p">(</span><span class="n">msg</span><span class="p">.</span><span class="n">characters</span><span class="p">.</span><span class="n">reverse</span><span class="p">()))</span> <span class="o">:</span> <span class="n">msg</span>
+        <span class="k">var</span> <span class="n">msgStr</span> <span class="o">=</span>  <span class="s">&quot;\(device.description)  \(msg)&quot;</span>
+        <span class="k">if</span> <span class="n">encrypted</span> <span class="p">{</span>
+            <span class="n">msgStr</span> <span class="o">+=</span> <span class="s">&quot;(decrypted: \(clearMsg))&quot;</span>
+        <span class="p">}</span>
+        <span class="n">processBridgeMessage</span><span class="p">(</span><span class="n">IOTMessage</span><span class="p">(</span><span class="nl">messageString</span><span class="p">:</span> <span class="n">msgStr</span><span class="p">),</span> <span class="nl">isIncomingMsg</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+    <span class="p">}</span>
 
-}
+<span class="p">}</span>
 
-//: Testing 
-print(&quot;Create the IOT bridge and set the device to Weight Scale&quot;)
-var bridge = IOTBridge(device: WeightScale())
-bridge.sendMessage(&quot;120lb&quot;)
-bridge.receiveMessage(&quot;History Weigth: 110 lb Oct. 20, 2014&quot;)
+<span class="c1">//: Testing </span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Create the IOT bridge and set the device to Weight Scale&quot;</span><span class="p">)</span>
+<span class="k">var</span> <span class="n">bridge</span> <span class="o">=</span> <span class="n">IOTBridge</span><span class="p">(</span><span class="nl">device</span><span class="p">:</span> <span class="n">WeightScale</span><span class="p">())</span>
+<span class="n">bridge</span><span class="p">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s">&quot;120lb&quot;</span><span class="p">)</span>
+<span class="n">bridge</span><span class="p">.</span><span class="n">receiveMessage</span><span class="p">(</span><span class="s">&quot;History Weigth: 110 lb Oct. 20, 2014&quot;</span><span class="p">)</span>
 
-bridge.device =  HumidityDetector()
-bridge.sendMessage(&quot;91%&quot;)
-bridge.receiveMessage(&quot;History Humidity: 45% Aug. 30, 2014, 98% Dec. 21, 2014&quot;)
-bridge.sendMessage(&quot;45% Aug. 30, 2014&quot;, encrypted: true)
-bridge.receiveMessage(&quot;4102 ,03 .guA %54 rotceteD ytidimuH&quot;, encrypted: true)</code></pre></div>
+<span class="n">bridge</span><span class="p">.</span><span class="n">device</span> <span class="o">=</span>  <span class="n">HumidityDetector</span><span class="p">()</span>
+<span class="n">bridge</span><span class="p">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s">&quot;91%&quot;</span><span class="p">)</span>
+<span class="n">bridge</span><span class="p">.</span><span class="n">receiveMessage</span><span class="p">(</span><span class="s">&quot;History Humidity: 45% Aug. 30, 2014, 98% Dec. 21, 2014&quot;</span><span class="p">)</span>
+<span class="n">bridge</span><span class="p">.</span><span class="n">sendMessage</span><span class="p">(</span><span class="s">&quot;45% Aug. 30, 2014&quot;</span><span class="p">,</span> <span class="nl">encrypted</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span>
+<span class="n">bridge</span><span class="p">.</span><span class="n">receiveMessage</span><span class="p">(</span><span class="s">&quot;4102 ,03 .guA %54 rotceteD ytidimuH&quot;</span><span class="p">,</span> <span class="nl">encrypted</span><span class="p">:</span> <span class="nb">true</span><span class="p">)</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/bridge.png"><img class="aligncenter size-full wp-image-1056" src="/assets/wp-content/uploads/2015/07/bridge.png" alt="bridge" width="918" height="137" /></a><a href="/assets/wp-content/uploads/2015/07/chain-of-responsbility1.png"><br>
 </a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-14-chain-of-responsibility/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/13/a-design-pattern-story-in-swift-chapter-14-chain-of-responsibility/"> A Design Pattern Story in Swift – Chapter 14: Chain Of Responsibility</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/14/a-design-pattern-story-in-swift-chapter-16-object-pool/">A Design Pattern Story in Swift – Chapter 16: Object Pool </a>
+         <a class="prev" href="/2015/07/14/a-design-pattern-story-in-swift-chapter-16-object-pool/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -320,6 +333,7 @@ bridge.receiveMessage(&quot;4102 ,03 .guA %54 rotceteD ytidimuH&quot;, encrypted
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 

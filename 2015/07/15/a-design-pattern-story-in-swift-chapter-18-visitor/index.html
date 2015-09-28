@@ -22,9 +22,9 @@
   <![endif]-->
 
   <link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
   <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/assets/bootstrap/css/bootstrap-theme.css">
+
 
  
   <!-- CSS -->
@@ -83,13 +83,6 @@
             <span class="fa-stack fa-lg">
               <i class="fa fa-circle fa-stack-2x"></i>
               <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-            </span>
-        </a>
-    
-        <a href="https://google.com/+AudreyLiSF" title="Audrey's Google Plus">
-            <span class="fa-stack fa-lg">
-              <i class="fa fa-circle fa-stack-2x"></i>
-              <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
             </span>
         </a>
 
@@ -160,159 +153,179 @@
 
 <p>&nbsp;</p>
 
-<div class="highlight"><pre><code class="language-swift" data-lang="swift">protocol Person {
-    func accept(visitor: Visitor)
-}
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">protocol</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">accept</span><span class="p">(</span><span class="nl">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span>
+<span class="p">}</span>
 
-protocol Visitor {
-    func visit(person: Dwarf)
-    func visit(person: Maiden)
-    func visit(person: Knight)
+<span class="k">protocol</span> <span class="n">Visitor</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Dwarf</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Maiden</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Knight</span><span class="p">)</span>
     
-}
+<span class="p">}</span>
 
-struct Dwarf: Person {
-    let name: String
-    let expectedAge: Int
-    func accept(visitor: Visitor) {
-        visitor.visit(self)
-    }
-}
+<span class="k">struct</span> <span class="nl">Dwarf</span><span class="p">:</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">expectedAge</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">accept</span><span class="p">(</span><span class="nl">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">visitor</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-struct Maiden: Person {
-    let name: String
-    let expectedAge: Int
-    func accept(visitor: Visitor) {
-        visitor.visit(self)
-    }
-}
-struct Knight: Person {
-    let name: String
-    let expectedAge: Int
-    let skillLevel: Int
-    func accept(visitor: Visitor) {
-        visitor.visit(self)
-    }
-}
+<span class="k">struct</span> <span class="nl">Maiden</span><span class="p">:</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">expectedAge</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">accept</span><span class="p">(</span><span class="nl">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">visitor</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="nl">Knight</span><span class="p">:</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
+    <span class="k">let</span> <span class="nl">expectedAge</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">let</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="n">Int</span>
+    <span class="k">func</span> <span class="n">accept</span><span class="p">(</span><span class="nl">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">visitor</span><span class="p">.</span><span class="n">visit</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-struct People: Person {
-    let group: [Person]
-    func accept(visitor: Visitor) {
-        group.map{ $0.accept(visitor) }
-    }
-}
-//: A healthProVisitor can increase each person&#39;s age by different amount of years
-class HealthProVisitor: Visitor {
-    var totalExpectedAgeOld = 0
-    var totalExpectedAge = 0
-    func visit(person: Dwarf) {
-        totalExpectedAgeOld += person.expectedAge
-        totalExpectedAge += person.expectedAge + 1
-    }
-    func visit(person: Knight) {
-        totalExpectedAgeOld += person.expectedAge
-        totalExpectedAge += person.expectedAge + 5
-    }
-    func visit(person: Maiden) {
-        totalExpectedAgeOld += person.expectedAge
-        totalExpectedAge += person.expectedAge + 10
-    }
-}
+<span class="k">struct</span> <span class="nl">People</span><span class="p">:</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nl">group</span><span class="p">:</span> <span class="p">[</span><span class="n">Person</span><span class="p">]</span>
+    <span class="k">func</span> <span class="n">accept</span><span class="p">(</span><span class="nl">visitor</span><span class="p">:</span> <span class="n">Visitor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span> <span class="err">$</span><span class="mf">0.</span><span class="n">accept</span><span class="p">(</span><span class="n">visitor</span><span class="p">)</span> <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">//: A healthProVisitor can increase each person&#39;s age by different amount of years</span>
+<span class="k">class</span> <span class="nl">HealthProVisitor</span><span class="p">:</span> <span class="n">Visitor</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="n">totalExpectedAgeOld</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">var</span> <span class="n">totalExpectedAge</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Dwarf</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">totalExpectedAgeOld</span> <span class="o">+=</span> <span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span>
+        <span class="n">totalExpectedAge</span> <span class="o">+=</span> <span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Knight</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">totalExpectedAgeOld</span> <span class="o">+=</span> <span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span>
+        <span class="n">totalExpectedAge</span> <span class="o">+=</span> <span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span> <span class="o">+</span> <span class="mi">5</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Maiden</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">totalExpectedAgeOld</span> <span class="o">+=</span> <span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span>
+        <span class="n">totalExpectedAge</span> <span class="o">+=</span> <span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: a prettyNameVisitor can form memoriable names for others to remember
-class PrettyNameVisitor: Visitor {
-    var names: [String] = []
-    func visit(person: Maiden) {
-        names.append(&quot;Pretty Maiden \(person.name)&quot;)
-    }
-    func visit(person: Knight) {
-        names.append(&quot;Knight \(person.name) with \(person.skillLevel) level of skills&quot;)
-    }
-    func visit(person: Dwarf) {
-        names.append(&quot;A plain dwarf named \(person.name) &quot;)
-    }
-}
+<span class="c1">//: a prettyNameVisitor can form memoriable names for others to remember</span>
+<span class="k">class</span> <span class="nl">PrettyNameVisitor</span><span class="p">:</span> <span class="n">Visitor</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">names</span><span class="p">:</span> <span class="p">[</span><span class="n">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Maiden</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">names</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;Pretty Maiden \(person.name)&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Knight</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">names</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;Knight \(person.name) with \(person.skillLevel) level of skills&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Dwarf</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">names</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="s">&quot;A plain dwarf named \(person.name) &quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-//: Testing 
-print(&quot;Created a group of people Helen (32), Joe (99), Eleot(45)...&quot;)
-let people = People(group: [Maiden(name: &quot;Helen&quot;, expectedAge: 32),
-        Dwarf(name: &quot;Joe&quot;, expectedAge: 99),
-        Knight(name: &quot;Eleot&quot;, expectedAge: 32, skillLevel: 45)
-    ])
+<span class="c1">//: Testing </span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Created a group of people Helen (32), Joe (99), Eleot(45)...&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">people</span> <span class="o">=</span> <span class="n">People</span><span class="p">(</span><span class="nl">group</span><span class="p">:</span> <span class="p">[</span><span class="n">Maiden</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Helen&quot;</span><span class="p">,</span> <span class="nl">expectedAge</span><span class="p">:</span> <span class="mi">32</span><span class="p">),</span>
+        <span class="n">Dwarf</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Joe&quot;</span><span class="p">,</span> <span class="nl">expectedAge</span><span class="p">:</span> <span class="mi">99</span><span class="p">),</span>
+        <span class="n">Knight</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Eleot&quot;</span><span class="p">,</span> <span class="nl">expectedAge</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="nl">skillLevel</span><span class="p">:</span> <span class="mi">45</span><span class="p">)</span>
+    <span class="p">])</span>
 
-let healthProVisitor = HealthProVisitor()
-let prettyNameVisitor = PrettyNameVisitor()
-print(&quot;The healthProVisitor is visiting the group...&quot;)
-people.accept(healthProVisitor)
-print(&quot;Before visit, total expected age:\(healthProVisitor.totalExpectedAgeOld)&quot;)
-print(&quot;After visit, total expected age:\(healthProVisitor.totalExpectedAge)\n&quot;)
-print(&quot;The prettyNameVisitor is visiting the group...&quot;)
-people.accept(prettyNameVisitor)
-print(&quot;After visit, people&#39;s names: \(prettyNameVisitor.names) \n&quot;)
+<span class="k">let</span> <span class="n">healthProVisitor</span> <span class="o">=</span> <span class="n">HealthProVisitor</span><span class="p">()</span>
+<span class="k">let</span> <span class="n">prettyNameVisitor</span> <span class="o">=</span> <span class="n">PrettyNameVisitor</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;The healthProVisitor is visiting the group...&quot;</span><span class="p">)</span>
+<span class="n">people</span><span class="p">.</span><span class="n">accept</span><span class="p">(</span><span class="n">healthProVisitor</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Before visit, total expected age:\(healthProVisitor.totalExpectedAgeOld)&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;After visit, total expected age:\(healthProVisitor.totalExpectedAge)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;The prettyNameVisitor is visiting the group...&quot;</span><span class="p">)</span>
+<span class="n">people</span><span class="p">.</span><span class="n">accept</span><span class="p">(</span><span class="n">prettyNameVisitor</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;After visit, people&#39;s names: \(prettyNameVisitor.names) </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
 
-class InsuranceVisitor: Visitor {
-    var salesRecord:[String: Bool] = [:]
-    func visit(person: Dwarf) {
-        salesRecord[person.name] = getQualification(person.expectedAge)
-    }
-    func visit(person: Knight) {
-         salesRecord[person.name] = getQualification(person.expectedAge)
-     }
-    func visit(person: Maiden) {
-         salesRecord[person.name] = getQualification(person.expectedAge)
-    }
+<span class="k">class</span> <span class="nl">InsuranceVisitor</span><span class="p">:</span> <span class="n">Visitor</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nl">salesRecord</span><span class="p">:[</span><span class="nl">String</span><span class="p">:</span> <span class="n">Bool</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">:</span><span class="p">]</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Dwarf</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">salesRecord</span><span class="p">[</span><span class="n">person</span><span class="p">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">getQualification</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Knight</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">salesRecord</span><span class="p">[</span><span class="n">person</span><span class="p">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">getQualification</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span><span class="p">)</span>
+     <span class="p">}</span>
+    <span class="k">func</span> <span class="n">visit</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Maiden</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">salesRecord</span><span class="p">[</span><span class="n">person</span><span class="p">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">getQualification</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span><span class="p">)</span>
+    <span class="p">}</span>
     
-    private func getQualification(expectedAge: Int) -&amp;gt; Bool {
-        return expectedAge &amp;gt; 45
-    }
-}
+    <span class="n">private</span> <span class="k">func</span> <span class="n">getQualification</span><span class="p">(</span><span class="nl">expectedAge</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">expectedAge</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">45</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
 
-//: Testing
-print(&quot;A new visitor, the insurance guy! Let&#39;s see what&#39;s his sales record say after the visit&quot;)
-let insuranceVisitor = InsuranceVisitor()
-people.accept(insuranceVisitor)
-insuranceVisitor.salesRecord.map{
-    print(&quot;\($0.0), is eligiable for insurance?: \($0.1)&quot;)
-}</code></pre></div>
+<span class="c1">//: Testing</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;A new visitor, the insurance guy! Let&#39;s see what&#39;s his sales record say after the visit&quot;</span><span class="p">)</span>
+<span class="k">let</span> <span class="n">insuranceVisitor</span> <span class="o">=</span> <span class="n">InsuranceVisitor</span><span class="p">()</span>
+<span class="n">people</span><span class="p">.</span><span class="n">accept</span><span class="p">(</span><span class="n">insuranceVisitor</span><span class="p">)</span>
+<span class="n">insuranceVisitor</span><span class="p">.</span><span class="n">salesRecord</span><span class="p">.</span><span class="n">map</span><span class="p">{</span>
+    <span class="n">print</span><span class="p">(</span><span class="s">&quot;\($0.0), is eligiable for insurance?: \($0.1)&quot;</span><span class="p">)</span>
+<span class="p">}</span></code></pre></div>
 
 <p><a href="/assets/wp-content/uploads/2015/07/visitor.png"><img class="aligncenter size-full wp-image-1070" src="/assets/wp-content/uploads/2015/07/visitor.png" alt="visitor" width="792" height="195" /></a></p>
 
  </div>
- <div class="related">
+ <div class="card">
+   <div class="page-nav">
+    <div>
+        
+         <a class="prev" href="/2015/07/15/a-design-pattern-story-in-swift-chapter-17-memento/"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a> 
+          <a class="prev" href="/2015/07/15/a-design-pattern-story-in-swift-chapter-17-memento/"> A Design Pattern Story in Swift – Chapter 17: Memento</a>
+        
+    </div>
+    <div>
+        
+          <a class="next" href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">A Design Pattern Story in Swift – Chapter 19: Flyweight </a>
+         <a class="prev" href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> 
+        
+    </div>
+</div>
+
+
+
+ </div>
+ <div class="related card">
    <h2>Related Posts</h2>
    <ul class="related-posts">
      
        <li>
-         <h3>
+         <h4>
+           <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>27 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
              A Design Pattern Story in Swift – Chapter 21: Interpretor
              <small>18 Jul 2015</small>
            </a>
-         </h3>
+         </h4>
        </li>
      
        <li>
-         <h3>
+         <h4>
            <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
              A Design Pattern Story in Swift – Chapter 20: Mediator
              <small>18 Jul 2015</small>
            </a>
-         </h3>
-       </li>
-     
-       <li>
-         <h3>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
-           </a>
-         </h3>
+         </h4>
        </li>
      
    </ul>
  </div>
+ <div class="card">
  <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'audreyli';
@@ -324,6 +337,7 @@ insuranceVisitor.salesRecord.map{
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+ </div>
       
     
 
