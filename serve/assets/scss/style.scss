@@ -2,6 +2,225 @@
 The main SCSS file for everything, yep
 */
 
-@import "poole";
+// @import "poole";
+// @import "lanyon";
 @import "syntax";
-@import "lanyon";
+@import "mixins"; 
+
+$font-stack:  "RobotoDraft","Roboto",sans-serif;
+$primary-color: #4CA550;
+$dark-primary-color: #388E3C;
+$light-primary-color: #C8E6C9;
+$accent-color: #FFC107;
+$primary-text-color: #212121;
+$secondary-text-color: #727272;
+$divider-color: #B6B6B6;
+$text-icon-color: #FFFFFF;
+$dark-transparent-color: rgba(0,0,0, 0.1);
+
+$dark-background-color: #000; 
+$dark-background-hover-color: rgba(0,0,0,0.6); 
+$dark-forground-color:rgba(255,255,255,0.8);
+$dark-foreround-hover-color: #fff; 
+
+$header-height:180px;
+$jumbotron-height:800px;
+$main-wrap-max-width:800px;
+$side-bar-width: 25%;
+$side-max-width: 120px;
+
+
+//spacing 
+$content-padding: 30px;
+
+*{
+     @include box-shadow(none);
+}
+body {
+    padding-top: $header-height;
+    font-family: "RobotoDraft","Roboto",sans-serif; 
+    color: #666;
+    background: #fcfffe;
+    background: #fff url('/assets/images/furley_bg.png') 0 0 repeat;
+}
+
+
+.nav_trigger {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 26px;
+    margin: 5px 20px 0 50px;
+    float:right;
+}
+.show_sidebar .nav_trigger {
+    margin-right: 5px;
+}
+
+#push_sidebar {
+    background: $text-icon-color;
+    bottom: 0;
+    color: $primary-text-color;
+    left: 100%;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: $side-bar-width;
+
+    -webkit-transition: all .5s ease;
+       -moz-transition: all .5s ease;
+        -ms-transition: all .5s ease;
+         -o-transition: all .5s ease;
+            transition: all .5s ease;
+}
+
+
+main.show_sidebar{
+    width: 75%;
+}
+
+
+header {
+    z-index: 2;
+    height: $header-height;
+    padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    transition: all .5s ease;
+    // transition: top 0.2s ease-in-out;
+    width: 100%;
+    overflow: hidden;
+    nav {
+        .navbar-collapse{
+            max-width: 120px;
+            float: right;
+       }
+    }
+    .navbar{
+        border:none;
+    }
+    .navbar-default{
+        background-image: none;
+        @include box-shadow(none);
+    }
+    .navbar-collapse {
+        @include box-shadow(none);
+    }
+    .navbar-default .navbar-toggle{
+        border: none;
+    }
+    .navbar-toggle{
+        padding: 15px;
+        margin: 0;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+
+        &:hover, &:focus{
+            background-color: $dark-transparent-color !important;
+        }
+    }
+    .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .active > a{
+        @include box-shadow(none);
+    }
+}
+.nav-up {
+    top: -$header-height;
+}
+
+#push_sidebar{
+
+}
+
+
+.show_sidebar #wrapper {
+    margin-right: 25%;
+    width: 75%;
+}
+.show_sidebar #push_sidebar {
+    left: 75%;
+}
+@media (max-width: 767px) {
+    .nav_trigger {
+        font-size: 19px;
+        margin: 5px 5px 0 20px;
+    }
+    #push_sidebar {
+        width: 80%;
+    }
+    body.show_sidebar #push_sidebar {
+        left: 20%;
+    }
+    body.show_sidebar #wrapper {
+        margin-right: 80%;
+        width: 20%;
+    }   
+}
+
+@media (min-width: 992px) {
+    #push_sidebar {
+        width: 20%;
+    }
+    body.show_sidebar #push_sidebar {
+        left: 80%;
+    }
+    body.show_sidebar #wrapper {
+        margin-right: 20%;
+        width: 80%;
+    }   
+}
+
+
+#push_sidebar li a {
+    padding: 10px 15px 10px 5px;
+    display: block;
+    font: 13px Tahoma, Arial, serif;
+    background: $dark-background-color;
+    color: $dark-forground-color;
+    text-decoration: none;
+    border-bottom: 1px solid #3D454C;
+}
+#push_sidebar li a:hover {
+    background-color: $dark-background-hover-color;
+    color:$dark-foreround-hover-color
+}
+#push_sidebar li a .fa {
+    font-size: 19px;
+    float: right;
+    width: 30px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+
+
+
+
+
+.jumbotron{
+    min-height:$jumbotron-height;
+    margin-top: -$header-height;
+    padding-top: 20%;
+    background: url('/assets/images/bg1.jpeg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+}
+
+
+main {
+    min-height: 1000px;
+    .main-wrap{
+        max-width: $main-wrap-max-width;
+        margin: 0 auto;
+        background: $text-icon-color;
+        padding: $content-padding;
+    }
+}
+
+footer { 
+    background: #ddd;
+    padding: 20px;
+}
+
+/** { color: transparent}*/
