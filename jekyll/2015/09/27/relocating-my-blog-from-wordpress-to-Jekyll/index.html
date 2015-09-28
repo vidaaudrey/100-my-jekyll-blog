@@ -63,13 +63,6 @@
   
   <body>
     <nav id="push_sidebar">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="#">Portfolio</a></li>
-      <li><a href="/archive">Archive</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-    
     <div class="social-icons">
         <img src="/assets/images/audrey-li.jpg" alt="Audrey's Photo" class="img-circle">
 
@@ -102,6 +95,13 @@
 
     </div>
 
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="/archive">Archive</a></li>
+      <li><a href="/atom.xml">Feed</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
 </nav>
 
     <div id="body-wrap">
@@ -144,28 +144,28 @@
 
 <p>In this post, I am going to use different markup tags and format to show what styles are built in this new <a href="http://jekyllrb.com">Jekyll</a> blog. </p>
 
-<p>My last blog entry was on July 18th, which was about 2 months ago. In the past 2 months, I&rsquo;ve spent some time trying to learn some front-end development skills and had two client projects. Although I love iOS, web development comes much more handy and useful in the day-to-day life. And I feel fortunate that I&rsquo;ll be attending Makersquare in early Novemeber for an intensive 3 months&rsquo; training program. </p>
+<p>My last blog entry was on July 18th, which was about 2 months ago. In the past 2 months, I&rsquo;ve spent some time trying to learn some front-end development skills and had two client projects. Although I love iOS, web development comes more handy and useful in the day-to-day life. And I feel fortunate that I&rsquo;ll be attending Makersquare in early November for an intensive 3 months&rsquo; training program. </p>
 
 <!--more-->
 
 <h3>Background</h3>
 
-<p>My precouse for the school will begin next week, so I spent last two days trying to relocate my blog from Wordpress to Jekyll, which I hope will give me more flexibility to do experiement on various front-end development topics. </p>
+<p>My precourse for the school will begin next week, so I spent last two days trying to relocate my blog from Wordpress to Jekyll, which I hope will give me more flexibility to do experiments on various front-end development topics. </p>
 
 <h3>Learnings from this relocation</h3>
 
 <ul>
-<li>Definitely love Jekyll. It&rsquo;s much simpler than Wordpress and integration with Github is perfect. Moreover, I no longer need to pay for hosting fee. </li>
-<li>Powerful templating system, don&rsquo;t repeat yourself. </li>
-<li>Support for both html and markup. I never really used markup except for github before. But I defnitely will try to learn more. It&rsquo;s much less cluttered than HTML. </li>
+<li>Definitely love Jekyll. It&rsquo;s much simpler than Wordpress and integration with Github is perfect. Moreover, I no longer need to pay for the hosting fee. </li>
+<li>Powerful template system. Don&rsquo;t repeat yourself. </li>
+<li>Support for both HTML and markup. I never really used markup except for Github before. But I definitely will try to learn more. It&rsquo;s much less cluttered than HTML. </li>
 </ul>
 
 <h3>Tools used</h3>
 
 <ul>
-<li>SASS. Strictly speaking, SCSS, even I like SASS more, the conversion between existing css to SASS is much more work. </li>
-<li>Bootstrap. I&rsquo;ve struggled whether I should use any framework in the beginning since my blog is very minimalistic and Jekyll comes with a great buit-in support for a styling. But I went ahead and dropped Bootstrap in anyhow after some consideration for two reasons. First, it will greatly help speed up my development. Second, I&rsquo;ll definitely need it for some future experiements. </li>
-<li>Yeoman Generator - Jekyllized. <a href="https://github.com/robwierzbowski/generator-jekyllrb">Generator-jekyllrb</a> is the most popular Jekyll generator in Yeoman, and I&rsquo;ve loved it at first, especially the support for Compass, CoffeeScript, HTML5 Boilerplate Template makes it very attractive for a beginner like me. But I had hard time getting it work properly. And somehow, I&rsquo;ve developed a preference on Gulp over Grunt so I end up using <a href="https://github.com/sondr3/generator-jekyllized">Generator-jekyllized</a>. I had to do some minor tweeks to make it work as the way I intended, and overall, I am pretty happy with Jekyllized. Other benefits of using Jekyllized:
+<li>SASS. Strictly speaking, SCSS, even I like SASS more, the conversion between existing CSS to SASS is much more work. </li>
+<li>Bootstrap. I&rsquo;ve struggled whether I should use any framework in the beginning since my blog is very minimalistic and Jekyll comes with a great built-in support for a styling. But I went ahead and dropped Bootstrap in anyhow after some consideration for two reasons. First, it will greatly help speed up my development. Second, I&rsquo;ll definitely need it for some future experiments. </li>
+<li>Yeoman Generator - Jekyllized. <a href="https://github.com/robwierzbowski/generator-jekyllrb">Generator-jekyllrb</a> is the most popular Jekyll generator in Yeoman, and I&rsquo;ve loved it at first, especially the support for Compass, CoffeeScript, HTML5 Boilerplate Template makes it very attractive for a beginner like me. But I had hard time getting it work properly. And somehow, I&rsquo;ve developed a preference on Gulp over Grunt so I end up using <a href="https://github.com/sondr3/generator-jekyllized">Generator-jekyllized</a>. I had to do some minor tweaks to make it work as the way I intended, and overall, I am pretty happy with Jekyllized. Other benefits of using Jekyllized:
 
 <ul>
 <li>Complete setup including layouts, config, 404, RSS Feed, posts and an example page. </li>
@@ -186,7 +186,7 @@
 <li> <mark>highlight</mark>: <code>==highlight==</code> </li>
 <li>** bold **:  <code>&lt;strong&gt;</code>.</li>
 <li>* italicize *:  <code>&lt;em&gt;</code>.</li>
-<li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> use<code>&lt;abbr&gt;</code>, with an optional <code>title</code> attribute for the full phrase.</li>
+<li>Abbreviations, like <abbr title="HyperText Markup Language">HTML</abbr> use<code>&lt;abbr&gt;</code>, with an optional <code>title</code> attribute for the full phrase.</li>
 <li>Citations, like <cite>&mdash; Mark otto</cite> uses <code>&lt;cite&gt;</code>.</li>
 <li><del>Deleted</del> uses <code>&lt;del&gt;</code> and <ins>inserted</ins> text: <code>&lt;ins&gt;</code>.</li>
 <li>Superscript <sup>text</sup> uses <code>&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code>&lt;sub&gt;</code>.</li>

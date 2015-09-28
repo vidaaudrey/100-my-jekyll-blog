@@ -261,6 +261,25 @@ body {
   width: 30%;
   -webkit-transition: all .5s ease;
           transition: all .5s ease; }
+  #push_sidebar .social-icons {
+    width: 100%;
+    min-height: 100px;
+    padding: 0 10px 20px 10px;
+    text-align: center; }
+    #push_sidebar .social-icons .img-circle {
+      width: 100%;
+      height: 100%;
+      padding: 10%; }
+    #push_sidebar .social-icons a {
+      color: #2B2A2A; }
+    #push_sidebar .social-icons .fa-circle:hover {
+      color: #2B2A2A;
+      cursor: pointer;
+      font-size: 1.5em; }
+    #push_sidebar .social-icons .fa-inverse:hover {
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.5em; }
   #push_sidebar ul {
     padding: 0; }
     #push_sidebar ul li a {
@@ -279,25 +298,6 @@ body {
         width: 30px;
         text-align: center;
         margin-left: 5px; }
-  #push_sidebar .social-icons {
-    width: 100%;
-    min-height: 100px;
-    padding: 20px 10px;
-    text-align: center; }
-    #push_sidebar .social-icons .img-circle {
-      width: 100%;
-      height: 100%;
-      padding: 10%; }
-    #push_sidebar .social-icons a {
-      color: #2B2A2A; }
-    #push_sidebar .social-icons .fa-circle:hover {
-      color: #2B2A2A;
-      cursor: pointer;
-      font-size: 1.5em; }
-    #push_sidebar .social-icons .fa-inverse:hover {
-      cursor: pointer;
-      color: #fff;
-      font-size: 1.5em; }
 
 #body-wrap {
   width: 100%;

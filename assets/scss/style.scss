@@ -66,33 +66,10 @@ body {
     width: $side-bar-width;
     transition: all .5s ease;
     
-    ul{
-        padding: 0;
-        li a {
-            padding: 10px 15px 10px 20px;
-            display: block;
-            background: $dark-background-color;
-            color: $dark-forground-color;
-            text-decoration: none;
-            text-align: center;
-            &:hover {
-               background-color: $dark-background-hover-color;
-                color:$dark-foreround-hover-color;
-            }
-            .fa {
-                font-size: 19px;
-                float: right;
-                width: 30px;
-                text-align: center;
-                margin-left: 5px;
-            }
-        }
-    } 
-
     .social-icons {
         width: 100%;
         min-height: 100px;
-        padding: 20px 10px;
+        padding: 0 10px 20px 10px;
         text-align: center;
 
         .img-circle{
@@ -120,9 +97,28 @@ body {
             }
         }
     }
-
- 
-
+    ul{
+        padding: 0;
+        li a {
+            padding: 10px 15px 10px 20px;
+            display: block;
+            background: $dark-background-color;
+            color: $dark-forground-color;
+            text-decoration: none;
+            text-align: center;
+            &:hover {
+               background-color: $dark-background-hover-color;
+                color:$dark-foreround-hover-color;
+            }
+            .fa {
+                font-size: 19px;
+                float: right;
+                width: 30px;
+                text-align: center;
+                margin-left: 5px;
+            }
+        }
+    } 
 }
 
 

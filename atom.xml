@@ -4,7 +4,7 @@
  <title>Audrey Li's Personal Blog</title>
  <link href="localhost:4000/atom.xml" rel="self"/>
  <link href="localhost:4000/"/>
- <updated>2015-09-27T20:17:36-07:00</updated>
+ <updated>2015-09-28T13:03:21-07:00</updated>
  <id>localhost:4000</id>
  <author>
    <name>Audrey Li</name>
@@ -23,28 +23,28 @@
 
 &lt;p&gt;In this post, I am going to use different markup tags and format to show what styles are built in this new &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; blog. &lt;/p&gt;
 
-&lt;p&gt;My last blog entry was on July 18th, which was about 2 months ago. In the past 2 months, I&amp;rsquo;ve spent some time trying to learn some front-end development skills and had two client projects. Although I love iOS, web development comes much more handy and useful in the day-to-day life. And I feel fortunate that I&amp;rsquo;ll be attending Makersquare in early Novemeber for an intensive 3 months&amp;rsquo; training program. &lt;/p&gt;
+&lt;p&gt;My last blog entry was on July 18th, which was about 2 months ago. In the past 2 months, I&amp;rsquo;ve spent some time trying to learn some front-end development skills and had two client projects. Although I love iOS, web development comes more handy and useful in the day-to-day life. And I feel fortunate that I&amp;rsquo;ll be attending Makersquare in early November for an intensive 3 months&amp;rsquo; training program. &lt;/p&gt;
 
 &lt;!--more--&gt;
 
 &lt;h3&gt;Background&lt;/h3&gt;
 
-&lt;p&gt;My precouse for the school will begin next week, so I spent last two days trying to relocate my blog from Wordpress to Jekyll, which I hope will give me more flexibility to do experiement on various front-end development topics. &lt;/p&gt;
+&lt;p&gt;My precourse for the school will begin next week, so I spent last two days trying to relocate my blog from Wordpress to Jekyll, which I hope will give me more flexibility to do experiments on various front-end development topics. &lt;/p&gt;
 
 &lt;h3&gt;Learnings from this relocation&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Definitely love Jekyll. It&amp;rsquo;s much simpler than Wordpress and integration with Github is perfect. Moreover, I no longer need to pay for hosting fee. &lt;/li&gt;
-&lt;li&gt;Powerful templating system, don&amp;rsquo;t repeat yourself. &lt;/li&gt;
-&lt;li&gt;Support for both html and markup. I never really used markup except for github before. But I defnitely will try to learn more. It&amp;rsquo;s much less cluttered than HTML. &lt;/li&gt;
+&lt;li&gt;Definitely love Jekyll. It&amp;rsquo;s much simpler than Wordpress and integration with Github is perfect. Moreover, I no longer need to pay for the hosting fee. &lt;/li&gt;
+&lt;li&gt;Powerful template system. Don&amp;rsquo;t repeat yourself. &lt;/li&gt;
+&lt;li&gt;Support for both HTML and markup. I never really used markup except for Github before. But I definitely will try to learn more. It&amp;rsquo;s much less cluttered than HTML. &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3&gt;Tools used&lt;/h3&gt;
 
 &lt;ul&gt;
-&lt;li&gt;SASS. Strictly speaking, SCSS, even I like SASS more, the conversion between existing css to SASS is much more work. &lt;/li&gt;
-&lt;li&gt;Bootstrap. I&amp;rsquo;ve struggled whether I should use any framework in the beginning since my blog is very minimalistic and Jekyll comes with a great buit-in support for a styling. But I went ahead and dropped Bootstrap in anyhow after some consideration for two reasons. First, it will greatly help speed up my development. Second, I&amp;rsquo;ll definitely need it for some future experiements. &lt;/li&gt;
-&lt;li&gt;Yeoman Generator - Jekyllized. &lt;a href=&quot;https://github.com/robwierzbowski/generator-jekyllrb&quot;&gt;Generator-jekyllrb&lt;/a&gt; is the most popular Jekyll generator in Yeoman, and I&amp;rsquo;ve loved it at first, especially the support for Compass, CoffeeScript, HTML5 Boilerplate Template makes it very attractive for a beginner like me. But I had hard time getting it work properly. And somehow, I&amp;rsquo;ve developed a preference on Gulp over Grunt so I end up using &lt;a href=&quot;https://github.com/sondr3/generator-jekyllized&quot;&gt;Generator-jekyllized&lt;/a&gt;. I had to do some minor tweeks to make it work as the way I intended, and overall, I am pretty happy with Jekyllized. Other benefits of using Jekyllized:
+&lt;li&gt;SASS. Strictly speaking, SCSS, even I like SASS more, the conversion between existing CSS to SASS is much more work. &lt;/li&gt;
+&lt;li&gt;Bootstrap. I&amp;rsquo;ve struggled whether I should use any framework in the beginning since my blog is very minimalistic and Jekyll comes with a great built-in support for a styling. But I went ahead and dropped Bootstrap in anyhow after some consideration for two reasons. First, it will greatly help speed up my development. Second, I&amp;rsquo;ll definitely need it for some future experiments. &lt;/li&gt;
+&lt;li&gt;Yeoman Generator - Jekyllized. &lt;a href=&quot;https://github.com/robwierzbowski/generator-jekyllrb&quot;&gt;Generator-jekyllrb&lt;/a&gt; is the most popular Jekyll generator in Yeoman, and I&amp;rsquo;ve loved it at first, especially the support for Compass, CoffeeScript, HTML5 Boilerplate Template makes it very attractive for a beginner like me. But I had hard time getting it work properly. And somehow, I&amp;rsquo;ve developed a preference on Gulp over Grunt so I end up using &lt;a href=&quot;https://github.com/sondr3/generator-jekyllized&quot;&gt;Generator-jekyllized&lt;/a&gt;. I had to do some minor tweaks to make it work as the way I intended, and overall, I am pretty happy with Jekyllized. Other benefits of using Jekyllized:
 
 &lt;ul&gt;
 &lt;li&gt;Complete setup including layouts, config, 404, RSS Feed, posts and an example page. &lt;/li&gt;
@@ -65,7 +65,7 @@
 &lt;li&gt; &lt;mark&gt;highlight&lt;/mark&gt;: &lt;code&gt;==highlight==&lt;/code&gt; &lt;/li&gt;
 &lt;li&gt;** bold **:  &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;* italicize *:  &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Langage&quot;&gt;HTML&lt;/abbr&gt; use&lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
+&lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Language&quot;&gt;HTML&lt;/abbr&gt; use&lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
 &lt;li&gt;Citations, like &lt;cite&gt;&amp;mdash; Mark otto&lt;/cite&gt; uses &lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; uses &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text: &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
@@ -5077,6 +5077,113 @@ progressView.animateProgressView()&lt;/p&gt;
  </entry>
  
  <entry>
+   <title>Welcome to Jekyll!</title>
+   <link href="localhost:4000/jekyll/2014/03/03/welcome-to-jekyll/"/>
+   <updated>2014-03-03T00:00:00-08:00</updated>
+   <id>localhost:4000/jekyll/2014/03/03/welcome-to-jekyll</id>
+   <content type="html">&lt;p&gt;You&amp;rsquo;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build
+(or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes! To add new posts, simply add
+a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention:
+YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;We&amp;rsquo;ve also added a lot of different settings for &lt;a href=&quot;https://github.com/vmg/redcarpet&quot;&gt;Redcarpet&lt;/a&gt;,
+including being able to &lt;sup&gt;superscript,&lt;/sup&gt; &lt;u&gt;underline&lt;/u&gt;, &lt;mark&gt;highlight&lt;/mark&gt;,
+&lt;del&gt;strikethrough&lt;/del&gt;, and footnotes.&lt;sup id=&quot;fnref1&quot;&gt;&lt;a href=&quot;#fn1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; It even automatically makes links into
+URLs: &lt;a href=&quot;http://www.jekyllrb.com&quot;&gt;www.jekyllrb.com&lt;/a&gt; and you can put multiple underscores in words without
+them leaning all over the place: this_word_has_underscores. It&amp;rsquo;ll also make your
+quotes look nice, like this: &amp;ldquo;hoho&amp;rdquo;, your dashes and hypens will be dashing too:
+&amp;mdash;/&amp;ndash;.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of
+Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&amp;rsquo;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;footnotes&quot;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+
+&lt;li id=&quot;fn1&quot;&gt;
+&lt;p&gt;Who are quite handy&amp;nbsp;&lt;a href=&quot;#fnref1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Introducing Poole</title>
+   <link href="localhost:4000/jekyll/poole/2014/03/02/introducing-poole/"/>
+   <updated>2014-03-02T00:00:00-08:00</updated>
+   <id>localhost:4000/jekyll/poole/2014/03/02/introducing-poole</id>
+   <content type="html">&lt;p&gt;&lt;em&gt;The Strange Case of Dr. Jeykll and Mr. Hyde&lt;/em&gt; tells the story of a lawyer
+investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward
+Hyde. Chief among the novel&amp;rsquo;s supporting cast is a man by the name of Mr. Poole,
+Dr. Jekyll&amp;rsquo;s loyal butler.
+&amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;&lt;/p&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;Poole is the butler for &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;, the static site
+generator. It&amp;rsquo;s designed and developed by &lt;a href=&quot;https://twitter.com/mdo&quot;&gt;@mdo&lt;/a&gt; to
+provide a clear and concise foundational setup for any Jekyll site. It does so
+by furnishing a full vanilla Jekyll install with example templates, pages,
+posts, and styles.&lt;/p&gt;
+
+&lt;p&gt;There are currently two themes built on Poole:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://hyde.getpoole.com&quot;&gt;Hyde&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://lanyon.getpoole.com&quot;&gt;Lanyon&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Learn more and contribute on &lt;a href=&quot;https://github.com/poole&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;What&amp;rsquo;s included&lt;/h3&gt;
+
+&lt;p&gt;Poole is a streamlined Jekyll site designed and built as a foundation for
+building more meaningful themes. Poole, and every theme built on it, includes
+the following:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Complete Jekyll setup included (layouts, config, &lt;a href=&quot;/404&quot;&gt;404&lt;/a&gt;, &lt;a href=&quot;/atom.xml&quot;&gt;RSS
+feed&lt;/a&gt;, posts, and &lt;a href=&quot;/about&quot;&gt;example page&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Mobile friendly design and development&lt;/li&gt;
+&lt;li&gt;Easily scalable text and component sizing with &lt;code&gt;rem&lt;/code&gt; units in the CSS&lt;/li&gt;
+&lt;li&gt;Support for a wide gamut of HTML elements&lt;/li&gt;
+&lt;li&gt;Related posts (time-based, because Jekyll) below each post&lt;/li&gt;
+&lt;li&gt;Syntax highlighting, courtesy Pygments (the Python-based code snippet
+highlighter)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Additional features are available in individual themes.&lt;/p&gt;
+
+&lt;h3&gt;Browser support&lt;/h3&gt;
+
+&lt;p&gt;Poole and it&amp;rsquo;s themes are by preference a forward-thinking project. In addition
+to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it
+is only compatible with Internet Explorer 9 and above.&lt;/p&gt;
+
+&lt;h3&gt;Download&lt;/h3&gt;
+
+&lt;p&gt;Poole is developed on and hosted with GitHub. Head to the &lt;a
+href=&quot;https://github.com/poole/poole&quot;&gt;GitHub repository&lt;/a&gt; for downloads, bug
+reports, and features requests.&lt;/p&gt;
+
+&lt;p&gt;Thanks!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Example content</title>
    <link href="localhost:4000/jekyll/example/2014/03/01/2014-03-01-example-content/"/>
    <updated>2014-03-01T00:00:00-08:00</updated>
@@ -5133,8 +5240,7 @@ progressView.animateProgressView()&lt;/p&gt;
 
 &lt;p&gt;Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.&lt;/p&gt;
 
-&lt;p&gt;&lt;noscript&gt;&lt;pre&gt;400: Invalid request
-&lt;/pre&gt;&lt;/noscript&gt;&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.&lt;/p&gt;
 
