@@ -140,9 +140,9 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
-   <p class="p1">
-  <span class="s1">We all have our special weapons. And we fight for what we believed in. </span>
+                <div class="post card post-content">
+   <p>
+  <span>We all have our special weapons. And we fight for what we believed in. </span>
 </p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">enum</span> <span class="n">PersonType</span><span class="p">{</span>
@@ -213,7 +213,7 @@
 
 <span class="c1">//: LordOfWeapon is the head of HouseOfWeapon and he has the knowledge of what kind of weapon should be create for what kind of person.</span>
 <span class="k">class</span> <span class="n">LordOfWeapon</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weapon</span> <span class="p">{</span>
         <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
         <span class="k">case</span> <span class="p">.</span><span class="n">God</span><span class="p">,</span> <span class="p">.</span><span class="nl">Wizard</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
@@ -233,7 +233,7 @@
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;----------People Group Created---------&quot;</span><span class="p">)</span>
 <span class="n">print</span><span class="p">(</span><span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">description</span><span class="p">})</span>
 
-<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Person</span> <span class="k">in</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Person</span> <span class="k">in</span>
     <span class="n">p</span><span class="p">.</span><span class="n">weapon</span> <span class="o">=</span> <span class="n">LordOfWeapon</span><span class="p">.</span><span class="n">weaponMatch</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">p</span>
 <span class="p">})</span>
@@ -243,7 +243,7 @@
 <span class="c1">//:## Now, the new LordOfCoin want to reset the price of the weapons</span>
 
 <span class="k">class</span> <span class="n">LordOfCoin</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span>  <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span>  <span class="p">{</span>
         <span class="n">guard</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
         <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
@@ -255,7 +255,7 @@
 <span class="p">}</span>
 
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">----------LordOfCoin adjusted the price of weapons ---------&quot;</span><span class="p">)</span>
-<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Person</span> <span class="k">in</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Person</span> <span class="k">in</span>
     <span class="n">p</span><span class="p">.</span><span class="n">weapon</span><span class="o">?</span><span class="p">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">LordOfCoin</span><span class="p">.</span><span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">p</span>
 <span class="p">})</span>
@@ -263,7 +263,7 @@
 
 
 <span class="c1">//: The problem is that both LordOfCoin and LordOfWeapon are doing the same kind of checking for person&#39;s type. Can they outsource this work to someone else? Perhaps a RuleBook? Say a universalWeaponMatch rule</span>
-<span class="k">func</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Personable</span> <span class="p">{</span>
+<span class="k">func</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Personable</span> <span class="p">{</span>
     <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">==</span> <span class="nb">nil</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nl">weapon</span><span class="p">:</span> <span class="n">Weapon</span>
         <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
@@ -280,22 +280,22 @@
 
 <span class="c1">//: The LordOfWeapon refers the &#39;universalWeaponMatch&#39; to create the right weapon for each person</span>
 <span class="k">class</span> <span class="n">LordOfWeaponAdvanced</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">//: CoinOfWeapon refers the &#39;universalWeaponMatch&#39; to check and adjust the weapon price.</span>
 <span class="k">class</span> <span class="n">LordOfCoinAdvanced</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">getWeaponPrice</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">getWeaponPrice</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span><span class="o">?</span><span class="p">.</span><span class="n">price</span>
     <span class="p">}</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Personable</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Personable</span> <span class="p">{</span>
         <span class="c1">//: equip the person with weapon</span>
         <span class="n">person</span> <span class="o">=</span> <span class="n">universalWeaponMatch</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
         <span class="n">guard</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="n">person</span> <span class="p">}</span>
         <span class="c1">// Fav Poet and give them free weapons</span>
-        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="o">==</span> <span class="p">.</span><span class="n">Poet</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="o">==</span> <span class="p">.</span><span class="n">Poet</span> <span class="p">{</span>
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;Through the &#39;universalWeaponMatch&#39; book, LordOfCoinAdvanced adjusted the weapon price for \(person.name) from \(person.weapon!.price)# to 0# &quot;</span><span class="p">)</span>
             <span class="n">person</span><span class="p">.</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="p">}</span>
@@ -400,11 +400,11 @@
 <span class="c1">//: * WeaponFromTheVast: a mix of materials from everywhere, can be very weak or very powerful. Hard to expect the result</span>
 
 <span class="k">protocol</span> <span class="n">WeaponFactory</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span>
+    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weapon</span>
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nl">WeaponFactoryFromTheNorth</span><span class="p">:</span><span class="n">WeaponFactory</span> <span class="p">{</span>
-     <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+     <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weapon</span> <span class="p">{</span>
         <span class="k">switch</span> <span class="n">weaponType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Hammer</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer from North&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">90</span><span class="p">)</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Magic</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic from North&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">80</span><span class="p">)</span>
@@ -415,7 +415,7 @@
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nl">WeaponFactoryFromTheSouth</span><span class="p">:</span><span class="n">WeaponFactory</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weapon</span> <span class="p">{</span>
         <span class="k">switch</span> <span class="n">weaponType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Hammer</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer from South&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Magic</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic from South&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">18</span><span class="p">)</span>
@@ -425,7 +425,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">class</span> <span class="nl">WeaponFactoryFromTheVast</span><span class="p">:</span><span class="n">WeaponFactory</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">makeAWeapon</span><span class="p">(</span><span class="nl">weaponType</span><span class="p">:</span> <span class="n">WeaponType</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weapon</span> <span class="p">{</span>
         <span class="k">switch</span> <span class="n">weaponType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Hammer</span><span class="p">:</span> <span class="k">return</span> <span class="n">Hammer</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Hammer from Vast&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">99</span><span class="p">)</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Magic</span><span class="p">:</span> <span class="k">return</span> <span class="n">Magic</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="s">&quot;Magic from Vast&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="nl">powerLevel</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
@@ -436,7 +436,7 @@
 <span class="p">}</span>
 
 <span class="c1">//: the &#39;universalWeaponMatchAdvanced&#39; checks the person&#39;s skill level first and send the order to one of the three Weapon Factories to make the weapon. It doesn&#39;t need to care about the details of each weapon (price, name...). It&#39;s not their business anyway.</span>
-<span class="k">func</span> <span class="n">universalWeaponMatchAdvaned</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Personable</span> <span class="p">{</span>
+<span class="k">func</span> <span class="n">universalWeaponMatchAdvaned</span><span class="p">(</span><span class="k">var</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Personable</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nl">weaponFactory</span><span class="p">:</span> <span class="n">WeaponFactory</span>
     <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">skillLevel</span> <span class="p">{</span>
         <span class="k">case</span> <span class="mf">0.</span><span class="p">.</span><span class="mf">.20</span><span class="o">:</span> <span class="n">weaponFactory</span> <span class="o">=</span> <span class="n">WeaponFactoryFromTheSouth</span><span class="p">()</span>
@@ -458,7 +458,7 @@
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="n">LordOfWeapon</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">weaponMatch</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Weapon</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">universalWeaponMatchAdvaned</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -480,11 +480,11 @@
 <span class="c1">//:## Now, the new LordOfCoin want to reset the price of the weapons. He is also responsible for calculating the tax for each person&#39;s weapon</span>
 
 <span class="k">class</span> <span class="n">LordOfCoin</span> <span class="p">{</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">calculateWeaponCostAfterTax</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">calculateWeaponCostAfterTax</span><span class="p">(</span><span class="nl">person</span><span class="p">:</span> <span class="n">Personable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">==</span> <span class="nb">nil</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
         <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="n">universalWeaponMatchAdvaned</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="n">weapon</span><span class="o">!</span><span class="p">.</span><span class="n">price</span> <span class="o">*</span> <span class="mi">2</span> <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span>  <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">adjustWeaponPrice</span><span class="p">(</span> <span class="nl">person</span><span class="p">:</span> <span class="n">Person</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Int</span>  <span class="p">{</span>
         <span class="n">guard</span> <span class="n">person</span><span class="p">.</span><span class="n">weapon</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
         <span class="k">switch</span> <span class="n">person</span><span class="p">.</span><span class="n">personType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Dwarf</span><span class="p">:</span> <span class="k">return</span> <span class="mi">1</span>
@@ -496,7 +496,7 @@
 <span class="p">}</span>
 
 <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">----------LordOfCoin adjusted the price of weapons ---------&quot;</span><span class="p">)</span>
-<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Person</span> <span class="k">in</span>
+<span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">map</span><span class="p">({</span> <span class="p">(</span><span class="k">var</span> <span class="n">p</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Person</span> <span class="k">in</span>
     <span class="n">p</span><span class="p">.</span><span class="n">weapon</span><span class="o">?</span><span class="p">.</span><span class="n">price</span> <span class="o">+=</span> <span class="n">LordOfCoin</span><span class="p">.</span><span class="n">adjustWeaponPrice</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">p</span>
 <span class="p">})</span>
@@ -508,7 +508,7 @@
 
 <p><a href="/assets/wp-content/uploads/2015/07/factory-2.png&#x27;"><img class="aligncenter size-full wp-image-982" src="/assets/wp-content/uploads/2015/07/factory-2.png" alt="factory 2" width="530" height="358" /></a></p>
 
-<p><p class="p1"></p>
+<p><p></p>
 
  </div>
  <div class="card">
@@ -536,27 +536,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -598,6 +598,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

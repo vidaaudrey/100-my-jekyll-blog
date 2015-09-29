@@ -140,14 +140,14 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
-   <p class="p1">
-  <span class="s1">There is a dancing festival every year. Gods, Fairies and some other VIPs are in the guest list. There are also some unwelecomed walk-ins. Each of the guest type would have different host to receive and host them, except the walk-ins would have no hosts. </span>
+                <div class="post card post-content">
+   <p>
+  <span>There is a dancing festival every year. Gods, Fairies and some other VIPs are in the guest list. There are also some unwelecomed walk-ins. Each of the guest type would have different host to receive and host them, except the walk-ins would have no hosts. </span>
 </p>
 
 <blockquote>
-<p class="p1">
-  <span class="s1"> The chain of responsibility pattern is used to process varied requests, each of which may be dealt with by a different handler.</span>
+<p>
+  <span> The chain of responsibility pattern is used to process varied requests, each of which may be dealt with by a different handler.</span>
 </p>
 </blockquote>
 
@@ -157,7 +157,9 @@
     <span class="k">case</span> <span class="n">Fairy</span>
     <span class="k">case</span> <span class="n">Unwelcomed</span>
 <span class="p">}</span>
-
+<span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">h2</span><span class="o">&gt;&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">h2</span><span class="o">&gt;</span>
 <span class="k">struct</span> <span class="n">Guest</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nl">guestType</span><span class="p">:</span> <span class="n">GuestType</span>
     <span class="k">let</span> <span class="nl">name</span><span class="p">:</span> <span class="n">String</span>
@@ -167,7 +169,7 @@
     <span class="k">var</span> <span class="nl">nextHost</span><span class="p">:</span> <span class="n">Host</span><span class="o">?</span>
     <span class="n">required</span> <span class="k">init</span><span class="p">(){}</span>
     
-    <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">nextHost</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
             <span class="k">return</span> <span class="n">nextHost</span><span class="o">!</span><span class="p">.</span><span class="n">host</span><span class="p">(</span><span class="n">guest</span><span class="p">,</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">handled</span><span class="p">)</span>
         <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">!</span><span class="n">handled</span> <span class="p">{</span>
@@ -176,7 +178,7 @@
         <span class="k">return</span> <span class="n">handled</span>
     <span class="p">}</span>
     
-    <span class="k">class</span> <span class="k">func</span> <span class="n">createChain</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Host</span><span class="o">?</span><span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">createChain</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Host</span><span class="o">?</span><span class="p">{</span>
         <span class="k">let</span> <span class="n">host</span> <span class="o">=</span> <span class="n">VIPHost</span><span class="p">()</span>
         <span class="n">host</span><span class="p">.</span><span class="n">nextHost</span> <span class="o">=</span> <span class="n">GodHost</span><span class="p">()</span>
         <span class="n">host</span><span class="p">.</span><span class="n">nextHost</span><span class="o">?</span><span class="p">.</span><span class="n">nextHost</span> <span class="o">=</span> <span class="n">FairyHost</span><span class="p">()</span>
@@ -185,7 +187,7 @@
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nl">FairyHost</span><span class="p">:</span> <span class="n">Host</span> <span class="p">{</span>
-    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">guest</span><span class="p">.</span><span class="n">guestType</span> <span class="o">==</span> <span class="p">.</span><span class="n">Fairy</span> <span class="p">{</span>
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(guest.name) is handled by FairyHost</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
             <span class="n">handled</span> <span class="o">=</span> <span class="nb">true</span>
@@ -195,7 +197,7 @@
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nl">GodHost</span><span class="p">:</span> <span class="n">Host</span> <span class="p">{</span>
-    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">guest</span><span class="p">.</span><span class="n">guestType</span> <span class="o">==</span> <span class="p">.</span><span class="n">God</span> <span class="p">{</span>
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(guest.name) is handled by GodHost</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
             <span class="n">handled</span> <span class="o">=</span> <span class="nb">true</span>
@@ -207,7 +209,7 @@
 <span class="k">class</span> <span class="nl">VIPHost</span><span class="p">:</span> <span class="n">Host</span> <span class="p">{</span>
     <span class="k">var</span> <span class="n">totalGuests</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">var</span> <span class="n">vipGuests</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+    <span class="kr">override</span> <span class="k">func</span> <span class="n">host</span><span class="p">(</span><span class="nl">guest</span><span class="p">:</span> <span class="n">Guest</span><span class="p">,</span> <span class="k">var</span> <span class="nl">handled</span><span class="p">:</span> <span class="n">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
         <span class="n">totalGuests</span><span class="o">++</span>
         <span class="k">if</span> <span class="n">guest</span><span class="p">.</span><span class="n">guestType</span> <span class="o">==</span> <span class="p">.</span><span class="n">VIP</span> <span class="p">{</span>
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(guest.name) is handled by VIPHost&quot;</span><span class="p">)</span>
@@ -261,27 +263,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -323,6 +325,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

@@ -139,7 +139,7 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
+                <div class="post card post-content">
    <p><strong>Description:</strong> a simple movie app that demonstrate how to get JSON data and dynamically create the corresponding class. <a href="https://github.com/vidaaudrey/023-Popular-Movies">Source Code</a></p>
 
 <p><a href="/assets/wp-content/uploads/2015/05/snapshot3.png"><img class="aligncenter size-full wp-image-839" src="/assets/wp-content/uploads/2015/05/snapshot3.png" alt="snapshot" width="372" height="667" /></a></p>
@@ -152,7 +152,7 @@
     <span class="k">var</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
     <span class="k">var</span> <span class="nl">voteAverage</span><span class="p">:</span><span class="n">Float</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">var</span> <span class="nl">voteCount</span><span class="p">:</span><span class="n">Int</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">func</span> <span class="n">getPosterURL</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getPosterURL</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">ALFrameworkConfig</span><span class="p">.</span><span class="n">TMDBImageURL</span> <span class="o">+</span> <span class="n">posterPath</span>
     <span class="p">}</span>
     
@@ -172,7 +172,7 @@
     <span class="kr">override</span> <span class="k">func</span> <span class="n">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
         <span class="nb">super</span><span class="p">.</span><span class="n">viewDidLoad</span><span class="p">()</span>
         
-        <span class="n">dataSource</span> <span class="o">=</span> <span class="n">TableViewDataSource</span><span class="p">(</span><span class="nl">items</span><span class="p">:</span> <span class="n">movies</span><span class="p">,</span> <span class="nl">cellIdentifier</span><span class="p">:</span> <span class="s">&quot;cell&quot;</span><span class="p">,</span> <span class="nl">cellActionHandler</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">configureBlock</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">()</span> <span class="k">in</span>
+        <span class="n">dataSource</span> <span class="o">=</span> <span class="n">TableViewDataSource</span><span class="p">(</span><span class="nl">items</span><span class="p">:</span> <span class="n">movies</span><span class="p">,</span> <span class="nl">cellIdentifier</span><span class="p">:</span> <span class="s">&quot;cell&quot;</span><span class="p">,</span> <span class="nl">cellActionHandler</span><span class="p">:</span> <span class="nb">nil</span><span class="p">,</span> <span class="nl">configureBlock</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">()</span> <span class="k">in</span>
             <span class="k">if</span> <span class="k">let</span> <span class="n">actualCell</span> <span class="o">=</span> <span class="n">cell</span> <span class="kt">as</span><span class="o">?</span> <span class="n">MovieTableViewCell</span> <span class="p">{</span>
                 <span class="n">actualCell</span><span class="p">.</span><span class="n">configCells</span><span class="p">(</span><span class="n">item</span> <span class="kt">as</span><span class="o">!</span> <span class="n">Movie</span><span class="p">)</span>
             <span class="p">}</span>
@@ -181,7 +181,7 @@
         <span class="n">tableView</span><span class="p">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="n">dataSource</span>
         
         <span class="k">let</span> <span class="n">url</span> <span class="o">=</span> <span class="n">ALFrameworkConfig</span><span class="p">.</span><span class="n">TMDBURLPopular</span> <span class="o">+</span> <span class="n">ALFrameworkConfig</span><span class="p">.</span><span class="n">TMDBKey</span>
-        <span class="n">ALUtils</span><span class="p">.</span><span class="n">getJSONObjectFromURL</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">jsonData</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+        <span class="n">ALUtils</span><span class="p">.</span><span class="n">getJSONObjectFromURL</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nl">callback</span><span class="p">:</span> <span class="p">{</span> <span class="p">(</span><span class="n">jsonData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
             
             <span class="k">if</span> <span class="k">let</span> <span class="n">jsonArr</span> <span class="o">=</span> <span class="n">jsonData</span><span class="p">[</span><span class="s">&quot;results&quot;</span><span class="p">]</span> <span class="kt">as</span><span class="o">?</span> <span class="bp">NSArray</span> <span class="p">{</span>
                 <span class="k">for</span> <span class="n">jsonDictData</span> <span class="k">in</span> <span class="n">jsonArr</span> <span class="p">{</span>
@@ -234,27 +234,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -296,6 +296,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

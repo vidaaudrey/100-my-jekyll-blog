@@ -140,13 +140,13 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
-   <p class="p1">
-  <span class="s1"> There is a restaurant with two kinds of menus: one for their VIP guests and one for customers who just want average fastfood. The two menus are in different format and one waitress has to be able to process both menus, in a simple way.</span>
+                <div class="post card post-content">
+   <p>
+  <span> There is a restaurant with two kinds of menus: one for their VIP guests and one for customers who just want average fastfood. The two menus are in different format and one waitress has to be able to process both menus, in a simple way.</span>
 </p>
 
 <blockquote>
-<p class="p1">
+<p>
   Iterator provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation. <em> &#8212; HeadFirst</em>
 </p>
 </blockquote>
@@ -166,7 +166,7 @@
         <span class="k">return</span> <span class="n">name</span><span class="p">.</span><span class="n">hashValue</span> <span class="o">^</span> <span class="n">price</span><span class="p">.</span><span class="n">hashValue</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">func</span> <span class="o">==</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span><span class="n">MenuItem</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span><span class="n">MenuItem</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+<span class="k">func</span> <span class="o">==</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span><span class="n">MenuItem</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span><span class="n">MenuItem</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="n">name</span>
 <span class="p">}</span>
 
@@ -176,7 +176,7 @@
 <span class="p">}</span>
 
 <span class="c1">//: provide default implementation to describe the elements of the sequence. As the PrettyDescription inherit CustomStringConvertible, we can safely downcast the sequence elements to CustomStringConvertible</span>
-<span class="k">extension</span> <span class="n">PrettyDescription</span> <span class="k">where</span> <span class="nl">Self</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">SequenceType</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span>
+<span class="k">extension</span> <span class="n">PrettyDescription</span> <span class="k">where</span> <span class="nl">Self</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">SequenceType</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nl">prettyDescription</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
         <span class="k">var</span> <span class="n">temStr</span> <span class="o">=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Menu Items:</span><span class="se">\n</span><span class="s">&quot;</span>
         <span class="nb">self</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="n">temStr</span> <span class="o">+=</span> <span class="p">(</span><span class="err">$</span><span class="mi">0</span> <span class="kt">as</span><span class="o">!</span> <span class="n">CustomStringConvertible</span><span class="p">).</span><span class="n">description</span><span class="p">}</span> 
@@ -188,16 +188,16 @@
 <span class="k">struct</span> <span class="nl">MenuGeneratorFromArray</span><span class="p">:</span> <span class="n">GeneratorType</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nl">menuItems</span><span class="p">:[</span><span class="n">MenuItem</span><span class="p">]</span>
     <span class="k">var</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">next</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuItem</span><span class="o">?</span> <span class="p">{</span>
+    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">next</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MenuItem</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">index</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="o">?</span> <span class="n">menuItems</span><span class="p">[</span><span class="n">index</span><span class="o">++</span><span class="p">]</span> <span class="o">:</span> <span class="nb">nil</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="c1">//: how next element is generated from a MenuItem Set</span>
 <span class="k">struct</span> <span class="nl">MenuGeneratorFromSet</span><span class="p">:</span> <span class="n">GeneratorType</span> <span class="p">{</span>
-    <span class="k">let</span> <span class="nl">menuItems</span><span class="p">:</span><span class="n">Set</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MenuItem</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+    <span class="k">let</span> <span class="nl">menuItems</span><span class="p">:</span><span class="n">Set</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MenuItem</span><span class="o">&gt;</span>
     <span class="k">var</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">next</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuItem</span><span class="o">?</span> <span class="p">{</span>
+    <span class="kr">mutating</span> <span class="k">func</span> <span class="n">next</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MenuItem</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">index</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="p">(</span><span class="n">menuItems</span><span class="p">.</span><span class="n">count</span><span class="p">)</span> <span class="o">?</span> <span class="n">menuItems</span><span class="p">[</span><span class="n">advance</span><span class="p">(</span><span class="n">menuItems</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">index</span><span class="o">++</span><span class="p">)]</span> <span class="o">:</span> <span class="nb">nil</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -206,10 +206,10 @@
 <span class="k">struct</span> <span class="nl">VIPMenu</span><span class="p">:</span><span class="n">SequenceType</span><span class="p">,</span> <span class="n">PrettyDescription</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nl">menuItems</span><span class="p">:[</span><span class="n">MenuItem</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;VIP Menu&quot;</span> <span class="o">+</span> <span class="n">prettyDescription</span> <span class="p">}</span>
-    <span class="k">func</span> <span class="n">generate</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuGeneratorFromArray</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">generate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MenuGeneratorFromArray</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">MenuGeneratorFromArray</span><span class="p">(</span><span class="nl">menuItems</span><span class="p">:</span> <span class="n">menuItems</span><span class="p">,</span> <span class="nl">index</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">underestimateCount</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">underestimateCount</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="p">}</span>
     
     <span class="k">init</span><span class="p">(){</span>
         <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Tiran Goose&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
@@ -225,13 +225,13 @@
 
 <span class="c1">//: The FastfoodMenu using Set</span>
 <span class="k">class</span> <span class="nl">FastfoodMenu</span><span class="p">:</span> <span class="n">SequenceType</span><span class="p">,</span> <span class="n">PrettyDescription</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="n">menuItems</span> <span class="o">=</span> <span class="n">Set</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MenuItem</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;()</span>
+    <span class="k">var</span> <span class="n">menuItems</span> <span class="o">=</span> <span class="n">Set</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MenuItem</span><span class="o">&gt;</span><span class="p">()</span>
     <span class="k">var</span> <span class="nl">description</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Fastfood Menu&quot;</span> <span class="o">+</span> <span class="n">prettyDescription</span> <span class="p">}</span>
     <span class="k">var</span> <span class="n">nextIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">func</span> <span class="n">generate</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MenuGeneratorFromSet</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">generate</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">MenuGeneratorFromSet</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">MenuGeneratorFromSet</span><span class="p">(</span><span class="nl">menuItems</span><span class="p">:</span> <span class="n">menuItems</span><span class="p">,</span> <span class="nl">index</span><span class="p">:</span> <span class="mi">0</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">underestimateCount</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="p">}</span>
+    <span class="k">func</span> <span class="n">underestimateCount</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">menuItems</span><span class="p">.</span><span class="n">count</span> <span class="p">}</span>
     
     <span class="k">init</span><span class="p">(){</span>
         <span class="n">addItem</span><span class="p">(</span><span class="s">&quot;Cheese Cake&quot;</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="mi">10</span><span class="p">)</span>
@@ -297,27 +297,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -359,6 +359,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

@@ -242,11 +242,29 @@ The main SCSS file for everything, yep
 * {
   box-shadow: none; }
 
+html {
+  font-size: 14px; }
+
 body {
   padding-top: 180px;
   font-family: "RobotoDraft","Roboto",sans-serif;
   color: #666;
+  font-size: 1.1rem;
   background: #fff url('/assets/images/furley_bg.png') 0 0 repeat; }
+
+a {
+  color: #4CA550;
+  text-decoration: none;
+  font-weight: 300; }
+  a:hover, a:focus {
+    color: #388E3C;
+    text-decoration: none; }
+
+h2 a {
+  line-height: 1.1em; }
+
+ul li {
+  margin-bottom: 5px; }
 
 #push_sidebar {
   background: #000;
@@ -275,23 +293,24 @@ body {
     #push_sidebar .social-icons .fa-circle:hover {
       color: #2B2A2A;
       cursor: pointer;
-      font-size: 1.5em; }
+      font-size: 1.1rem; }
     #push_sidebar .social-icons .fa-inverse:hover {
       cursor: pointer;
-      color: #fff;
-      font-size: 1.5em; }
+      color: #FFF;
+      font-size: 1.1rem; }
   #push_sidebar ul {
     padding: 0; }
     #push_sidebar ul li a {
       padding: 10px 15px 10px 20px;
       display: block;
+      font-weight: 400;
       background: #000;
-      color: rgba(255, 255, 255, 0.8);
+      color: #F3F3F3;
       text-decoration: none;
       text-align: center; }
       #push_sidebar ul li a:hover {
         background-color: #2B2A2A;
-        color: #fff; }
+        color: #FFF; }
       #push_sidebar ul li a .fa {
         font-size: 19px;
         float: right;
@@ -300,6 +319,8 @@ body {
         margin-left: 5px; }
 
 #body-wrap {
+  overflow: hidden;
+  margin-top: -180px;
   width: 100%;
   -webkit-transition: all .5s ease;
           transition: all .5s ease; }
@@ -336,15 +357,17 @@ body {
     -webkit-transition: all .5s ease;
             transition: all .5s ease; }
     #body-wrap main .main-wrap {
-      max-width: 750px;
+      max-width: 770px;
       margin: 0 auto; }
       #body-wrap main .main-wrap .about {
         padding: 5px;
         margin-bottom: 50px; }
       #body-wrap main .main-wrap .card {
-        background: #FFFFFF;
+        background: #FFF;
         padding: 30px;
-        margin-bottom: 15px; }
+        margin: 10px auto;
+        float: left;
+        width: 100%; }
 
 .show_sidebar #push_sidebar {
   left: 70%; }
@@ -389,9 +412,8 @@ body {
     width: 80%; } }
 
 .jumbotron {
-  height: 650px;
-  margin-top: -180px;
-  padding-top: 90px;
+  height: 800px;
+  padding-top: 180px;
   width: 110%;
   color: white; }
   .jumbotron .container {
@@ -401,7 +423,7 @@ body {
     width: 91%;
     overflow: hidden; }
   .jumbotron .main-wrap {
-    max-width: 750px;
+    max-width: 770px;
     margin: 0 auto; }
   .jumbotron.jumbotron-home {
     background: url('/assets/images/home-default-bg-compressor.jpeg') no-repeat center center fixed;
@@ -489,6 +511,33 @@ body {
       width: auto;
       height: 100%; }
 
+.post .post-title {
+  margin: 0;
+  margin-bottom: 16px; }
+.post.post-content a {
+  border-bottom: 1px dotted #B6B6B6; }
+  .post.post-content a:hover {
+    border-bottom: 1px dotted #388E3C; }
+.post.post-content .gallery {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .post.post-content .gallery div.col-1 {
+    width: 100%; }
+  .post.post-content .gallery div.col-2 {
+    width: 49%;
+    width: calc(50% - .5rem); }
+  .post.post-content .gallery div.col-3 {
+    width: 32%;
+    width: calc(33.33333% - .66667rem); }
 .post p a img {
   max-width: 100%;
   height: auto; }
@@ -496,6 +545,60 @@ body {
   width: 100%;
   height: auto;
   border: 1px solid #B6B6B6; }
+
+.post-content a[data-fluidbox] {
+  background-color: #eee;
+  border: none;
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  margin-bottom: 1.5rem; }
+  .post-content a[data-fluidbox] .fluidbox-opened {
+    cursor: -webkit-zoom-out;
+    cursor: -moz-zoom-out; }
+  .post-content a[data-fluidbox] img {
+    display: block;
+    margin: 0 auto;
+    opacity: 0;
+    max-width: 100%;
+    -webkit-transition: all .25s ease-in-out;
+            transition: all .25s ease-in-out; }
+.post-content a[class^='float'] {
+  margin: 1rem;
+  margin-top: 0;
+  width: 33.33333%; }
+.post-content a .float-left {
+  float: left;
+  margin-left: 0; }
+.post-content a .float-right {
+  float: right;
+  margin-right: 0; }
+.post-content .fluidbox-overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  cursor: -webkit-zoom-out;
+  cursor: -moz-zoom-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 500; }
+.post-content .fluidbox-wrap {
+  background-position: center center;
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  z-index: 400;
+  -webkit-transition: all .25s ease-in-out;
+          transition: all .25s ease-in-out; }
+.post-content .fluidbox-opened .fluidbox-wrap {
+  z-index: 600; }
+.post-content .fluidbox-ghost {
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  -webkit-transition: all .25s ease-in-out;
+          transition: all .25s ease-in-out; }
 
 footer {
   padding: 20px; }
@@ -519,7 +622,7 @@ footer {
       display: block;
       float: left;
       overflow: hidden;
-      font-size: 1.1em;
+      font-size: 1.1rem;
       -ms-text-overflow: ellipsis;
       text-overflow: ellipsis; }
       .page-nav div a:first-child {
@@ -545,21 +648,16 @@ footer {
   display: none !important; }
 
 /* Related posts */
-.related {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid #eee; }
-
-.related-posts {
+.related .related-posts {
   padding-left: 0;
   list-style: none; }
-  .related-posts h3 {
+  .related .related-posts h3 {
     margin-top: 0; }
-  .related-posts li small {
+  .related .related-posts li small {
     font-size: 75%;
-    color: #999; }
-  .related-posts li a:hover {
-    color: #268bd2;
+    color: #B6B6B6; }
+  .related .related-posts li a:hover {
+    color: #388E3C;
     text-decoration: none; }
-    .related-posts li a:hover small {
+    .related .related-posts li a:hover small {
       color: inherit; }

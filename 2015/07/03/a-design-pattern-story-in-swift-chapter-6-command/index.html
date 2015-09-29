@@ -140,9 +140,9 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
-   <p class="p1">
-  <span class="s1">If you command wisely, you&#8217;ll be obeyed cheerfully.<span class="Apple-converted-space">  </span>&#8212; <em>Thomas Fuller</em></span>
+                <div class="post card post-content">
+   <p>
+  <span>If you command wisely, you&#8217;ll be obeyed cheerfully.<span class="Apple-converted-space">  </span>&#8212; <em>Thomas Fuller</em></span>
 </p>
 
 <div class="page" title="Page 393">
@@ -158,9 +158,9 @@
 <span class="p">}</span>
 
 <span class="c1">//: A generic command can handle different kind of commands</span>
-<span class="k">class</span> <span class="n">GenericCommand</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">:</span> <span class="n">Command</span> <span class="p">{</span>
-    <span class="n">private</span> <span class="k">var</span> <span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span>
-    <span class="k">init</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span><span class="p">){</span>
+<span class="k">class</span> <span class="n">GenericCommand</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="o">&gt;:</span> <span class="n">Command</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">var</span> <span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&gt;</span> <span class="n">Void</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">){</span>
         <span class="nb">self</span><span class="p">.</span><span class="n">instruction</span> <span class="o">=</span> <span class="n">instruction</span>
     <span class="p">}</span>
     <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">receiver</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="p">{</span>
@@ -169,7 +169,7 @@
         <span class="p">}</span>
         <span class="n">instruction</span><span class="p">(</span><span class="n">safeReceiver</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">createCommand</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Command</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">createCommand</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">T</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Command</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">GenericCommand</span><span class="p">(</span><span class="nl">instruction</span><span class="p">:</span> <span class="n">instruction</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -237,16 +237,16 @@
         <span class="n">commands</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">PeopleStandByCommand</span><span class="p">())</span>
     <span class="p">}</span>
 
-    <span class="n">private</span> <span class="k">func</span> <span class="n">addCommand</span><span class="p">(</span><span class="nl">action</span><span class="p">:</span> <span class="n">PrepareForWarOperation</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span><span class="p">,</span> <span class="nl">people</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
-        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+    <span class="n">private</span> <span class="k">func</span> <span class="n">addCommand</span><span class="p">(</span><span class="nl">action</span><span class="p">:</span> <span class="n">PrepareForWarOperation</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="o">-&gt;</span> <span class="n">Void</span><span class="p">,</span> <span class="nl">people</span><span class="p">:</span> <span class="n">String</span><span class="p">){</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
             <span class="nb">self</span><span class="p">.</span><span class="n">commands</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">GenericCommand</span><span class="p">.</span><span class="n">createCommand</span><span class="p">({</span> <span class="n">prep</span>  <span class="k">in</span>
                 <span class="n">action</span><span class="p">(</span><span class="n">prep</span><span class="p">)(</span><span class="n">people</span><span class="p">)</span>
             <span class="p">}))</span>
         <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">getACommandWrap</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Command</span><span class="p">,</span><span class="n">LatestCommand</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">?</span> <span class="p">{</span>
-            <span class="k">var</span> <span class="nl">command</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Command</span><span class="p">,</span><span class="n">LatestCommand</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">?</span>
-            <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+    <span class="k">func</span> <span class="n">getACommandWrap</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Command</span><span class="p">,</span><span class="n">LatestCommand</span><span class="o">&gt;?</span> <span class="p">{</span>
+            <span class="k">var</span> <span class="nl">command</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Command</span><span class="p">,</span><span class="n">LatestCommand</span><span class="o">&gt;?</span>
+            <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
                 <span class="n">command</span> <span class="o">=</span> <span class="n">CommandWrapper</span><span class="p">(</span><span class="nl">commands</span><span class="p">:</span> <span class="nb">self</span><span class="p">.</span><span class="n">commands</span><span class="p">)</span>
             <span class="p">}</span>
             <span class="k">return</span> <span class="n">command</span>
@@ -301,27 +301,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -363,6 +363,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

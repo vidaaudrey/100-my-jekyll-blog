@@ -140,7 +140,7 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
+                <div class="post card post-content">
    <p>An interpreter translate our plain language expression into information and find out what we need. Here we have a  Unit Interpretor (Conversion Context) who does very diverse interpretation jobs.
 &lt;!&ndash;more&ndash;&gt;</p>
 
@@ -167,10 +167,10 @@
 <span class="p">}</span>
 
 <span class="k">protocol</span> <span class="n">Expression</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Double</span>
+    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Double</span>
 <span class="p">}</span>
 <span class="k">class</span> <span class="nl">Gallon</span><span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="n">Expression</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Double</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="p">{</span>
         <span class="k">let</span> <span class="n">targetUnitType</span> <span class="o">=</span> <span class="n">UnitType</span><span class="p">(</span><span class="nl">str</span><span class="p">:</span> <span class="n">targetUnit</span><span class="p">)</span>
         <span class="k">switch</span> <span class="n">targetUnitType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Gallon</span><span class="p">:</span> <span class="k">return</span> <span class="n">quantity</span>
@@ -183,7 +183,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">class</span> <span class="nl">Pint</span><span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="n">Expression</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Double</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="p">{</span>
         <span class="k">let</span> <span class="n">targetUnitType</span> <span class="o">=</span> <span class="n">UnitType</span><span class="p">(</span><span class="nl">str</span><span class="p">:</span> <span class="n">targetUnit</span><span class="p">)</span>
         <span class="k">switch</span> <span class="n">targetUnitType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">Gallon</span><span class="p">:</span> <span class="k">return</span> <span class="n">quantity</span> <span class="o">*</span> <span class="mf">0.125</span>
@@ -197,7 +197,7 @@
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">class</span> <span class="nl">USD</span><span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="n">Expression</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Double</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="p">{</span>
         <span class="k">let</span> <span class="n">targetUnitType</span> <span class="o">=</span> <span class="n">UnitType</span><span class="p">(</span><span class="nl">str</span><span class="p">:</span> <span class="n">targetUnit</span><span class="p">)</span>
         <span class="k">switch</span> <span class="n">targetUnitType</span> <span class="p">{</span>
         <span class="k">case</span> <span class="p">.</span><span class="nl">USD</span><span class="p">:</span> <span class="k">return</span> <span class="n">quantity</span>
@@ -212,7 +212,7 @@
 <span class="p">}</span>
 
 <span class="k">class</span> <span class="nl">RMB</span><span class="p">:</span> <span class="bp">NSObject</span><span class="p">,</span> <span class="n">Expression</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Double</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getUnit</span><span class="p">(</span><span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">,</span> <span class="nl">targetUnit</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="p">{</span>
 
         <span class="k">let</span> <span class="n">targetUnitType</span> <span class="o">=</span> <span class="n">UnitType</span><span class="p">(</span><span class="nl">str</span><span class="p">:</span> <span class="n">targetUnit</span><span class="p">)</span>
         <span class="k">switch</span> <span class="n">targetUnitType</span> <span class="p">{</span>
@@ -232,7 +232,7 @@
 <span class="c1">// The context to translate a sentence into related command and get the result.</span>
 <span class="k">class</span> <span class="n">ConversionContext</span> <span class="p">{</span>
     <span class="k">static</span> <span class="k">let</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">ConversionContext</span><span class="p">()</span>
-    <span class="n">private</span> <span class="k">func</span> <span class="n">getTargetQuantity</span><span class="p">(</span><span class="nl">fromConversion</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">toConversion</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Double</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">func</span> <span class="n">getTargetQuantity</span><span class="p">(</span><span class="nl">fromConversion</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">toConversion</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">quantity</span><span class="p">:</span> <span class="n">Double</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Double</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">fromConversion</span> <span class="o">!=</span> <span class="s">&quot;&quot;</span> <span class="p">{</span>
             <span class="k">let</span> <span class="n">classStr</span> <span class="o">=</span> <span class="n">UnitType</span><span class="p">(</span><span class="nl">str</span><span class="p">:</span> <span class="n">fromConversion</span><span class="p">).</span><span class="n">rawValue</span>
             <span class="n">guard</span> <span class="k">let</span> <span class="nl">anyObjecType</span> <span class="p">:</span> <span class="n">AnyObject</span><span class="p">.</span><span class="kt">Type</span> <span class="o">=</span> <span class="n">NSClassFromString</span><span class="p">(</span><span class="s">&quot;\(AppConfig.AppName).\(classStr)&quot;</span><span class="p">)</span>
@@ -251,7 +251,7 @@
         <span class="p">}</span>
         <span class="k">return</span> <span class="o">-</span><span class="mi">2</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">getConversionFromInput</span><span class="p">(</span><span class="nl">input</span><span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getConversionFromInput</span><span class="p">(</span><span class="nl">input</span><span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
         <span class="k">let</span> <span class="n">partsOfQues</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">componentsSeparatedByString</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">)</span>
         <span class="k">let</span> <span class="n">fromConversion</span> <span class="o">=</span> <span class="n">partsOfQues</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">let</span> <span class="n">toConversion</span> <span class="o">=</span> <span class="n">partsOfQues</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
@@ -263,13 +263,13 @@
         <span class="k">case</span> <span class="o">-</span><span class="mi">3</span><span class="o">:</span> <span class="k">return</span> <span class="s">&quot;We can&#39;t recognize your input yet. Try something like RMB, rmb, Gallon, Gallons...&quot;</span>
         <span class="k">case</span> <span class="o">-</span><span class="mi">2</span><span class="o">:</span> <span class="k">return</span> <span class="s">&quot;Sorry, we couldn&#39;t identify the source conversion. Try something like [ 10 Gallons to Pints ]&quot;</span>
         <span class="k">case</span> <span class="o">-</span><span class="mi">4</span><span class="o">:</span> <span class="k">return</span> <span class="s">&quot;Couldn&#39;t convert. The object we created doesn&#39;t conform with Expression protocol&quot;</span>
-        <span class="k">case</span> <span class="k">let</span> <span class="n">x</span> <span class="k">where</span> <span class="n">x</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span> <span class="mi">0</span> <span class="o">:</span>  <span class="k">return</span> <span class="s">&quot;\(partsOfQues[0]) \(partsOfQues[1]) equals \(targetQuantity) \(partsOfQues[3])&quot;</span>
+        <span class="k">case</span> <span class="k">let</span> <span class="n">x</span> <span class="k">where</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">:</span>  <span class="k">return</span> <span class="s">&quot;\(partsOfQues[0]) \(partsOfQues[1]) equals \(targetQuantity) \(partsOfQues[3])&quot;</span>
         <span class="k">default</span><span class="o">:</span> <span class="k">return</span> <span class="s">&quot;Some other unknow error happened &quot;</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">func</span> <span class="n">getOutput</span><span class="p">(</span><span class="nl">input</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="p">{</span>
+<span class="k">func</span> <span class="n">getOutput</span><span class="p">(</span><span class="nl">input</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
     <span class="n">print</span><span class="p">(</span><span class="s">&quot;Getting user input:[ \(input) ]&quot;</span><span class="p">)</span>
     <span class="k">let</span> <span class="n">context</span> <span class="o">=</span> <span class="n">ConversionContext</span><span class="p">.</span><span class="n">sharedInstance</span>
     <span class="k">return</span> <span class="n">context</span><span class="p">.</span><span class="n">getConversionFromInput</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
@@ -288,7 +288,7 @@
 
 <p><a href="/assets/wp-content/uploads/2015/07/interpretor.png"><img class="aligncenter size-full wp-image-1086" src="/assets/wp-content/uploads/2015/07/interpretor.png" alt="interpretor" width="693" height="290" /></a></p>
 
-<p><p class="p1"></p>
+<p><p></p>
 
  </div>
  <div class="card">
@@ -316,27 +316,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -378,6 +378,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

@@ -137,12 +137,12 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
+                <div class="post card post-content">
    <div class="page" title="Page 414">
   <div class="layoutArea">
     <div class="column">
-      <p class="p1">
-        <span class="s1"> Artists paint, musicians compose, different jobs for different pros.  It&#8217;s not easy for a person to find a pro directly to do a job without some sort of agent in the middle, and even harder for a pro to find a client among all the people.  A command mediator (aka. command dispatch center) takes all the burden away. It can process task according to the task requirement such as:</span>
+      <p>
+        <span> Artists paint, musicians compose, different jobs for different pros.  It&#8217;s not easy for a person to find a pro directly to do a job without some sort of agent in the middle, and even harder for a pro to find a client among all the people.  A command mediator (aka. command dispatch center) takes all the burden away. It can process task according to the task requirement such as:</span>
       </p>
       
       <ul>
@@ -165,7 +165,7 @@
       </p>
       
       
-<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">typealias</span> <span class="n">CommandBlock</span> <span class="o">=</span> <span class="n">CommandPeer</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Any</span>
+<div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="k">typealias</span> <span class="n">CommandBlock</span> <span class="o">=</span> <span class="n">CommandPeer</span> <span class="o">-&gt;</span> <span class="n">Any</span>
 <span class="k">enum</span> <span class="nl">ProType</span><span class="p">:</span> <span class="n">String</span> <span class="p">{</span>
     <span class="k">case</span> <span class="n">Artist</span> <span class="o">=</span> <span class="s">&quot;Artist&quot;</span>
     <span class="k">case</span> <span class="n">Musician</span> <span class="o">=</span> <span class="s">&quot;Musician&quot;</span>
@@ -192,10 +192,10 @@
     <span class="k">var</span> <span class="nl">isPro</span><span class="p">:</span> <span class="n">Bool</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
     <span class="k">var</span> <span class="nl">proType</span><span class="p">:</span> <span class="n">ProType</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
 
-    <span class="k">func</span> <span class="n">choosePro</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Task</span>
-    <span class="k">func</span> <span class="n">confirmWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Task</span>
-    <span class="k">func</span> <span class="n">submitQuote</span><span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
-    <span class="k">func</span> <span class="n">finishTask</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">choosePro</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span>
+    <span class="k">func</span> <span class="n">confirmWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span>
+    <span class="k">func</span> <span class="n">submitQuote</span><span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span>
+    <span class="k">func</span> <span class="n">finishTask</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span>
 <span class="p">}</span>
 
 <span class="c1">// All that is needed to make a task a command, leaving for possibilities of different tasks and different task mediators.  If I use class implementation, the commandMediator just need to use the command protocol to talk, instead of the concrete task. But I used struct for concret task. As a result, the mediator is coupled with the task struct implementation.</span>
@@ -209,14 +209,14 @@
     <span class="k">var</span> <span class="nl">status</span><span class="p">:</span> <span class="n">TaskStatus</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
     <span class="k">var</span> <span class="nl">quotes</span><span class="p">:</span> <span class="p">[(</span><span class="nl">name</span><span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">)]</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
     <span class="k">var</span> <span class="nl">function</span><span class="p">:</span><span class="n">CommandBlock</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
-    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">peer</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Any</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">peer</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span>
 <span class="p">}</span>
 
 <span class="c1">// commandMediator is kind of a task dispatch center. When the center receives tasks, it will look at the task configuration:</span>
-<span class="c1">// * Group task -&amp;gt; Send to every registered pro who can do the task and get the work back </span>
-<span class="c1">// * Regular task  -&amp;gt; Check status of the task</span>
-<span class="c1">// *** - Submited -&amp;gt; Send the task to the pros who can do the task and get their quotation</span>
-<span class="c1">// *** - ProChosen -&amp;gt; Send the task to the chosen pros and get the final work, then send the work to the customer for confirmation</span>
+<span class="c1">// * Group task -&gt; Send to every registered pro who can do the task and get the work back </span>
+<span class="c1">// * Regular task  -&gt; Check status of the task</span>
+<span class="c1">// *** - Submited -&gt; Send the task to the pros who can do the task and get their quotation</span>
+<span class="c1">// *** - ProChosen -&gt; Send the task to the chosen pros and get the final work, then send the work to the customer for confirmation</span>
 <span class="c1">// For simplicity reason, a lof of things are left behind, such as what if the customer did not approve the work? Can I always expect work being returned from a pro? Can the pro be more proactive and submit their work at their own time? How do we track payment, can we keep only one copy of the task... Well, too many cases @_@</span>
 <span class="k">class</span> <span class="n">CommandMediator</span> <span class="p">{</span>
     <span class="n">private</span> <span class="k">var</span> <span class="n">peers</span> <span class="o">=</span> <span class="p">[</span><span class="nl">String</span><span class="p">:</span><span class="n">CommandPeer</span><span class="p">]()</span>
@@ -229,7 +229,7 @@
         <span class="n">peers</span><span class="p">.</span><span class="n">removeValueForKey</span><span class="p">(</span><span class="n">peer</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="c1">// the core control logic, evaluate the task configuration and process accordingly.</span>
-    <span class="k">func</span> <span class="n">dispatchCommand</span><span class="p">(</span><span class="nl">caller</span><span class="p">:</span><span class="n">CommandPeer</span><span class="p">,</span> <span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Any</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">dispatchCommand</span><span class="p">(</span><span class="nl">caller</span><span class="p">:</span><span class="n">CommandPeer</span><span class="p">,</span> <span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span>
         <span class="c1">// this task will be execute by everyone who can do the work</span>
         <span class="k">if</span> <span class="n">task</span><span class="p">.</span><span class="n">isGroupTask</span> <span class="p">{</span>
@@ -245,7 +245,7 @@
         <span class="k">return</span> <span class="n">result</span>
     <span class="p">}</span>
 
-    <span class="n">private</span> <span class="k">func</span> <span class="n">sendTaskAndGatherQuotes</span><span class="p">(</span><span class="nl">caller</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">,</span> <span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Task</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">func</span> <span class="n">sendTaskAndGatherQuotes</span><span class="p">(</span><span class="nl">caller</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">,</span> <span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nl">quotes</span><span class="p">:[(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">peer</span> <span class="k">in</span> <span class="n">peers</span><span class="p">.</span><span class="n">values</span> <span class="p">{</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">peer</span><span class="p">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">caller</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">peer</span><span class="p">.</span><span class="n">isPro</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">peer</span><span class="p">.</span><span class="n">proType</span> <span class="o">==</span> <span class="n">task</span><span class="p">.</span><span class="n">proType</span><span class="p">)</span> <span class="p">{</span>
@@ -256,7 +256,7 @@
         <span class="n">task</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">TaskStatus</span><span class="p">.</span><span class="n">S3_QuoteGathered</span>
         <span class="k">return</span> <span class="n">task</span>
     <span class="p">}</span>
-    <span class="n">private</span> <span class="k">func</span> <span class="n">sendTaskToChosenProAndGetWork</span><span class="p">(</span><span class="nl">caller</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">,</span> <span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">isGroupTask</span><span class="p">:</span> <span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">private</span> <span class="k">func</span> <span class="n">sendTaskToChosenProAndGetWork</span><span class="p">(</span><span class="nl">caller</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">,</span> <span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">isGroupTask</span><span class="p">:</span> <span class="n">Bool</span> <span class="o">=</span> <span class="nb">false</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nl">fullResult</span><span class="p">:(</span><span class="n">Task</span><span class="p">,</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="nb">nil</span><span class="p">)</span>
        <span class="c1">// task.status = TaskStatus.S6_ProFinished</span>
         <span class="k">var</span> <span class="nl">groupResult</span><span class="p">:[</span><span class="n">Any</span><span class="o">?</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
@@ -277,7 +277,7 @@
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="n">groupResult</span><span class="p">.</span><span class="n">count</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">groupResult</span><span class="p">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
             <span class="n">task</span><span class="p">.</span><span class="n">finishedBy</span> <span class="o">=</span> <span class="n">groupNames</span>
             <span class="n">fullResult</span> <span class="o">=</span> <span class="p">(</span><span class="n">task</span><span class="p">,</span> <span class="n">groupResult</span><span class="p">)</span>
         <span class="p">}</span>
@@ -286,7 +286,7 @@
 <span class="p">}</span>
 
 
-<span class="k">func</span> <span class="o">==</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+<span class="k">func</span> <span class="o">==</span><span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="kt">id</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="kt">id</span>
 <span class="p">}</span>
 
@@ -316,7 +316,7 @@
         <span class="nb">self</span><span class="p">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">price</span>
         <span class="nb">self</span><span class="p">.</span><span class="n">isGroupTask</span> <span class="o">=</span> <span class="n">isGroupTask</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">peer</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Any</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">execute</span><span class="p">(</span><span class="nl">peer</span><span class="p">:</span> <span class="n">CommandPeer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">peer</span><span class="p">.</span><span class="n">proType</span> <span class="o">==</span> <span class="nb">self</span><span class="p">.</span><span class="n">proType</span> <span class="p">{</span>
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;Passing pro \(peer.name) the job...&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">function</span><span class="p">(</span><span class="n">peer</span><span class="p">)</span>
@@ -347,25 +347,25 @@
         <span class="n">mediator</span><span class="p">.</span><span class="n">registerPeer</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
     <span class="p">}</span>
 
-    <span class="k">func</span> <span class="n">sendTaskToGroupAndGetFinalWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">){</span>
+    <span class="k">func</span> <span class="n">sendTaskToGroupAndGetFinalWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">){</span>
         <span class="n">task</span><span class="p">.</span><span class="n">isGroupTask</span> <span class="o">=</span> <span class="nb">true</span>
         <span class="n">tasks</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">mediator</span><span class="p">.</span><span class="n">dispatchCommand</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nl">task</span><span class="p">:</span> <span class="n">task</span><span class="p">)</span> <span class="kt">as</span><span class="o">!</span> <span class="p">(</span><span class="n">Task</span><span class="p">,</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">sendTaskAndGetTaskWithQuotes</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Task</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">sendTaskAndGetTaskWithQuotes</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span> <span class="p">{</span>
         <span class="n">task</span><span class="p">.</span><span class="n">startBy</span> <span class="o">=</span> <span class="n">name</span>
         <span class="n">task</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">TaskStatus</span><span class="p">.</span><span class="n">S1_Submited</span>
         <span class="n">tasks</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">task</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">mediator</span><span class="p">.</span><span class="n">dispatchCommand</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nl">task</span><span class="p">:</span> <span class="n">task</span><span class="p">)</span> <span class="kt">as</span><span class="o">!</span> <span class="n">Task</span>
     <span class="p">}</span>
 
-    <span class="k">func</span> <span class="n">choseProAndGetFinalWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">){</span>
+    <span class="k">func</span> <span class="n">choseProAndGetFinalWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">){</span>
         <span class="n">task</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">TaskStatus</span><span class="p">.</span><span class="n">S4_ProChosen</span>
         <span class="k">return</span> <span class="n">mediator</span><span class="p">.</span><span class="n">dispatchCommand</span><span class="p">(</span><span class="nb">self</span><span class="p">,</span> <span class="nl">task</span><span class="p">:</span> <span class="n">task</span><span class="p">)</span> <span class="kt">as</span><span class="o">!</span> <span class="p">(</span><span class="n">Task</span><span class="p">,</span> <span class="n">Any</span><span class="o">?</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="c1">// function for customer: choose pro and confirm work. Mediator only sends task back if there is at least one quotation.</span>
-    <span class="k">func</span> <span class="n">choosePro</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Task</span><span class="p">{</span>
+    <span class="k">func</span> <span class="n">choosePro</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">{</span>
         <span class="c1">// assume customer is business, only randomly choose one quote</span>
         <span class="k">let</span> <span class="n">index</span> <span class="o">=</span> <span class="n">arc4random_uniform</span><span class="p">(</span><span class="kt">UInt32</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">quotes</span><span class="p">.</span><span class="n">count</span><span class="p">))</span>
         <span class="n">task</span><span class="p">.</span><span class="n">quotes</span> <span class="o">=</span> <span class="p">[</span><span class="n">task</span><span class="p">.</span><span class="n">quotes</span><span class="p">[</span><span class="n">Int</span><span class="p">(</span><span class="n">index</span><span class="p">)]]</span>
@@ -375,7 +375,7 @@
         <span class="k">return</span> <span class="n">task</span>
     <span class="p">}</span>
 
-    <span class="k">func</span> <span class="n">confirmWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Task</span><span class="p">{</span>
+    <span class="k">func</span> <span class="n">confirmWork</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Task</span><span class="p">{</span>
         <span class="k">let</span> <span class="n">index</span> <span class="o">=</span> <span class="n">tasks</span><span class="p">.</span><span class="n">indexOf</span> <span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="kt">id</span> <span class="o">==</span> <span class="n">task</span><span class="p">.</span><span class="kt">id</span><span class="p">}</span>
         <span class="n">task</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="p">.</span><span class="n">S7_CustomConfirmWork</span>
         <span class="k">if</span> <span class="n">index</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
@@ -385,14 +385,14 @@
     <span class="p">}</span>
 
     <span class="c1">// function for pro: submit quotes and finish task</span>
-    <span class="k">func</span> <span class="n">submitQuote</span><span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">submitQuote</span><span class="p">(</span><span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">,</span> <span class="nl">price</span><span class="p">:</span> <span class="n">Int</span><span class="p">,</span> <span class="nl">message</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">let</span> <span class="n">quote</span> <span class="o">=</span> <span class="n">task</span><span class="p">.</span><span class="n">price</span> <span class="o">*</span> <span class="p">(</span><span class="n">Int</span><span class="p">(</span><span class="n">arc4random_uniform</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">let</span> <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;Some random message for the customer: choose me...&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">quote</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
     <span class="p">}</span>
 
     <span class="c1">// let&#39;s assume a pro always finishes the job and give back the result now. Deal with bad pros later</span>
-    <span class="k">func</span> <span class="n">finishTask</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">){</span>
+    <span class="k">func</span> <span class="n">finishTask</span><span class="p">(</span><span class="k">var</span> <span class="nl">task</span><span class="p">:</span> <span class="n">Task</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nl">task</span><span class="p">:</span><span class="n">Task</span><span class="p">,</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Any</span><span class="o">?</span><span class="p">){</span>
         <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="n">task</span><span class="p">.</span><span class="n">execute</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span>
         <span class="n">task</span><span class="p">.</span><span class="n">finishedBy</span> <span class="o">=</span> <span class="n">name</span>
         <span class="n">task</span><span class="p">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">TaskStatus</span><span class="p">.</span><span class="n">S6_ProFinished</span>
@@ -490,27 +490,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/17/a-design-pattern-story-in-swift-chapter-19-flyweight/">
-             A Design Pattern Story in Swift – Chapter 19: Flyweight
-             <small>17 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -552,6 +552,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

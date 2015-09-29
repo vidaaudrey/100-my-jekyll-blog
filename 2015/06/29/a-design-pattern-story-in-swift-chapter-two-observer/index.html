@@ -140,13 +140,13 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
-   <p class="p1">
-  <span class="s1">In the deep forest, there is a beautiful witch who was born with the power to tell the past and future. In the beginning she was just a little girl in a nearby village. She knows everyone and whenever she sees danger in the future, she would warn the person. But soon she realized there are simply too many people to warn, and some of which don&#8217;t even want any help.</span>
+                <div class="post card post-content">
+   <p>
+  <span>In the deep forest, there is a beautiful witch who was born with the power to tell the past and future. In the beginning she was just a little girl in a nearby village. She knows everyone and whenever she sees danger in the future, she would warn the person. But soon she realized there are simply too many people to warn, and some of which don&#8217;t even want any help.</span>
 </p>
 
-<p class="p1">
-  <span class="s1">So she told the good people of the village that if they want to know her update, they can tune in to listen to her music station and they shall know the message from the music.</span>
+<p>
+  <span>So she told the good people of the village that if they want to know her update, they can tune in to listen to her music station and they shall know the message from the music.</span>
 </p>
 
 <div class="highlight"><pre><code class="language-swift" data-lang="swift"><span class="c1">//: Define the message  for the all parties</span>
@@ -209,13 +209,13 @@
     
     
     <span class="k">func</span> <span class="n">removerObserver</span><span class="p">(</span><span class="nl">observer</span><span class="p">:</span> <span class="n">Observer</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">dispatch_barrier_sync</span><span class="p">(</span><span class="n">orderedQueue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+        <span class="n">dispatch_barrier_sync</span><span class="p">(</span><span class="n">orderedQueue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
             <span class="nb">self</span><span class="p">.</span><span class="n">observers</span><span class="p">.</span><span class="n">filter</span><span class="p">{</span> <span class="err">$</span><span class="mf">0.</span><span class="n">name</span> <span class="o">==</span> <span class="n">observer</span><span class="p">.</span><span class="n">name</span><span class="p">}</span>
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;removed observer \(observer.name)&quot;</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
     <span class="k">func</span> <span class="n">sendNotificationToAll</span><span class="p">(</span><span class="nl">witchMessage</span><span class="p">:</span> <span class="n">WitchMessage</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">orderedQueue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">orderedQueue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
             <span class="nb">self</span><span class="p">.</span><span class="n">observers</span><span class="p">.</span><span class="n">map</span><span class="p">{</span> <span class="err">$</span><span class="mf">0.</span><span class="n">notify</span><span class="p">(</span><span class="n">witchMessage</span><span class="p">)</span> <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -223,7 +223,7 @@
 
 <span class="k">class</span> <span class="nl">WitchStation</span><span class="p">:</span> <span class="n">BaseStation</span> <span class="p">{</span>
     
-    <span class="k">func</span> <span class="n">checkCrystalBall</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">checkCrystalBall</span><span class="p">(</span><span class="nl">name</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
         <span class="k">var</span> <span class="n">messageType</span> <span class="o">=</span> <span class="n">WitchMessageType</span><span class="p">.</span><span class="n">IsChrystalGoodLuck</span>
         
         <span class="k">if</span> <span class="n">RandomYesOrNoGeneratorByInt</span><span class="p">.</span><span class="n">random</span><span class="p">()</span> <span class="p">{</span>
@@ -339,27 +339,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -401,6 +401,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

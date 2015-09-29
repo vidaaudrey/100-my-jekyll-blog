@@ -140,7 +140,7 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
+                <div class="post card post-content">
    <p>I came across the Protocol-Oriented programming concept recently and I found it quite fascinating, so I decided to rewrite my previous story with protocols and value-based approaches.</p>
 
 <p>The first thing I need to do is layout all the requirements:</p>
@@ -269,7 +269,7 @@
 <span class="p">}</span>
 
 <span class="c1">//: protocol composition </span>
-<span class="n">public</span> <span class="k">func</span> <span class="n">showCreatureAge</span><span class="p">(</span><span class="nl">creature</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Creature</span><span class="p">,</span> <span class="n">Aged</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;)</span> <span class="p">{</span>
+<span class="n">public</span> <span class="k">func</span> <span class="n">showCreatureAge</span><span class="p">(</span><span class="nl">creature</span><span class="p">:</span> <span class="k">protocol</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Creature</span><span class="p">,</span> <span class="n">Aged</span><span class="o">&gt;</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">print</span><span class="p">(</span><span class="s">&quot;\(creature.name) is \(creature.age) years</span><span class="se">\&#39;</span><span class="s"> old&quot;</span><span class="p">)</span>
 <span class="p">}</span></code></pre></div>
 
@@ -310,27 +310,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -372,6 +372,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

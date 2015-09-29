@@ -140,9 +140,9 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
-   <p class="p1">
-  <span class="s1">There is a MagicHouse where people can borrow magic objects. The house has a pool which manages the magic objects.</span>
+                <div class="post card post-content">
+   <p>
+  <span>There is a MagicHouse where people can borrow magic objects. The house has a pool which manages the magic objects.</span>
 </p>
 
 <div class="page" title="Page 138">
@@ -165,7 +165,7 @@
 <span class="p">}</span>
 
 <span class="c1">//: a basic pool which allows getting and returning any objects.</span>
-<span class="k">class</span> <span class="n">Pool</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">{</span>
+<span class="k">class</span> <span class="n">Pool</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="n">private</span> <span class="k">var</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">T</span><span class="p">]()</span>
     <span class="n">private</span> <span class="k">let</span> <span class="n">arrayQ</span> <span class="o">=</span> <span class="n">dispatch_queue_create</span><span class="p">(</span><span class="s">&quot;arrayQ&quot;</span><span class="p">,</span> <span class="n">DISPATCH_QUEUE_SERIAL</span><span class="p">)</span>
     <span class="n">private</span> <span class="k">let</span> <span class="nl">semaphore</span><span class="p">:</span> <span class="kt">dispatch_semaphore_t</span>
@@ -179,12 +179,12 @@
         <span class="n">semaphore</span> <span class="o">=</span> <span class="n">dispatch_semaphore_create</span><span class="p">(</span><span class="n">items</span><span class="p">.</span><span class="n">count</span><span class="p">)</span>
     <span class="p">}</span>
     
-    <span class="k">func</span> <span class="n">getFromPool</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">T</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getFromPool</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">T</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nl">result</span><span class="p">:</span> <span class="n">T</span><span class="o">?</span>
         <span class="c1">// the semaphore count is decreased each time when the wait is called. If the count is 0, the function will block</span>
         <span class="k">if</span> <span class="n">dispatch_semaphore_wait</span><span class="p">(</span><span class="n">semaphore</span><span class="p">,</span> <span class="n">DISPATCH_TIME_FOREVER</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
-            <span class="k">if</span> <span class="n">data</span><span class="p">.</span><span class="n">count</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="p">{</span>
-                <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">arrayQ</span><span class="p">,</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+            <span class="k">if</span> <span class="n">data</span><span class="p">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">arrayQ</span><span class="p">,</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
                     <span class="n">result</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">removeAtIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
                 <span class="p">})</span>
             <span class="p">}</span>
@@ -193,7 +193,7 @@
     <span class="p">}</span>
     
     <span class="k">func</span> <span class="n">returnToPool</span><span class="p">(</span><span class="nl">item</span><span class="p">:</span> <span class="n">T</span><span class="p">){</span>
-        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">arrayQ</span><span class="p">,</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">arrayQ</span><span class="p">,</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
             <span class="nb">self</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
             <span class="c1">// increase the counter by 1</span>
             <span class="n">dispatch_semaphore_signal</span><span class="p">(</span><span class="nb">self</span><span class="p">.</span><span class="n">semaphore</span><span class="p">)</span>
@@ -202,14 +202,14 @@
 <span class="p">}</span>
 
 <span class="k">extension</span> <span class="n">Int</span> <span class="p">{</span>
-    <span class="k">func</span> <span class="n">times</span><span class="p">(</span><span class="nl">action</span><span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="o">-&amp;</span><span class="n">gt</span><span class="p">;())</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">times</span><span class="p">(</span><span class="nl">action</span><span class="p">:</span> <span class="p">(</span><span class="n">Int</span><span class="p">)</span><span class="o">-&gt;</span><span class="p">())</span> <span class="p">{</span>
         <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="nb">self</span> <span class="p">{</span>
             <span class="n">action</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 <span class="k">class</span> <span class="n">MagicHouse</span> <span class="p">{</span>
-    <span class="n">private</span> <span class="k">let</span> <span class="nl">pool</span><span class="p">:</span> <span class="n">Pool</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MagicObject</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+    <span class="n">private</span> <span class="k">let</span> <span class="nl">pool</span><span class="p">:</span> <span class="n">Pool</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">MagicObject</span><span class="o">&gt;</span>
     <span class="k">static</span> <span class="k">var</span> <span class="n">sharedInstance</span> <span class="o">=</span> <span class="n">MagicHouse</span><span class="p">()</span>
     <span class="k">static</span> <span class="k">var</span> <span class="nl">magicDebtInfo</span><span class="p">:[(</span><span class="n">String</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">String</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">private</span> <span class="k">init</span><span class="p">(){</span>
@@ -223,7 +223,7 @@
         <span class="nb">self</span><span class="p">.</span><span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="nl">items</span><span class="p">:</span> <span class="n">magicObjects</span><span class="p">)</span>
     <span class="p">}</span>
     
-    <span class="k">class</span> <span class="k">func</span> <span class="n">lendMagicObject</span><span class="p">(</span><span class="nl">occupier</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">MagicObject</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">lendMagicObject</span><span class="p">(</span><span class="nl">occupier</span><span class="p">:</span> <span class="n">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MagicObject</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">var</span> <span class="n">magicObject</span> <span class="o">=</span> <span class="n">sharedInstance</span><span class="p">.</span><span class="n">pool</span><span class="p">.</span><span class="n">getFromPool</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">magicObject</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
             <span class="n">magicObject</span><span class="o">!</span><span class="p">.</span><span class="n">occupier</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">occupier</span><span class="p">)</span>
@@ -248,7 +248,7 @@
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;\($0.name) #\($0.serialNumber) </span><span class="se">\n</span><span class="s">Borrowed \($0.borrowedCount) time(s) by \($0.occupier)&quot;</span><span class="p">)</span>
         <span class="p">}</span>
        
-        <span class="k">if</span> <span class="n">magicDebtInfo</span><span class="p">.</span><span class="n">count</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">magicDebtInfo</span><span class="p">.</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">Magic Objects currently lent out:&quot;</span><span class="p">)</span>
             <span class="n">magicDebtInfo</span><span class="p">.</span><span class="n">map</span><span class="p">{</span>
                 <span class="n">print</span><span class="p">(</span><span class="s">&quot;\($0.0) #\($0.1) by \($0.2)&quot;</span><span class="p">)</span>
@@ -312,27 +312,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -374,6 +374,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

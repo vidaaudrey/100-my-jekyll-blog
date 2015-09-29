@@ -140,14 +140,14 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
-   <p class="p1">
-  <span class="s1"> It was Confucius who said isn&#8217;t it great when friends visit from distant places. </span><span class="s2">子曰，</span><span class="s1"> “</span><span class="s2">有朋自远方来，不亦乐乎</span><span class="s1">” </span>
+                <div class="post card post-content">
+   <p>
+  <span> It was Confucius who said isn&#8217;t it great when friends visit from distant places. </span><span>子曰，</span><span> “</span><span>有朋自远方来，不亦乐乎</span><span>” </span>
 </p>
 
 <blockquote>
-<p class="p1">
-  <span class="s1">The visitor pattern allows new algorithms to operate on collections of heterogeneous objects without needing to modify or subclass the collection class. It&#8217;s similar to the strategy pattern. &#8212; <em><a href="http://www.apress.com/9781484203958">Design Pattern in Swift</a></em></span>
+<p>
+  <span>The visitor pattern allows new algorithms to operate on collections of heterogeneous objects without needing to modify or subclass the collection class. It&#8217;s similar to the strategy pattern. &#8212; <em><a href="http://www.apress.com/9781484203958">Design Pattern in Swift</a></em></span>
 </p>
 </blockquote>
 
@@ -256,8 +256,8 @@
          <span class="n">salesRecord</span><span class="p">[</span><span class="n">person</span><span class="p">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">getQualification</span><span class="p">(</span><span class="n">person</span><span class="p">.</span><span class="n">expectedAge</span><span class="p">)</span>
     <span class="p">}</span>
     
-    <span class="n">private</span> <span class="k">func</span> <span class="n">getQualification</span><span class="p">(</span><span class="nl">expectedAge</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="n">expectedAge</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">45</span>
+    <span class="n">private</span> <span class="k">func</span> <span class="n">getQualification</span><span class="p">(</span><span class="nl">expectedAge</span><span class="p">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">expectedAge</span> <span class="o">&gt;</span> <span class="mi">45</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -298,27 +298,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -360,6 +360,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

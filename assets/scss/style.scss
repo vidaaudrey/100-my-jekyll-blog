@@ -9,30 +9,40 @@ The main SCSS file for everything, yep
 @import "animation"; 
 
 $font-stack:  "RobotoDraft","Roboto",sans-serif;
+
+$grey-0: #000;
+$grey-1: #2B2A2A;
+$grey-3: #212121;
+$grey-4: #727272;
+$grey-7: #B6B6B6;
+$grey-8: #F3F3F3;
+$grey-9: #FFF;
+
 $primary-color: #4CA550;
 $dark-primary-color: #388E3C;
 $light-primary-color: #C8E6C9;
 $accent-color: #FFC107;
-$primary-text-color: #212121;
-$secondary-text-color: #727272;
-$divider-color: #B6B6B6;
-$text-icon-color: #FFFFFF;
+$primary-text-color: $grey-3;
+$secondary-text-color: $grey-4;
+$divider-color: $grey-7;
+$text-icon-color: $grey-9;
 $dark-transparent-color: rgba(0,0,0, 0.1);
 
-$lighter-dark: #2B2A2A;
-$light-light: #F3F3F3;
 
-$dark-background-color: #000; 
-$dark-background-hover-color: #2B2A2A; 
-$dark-forground-color:rgba(255,255,255,0.8);
-$dark-foreround-hover-color: #fff; 
+$dark-background-color: $grey-0; 
+$dark-background-hover-color: $grey-1; 
+$dark-forground-color: $grey-8;
+$dark-foreround-hover-color: $grey-9; 
+
+$link-color: $primary-color;
+$link-hover-color: $dark-primary-color;
 
 $header-height:180px;
 $logo-size: 120px;
-$jumbotron-height:650px;
+$jumbotron-height:800px;
 $jumbotron-height-plain:400px;
 $jumbotron-height-long-feature: 800px;
-$main-wrap-max-width:750px;
+$main-wrap-max-width:770px;
 $side-bar-width: 30%;
 $side-max-width: 120px;
 
@@ -45,11 +55,32 @@ $content-padding: 30px;
 *{
      @include box-shadow(none);
 }
+html{
+    font-size: 14px;
+}
 body {
     padding-top: $header-height;
     font-family: "RobotoDraft","Roboto",sans-serif; 
     color: #666;
+    font-size: 1.1rem;
     background: #fff url('/assets/images/furley_bg.png') 0 0 repeat;
+}
+a {
+  color: $link-color;
+  text-decoration: none;
+  font-weight: 300;
+  &:hover, &:focus {
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+}
+h2 a{
+    line-height: 1.1em;
+}
+ul{
+    li{
+        margin-bottom: 5px;
+    }
 }
 
 
@@ -79,21 +110,21 @@ body {
         }
 
         a{
-            color:$lighter-dark;
+            color: $grey-1;
         }
 
         .fa-circle{
             &:hover{
                color: $dark-background-hover-color;
                cursor: pointer;
-               font-size: 1.5em;
+               font-size: 1.1rem;
             }
         }
         .fa-inverse{
             &:hover{
                cursor: pointer;
                color:$dark-foreround-hover-color;
-               font-size: 1.5em;
+               font-size: 1.1rem;
             }
         }
     }
@@ -102,6 +133,7 @@ body {
         li a {
             padding: 10px 15px 10px 20px;
             display: block;
+            font-weight: 400;
             background: $dark-background-color;
             color: $dark-forground-color;
             text-decoration: none;
@@ -125,6 +157,8 @@ body {
 
 
 #body-wrap{
+    overflow: hidden;
+    margin-top: -$header-height ;
     width: 100%;
     transition: all .5s ease;
 
@@ -177,7 +211,9 @@ body {
             .card {
                 background: $text-icon-color;
                 padding: $content-padding;
-                margin-bottom: 15px;
+                margin: 10px auto;
+                float: left;
+                width: 100%;
             }
         }
 
@@ -261,8 +297,7 @@ body {
 
 .jumbotron{
     height:$jumbotron-height;
-    margin-top: -$header-height;
-    padding-top: $header-height * 0.5;
+    padding-top: $header-height;
     width: 110%;
     color: white;
    
@@ -365,7 +400,7 @@ body {
         }
         .photo-long{
             text-align: center;
-            background-color: $light-light;
+            background-color: $grey-8;
             max-height: $feature-thumb-height * 1.5;
             img{
                 width: auto;
@@ -375,6 +410,42 @@ body {
     }
 }
 .post{
+    .post-title {
+        margin: 0;
+        margin-bottom: 16px;
+    }
+    &.post-content{
+        a{
+            border-bottom: 1px dotted $grey-7;
+            &:hover{
+                border-bottom: 1px dotted $link-hover-color;
+            }
+        }
+        .gallery{
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            
+            div.col-1 {
+                width: 100%
+            }
+            div.col-2{
+                width: 49%;
+                width: calc(50% - .5rem);
+            }
+            div.col-3{
+                width: 32%; width: calc(33.33333% - .66667rem);
+            }
+
+            // .gallery-image{
+            //     width: 50%;
+            //     overflow: hidden;
+            //     float: left;
+            // }
+        }
+
+    }
     p {
         a{
             img{
@@ -392,6 +463,147 @@ body {
     }
     
 }
+
+
+
+.post-content{
+   a{
+        &[data-fluidbox] {
+           background-color: #eee;
+           border: none;
+           cursor: -webkit-zoom-in;
+           cursor: -moz-zoom-in;
+           margin-bottom: 1.5rem;
+           .fluidbox-opened {
+                cursor: -webkit-zoom-out;
+                cursor: -moz-zoom-out;
+            }
+            img {
+                   display: block;
+                   margin: 0 auto;
+                   opacity: 0;
+                   max-width: 100%;
+                   transition: all .25s ease-in-out;
+            }
+       }
+       &[class^='float'] {
+           margin: 1rem;
+           margin-top: 0;
+           width: 33.33333%;
+       }
+       .float-left {
+           float: left;
+           margin-left: 0;
+       }
+       .float-right {
+           float: right;
+           margin-right: 0;
+       }
+   }
+   
+
+   .fluidbox-overlay {
+       background-color: rgba(255,255,255,.85);
+       cursor: pointer;
+       cursor: -webkit-zoom-out;
+       cursor: -moz-zoom-out;
+       // display: none;
+       position: fixed;
+       top: 0;
+       left: 0;
+       bottom: 0;
+       right: 0;
+       z-index: 500;
+   }
+   .fluidbox-wrap {
+       background-position: center center;
+       background-size: cover;
+       margin: 0 auto;
+       position: relative;
+       z-index: 400;
+       transition: all .25s ease-in-out;
+   }
+   .fluidbox-opened .fluidbox-wrap {
+       z-index: 600;
+   }
+   .fluidbox-ghost {
+       background-size: cover;
+       background-position: center center;
+       position: absolute;
+       transition: all .25s ease-in-out;
+    }
+
+}
+
+
+// .post-content{
+//    a[data-fluidbox] {
+//        background-color: #eee;
+//        border: none;
+//        cursor: -webkit-zoom-in;
+//        cursor: -moz-zoom-in;
+//        margin-bottom: 1.5rem;
+//    }
+//    a[data-fluidbox].fluidbox-opened {
+//        cursor: -webkit-zoom-out;
+//        cursor: -moz-zoom-out;
+//    }
+//    a[class^='float'] {
+//        margin: 1rem;
+//        margin-top: 0;
+//        width: 33.33333%;
+//    }
+//    a.float-left {
+//        float: left;
+//        margin-left: 0;
+//    }
+//    a.float-right {
+//        float: right;
+//        margin-right: 0;
+//    }
+//    a[data-fluidbox] img {
+//        display: block;
+//        margin: 0 auto;
+//        opacity: 0;
+//        max-width: 100%;
+//        transition: all .25s ease-in-out;
+//    }
+//    #fluidbox-overlay {
+//        background-color: rgba(255,255,255,.85);
+//        cursor: pointer;
+//        cursor: -webkit-zoom-out;
+//        cursor: -moz-zoom-out;
+//        display: none;
+//        position: fixed;
+//        top: 0;
+//        left: 0;
+//        bottom: 0;
+//        right: 0;
+//        z-index: 500;
+//    }
+//    .fluidbox-wrap {
+//        background-position: center center;
+//        background-size: cover;
+//        margin: 0 auto;
+//        position: relative;
+//        z-index: 400;
+//        transition: all .25s ease-in-out;
+//    }
+//    .fluidbox-opened .fluidbox-wrap {
+//        z-index: 600;
+//    }
+//    .fluidbox-ghost {
+//        background-size: cover;
+//        background-position: center center;
+//        position: absolute;
+//        transition: all .25s ease-in-out;
+//     }
+
+// }
+
+
+
+
 
 footer { 
     padding: 20px;
@@ -416,7 +628,7 @@ footer {
             display: block;
             float: left;
             overflow: hidden;
-            font-size:1.1em;
+            font-size:1.1rem;
             -ms-text-overflow: ellipsis ;
             text-overflow: ellipsis;
             &:first-child{
@@ -458,28 +670,24 @@ footer {
 
 /* Related posts */
 .related {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid #eee;
-}
-
-.related-posts {
-  padding-left: 0;
-  list-style: none;
-  h3 {
-    margin-top: 0;
-  }
-  li {
-    small {
-      font-size: 75%;
-      color: #999;
-    }
-    a:hover {
-      color: #268bd2;
-      text-decoration: none;
-      small {
-        color: inherit;
+    .related-posts {
+      padding-left: 0;
+      list-style: none;
+      h3 {
+        margin-top: 0;
+      }
+      li {
+        small {
+          font-size: 75%;
+          color: $grey-7;
+        }
+        a:hover {
+          color: $link-hover-color;
+          text-decoration: none;
+          small {
+            color: inherit;
+          }
+        }
       }
     }
-  }
 }

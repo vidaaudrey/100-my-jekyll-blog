@@ -140,7 +140,7 @@
       <main class="row">
           <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12 ">
               <div class="main-wrap">
-                <div class="post card">
+                <div class="post card post-content">
    <div class="page" title="Page 333">
   <div class="layoutArea">
     <div class="column">
@@ -164,12 +164,12 @@
     <span class="k">var</span> <span class="nl">hashValue</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="k">return</span> <span class="n">name</span><span class="p">.</span><span class="n">hashValue</span> <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="k">func</span> <span class="o">==</span> <span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">Soldier</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">Soldier</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Bool</span> <span class="p">{</span>
+<span class="k">func</span> <span class="o">==</span> <span class="p">(</span><span class="nl">lhs</span><span class="p">:</span> <span class="n">Soldier</span><span class="p">,</span> <span class="nl">rhs</span><span class="p">:</span> <span class="n">Soldier</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bool</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">lhs</span><span class="p">.</span><span class="kt">id</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="kt">id</span> <span class="o">&amp;&amp;</span> <span class="n">lhs</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">rhs</span><span class="p">.</span><span class="n">name</span>
 <span class="p">}</span>
 
 <span class="k">extension</span> <span class="n">Dictionary</span> <span class="p">{</span>
-    <span class="k">init</span><span class="p">(</span><span class="nl">setupFunc</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="p">[(</span><span class="n">Key</span><span class="p">,</span> <span class="n">Value</span><span class="p">)])){</span>
+    <span class="k">init</span><span class="p">(</span><span class="nl">setupFunc</span><span class="p">:</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">[(</span><span class="n">Key</span><span class="p">,</span> <span class="n">Value</span><span class="p">)])){</span>
         <span class="nb">self</span><span class="p">.</span><span class="k">init</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">setupFunc</span><span class="p">()</span> <span class="p">{</span>
             <span class="nb">self</span><span class="p">[</span><span class="n">item</span><span class="mf">.0</span><span class="p">]</span> <span class="o">=</span> <span class="n">item</span><span class="mf">.1</span>
@@ -178,7 +178,7 @@
 <span class="p">}</span>
 
 <span class="k">protocol</span> <span class="n">Flyweight</span> <span class="p">{</span>
-    <span class="k">subscript</span><span class="p">(</span><span class="kt">id</span><span class="o">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Soldier</span><span class="o">?</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
+    <span class="k">subscript</span><span class="p">(</span><span class="kt">id</span><span class="o">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Soldier</span><span class="o">?</span> <span class="p">{</span> <span class="kr">get</span> <span class="kr">set</span> <span class="p">}</span>
     <span class="k">var</span> <span class="nl">totalPower</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
     <span class="k">var</span> <span class="nl">numberOfCommanders</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span> <span class="kr">get</span> <span class="p">}</span>
 <span class="p">}</span>
@@ -196,10 +196,10 @@
         <span class="nb">self</span><span class="p">.</span><span class="n">intrinsicArmy</span> <span class="o">=</span> <span class="p">[</span><span class="o">:</span><span class="p">]</span>
     <span class="p">}</span>
     
-    <span class="k">subscript</span><span class="p">(</span><span class="kt">id</span><span class="o">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Soldier</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">subscript</span><span class="p">(</span><span class="kt">id</span><span class="o">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Soldier</span><span class="o">?</span> <span class="p">{</span>
         <span class="kr">get</span> <span class="p">{</span>
             <span class="k">var</span> <span class="nl">result</span><span class="p">:</span> <span class="n">Soldier</span><span class="o">?</span>
-            <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+            <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
                 <span class="n">guard</span> <span class="k">let</span> <span class="n">soldier</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">intrinsicArmy</span><span class="p">[</span><span class="kt">id</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span>
                     <span class="n">result</span> <span class="o">=</span>  <span class="nb">self</span><span class="p">.</span><span class="n">extrinsicArmy</span><span class="p">[</span><span class="kt">id</span><span class="p">]</span>
                     <span class="k">return</span>
@@ -210,7 +210,7 @@
         <span class="p">}</span>
         <span class="kr">set</span><span class="p">(</span><span class="n">newSoldier</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">if</span> <span class="n">newSoldier</span> <span class="o">!=</span> <span class="nb">nil</span> <span class="p">{</span>
-                <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+                <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
                     <span class="nb">self</span><span class="p">.</span><span class="n">intrinsicArmy</span><span class="p">[</span><span class="kt">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">newSoldier</span>
                 <span class="p">}</span>
             <span class="p">}</span>
@@ -220,14 +220,14 @@
     <span class="c1">// each of the soldier&#39;s power = rank * rank, initial rank for soliders is 0.</span>
     <span class="k">var</span> <span class="nl">totalPower</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
         <span class="k">var</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
             <span class="n">result</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">intrinsicArmy</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">rank</span> <span class="o">*</span> <span class="err">$</span><span class="mf">0.</span><span class="n">rank</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nl">combine</span><span class="p">:</span> <span class="o">+</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">result</span>
     <span class="p">}</span>
     <span class="k">var</span> <span class="nl">numberOfCommanders</span><span class="p">:</span> <span class="n">Int</span> <span class="p">{</span>
         <span class="k">var</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Void</span> <span class="k">in</span>
+        <span class="n">dispatch_sync</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="p">{</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Void</span> <span class="k">in</span>
             <span class="n">result</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="n">intrinsicArmy</span><span class="p">.</span><span class="n">count</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">result</span>
@@ -242,14 +242,14 @@
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;Set the total number of soldiers to be \(numberOfSoldiers)&quot;</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">class</span> <span class="k">func</span> <span class="n">createFlyweight</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Flyweight</span> <span class="p">{</span>
+    <span class="k">class</span> <span class="k">func</span> <span class="n">createFlyweight</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Flyweight</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">ArmyFlyweight</span><span class="p">(</span><span class="nl">soldiers</span><span class="p">:</span> <span class="n">extrinsicArmy</span><span class="p">)</span>
     <span class="p">}</span>
     
     <span class="n">private</span> <span class="k">class</span> <span class="k">var</span> <span class="nl">extrinsicArmy</span><span class="p">:</span> <span class="p">[</span><span class="nl">Int</span><span class="p">:</span> <span class="n">Soldier</span><span class="p">]</span> <span class="p">{</span>
         <span class="kr">get</span> <span class="p">{</span>
             <span class="k">struct</span> <span class="n">singletonWrapper</span> <span class="p">{</span>
-                <span class="k">static</span> <span class="k">let</span> <span class="n">singleton</span> <span class="o">=</span> <span class="n">Dictionary</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Int</span><span class="p">,</span> <span class="n">Soldier</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;(</span>
+                <span class="k">static</span> <span class="k">let</span> <span class="n">singleton</span> <span class="o">=</span> <span class="n">Dictionary</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">Int</span><span class="p">,</span> <span class="n">Soldier</span><span class="o">&gt;</span><span class="p">(</span>
                     <span class="nl">setupFunc</span><span class="p">:</span> <span class="p">{</span> <span class="p">()</span> <span class="k">in</span>
                         <span class="k">var</span> <span class="nl">results</span><span class="p">:[(</span><span class="n">Int</span><span class="p">,</span> <span class="n">Soldier</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[]</span>
                         <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">FlyweightFactory</span><span class="p">.</span><span class="n">numberOfSoldiers</span> <span class="p">{</span>
@@ -279,7 +279,7 @@
         <span class="n">soldier</span><span class="p">.</span><span class="n">rank</span> <span class="o">=</span> <span class="n">newRank</span>
         <span class="n">soldiers</span><span class="p">[</span><span class="n">soldier</span><span class="p">.</span><span class="kt">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">soldier</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">getSoliderById</span><span class="p">(</span><span class="kt">id</span><span class="o">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">Soldier</span><span class="o">?</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getSoliderById</span><span class="p">(</span><span class="kt">id</span><span class="o">:</span> <span class="n">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Soldier</span><span class="o">?</span> <span class="p">{</span>
         <span class="k">return</span> <span class="n">soldiers</span><span class="p">[</span><span class="kt">id</span><span class="p">]</span>
     <span class="p">}</span>
     
@@ -292,7 +292,7 @@
             <span class="n">print</span><span class="p">(</span><span class="s">&quot;Failed! Trying to set rank to an unknown soldier whose id is \(id)&quot;</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
-    <span class="k">func</span> <span class="n">getCommanderNames</span><span class="p">()</span> <span class="o">-&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="n">String</span> <span class="p">{</span>
+    <span class="k">func</span> <span class="n">getCommanderNames</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">String</span> <span class="p">{</span>
         <span class="n">print</span><span class="p">(</span><span class="s">&quot;Trying to get commanders&#39; names&quot;</span><span class="p">)</span>
         <span class="n">guard</span> <span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="n">soldiers</span> <span class="kt">as</span><span class="o">?</span> <span class="n">ArmyFlyweight</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="s">&quot;Failed to get commanders&#39; names&quot;</span> <span class="p">}</span>
         <span class="k">return</span> <span class="n">s</span><span class="p">.</span><span class="n">intrinsicArmy</span><span class="p">.</span><span class="n">values</span><span class="p">.</span><span class="n">map</span><span class="p">{</span><span class="err">$</span><span class="mf">0.</span><span class="n">name</span><span class="p">}.</span><span class="n">reduce</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">){</span> <span class="err">$</span><span class="mi">0</span> <span class="o">+</span> <span class="s">&quot;  &quot;</span> <span class="o">+</span> <span class="err">$</span><span class="mi">1</span><span class="p">}</span>
@@ -346,27 +346,27 @@
      
        <li>
          <h4>
+           <a href="/css/js/2015/09/28/js-image-zoom/">
+             Create Image Zoom Style Like Medium
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
+           <a href="/js/2015/09/28/jekyll-js-image-zoom/">
+             Relocating My Blog from Wordpress to Jekyll
+             <small>28 Sep 2015</small>
+           </a>
+         </h4>
+       </li>
+     
+       <li>
+         <h4>
            <a href="/jekyll/2015/09/27/relocating-my-blog-from-wordpress-to-Jekyll/">
              Relocating My Blog from Wordpress to Jekyll
              <small>27 Sep 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-21-interpretor/">
-             A Design Pattern Story in Swift – Chapter 21: Interpretor
-             <small>18 Jul 2015</small>
-           </a>
-         </h4>
-       </li>
-     
-       <li>
-         <h4>
-           <a href="/2015/07/18/a-design-pattern-story-in-swift-chapter-20-mediator/">
-             A Design Pattern Story in Swift – Chapter 20: Mediator
-             <small>18 Jul 2015</small>
            </a>
          </h4>
        </li>
@@ -408,6 +408,8 @@
       <!-- Latest compiled and minified JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="http://terrymun.github.io/Fluidbox/jquery.fluidbox.min.js"></script>
 
 <!-- JS -->
 <!-- build:js /assets/javascript/all.min.js -->

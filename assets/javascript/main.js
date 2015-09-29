@@ -1,3 +1,15 @@
+
+// image effect 
+$(function () {
+    $('.post-content a').fluidbox();
+})
+
+closeTrigger: [
+    {
+        selector: "#fluidbox-overlay",
+        event: "click"
+    }
+]
 //nav
 $(".nav_trigger").click(function() {
   $("body").toggleClass("show_sidebar");
