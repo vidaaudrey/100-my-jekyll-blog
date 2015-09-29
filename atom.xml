@@ -4,7 +4,7 @@
  <title>Audrey Li's Personal Blog</title>
  <link href="localhost:4000/atom.xml" rel="self"/>
  <link href="localhost:4000/"/>
- <updated>2015-09-28T22:37:35-07:00</updated>
+ <updated>2015-09-28T22:42:42-07:00</updated>
  <id>localhost:4000</id>
  <author>
    <name>Audrey Li</name>
@@ -18,9 +18,11 @@
    <updated>2015-09-28T00:00:00-07:00</updated>
    <id>localhost:4000/css/js/2015/09/28/js-image-zoom</id>
    <content type="html">Today, as I went through the last few tweaks for the website, I came across this great article about how to present image nicely: &lt;a href=&quot;https://medium.com/coding-design/presenting-fluidbox-9c7fe9db92c7&quot; title=&quot;Presenting: Fluidbox&quot;&gt;Presenting: Fluidbox&lt;/a&gt;. The author not only wrote a detailed article to explain the image effect, but also created a handy &lt;a href=&quot;https://github.com/terrymun/Fluidbox&quot;&gt;js library&lt;/a&gt; for people to use. &lt;!--more--&gt; 
-&lt;h2&gt;Gallery Demo&lt;/h2&gt; 
+
 
  
+  
+    &lt;h2&gt;Gallery Demo&lt;/h2&gt;
   
   &lt;div class=&quot;gallery&quot;&gt;
   
@@ -57,10 +59,27 @@
 
 
 Source html code that is included in the gallery: 
-&lt;noscript&gt;&lt;pre&gt;{% if page.gallery %} 
-    {% if page.gallery.title %}
-      &amp;lt;h2&amp;gt;{{page.gallery.title}}&amp;lt;/h2&amp;gt;
-    {% endif %}
+&lt;noscript&gt;&lt;pre&gt;---
+gallery: 
+  - name: big3
+    col: 3
+    author: Rob Bye
+    credit: https://images.unsplash.com/photo-1433148749784-5e235e9efd12?q=80&amp;amp;fm=jpg&amp;amp;s=7c1592ac1b4d576a48af77f6c2e0ab14
+  - name: big1
+    col: 3
+    author: Brandon Lam
+    credit: https://images.unsplash.com/photo-1439694458393-78ecf14da7f9?q=80&amp;amp;fm=jpg&amp;amp;s=643e44f5177366de6cc914c8bcfbe064
+  - name: big
+    col: 3
+    author: Jeffrey Swanson
+    credit: https://images.unsplash.com/photo-1431538510849-b719825bf08b?q=80&amp;amp;fm=jpg&amp;amp;s=6fd7a983e3b43e66d2b6062856b9df66
+  - name: big4
+    col: 1
+    author: Rob Bye
+    credit: https://images.unsplash.com/photo-1440329810339-9becfcaf2f39?q=80&amp;amp;fm=jpg&amp;amp;s=ea04e8bd6d86e5ec6bd94565ffd93e7f
+---    
+    
+    {% if page.gallery %} 
     &amp;lt;div class=&amp;quot;gallery&amp;quot;&amp;gt;
     {% for image in page.gallery %}
       &amp;lt;div class=&amp;quot;gallery-image col-{{image.col}}&amp;quot;&amp;gt;
@@ -5304,8 +5323,7 @@ reports, and features requests.&lt;/p&gt;
 
 &lt;p&gt;Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.&lt;/p&gt;
 
-&lt;p&gt;&lt;noscript&gt;&lt;pre&gt;400: Invalid request
-&lt;/pre&gt;&lt;/noscript&gt;&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.&lt;/p&gt;
 

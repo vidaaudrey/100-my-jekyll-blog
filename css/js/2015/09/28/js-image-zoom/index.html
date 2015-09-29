@@ -142,9 +142,11 @@
               <div class="main-wrap">
                 <div class="post card post-content">
    Today, as I went through the last few tweaks for the website, I came across this great article about how to present image nicely: <a href="https://medium.com/coding-design/presenting-fluidbox-9c7fe9db92c7" title="Presenting: Fluidbox">Presenting: Fluidbox</a>. The author not only wrote a detailed article to explain the image effect, but also created a handy <a href="https://github.com/terrymun/Fluidbox">js library</a> for people to use. <!--more--> 
-<h2>Gallery Demo</h2> 
+
 
  
+  
+    <h2>Gallery Demo</h2>
   
   <div class="gallery">
   
@@ -181,10 +183,27 @@
 
 
 Source html code that is included in the gallery: 
-<noscript><pre>{% if page.gallery %} 
-    {% if page.gallery.title %}
-      &lt;h2&gt;{{page.gallery.title}}&lt;/h2&gt;
-    {% endif %}
+<noscript><pre>---
+gallery: 
+  - name: big3
+    col: 3
+    author: Rob Bye
+    credit: https://images.unsplash.com/photo-1433148749784-5e235e9efd12?q=80&amp;fm=jpg&amp;s=7c1592ac1b4d576a48af77f6c2e0ab14
+  - name: big1
+    col: 3
+    author: Brandon Lam
+    credit: https://images.unsplash.com/photo-1439694458393-78ecf14da7f9?q=80&amp;fm=jpg&amp;s=643e44f5177366de6cc914c8bcfbe064
+  - name: big
+    col: 3
+    author: Jeffrey Swanson
+    credit: https://images.unsplash.com/photo-1431538510849-b719825bf08b?q=80&amp;fm=jpg&amp;s=6fd7a983e3b43e66d2b6062856b9df66
+  - name: big4
+    col: 1
+    author: Rob Bye
+    credit: https://images.unsplash.com/photo-1440329810339-9becfcaf2f39?q=80&amp;fm=jpg&amp;s=ea04e8bd6d86e5ec6bd94565ffd93e7f
+---    
+    
+    {% if page.gallery %} 
     &lt;div class=&quot;gallery&quot;&gt;
     {% for image in page.gallery %}
       &lt;div class=&quot;gallery-image col-{{image.col}}&quot;&gt;
