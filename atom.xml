@@ -4,7 +4,7 @@
  <title>Audrey Li's Personal Blog</title>
  <link href="localhost:4000/atom.xml" rel="self"/>
  <link href="localhost:4000/"/>
- <updated>2015-09-28T22:37:00-07:00</updated>
+ <updated>2015-09-28T22:37:35-07:00</updated>
  <id>localhost:4000</id>
  <author>
    <name>Audrey Li</name>
@@ -72,29 +72,6 @@ Source html code that is included in the gallery:
     {% endfor %}
     &amp;lt;/div&amp;gt;
   {% endif %}&lt;/pre&gt;&lt;/noscript&gt;&lt;script src=&quot;https://gist.github.com/vidaaudrey/5180cf6a6daabd05871e.js&quot;&gt; &lt;/script&gt;</content>
- </entry>
- 
- <entry>
-   <title>Relocating My Blog from Wordpress to Jekyll</title>
-   <link href="localhost:4000/js/2015/09/28/jekyll-js-image-zoom/"/>
-   <updated>2015-09-28T00:00:00-07:00</updated>
-   <id>localhost:4000/js/2015/09/28/jekyll-js-image-zoom</id>
-   <content type="html">
- 
-  
-  &lt;div class=&quot;gallery&quot;&gt;
-  
-    &lt;div class=&quot;gallery-image col-&quot;&gt;
-      &lt;a href=&quot;/assets/images/blog-images/20150928/.jpeg&quot; title=&quot;&quot;&gt;
-        &lt;img src=&quot;/assets/images/blog-images/20150928/-thumb.jpeg&quot; alt=&quot;my image&quot; title=&quot;my image&quot;/&gt;
-      &lt;/a&gt;
-      By &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
-    &lt;/div&gt;
-  
-  &lt;/div&gt;
-
-
-</content>
  </entry>
  
  <entry>
@@ -5327,7 +5304,8 @@ reports, and features requests.&lt;/p&gt;
 
 &lt;p&gt;Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.&lt;/p&gt;
 
-&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.&lt;/p&gt;
 

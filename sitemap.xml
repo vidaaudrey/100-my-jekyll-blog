@@ -2,26 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>localhost:4000/</loc>
-    <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+    <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
     <url>
       <loc>localhost:4000/css/js/2015/09/28/js-image-zoom/</loc>
-      
-        <lastmod>2015-09-28T00:00:00-07:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-  
-    <url>
-      <loc>localhost:4000/js/2015/09/28/jekyll-js-image-zoom/</loc>
       
         <lastmod>2015-09-28T00:00:00-07:00</lastmod>
       
@@ -739,7 +726,7 @@
   <url>
     <loc>localhost:4000/404/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -752,7 +739,7 @@
   <url>
     <loc>localhost:4000/about/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -765,7 +752,7 @@
   <url>
     <loc>localhost:4000/achieves/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -778,7 +765,7 @@
   <url>
     <loc>localhost:4000/archive/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -791,7 +778,7 @@
   <url>
     <loc>localhost:4000/atom.xml</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -804,7 +791,7 @@
   <url>
     <loc>localhost:4000/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -817,7 +804,7 @@
   <url>
     <loc>localhost:4000/sitemap.xml</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -830,7 +817,7 @@
   <url>
     <loc>localhost:4000/page2/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -843,7 +830,7 @@
   <url>
     <loc>localhost:4000/page3/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -856,7 +843,7 @@
   <url>
     <loc>localhost:4000/page4/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -869,7 +856,7 @@
   <url>
     <loc>localhost:4000/page5/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
@@ -882,7 +869,7 @@
   <url>
     <loc>localhost:4000/page6/</loc>
     
-      <lastmod>2015-09-28T22:37:00-07:00</lastmod>
+      <lastmod>2015-09-28T22:37:35-07:00</lastmod>
     
     
       <changefreq>monthly</changefreq>
