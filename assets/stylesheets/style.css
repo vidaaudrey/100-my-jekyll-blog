@@ -600,6 +600,13 @@ ul li {
   -webkit-transition: all .25s ease-in-out;
           transition: all .25s ease-in-out; }
 
+span.post-date {
+  float: right;
+  font-style: italic;
+  color: #B6B6B6;
+  font-weight: 300;
+  font-size: 0.9rem; }
+
 footer {
   padding: 20px; }
 
