@@ -437,12 +437,6 @@ ul{
             div.col-3{
                 width: 32%; width: calc(33.33333% - .66667rem);
             }
-
-            // .gallery-image{
-            //     width: 50%;
-            //     overflow: hidden;
-            //     float: left;
-            // }
         }
 
     }
@@ -525,6 +519,9 @@ ul{
    }
    .fluidbox-opened .fluidbox-wrap {
        z-index: 600;
+   }
+   .fluidbox-loader {
+       display: none;
    }
    .fluidbox-ghost {
        background-size: cover;
@@ -615,8 +612,10 @@ footer {
       }
       li {
         small {
-          font-size: 75%;
-          color: $grey-7;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 75%;
+            color: $grey-7;
         }
         a:hover {
           color: $link-hover-color;

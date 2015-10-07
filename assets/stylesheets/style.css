@@ -593,6 +593,8 @@ ul li {
           transition: all .25s ease-in-out; }
 .post-content .fluidbox-opened .fluidbox-wrap {
   z-index: 600; }
+.post-content .fluidbox-loader {
+  display: none; }
 .post-content .fluidbox-ghost {
   background-size: cover;
   background-position: center center;
@@ -661,6 +663,8 @@ footer {
   .related .related-posts h3 {
     margin-top: 0; }
   .related .related-posts li small {
+    font-style: italic;
+    font-weight: 300;
     font-size: 75%;
     color: #B6B6B6; }
   .related .related-posts li a:hover {

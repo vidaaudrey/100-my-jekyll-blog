@@ -4,7 +4,7 @@
  <title>Audrey Li's Personal Blog</title>
  <link href="localhost:4000/atom.xml" rel="self"/>
  <link href="localhost:4000/"/>
- <updated>2015-09-28T22:51:04-07:00</updated>
+ <updated>2015-10-06T18:01:46-07:00</updated>
  <id>localhost:4000</id>
  <author>
    <name>Audrey Li</name>
@@ -5160,113 +5160,6 @@ progressView.animateProgressView()&lt;/p&gt;
  </entry>
  
  <entry>
-   <title>Welcome to Jekyll!</title>
-   <link href="localhost:4000/jekyll/2014/03/03/welcome-to-jekyll/"/>
-   <updated>2014-03-03T00:00:00-08:00</updated>
-   <id>localhost:4000/jekyll/2014/03/03/welcome-to-jekyll</id>
-   <content type="html">&lt;p&gt;You&amp;rsquo;ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory - edit this post and re-build
-(or run with the &lt;code&gt;-w&lt;/code&gt; switch) to see your changes! To add new posts, simply add
-a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention:
-YYYY-MM-DD-name-of-post.ext.&lt;/p&gt;
-
-&lt;!--more--&gt;
-
-&lt;p&gt;We&amp;rsquo;ve also added a lot of different settings for &lt;a href=&quot;https://github.com/vmg/redcarpet&quot;&gt;Redcarpet&lt;/a&gt;,
-including being able to &lt;sup&gt;superscript,&lt;/sup&gt; &lt;u&gt;underline&lt;/u&gt;, &lt;mark&gt;highlight&lt;/mark&gt;,
-&lt;del&gt;strikethrough&lt;/del&gt;, and footnotes.&lt;sup id=&quot;fnref1&quot;&gt;&lt;a href=&quot;#fn1&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; It even automatically makes links into
-URLs: &lt;a href=&quot;http://www.jekyllrb.com&quot;&gt;www.jekyllrb.com&lt;/a&gt; and you can put multiple underscores in words without
-them leaning all over the place: this_word_has_underscores. It&amp;rsquo;ll also make your
-quotes look nice, like this: &amp;ldquo;hoho&amp;rdquo;, your dashes and hypens will be dashing too:
-&amp;mdash;/&amp;ndash;.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of
-Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&amp;rsquo;s GitHub repo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-
-&lt;li id=&quot;fn1&quot;&gt;
-&lt;p&gt;Who are quite handy&amp;nbsp;&lt;a href=&quot;#fnref1&quot; rev=&quot;footnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-
-&lt;/ol&gt;
-&lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Introducing Poole</title>
-   <link href="localhost:4000/jekyll/poole/2014/03/02/introducing-poole/"/>
-   <updated>2014-03-02T00:00:00-08:00</updated>
-   <id>localhost:4000/jekyll/poole/2014/03/02/introducing-poole</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;The Strange Case of Dr. Jeykll and Mr. Hyde&lt;/em&gt; tells the story of a lawyer
-investigating the connection of two persons, Dr. Henry Jekyll and Mr. Edward
-Hyde. Chief among the novel&amp;rsquo;s supporting cast is a man by the name of Mr. Poole,
-Dr. Jekyll&amp;rsquo;s loyal butler.
-&amp;lt;!&amp;ndash;more&amp;ndash;&amp;gt;&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Poole is the butler for &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;, the static site
-generator. It&amp;rsquo;s designed and developed by &lt;a href=&quot;https://twitter.com/mdo&quot;&gt;@mdo&lt;/a&gt; to
-provide a clear and concise foundational setup for any Jekyll site. It does so
-by furnishing a full vanilla Jekyll install with example templates, pages,
-posts, and styles.&lt;/p&gt;
-
-&lt;p&gt;There are currently two themes built on Poole:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://hyde.getpoole.com&quot;&gt;Hyde&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://lanyon.getpoole.com&quot;&gt;Lanyon&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Learn more and contribute on &lt;a href=&quot;https://github.com/poole&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;What&amp;rsquo;s included&lt;/h3&gt;
-
-&lt;p&gt;Poole is a streamlined Jekyll site designed and built as a foundation for
-building more meaningful themes. Poole, and every theme built on it, includes
-the following:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Complete Jekyll setup included (layouts, config, &lt;a href=&quot;/404&quot;&gt;404&lt;/a&gt;, &lt;a href=&quot;/atom.xml&quot;&gt;RSS
-feed&lt;/a&gt;, posts, and &lt;a href=&quot;/about&quot;&gt;example page&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Mobile friendly design and development&lt;/li&gt;
-&lt;li&gt;Easily scalable text and component sizing with &lt;code&gt;rem&lt;/code&gt; units in the CSS&lt;/li&gt;
-&lt;li&gt;Support for a wide gamut of HTML elements&lt;/li&gt;
-&lt;li&gt;Related posts (time-based, because Jekyll) below each post&lt;/li&gt;
-&lt;li&gt;Syntax highlighting, courtesy Pygments (the Python-based code snippet
-highlighter)&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Additional features are available in individual themes.&lt;/p&gt;
-
-&lt;h3&gt;Browser support&lt;/h3&gt;
-
-&lt;p&gt;Poole and it&amp;rsquo;s themes are by preference a forward-thinking project. In addition
-to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it
-is only compatible with Internet Explorer 9 and above.&lt;/p&gt;
-
-&lt;h3&gt;Download&lt;/h3&gt;
-
-&lt;p&gt;Poole is developed on and hosted with GitHub. Head to the &lt;a
-href=&quot;https://github.com/poole/poole&quot;&gt;GitHub repository&lt;/a&gt; for downloads, bug
-reports, and features requests.&lt;/p&gt;
-
-&lt;p&gt;Thanks!&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Example content</title>
    <link href="localhost:4000/jekyll/example/2014/03/01/2014-03-01-example-content/"/>
    <updated>2014-03-01T00:00:00-08:00</updated>
@@ -5323,7 +5216,8 @@ reports, and features requests.&lt;/p&gt;
 
 &lt;p&gt;Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo. Donec sed odio dui.&lt;/p&gt;
 
-&lt;p&gt;true&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;&lt;script src=&quot;https://gist.github.com/5555251.js?file=gist.md&quot;&gt; &lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sed odio dui. Vestibulum id ligula porta felis euismod semper.&lt;/p&gt;
 
@@ -5411,34 +5305,30 @@ reports, and features requests.&lt;/p&gt;
    <link href="localhost:4000/2014/02/21/my-top-resources-to-learn-spanish/"/>
    <updated>2014-02-21T00:00:00-08:00</updated>
    <id>localhost:4000/2014/02/21/my-top-resources-to-learn-spanish</id>
-   <content type="html">&lt;p&gt;Spanish, using as a native language by approximately 406 million people in the world, is the second only to Mandarin in terms of its number of native speakers worldwide.  It&amp;#8217;s a passionate language and is fun to learn. Below are some top resources that I found:&lt;/p&gt;
+   <content type="html">Spanish, using as a native language by approximately 406 million people in the world, is the second only to Mandarin in terms of its number of native speakers worldwide.  It’s a passionate language and is fun to learn. Below are some top resources that I found:
 
-&lt;p&gt;&lt;strong style=&quot;line-height: 1.5em;&quot;&gt;&lt;a title=&quot;http://www.michelthomas.com/learn-spanish.php&quot; href=&quot;http://www.michelthomas.com/learn-spanish.php&quot; target=&quot;_blank&quot;&gt;Michel Thomas Learn Spanish&lt;/a&gt;&lt;/strong&gt;&lt;span style=&quot;line-height: 1.5em;&quot;&gt;: my #1 course to start whenever I try to learn a new language. There are basic, advanced, vocabulary and language builder courses available. &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a title=&quot;http://www.michelthomas.com/learn-spanish.php&quot; href=&quot;http://www.michelthomas.com/learn-spanish.php&quot; target=&quot;_blank&quot;&gt;Michel Thomas Learn Spanish&lt;/a&gt;&lt;/strong&gt;: my #1 course to start whenever I try to learn a new language. There are basic, advanced, vocabulary and language builder courses available.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a title=&quot;https://itunes.apple.com/gb/app/busuu-learn-languages-for/id379968583?mt=8&quot; href=&quot;https://itunes.apple.com/gb/app/busuu-learn-languages-for/id379968583?mt=8&quot; target=&quot;_blank&quot;&gt;Busuu&lt;/a&gt;&lt;/strong&gt; for iPhone: great app with different levels. Love the vocabulary, dialogue and test functions.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;a title=&quot;http://itunes.apple.com/us/app/learn-spanish-levels-i-ii/id301734424?mt=8&quot; href=&quot;http://itunes.apple.com/us/app/learn-spanish-levels-i-ii/id301734424?mt=8&quot; target=&quot;_blank&quot;&gt;Learn Spanish Levels I &amp;amp; II with Bueno, entonces&lt;/a&gt;&lt;/strong&gt; : as described in apple store &amp;#8220;Bueno, entonces&amp;#8230; is an intensive 5-week Spanish immersion course disguised as an addictive TV series&amp;#8221;, learning Spanish by following funny romantic conversation. Love it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a title=&quot;http://itunes.apple.com/us/app/learn-spanish-levels-i-ii/id301734424?mt=8&quot; href=&quot;http://itunes.apple.com/us/app/learn-spanish-levels-i-ii/id301734424?mt=8&quot; target=&quot;_blank&quot;&gt;Learn Spanish Levels I &amp;amp; II with Bueno, entonces&lt;/a&gt;&lt;/strong&gt; : as described in apple store “Bueno, entonces… is an intensive 5-week Spanish immersion course disguised as an addictive TV series”, learning Spanish by following funny romantic conversation. Love it.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a title=&quot;https://itunes.apple.com/us/app/learn-spanish-by-mindsnacks/id385497068?mt=8&quot; href=&quot;https://itunes.apple.com/us/app/learn-spanish-by-mindsnacks/id385497068?mt=8&quot; target=&quot;_blank&quot;&gt;Learn Spanish by MindSnacks&lt;/a&gt;&lt;/strong&gt;: great if you like to learn while playing games.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;a title=&quot;BBC Learn Spanish&quot; href=&quot;http://www.bbc.co.uk/languages/spanish/mividaloca/ &quot; target=&quot;_blank&quot;&gt;BBC Learn Spanish&lt;/a&gt;&lt;/strong&gt;: wonderful videos and tests.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a title=&quot;BBC Learn Spanish&quot; href=&quot;http://www.bbc.co.uk/languages/spanish/mividaloca/&quot; target=&quot;_blank&quot;&gt;BBC Learn Spanish&lt;/a&gt;&lt;/strong&gt;: wonderful videos and tests.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;a title=&quot;http://www.babbel.com/&quot; href=&quot;http://www.babbel.com/&quot; target=&quot;_blank&quot;&gt;Babbel&lt;/a&gt;&lt;/strong&gt;: great online interactive courses with social features. Make friends with people around the world who like to learn other languages as well.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Youtube video channels&lt;/strong&gt;:&lt;/p&gt;
-
+&lt;strong&gt;Youtube video channels&lt;/strong&gt;:
 &lt;ol&gt;
-&lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;E-ducation.it&quot; href=&quot;https://www.youtube.com/user/EducationMobile&quot; data-sessionlink=&quot;ei=IkkHU67hIIfNmQW7t4CACQ&quot;&gt;E-ducation.it&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;tv294&quot; href=&quot;https://www.youtube.com/user/tv294&quot; data-sessionlink=&quot;ei=rkkHU-D4Haa_mQWj8IGIDg&quot;&gt;tv294&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;Lets Learn Spanish&quot; href=&quot;https://www.youtube.com/user/learnspanishvideos&quot; data-sessionlink=&quot;ei=IUkHU4GSEIfamAXy2oDYDg&quot;&gt;Lets Learn Spanish&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;Learn Spanish&quot; href=&quot;https://www.youtube.com/user/learnspanish1&quot; data-sessionlink=&quot;ei=IEkHU52JG82WmQXasYDQBA&quot;&gt;Learn Spanish&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;E-ducation.it&quot; href=&quot;https://www.youtube.com/user/EducationMobile&quot; data-sessionlink=&quot;ei=IkkHU67hIIfNmQW7t4CACQ&quot;&gt;E-ducation.it&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;tv294&quot; href=&quot;https://www.youtube.com/user/tv294&quot; data-sessionlink=&quot;ei=rkkHU-D4Haa_mQWj8IGIDg&quot;&gt;tv294&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;Lets Learn Spanish&quot; href=&quot;https://www.youtube.com/user/learnspanishvideos&quot; data-sessionlink=&quot;ei=IUkHU4GSEIfamAXy2oDYDg&quot;&gt;Lets Learn Spanish&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a dir=&quot;ltr&quot; title=&quot;Learn Spanish&quot; href=&quot;https://www.youtube.com/user/learnspanish1&quot; data-sessionlink=&quot;ei=IEkHU52JG82WmQXasYDQBA&quot;&gt;Learn Spanish&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-
-&lt;p&gt;And if you are more advanced, download &lt;strong&gt;&lt;a title=&quot;http://www.booksshouldbefree.com/language/Spanish&quot; href=&quot;http://www.booksshouldbefree.com/language/Spanish&quot; target=&quot;_blank&quot;&gt;these free audio books&lt;/a&gt;&lt;/strong&gt; to your iTune and listen. If you are in Beijing, sign up in the courses from &lt;strong&gt;&lt;a title=&quot;http://pekin.cervantes.es/cn/courses_spanish/spanish_courses.htm&quot; href=&quot;http://pekin.cervantes.es/cn/courses_spanish/spanish_courses.htm&quot; target=&quot;_blank&quot;&gt;Institudo Cervantes&lt;/a&gt;.&lt;/strong&gt; All teachers are native Spanish, and very strict&amp;#8230;&lt;/p&gt;
+&lt;p&gt;And if you are more advanced, download &lt;strong&gt;&lt;a title=&quot;http://www.booksshouldbefree.com/language/Spanish&quot; href=&quot;http://www.booksshouldbefree.com/language/Spanish&quot; target=&quot;_blank&quot;&gt;these free audio books&lt;/a&gt;&lt;/strong&gt; to your iTune and listen. If you are in Beijing, sign up in the courses from &lt;strong&gt;&lt;a title=&quot;http://pekin.cervantes.es/cn/courses_spanish/spanish_courses.htm&quot; href=&quot;http://pekin.cervantes.es/cn/courses_spanish/spanish_courses.htm&quot; target=&quot;_blank&quot;&gt;Institudo Cervantes&lt;/a&gt;.&lt;/strong&gt; All teachers are native Spanish, and very strict…&lt;/p&gt;
 
 &lt;p&gt;¡Buena suerte!&lt;/p&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 </content>
  </entry>
  
