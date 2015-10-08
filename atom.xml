@@ -4,7 +4,7 @@
  <title>Audrey Li's Personal Blog</title>
  <link href="localhost:4000/atom.xml" rel="self"/>
  <link href="localhost:4000/"/>
- <updated>2015-10-06T18:01:46-07:00</updated>
+ <updated>2015-10-08T15:56:22-07:00</updated>
  <id>localhost:4000</id>
  <author>
    <name>Audrey Li</name>
@@ -320,7 +320,7 @@ gallery:
 &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;userInput&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Output: [ \(getOutput($0)) ] &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/interpretor.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1086&quot; src=&quot;/assets/wp-content/uploads/2015/07/interpretor.png&quot; alt=&quot;interpretor&quot; width=&quot;693&quot; height=&quot;290&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/interpretor.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1086&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/interpretor.png&quot; alt=&quot;interpretor&quot; width=&quot;693&quot; height=&quot;290&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;p&gt;&lt;/p&gt;
 </content>
@@ -647,7 +647,7 @@ gallery:
 
       
       &lt;p&gt;
-        &lt;a href=&quot;/assets/wp-content/uploads/2015/07/mediator.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1077&quot; src=&quot;/assets/wp-content/uploads/2015/07/mediator.png&quot; alt=&quot;mediator&quot; width=&quot;746&quot; height=&quot;970&quot; /&gt;&lt;/a&gt;
+        &lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/mediator.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1077&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/mediator.png&quot; alt=&quot;mediator&quot; width=&quot;746&quot; height=&quot;970&quot; /&gt;&lt;/a&gt;
       &lt;/p&gt;
       
       &lt;p&gt;
@@ -841,7 +841,7 @@ gallery:
 
 &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/Flyweight.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1074&quot; src=&quot;/assets/wp-content/uploads/2015/07/Flyweight.png&quot; alt=&quot;Flyweight&quot; width=&quot;647&quot; height=&quot;326&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/Flyweight.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1074&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/Flyweight.png&quot; alt=&quot;Flyweight&quot; width=&quot;647&quot; height=&quot;326&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -979,7 +979,7 @@ gallery:
     &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;\($0.0), is eligiable for insurance?: \($0.1)&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/visitor.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1070&quot; src=&quot;/assets/wp-content/uploads/2015/07/visitor.png&quot; alt=&quot;visitor&quot; width=&quot;792&quot; height=&quot;195&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/visitor.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1070&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/visitor.png&quot; alt=&quot;visitor&quot; width=&quot;792&quot; height=&quot;195&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -1075,7 +1075,7 @@ gallery:
 &lt;span class=&quot;n&quot;&gt;checkPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;applyMemento&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;memento&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;checkPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printCheckPoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/memento.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1065&quot; src=&quot;/assets/wp-content/uploads/2015/07/memento.png&quot; alt=&quot;memento&quot; width=&quot;374&quot; height=&quot;286&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/memento.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1065&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/memento.png&quot; alt=&quot;memento&quot; width=&quot;374&quot; height=&quot;286&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -1221,7 +1221,7 @@ gallery:
 &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MagicHouse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lendMagicObject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Tato&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;MagicHouse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printReport&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/object-pool.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1060&quot; src=&quot;/assets/wp-content/uploads/2015/07/object-pool.png&quot; alt=&quot;object-pool&quot; width=&quot;504&quot; height=&quot;523&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/object-pool.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1060&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/object-pool.png&quot; alt=&quot;object-pool&quot; width=&quot;504&quot; height=&quot;523&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -1360,7 +1360,7 @@ gallery:
 &lt;span class=&quot;n&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sendMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;45% Aug. 30, 2014&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;encrypted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;bridge&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;receiveMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;4102 ,03 .guA %54 rotceteD ytidimuH&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;encrypted&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/bridge.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1056&quot; src=&quot;/assets/wp-content/uploads/2015/07/bridge.png&quot; alt=&quot;bridge&quot; width=&quot;918&quot; height=&quot;137&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/chain-of-responsbility1.png&quot;&gt;&lt;br&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/bridge.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1056&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/bridge.png&quot; alt=&quot;bridge&quot; width=&quot;918&quot; height=&quot;137&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/chain-of-responsbility1.png&quot;&gt;&lt;br&gt;
 &lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
@@ -1464,7 +1464,7 @@ gallery:
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/chain-of-responsbility.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1049&quot; src=&quot;/assets/wp-content/uploads/2015/07/chain-of-responsbility.png&quot; alt=&quot;chain-of-responsbility&quot; width=&quot;326&quot; height=&quot;169&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/chain-of-responsbility.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1049&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/chain-of-responsbility.png&quot; alt=&quot;chain-of-responsbility&quot; width=&quot;326&quot; height=&quot;169&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -1661,7 +1661,7 @@ gallery:
 &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fragrance2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TearInHeavenFragrance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Tear in Heaven&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;builder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;builder2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fragrance2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/builder.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1043&quot; src=&quot;/assets/wp-content/uploads/2015/07/builder.png&quot; alt=&quot;builder&quot; width=&quot;371&quot; height=&quot;285&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/builder.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1043&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/builder.png&quot; alt=&quot;builder&quot; width=&quot;371&quot; height=&quot;285&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -1703,7 +1703,7 @@ gallery:
 &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;simpleCatProxy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getCat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RandomCatURL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Cat Ada&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/remote.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1030&quot; src=&quot;/assets/wp-content/uploads/2015/07/remote.png&quot; alt=&quot;remote&quot; width=&quot;744&quot; height=&quot;298&quot; /&gt;&lt;/a&gt;The next is the Clone (cache) Cat Proxy. He will create a local clone once he got a cat from the remote cat house. When others request the cat, he will first look at his cloned list. If the clone exists, he will return a clone. If not, he will get the cat from the remote cat house.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/remote.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1030&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/remote.png&quot; alt=&quot;remote&quot; width=&quot;744&quot; height=&quot;298&quot; /&gt;&lt;/a&gt;The next is the Clone (cache) Cat Proxy. He will create a local clone once he got a cat from the remote cat house. When others request the cat, he will first look at his cloned list. If the clone exists, he will return a clone. If not, he will get the cat from the remote cat house.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;ClonedCatRequestProxy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SimpleCatRequest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;semaphore&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dispatch_semaphore_create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1747,7 +1747,7 @@ gallery:
 
 &lt;span class=&quot;n&quot;&gt;catDidi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;img class=&quot;aligncenter size-full wp-image-1035&quot; src=&quot;/assets/wp-content/uploads/2015/07/cached.png&quot; alt=&quot;cached&quot; width=&quot;774&quot; height=&quot;874&quot; /&gt; The third one is Batch (Virtual) Cat Proxy. When people request cats, he simply writes down their requests and later fetch the cats from remote cat house in a big batch.&lt;/p&gt;
+&lt;p&gt;&lt;img class=&quot;aligncenter size-full wp-image-1035&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/cached.png&quot; alt=&quot;cached&quot; width=&quot;774&quot; height=&quot;874&quot; /&gt; The third one is Batch (Virtual) Cat Proxy. When people request cats, he simply writes down their requests and later fetch the cats from remote cat house in a big batch.&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;protocol&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BatchCatRequest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;numberOfCats&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
@@ -1792,7 +1792,7 @@ gallery:
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;batchCatProxy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/batchProxydefer.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1034&quot; src=&quot;/assets/wp-content/uploads/2015/07/batchProxydefer.png&quot; alt=&quot;batchProxy(defer)&quot; width=&quot;778&quot; height=&quot;1066&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/batchProxydefer.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1034&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/batchProxydefer.png&quot; alt=&quot;batchProxy(defer)&quot; width=&quot;778&quot; height=&quot;1066&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The first Batch Cat Proxy always retrieves the same cats remotely but people want different cats. So they go to the batch unique cat proxy, who keeps a number of different options of cats.&lt;/p&gt;
 
@@ -1846,7 +1846,7 @@ gallery:
     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/batchUnique.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1031&quot; src=&quot;/assets/wp-content/uploads/2015/07/batchUnique.png&quot; alt=&quot;batchUnique&quot; width=&quot;895&quot; height=&quot;676&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/batchUnique.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1031&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/batchUnique.png&quot; alt=&quot;batchUnique&quot; width=&quot;895&quot; height=&quot;676&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The last one is the Secure(Protection) Proxy.  He is always quite serious and have to check everybody&amp;#8217;s &amp;#8220;passcode&amp;#8221; before giving them any cats.&lt;/p&gt;
 
@@ -1901,7 +1901,7 @@ gallery:
 &lt;span class=&quot;n&quot;&gt;UserAuthentication&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sharedInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;authenticate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Jane&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;pass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;secret&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;secureProxy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/secure.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1032&quot; src=&quot;/assets/wp-content/uploads/2015/07/secure.png&quot; alt=&quot;secure&quot; width=&quot;848&quot; height=&quot;595&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/secure.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1032&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/secure.png&quot; alt=&quot;secure&quot; width=&quot;848&quot; height=&quot;595&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The rest of the code:&lt;/p&gt;
 
@@ -2146,7 +2146,7 @@ Cat API: &lt;a href=&quot;http://thecatapi.com/&quot;&gt;http://thecatapi.com/&l
 &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;receiveDiamond&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;context&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;giveFlower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/state.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1027&quot; src=&quot;/assets/wp-content/uploads/2015/07/state.png&quot; alt=&quot;state&quot; width=&quot;394&quot; height=&quot;272&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/state.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1027&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/state.png&quot; alt=&quot;state&quot; width=&quot;394&quot; height=&quot;272&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -2241,7 +2241,7 @@ Cat API: &lt;a href=&quot;http://thecatapi.com/&quot;&gt;http://thecatapi.com/&l
 &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;confHost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ConfHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;passes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;groupP1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;singleP3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dwarfGroup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;confHost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getConfOverview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/composite.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1021&quot; src=&quot;/assets/wp-content/uploads/2015/07/composite.png&quot; alt=&quot;composite&quot; width=&quot;354&quot; height=&quot;240&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/composite.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1021&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/composite.png&quot; alt=&quot;composite&quot; width=&quot;354&quot; height=&quot;240&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -2378,7 +2378,7 @@ Cat API: &lt;a href=&quot;http://thecatapi.com/&quot;&gt;http://thecatapi.com/&l
 &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;waitress&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Waitress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;vipMenu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vipMenu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;fastfoodMenu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;fastfoodMenu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;waitress&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printMenu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/iterator.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1013&quot; src=&quot;/assets/wp-content/uploads/2015/07/iterator.png&quot; alt=&quot;iterator&quot; width=&quot;238&quot; height=&quot;249&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/iterator.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1013&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/iterator.png&quot; alt=&quot;iterator&quot; width=&quot;238&quot; height=&quot;249&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -2647,7 +2647,7 @@ s2.makeMagic()&lt;/pre&gt;
 
   
   &lt;p&gt;
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/07/adaptor-facade.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1001&quot; src=&quot;/assets/wp-content/uploads/2015/07/adaptor-facade.png&quot; alt=&quot;adaptor facade&quot; width=&quot;413&quot; height=&quot;330&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/adaptor-facade.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-1001&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/adaptor-facade.png&quot; alt=&quot;adaptor facade&quot; width=&quot;413&quot; height=&quot;330&quot; /&gt;&lt;/a&gt;
   &lt;/p&gt;
 </content>
  </entry>
@@ -2785,7 +2785,7 @@ s2.makeMagic()&lt;/pre&gt;
       &lt;/p&gt;
       
       &lt;p&gt;
-        &lt;a href=&quot;/assets/wp-content/uploads/2015/07/com.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-998&quot; src=&quot;/assets/wp-content/uploads/2015/07/com.png&quot; alt=&quot;com&quot; width=&quot;459&quot; height=&quot;245&quot; /&gt;&lt;/a&gt;
+        &lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/com.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-998&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/com.png&quot; alt=&quot;com&quot; width=&quot;459&quot; height=&quot;245&quot; /&gt;&lt;/a&gt;
       &lt;/p&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -2913,7 +2913,7 @@ s2.makeMagic()&lt;/pre&gt;
 
 &lt;span class=&quot;n&quot;&gt;StoryPen&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sharedInstance&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;showStoryBook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/Singleton.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-988&quot; src=&quot;/assets/wp-content/uploads/2015/07/Singleton.png&quot; alt=&quot;Singleton&quot; width=&quot;543&quot; height=&quot;119&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/Singleton.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-988&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/Singleton.png&quot; alt=&quot;Singleton&quot; width=&quot;543&quot; height=&quot;119&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;p&gt;&lt;/p&gt;
 </content>
@@ -3090,7 +3090,7 @@ s2.makeMagic()&lt;/pre&gt;
 &lt;span class=&quot;n&quot;&gt;LordOfCoinAdvanced&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adjustWeaponPrice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/factory-1.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-981&quot; src=&quot;/assets/wp-content/uploads/2015/07/factory-1.png&quot; alt=&quot;factory 1&quot; width=&quot;797&quot; height=&quot;355&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/factory-1.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-981&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/factory-1.png&quot; alt=&quot;factory 1&quot; width=&quot;797&quot; height=&quot;355&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Rework on the code, add weapon factories and let them decide the weapon details.&lt;/p&gt;
 
@@ -3289,7 +3289,7 @@ s2.makeMagic()&lt;/pre&gt;
 &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;totalCostBeforeTax&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;weapon&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;combine&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;total cost after tax: \(totalCost)#  (before tax: \(totalCostBeforeTax)#)&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/07/factory-2.png&amp;#x27;&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-982&quot; src=&quot;/assets/wp-content/uploads/2015/07/factory-2.png&quot; alt=&quot;factory 2&quot; width=&quot;530&quot; height=&quot;358&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/07/factory-2.png&amp;#x27;&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-982&quot; src=&quot;/assets/images/wp-content/uploads/2015/07/factory-2.png&quot; alt=&quot;factory 2&quot; width=&quot;530&quot; height=&quot;358&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;p&gt;&lt;/p&gt;
 </content>
@@ -3450,7 +3450,7 @@ s2.makeMagic()&lt;/pre&gt;
 &lt;span class=&quot;n&quot;&gt;ariaPurchase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;addPurchase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;disguise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;ariaPurchase&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;printReceipt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/06/Decorator.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-970&quot; src=&quot;/assets/wp-content/uploads/2015/06/Decorator.png&quot; alt=&quot;Decorator&quot; width=&quot;457&quot; height=&quot;201&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/06/Decorator.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-970&quot; src=&quot;/assets/images/wp-content/uploads/2015/06/Decorator.png&quot; alt=&quot;Decorator&quot; width=&quot;457&quot; height=&quot;201&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -3600,7 +3600,7 @@ s2.makeMagic()&lt;/pre&gt;
 &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;creatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Creature&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cat&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;person&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;creatures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filter&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;is&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Animal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;as&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Animal&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;performEscape&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png&quot;&gt;&lt;img class=&quot; size-full wp-image-957 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png&quot; alt=&quot;Strategy Pattern in Swift 2.0&quot; width=&quot;305&quot; height=&quot;119&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png&quot;&gt;&lt;img class=&quot; size-full wp-image-957 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/06/Strategy-Pattern-in-Swift-2.0.png&quot; alt=&quot;Strategy Pattern in Swift 2.0&quot; width=&quot;305&quot; height=&quot;119&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -3775,7 +3775,7 @@ s2.makeMagic()&lt;/pre&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/06/Observer-Pattern.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-962&quot; src=&quot;/assets/wp-content/uploads/2015/06/Observer-Pattern.png&quot; alt=&quot;Observer Pattern&quot; width=&quot;489&quot; height=&quot;227&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/06/Observer-Pattern.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-962&quot; src=&quot;/assets/images/wp-content/uploads/2015/06/Observer-Pattern.png&quot; alt=&quot;Observer Pattern&quot; width=&quot;489&quot; height=&quot;227&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -3865,7 +3865,7 @@ Hedgehog put their heads under the shells…&lt;/p&gt;
 
 &lt;p&gt;Output:&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/06/Screen-Shot-2015-06-09-at-8.39.59-PM.png&quot;&gt;&lt;img class=&quot; size-full wp-image-885 alignnone&quot; src=&quot;/assets/wp-content/uploads/2015/06/Screen-Shot-2015-06-09-at-8.39.59-PM.png&quot; alt=&quot;Screen Shot 2015-06-09 at 8.39.59 PM&quot; width=&quot;291&quot; height=&quot;102&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/06/Screen-Shot-2015-06-09-at-8.39.59-PM.png&quot;&gt;&lt;img class=&quot; size-full wp-image-885 alignnone&quot; src=&quot;/assets/images/wp-content/uploads/2015/06/Screen-Shot-2015-06-09-at-8.39.59-PM.png&quot; alt=&quot;Screen Shot 2015-06-09 at 8.39.59 PM&quot; width=&quot;291&quot; height=&quot;102&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;“Ha, I have the power to expel creatures!” She felt a current of great excitement going through her body and she continued walking.&lt;/p&gt;
 
@@ -4031,9 +4031,9 @@ More sensors&lt;/li&gt;
 &lt;li&gt;Send pre-defined short messages to friends&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot4.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-868&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot4.gif&quot; alt=&quot;snapshot&quot; width=&quot;378&quot; height=&quot;691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot4.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-868&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot4.gif&quot; alt=&quot;snapshot&quot; width=&quot;378&quot; height=&quot;691&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot11.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-870&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot11.gif&quot; alt=&quot;snapshot1&quot; width=&quot;316&quot; height=&quot;410&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot11.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-870&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot11.gif&quot; alt=&quot;snapshot1&quot; width=&quot;316&quot; height=&quot;410&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -4060,9 +4060,9 @@ More sensors&lt;/li&gt;
 &lt;li&gt;I realized that I had some spelling problem with the app, too much waiting for the loading screen to change, so I just let it go.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/screenshot.png&quot;&gt;&lt;img src=&quot;/assets/wp-content/uploads/2015/05/screenshot.png&quot; alt=&quot;screenshot&quot; width=&quot;312&quot; height=&quot;415&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/screenshot.png&quot;&gt;&lt;img src=&quot;/assets/images/wp-content/uploads/2015/05/screenshot.png&quot; alt=&quot;screenshot&quot; width=&quot;312&quot; height=&quot;415&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/beautiful_loading_screen.png&quot;&gt;&lt;img class=&quot;wp-image-862 size-full&quot; title=&quot;Beautiful Loading Screen&quot; src=&quot;/assets/wp-content/uploads/2015/05/beautiful_loading_screen.png&quot; alt=&quot;beautiful_loading_screen&quot; width=&quot;312&quot; height=&quot;413&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/beautiful_loading_screen.png&quot;&gt;&lt;img class=&quot;wp-image-862 size-full&quot; title=&quot;Beautiful Loading Screen&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/beautiful_loading_screen.png&quot; alt=&quot;beautiful_loading_screen&quot; width=&quot;312&quot; height=&quot;413&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -4085,7 +4085,7 @@ More sensors&lt;/li&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot3.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-843&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot3.gif&quot; alt=&quot;snapshot&quot; width=&quot;386&quot; height=&quot;698&quot; /&gt;&lt;img class=&quot;aligncenter size-full wp-image-842&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot4.png&quot; alt=&quot;snapshot&quot; width=&quot;513&quot; height=&quot;680&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot3.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-843&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot3.gif&quot; alt=&quot;snapshot&quot; width=&quot;386&quot; height=&quot;698&quot; /&gt;&lt;img class=&quot;aligncenter size-full wp-image-842&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot4.png&quot; alt=&quot;snapshot&quot; width=&quot;513&quot; height=&quot;680&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Known issue&lt;/strong&gt;:&lt;/p&gt;
 
@@ -4100,7 +4100,7 @@ More sensors&lt;/li&gt;
    <id>localhost:4000/2015/05/12/day-23-swift-movie-app</id>
    <content type="html">&lt;p&gt;&lt;strong&gt;Description:&lt;/strong&gt; a simple movie app that demonstrate how to get JSON data and dynamically create the corresponding class. &lt;a href=&quot;https://github.com/vidaaudrey/023-Popular-Movies&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot3.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-839&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot3.png&quot; alt=&quot;snapshot&quot; width=&quot;372&quot; height=&quot;667&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot3.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-839&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot3.png&quot; alt=&quot;snapshot&quot; width=&quot;372&quot; height=&quot;667&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-swift&quot; data-lang=&quot;swift&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nl&quot;&gt;Movie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;NSObject&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
@@ -4174,8 +4174,8 @@ More sensors&lt;/li&gt;
    <updated>2015-05-09T00:00:00-07:00</updated>
    <id>localhost:4000/2015/05/09/day-22-apple-watch-app-coin-tossing</id>
    <content type="html">&lt;p&gt;An experiment on building Apple Watch App.&lt;a href=&quot;https://github.com/vidaaudrey/022-Apple-Watch-Tossing-Coin&quot;&gt; Source Code&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot2.png&quot;&gt;&lt;br&gt;
-&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot2.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-835&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot2.gif&quot; alt=&quot;snapshot&quot; width=&quot;312&quot; height=&quot;415&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot2.png&quot;&gt;&lt;br&gt;
+&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot2.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-835&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot2.gif&quot; alt=&quot;snapshot&quot; width=&quot;312&quot; height=&quot;415&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -4194,7 +4194,7 @@ More sensors&lt;/li&gt;
 &lt;li&gt;Set drawing data including lineWidth, Color, Opacity&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot1.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-829&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot1.gif&quot; alt=&quot;snapshot&quot; width=&quot;372&quot; height=&quot;672&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot1.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-829&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot1.gif&quot; alt=&quot;snapshot&quot; width=&quot;372&quot; height=&quot;672&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -4218,7 +4218,7 @@ More sensors&lt;/li&gt;
 &lt;li&gt;A custom ColorRollView to display HSB colors&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/snapshot.gif&quot;&gt;&lt;img class=&quot;aligncenter wp-image-819 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/05/snapshot.gif&quot; alt=&quot;snapshot&quot; width=&quot;376&quot; height=&quot;664&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/05/screenshot2.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-823&quot; src=&quot;/assets/wp-content/uploads/2015/05/screenshot2.png&quot; alt=&quot;screenshot2&quot; width=&quot;303&quot; height=&quot;533&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/snapshot.gif&quot;&gt;&lt;img class=&quot;aligncenter wp-image-819 size-full&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/snapshot.gif&quot; alt=&quot;snapshot&quot; width=&quot;376&quot; height=&quot;664&quot; /&gt;&lt;/a&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/05/screenshot2.png&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-823&quot; src=&quot;/assets/images/wp-content/uploads/2015/05/screenshot2.png&quot; alt=&quot;screenshot2&quot; width=&quot;303&quot; height=&quot;533&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Links:&lt;/strong&gt;&lt;/p&gt;
 
@@ -4244,7 +4244,7 @@ More sensors&lt;/li&gt;
 &lt;/p&gt;
 
 &lt;p&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot6.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-800 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot6.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;683&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot6.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-800 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot6.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;683&quot; /&gt;&lt;/a&gt;
 &lt;/p&gt;
 
 &lt;p&gt;I started out with the wish to write a rounded UIView extension, which was quite easy to achieve. Somehow along the way I decided to revisit the previous Dribble code and make some improvement:&lt;/p&gt;
@@ -4337,14 +4337,14 @@ More sensors&lt;/li&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot7.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-810&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot7.gif&quot; alt=&quot;snapshot&quot; width=&quot;376&quot; height=&quot;669&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot7.gif&quot;&gt;&lt;img class=&quot;aligncenter size-full wp-image-810&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot7.gif&quot; alt=&quot;snapshot&quot; width=&quot;376&quot; height=&quot;669&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot9.png&quot;&gt;&lt;img class=&quot; size-full wp-image-809 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot9.png&quot; alt=&quot;snapshot&quot; width=&quot;369&quot; height=&quot;662&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot9.png&quot;&gt;&lt;img class=&quot; size-full wp-image-809 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot9.png&quot; alt=&quot;snapshot&quot; width=&quot;369&quot; height=&quot;662&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
@@ -4365,21 +4365,13 @@ More sensors&lt;/li&gt;
  </entry>
  
  <entry>
-   <title>018 Swift Currency Converter</title>
-   <link href="localhost:4000/2015/04/29/018-swift-currency-converter/"/>
-   <updated>2015-04-29T00:00:00-07:00</updated>
-   <id>localhost:4000/2015/04/29/018-swift-currency-converter</id>
-   <content type="html"></content>
- </entry>
- 
- <entry>
    <title>Day 17..  &#8211; iOS Emoji Flags</title>
    <link href="localhost:4000/2015/04/24/day-17-ios-emoji-flags/"/>
    <updated>2015-04-24T00:00:00-07:00</updated>
    <id>localhost:4000/2015/04/24/day-17-ios-emoji-flags</id>
    <content type="html">&lt;p&gt;Description: a test to see the available emoji flags in iOS system. &lt;a title=&quot;iOS Emoji Flags Swift&quot; href=&quot;https://github.com/vidaaudrey/017-iOS-Emoji-Flags&quot; target=&quot;_blank&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot7.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-794&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot7.png&quot; alt=&quot;snapshot&quot; width=&quot;2048&quot; height=&quot;1536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot7.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-794&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot7.png&quot; alt=&quot;snapshot&quot; width=&quot;2048&quot; height=&quot;1536&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -4390,11 +4382,11 @@ More sensors&lt;/li&gt;
    <id>localhost:4000/2015/04/16/day-16-swift-custom-transition</id>
    <content type="html">&lt;p&gt;Description: an iOS UIViewController custom transition demo. It supports transitions for all directions. The dismiss transition is a custom folding transition which is not perfect yet. &lt;a href=&quot;https://github.com/vidaaudrey/016-CustomTransitions&quot; target=&quot;_blank&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot14.png&quot;&gt;&lt;img class=&quot; size-full wp-image-791 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot14.png&quot; alt=&quot;snapshot1&quot; width=&quot;369&quot; height=&quot;657&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot14.png&quot;&gt;&lt;img class=&quot; size-full wp-image-791 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot14.png&quot; alt=&quot;snapshot1&quot; width=&quot;369&quot; height=&quot;657&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot5.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-790 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot5.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;663&quot; /&gt;&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot5.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-790 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot5.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;663&quot; /&gt;&lt;/a&gt;&lt;br&gt;
 Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view-controller-transitions-tutorial/&quot;&gt;AppCoda.com&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
@@ -4412,7 +4404,7 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot4.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-783 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot4.gif&quot; alt=&quot;snapshot&quot; width=&quot;400&quot; height=&quot;703&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot12.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-784 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot12.gif&quot; alt=&quot;snapshot1&quot; width=&quot;400&quot; height=&quot;703&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot4.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-783 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot4.gif&quot; alt=&quot;snapshot&quot; width=&quot;400&quot; height=&quot;703&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot12.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-784 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot12.gif&quot; alt=&quot;snapshot1&quot; width=&quot;400&quot; height=&quot;703&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
@@ -4466,15 +4458,15 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
 &lt;/ul&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot3.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-777 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot3.gif&quot; alt=&quot;snapshot&quot; width=&quot;382&quot; height=&quot;695&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot3.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-777 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot3.gif&quot; alt=&quot;snapshot&quot; width=&quot;382&quot; height=&quot;695&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot0.png&quot;&gt;&lt;img class=&quot; size-full wp-image-778 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot0.png&quot; alt=&quot;snapshot0&quot; width=&quot;663&quot; height=&quot;395&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot0.png&quot;&gt;&lt;img class=&quot; size-full wp-image-778 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot0.png&quot; alt=&quot;snapshot0&quot; width=&quot;663&quot; height=&quot;395&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot5.png&quot;&gt;&lt;img class=&quot; size-full wp-image-776 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot5.png&quot; alt=&quot;snapshot&quot; width=&quot;371&quot; height=&quot;667&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot5.png&quot;&gt;&lt;img class=&quot; size-full wp-image-776 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot5.png&quot; alt=&quot;snapshot&quot; width=&quot;371&quot; height=&quot;667&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
@@ -4533,7 +4525,7 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot2.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-770 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot2.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot21.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-772 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot21.gif&quot; alt=&quot;snapshot2&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot11.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-771 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot11.gif&quot; alt=&quot;snapshot1&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshort3.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-768 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshort3.gif&quot; alt=&quot;snapshort3&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot2.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-770 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot2.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot21.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-772 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot21.gif&quot; alt=&quot;snapshot2&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot11.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-771 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot11.gif&quot; alt=&quot;snapshot1&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshort3.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-768 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshort3.gif&quot; alt=&quot;snapshort3&quot; width=&quot;375&quot; height=&quot;691&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
@@ -4612,7 +4604,7 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot1.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-760 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot1.gif&quot; alt=&quot;snapshot&quot; width=&quot;377&quot; height=&quot;684&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot12.png&quot;&gt;&lt;br /&gt; &lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot1.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-760 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot1.gif&quot; alt=&quot;snapshot&quot; width=&quot;377&quot; height=&quot;684&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot12.png&quot;&gt;&lt;br /&gt; &lt;/a&gt;
 &lt;/div&gt;
 </content>
  </entry>
@@ -4627,7 +4619,7 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot1.png&quot;&gt;&lt;img class=&quot; size-full wp-image-752 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot1.png&quot; alt=&quot;snapshot&quot; width=&quot;380&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot2.png&quot;&gt;&lt;img class=&quot; size-full wp-image-754 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot2.png&quot; alt=&quot;snapshot2&quot; width=&quot;383&quot; height=&quot;694&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot1.png&quot;&gt;&lt;img class=&quot; size-full wp-image-752 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot1.png&quot; alt=&quot;snapshot&quot; width=&quot;380&quot; height=&quot;691&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot2.png&quot;&gt;&lt;img class=&quot; size-full wp-image-754 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot2.png&quot; alt=&quot;snapshot2&quot; width=&quot;383&quot; height=&quot;694&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
@@ -4653,15 +4645,15 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
    <id>localhost:4000/2015/04/04/day-10-swift-material-design-color-palette</id>
    <content type="html">&lt;p&gt;A simple material design color palette that shows the palette colors upon selection.  &lt;a href=&quot;https://github.com/vidaaudrey/010-Swift-Material-Design-Color-Play&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-745 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot.gif&quot; alt=&quot;snapshot&quot; width=&quot;386&quot; height=&quot;702&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-745 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot.gif&quot; alt=&quot;snapshot&quot; width=&quot;386&quot; height=&quot;702&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/04/snapshot.png&quot;&gt;&lt;img class=&quot; size-full wp-image-744 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/snapshot.png&quot; alt=&quot;snapshot&quot; width=&quot;372&quot; height=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/snapshot.png&quot;&gt;&lt;img class=&quot; size-full wp-image-744 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/snapshot.png&quot; alt=&quot;snapshot&quot; width=&quot;372&quot; height=&quot;600&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/04/gridview.png&quot;&gt;&lt;img class=&quot; size-full wp-image-742 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/04/gridview.png&quot; alt=&quot;gridview&quot; width=&quot;373&quot; height=&quot;649&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/04/gridview.png&quot;&gt;&lt;img class=&quot; size-full wp-image-742 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/04/gridview.png&quot; alt=&quot;gridview&quot; width=&quot;373&quot; height=&quot;649&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -4683,13 +4675,13 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
    <content type="html">&lt;p&gt;Description: A simple clock UI that displays time and animates to target time.&lt;/p&gt;
 
 &lt;p&gt;&lt;a title=&quot;Github Source Code &quot; href=&quot;https://github.com/vidaaudrey/008-Building-A-Clock-Control-Framework&quot; target=&quot;_blank&quot;&gt;Source Code&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot6.png&quot;&gt;&lt;img class=&quot; size-full wp-image-738 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot6.png&quot; alt=&quot;snapshot&quot; width=&quot;369&quot; height=&quot;667&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot6.png&quot;&gt;&lt;img class=&quot; size-full wp-image-738 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot6.png&quot; alt=&quot;snapshot&quot; width=&quot;369&quot; height=&quot;667&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot4.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-739 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot4.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;670&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot4.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-739 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot4.gif&quot; alt=&quot;snapshot&quot; width=&quot;375&quot; height=&quot;670&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -4700,9 +4692,9 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
    <id>localhost:4000/2015/03/24/weight-sensor-interface-using-paintcode</id>
    <content type="html">&lt;p&gt;A simple weight sensor UI interface using PaintCode.  &lt;a href=&quot;https://github.com/vidaaudrey/007-Weight-Sensor-Interface-Using-PaintCode&quot; target=&quot;_blank&quot;&gt;Source Code&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot5.png&quot;&gt;&lt;img class=&quot; size-full wp-image-729 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot5.png&quot; alt=&quot;snapshot&quot; width=&quot;370&quot; height=&quot;663&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot5.png&quot;&gt;&lt;img class=&quot; size-full wp-image-729 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot5.png&quot; alt=&quot;snapshot&quot; width=&quot;370&quot; height=&quot;663&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-730 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot.gif&quot; alt=&quot;snapshot&quot; width=&quot;373&quot; height=&quot;668&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-730 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot.gif&quot; alt=&quot;snapshot&quot; width=&quot;373&quot; height=&quot;668&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div&gt;
   &lt;strong&gt;Objective&lt;/strong&gt;:
@@ -4734,7 +4726,7 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
 &lt;li&gt;I was totally amazed by the flexibility of drawing with PaintCode. It saves so much time.&lt;/li&gt;
 &lt;li&gt;Even better, combined with Xcode’s LiveView ability, you can design and layout the view without firing up the simulator.&lt;/li&gt;
 &lt;li&gt;The code generated by PaintCode doesn’t really do the range checking by itself, which is a bit misleading since you’d think that that a “Fraction” in design phase would stay as a “Fraction” in Swift code as well.&lt;/li&gt;
-&lt;li&gt;Great tool. I’ll definitely continue to use it. &lt;img class=&quot;alignnone size-full wp-image-728&quot; src=&quot;/assets/wp-content/uploads/2015/03/paintcode-screenshot.png&quot; alt=&quot;paintcode-screenshot&quot; width=&quot;1387&quot; height=&quot;953&quot; /&gt;&lt;img class=&quot;alignnone size-full wp-image-731&quot; src=&quot;/assets/wp-content/uploads/2015/03/xcodescreenshot.png&quot; alt=&quot;xcodescreenshot&quot; width=&quot;1390&quot; height=&quot;741&quot; /&gt;&lt;/li&gt;
+&lt;li&gt;Great tool. I’ll definitely continue to use it. &lt;img class=&quot;alignnone size-full wp-image-728&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/paintcode-screenshot.png&quot; alt=&quot;paintcode-screenshot&quot; width=&quot;1387&quot; height=&quot;953&quot; /&gt;&lt;img class=&quot;alignnone size-full wp-image-731&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/xcodescreenshot.png&quot; alt=&quot;xcodescreenshot&quot; width=&quot;1390&quot; height=&quot;741&quot; /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div&gt;
@@ -4760,7 +4752,7 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
 &lt;/div&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/03/Snapshot.gif&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-721&quot; src=&quot;/assets/wp-content/uploads/2015/03/Snapshot.gif&quot; alt=&quot;Snapshot&quot; width=&quot;375&quot; height=&quot;670&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/Snapshot.gif&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-721&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/Snapshot.gif&quot; alt=&quot;Snapshot&quot; width=&quot;375&quot; height=&quot;670&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;div&gt;
@@ -4822,8 +4814,8 @@ Inspired by an article from &lt;a href=&quot;http://www.appcoda.com/custom-view
    <id>localhost:4000/2015/03/22/day-5-circular-progress-loader-animation</id>
    <content type="html">&lt;p&gt;A highly customizable progress animation control.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot4.png&quot;&gt;&lt;img class=&quot; size-full wp-image-710 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot4.png&quot; alt=&quot;snapshot&quot; width=&quot;363&quot; height=&quot;612&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot0.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-711 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot0.gif&quot; alt=&quot;snapshot0&quot; width=&quot;412&quot; height=&quot;721&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot1.gif&quot;&gt;&lt;br&gt;
-&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot2.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-713 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot2.gif&quot; alt=&quot;snapshot2&quot; width=&quot;412&quot; height=&quot;721&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot3.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-714 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot3.gif&quot; alt=&quot;snapshot3&quot; width=&quot;412&quot; height=&quot;721&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot4.png&quot;&gt;&lt;img class=&quot; size-full wp-image-710 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot4.png&quot; alt=&quot;snapshot&quot; width=&quot;363&quot; height=&quot;612&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot0.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-711 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot0.gif&quot; alt=&quot;snapshot0&quot; width=&quot;412&quot; height=&quot;721&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot1.gif&quot;&gt;&lt;br&gt;
+&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot2.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-713 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot2.gif&quot; alt=&quot;snapshot2&quot; width=&quot;412&quot; height=&quot;721&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot3.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-714 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot3.gif&quot; alt=&quot;snapshot3&quot; width=&quot;412&quot; height=&quot;721&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -4855,7 +4847,7 @@ progressView.animateProgressView()&lt;/p&gt;
 &lt;/ul&gt;
 
 &lt;div&gt;
-  &lt;a href=&quot;/assets/wp-content/uploads/2015/03/Face-Change.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-704 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/Face-Change.gif&quot; alt=&quot;Face-Change&quot; width=&quot;404&quot; height=&quot;714&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot.png&quot;&gt;&lt;img class=&quot; size-full wp-image-705 aligncenter&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot.png&quot; alt=&quot;snapshot&quot; width=&quot;370&quot; height=&quot;666&quot; /&gt;&lt;/a&gt;
+  &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/Face-Change.gif&quot;&gt;&lt;img class=&quot; size-full wp-image-704 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/Face-Change.gif&quot; alt=&quot;Face-Change&quot; width=&quot;404&quot; height=&quot;714&quot; /&gt;&lt;/a&gt; &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot.png&quot;&gt;&lt;img class=&quot; size-full wp-image-705 aligncenter&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot.png&quot; alt=&quot;snapshot&quot; width=&quot;370&quot; height=&quot;666&quot; /&gt;&lt;/a&gt;
 &lt;/div&gt;
 
 &lt;h3&gt;Steps&lt;/h3&gt;
@@ -4902,11 +4894,11 @@ progressView.animateProgressView()&lt;/p&gt;
 
 &lt;p&gt;The sample code is at &lt;a title=&quot;Dribble Client App&quot; href=&quot;https://github.com/vidaaudrey/003-Dribble-Client&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot1.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-695&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot1.png&quot; alt=&quot;snapshot1&quot; width=&quot;392&quot; height=&quot;707&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot1.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-695&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot1.png&quot; alt=&quot;snapshot1&quot; width=&quot;392&quot; height=&quot;707&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot3.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-697&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot3.png&quot; alt=&quot;snapshot3&quot; width=&quot;392&quot; height=&quot;706&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot3.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-697&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot3.png&quot; alt=&quot;snapshot3&quot; width=&quot;392&quot; height=&quot;706&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshot2.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-696&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshot2.png&quot; alt=&quot;snapshot2&quot; width=&quot;390&quot; height=&quot;704&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshot2.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-696&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshot2.png&quot; alt=&quot;snapshot2&quot; width=&quot;390&quot; height=&quot;704&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
 
@@ -4995,28 +4987,28 @@ progressView.animateProgressView()&lt;/p&gt;
 &lt;/ol&gt;
 
 &lt;div&gt;
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/sketch-design.png&quot;&gt;&lt;img class=&quot;size-full wp-image-689&quot; src=&quot;/assets/wp-content/uploads/2015/03/sketch-design.png&quot; alt=&quot;sketch design  (quite different from the final result )&quot; width=&quot;750&quot; height=&quot;1334&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/sketch-design.png&quot;&gt;&lt;img class=&quot;size-full wp-image-689&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/sketch-design.png&quot; alt=&quot;sketch design  (quite different from the final result )&quot; width=&quot;750&quot; height=&quot;1334&quot; /&gt;&lt;/a&gt;
 
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png&quot;&gt;&lt;img class=&quot;size-full wp-image-684&quot; src=&quot;/assets/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png&quot; alt=&quot;how nice sketch support folder export&quot; width=&quot;536&quot; height=&quot;681&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png&quot;&gt;&lt;img class=&quot;size-full wp-image-684&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/how-nice-sketch-support-folder-export.png&quot; alt=&quot;how nice sketch support folder export&quot; width=&quot;536&quot; height=&quot;681&quot; /&gt;&lt;/a&gt;
     
  
   
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/image-assets.png&quot;&gt;&lt;img class=&quot;size-full wp-image-682&quot; src=&quot;/assets/wp-content/uploads/2015/03/image-assets.png&quot; alt=&quot;Xcode manages image assets very nicely&quot; width=&quot;1124&quot; height=&quot;796&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/image-assets.png&quot;&gt;&lt;img class=&quot;size-full wp-image-682&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/image-assets.png&quot; alt=&quot;Xcode manages image assets very nicely&quot; width=&quot;1124&quot; height=&quot;796&quot; /&gt;&lt;/a&gt;
 
   
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/first-version-in-english.png&quot;&gt;&lt;img class=&quot;size-full wp-image-687&quot; src=&quot;/assets/wp-content/uploads/2015/03/first-version-in-english.png&quot; alt=&quot;first version in english&quot; width=&quot;373&quot; height=&quot;690&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/first-version-in-english.png&quot;&gt;&lt;img class=&quot;size-full wp-image-687&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/first-version-in-english.png&quot; alt=&quot;first version in english&quot; width=&quot;373&quot; height=&quot;690&quot; /&gt;&lt;/a&gt;
  
   
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/my-headach-in-landscape.png&quot;&gt;&lt;img class=&quot;size-full wp-image-683&quot; src=&quot;/assets/wp-content/uploads/2015/03/my-headach-in-landscape.png&quot; alt=&quot;my headache in landscape view&quot; width=&quot;664&quot; height=&quot;379&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/my-headach-in-landscape.png&quot;&gt;&lt;img class=&quot;size-full wp-image-683&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/my-headach-in-landscape.png&quot; alt=&quot;my headache in landscape view&quot; width=&quot;664&quot; height=&quot;379&quot; /&gt;&lt;/a&gt;
  
   
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/autolayout-and-constrains.png&quot;&gt;&lt;img class=&quot;size-full wp-image-688&quot; src=&quot;/assets/wp-content/uploads/2015/03/autolayout-and-constrains.png&quot; alt=&quot;autolayout and constrains&quot; width=&quot;880&quot; height=&quot;783&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/autolayout-and-constrains.png&quot;&gt;&lt;img class=&quot;size-full wp-image-688&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/autolayout-and-constrains.png&quot; alt=&quot;autolayout and constrains&quot; width=&quot;880&quot; height=&quot;783&quot; /&gt;&lt;/a&gt;
   
   
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/snapshortcn.png&quot;&gt;&lt;img class=&quot;size-full wp-image-686&quot; src=&quot;/assets/wp-content/uploads/2015/03/snapshortcn.png&quot; alt=&quot;App in my mother tongue &quot; width=&quot;416&quot; height=&quot;712&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/snapshortcn.png&quot;&gt;&lt;img class=&quot;size-full wp-image-686&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/snapshortcn.png&quot; alt=&quot;App in my mother tongue &quot; width=&quot;416&quot; height=&quot;712&quot; /&gt;&lt;/a&gt;
   
   
-    &lt;a href=&quot;/assets/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png&quot;&gt;&lt;img class=&quot;size-full wp-image-685&quot; src=&quot;/assets/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png&quot; alt=&quot;second version with multi-lingo support&quot; width=&quot;371&quot; height=&quot;686&quot; /&gt;&lt;/a&gt;
+    &lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png&quot;&gt;&lt;img class=&quot;size-full wp-image-685&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/second-version-with-multi-lingo-support.png&quot; alt=&quot;second version with multi-lingo support&quot; width=&quot;371&quot; height=&quot;686&quot; /&gt;&lt;/a&gt;
 
 
 &lt;div&gt;
@@ -5128,15 +5120,15 @@ progressView.animateProgressView()&lt;/p&gt;
 &lt;/ol&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot;&gt;&lt;img class=&quot;wp-image-667 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot; alt=&quot;Angular Material Start Project&quot; width=&quot;1100&quot; height=&quot;764&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot;&gt;&lt;img class=&quot;wp-image-667 size-full&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/Angular-Material-Start-Project.png&quot; alt=&quot;Angular Material Start Project&quot; width=&quot;1100&quot; height=&quot;764&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Basic-setup.png&quot;&gt;&lt;img class=&quot;wp-image-669 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Basic-setup.png&quot; alt=&quot;Basic setup&quot; width=&quot;765&quot; height=&quot;587&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/Basic-setup.png&quot;&gt;&lt;img class=&quot;wp-image-669 size-full&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/Basic-setup.png&quot; alt=&quot;Basic setup&quot; width=&quot;765&quot; height=&quot;587&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Sketch.png&quot;&gt;&lt;img class=&quot;wp-image-671 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Sketch.png&quot; alt=&quot;Sketch&quot; width=&quot;1267&quot; height=&quot;765&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/Sketch.png&quot;&gt;&lt;img class=&quot;wp-image-671 size-full&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/Sketch.png&quot; alt=&quot;Sketch&quot; width=&quot;1267&quot; height=&quot;765&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Input-State-Change.png&quot;&gt;&lt;img class=&quot;wp-image-670 size-full&quot; src=&quot;/assets/wp-content/uploads/2015/03/Input-State-Change.png&quot; alt=&quot;Input State Change&quot; width=&quot;648&quot; height=&quot;920&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/Input-State-Change.png&quot;&gt;&lt;img class=&quot;wp-image-670 size-full&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/Input-State-Change.png&quot; alt=&quot;Input State Change&quot; width=&quot;648&quot; height=&quot;920&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Todo-App.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-668&quot; src=&quot;/assets/wp-content/uploads/2015/03/Angular-Material-Todo-App.png&quot; alt=&quot;Angular Material Todo App&quot; width=&quot;654&quot; height=&quot;874&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;/assets/images/wp-content/uploads/2015/03/Angular-Material-Todo-App.png&quot;&gt;&lt;img class=&quot;alignnone size-full wp-image-668&quot; src=&quot;/assets/images/wp-content/uploads/2015/03/Angular-Material-Todo-App.png&quot; alt=&quot;Angular Material Todo App&quot; width=&quot;654&quot; height=&quot;874&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 
 &lt;div&gt;
   &lt;div&gt;
