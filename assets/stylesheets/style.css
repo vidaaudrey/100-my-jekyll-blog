@@ -251,7 +251,7 @@ body {
   font-family: "RobotoDraft","Roboto",sans-serif;
   color: #666;
   font-size: 1.1rem;
-  background: #fff url('/assets/images/png') 0 0 repeat; }
+  background: #fff url('/assets/images/furley_bg.png') 0 0 repeat; }
 
 a {
   color: #4CA550;
@@ -430,7 +430,7 @@ ul li {
     max-width: 770px;
     margin: 0 auto; }
   .jumbotron.jumbotron-home {
-    background: url('/assets/images/home-default-bg-jpeg') no-repeat center center fixed;
+    background: url('/assets/images/home-default-bg-compressor.jpeg') no-repeat center center fixed;
     background-size: cover; }
     .jumbotron.jumbotron-home .container p, .jumbotron.jumbotron-home .container h1 {
       margin-right: 10%; }
@@ -445,7 +445,7 @@ ul li {
       background: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.6));
       background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6)); }
   .jumbotron.jumbotron-page-plain {
-    background: url('/assets/images/page-default-bg-jpg') no-repeat center center fixed;
+    background: url('/assets/images/page-default-bg-compressor.jpg') no-repeat center center fixed;
     position: relative;
     min-height: 400px; }
     .jumbotron.jumbotron-page-plain .container {
@@ -486,7 +486,7 @@ ul li {
       background: -webkit-linear-gradient(270deg, transparent, rgba(0, 0, 0, 0.6));
       background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6)); }
   .jumbotron.jumbotron-post-plain {
-    background: url('/assets/images/post-default-bg-jpg') no-repeat center center scroll;
+    background: url('/assets/images/post-default-bg-compressor.jpg') no-repeat center center scroll;
     position: relative; }
     .jumbotron.jumbotron-post-plain .fullwidth-wrapper {
       position: absolute;
