@@ -4,13 +4,33 @@
  <title>Audrey Li's Personal Blog</title>
  <link href="localhost:4000/atom.xml" rel="self"/>
  <link href="localhost:4000/"/>
- <updated>2015-10-08T15:56:22-07:00</updated>
+ <updated>2015-11-11T09:18:44-08:00</updated>
  <id>localhost:4000</id>
  <author>
    <name>Audrey Li</name>
    <email>me@audreyli.me</email>
  </author>
 
+ 
+ <entry>
+   <title>Singles Day</title>
+   <link href="localhost:4000/general/2015/11/11/singles-day/"/>
+   <updated>2015-11-11T00:00:00-08:00</updated>
+   <id>localhost:4000/general/2015/11/11/singles-day</id>
+   <content type="html">&lt;p&gt;As Beijing entering into middle night, the mostly amazing shopping spray day closes. &lt;/p&gt;
+
+&lt;p&gt;91.2 Billion RMB! &lt;/p&gt;
+
+&lt;p&gt;143 Billion USD of sales in a single day! It&#39;s a new chapter of history written with excitment, tears, pride, and happiness. It&#39;s a celebration and demonstration of a rising economy. It&#39;s a story of ups and downs, and mostly a story of wonders. &lt;/p&gt;
+
+
+&lt;p&gt;As I sit in the classroom of MakerSquare San Francisco school in the early morning, I couldn&#39;t help writting a few words. The same time yesterday, I spent 1.5 hours shopping on TMall for my mom. The sales record reached 10 Billion RMB yesterday in the first 1.5 hours, which was the total amount of online sales in US during the Black Friday last year. There goes my little excitment knowing that I contributed something to that 1.5 hours&#39; sale.&lt;/p&gt; 
+
+
+&lt;p&gt;Well, class starts in a few minutes. Here is a little funny closing video that captures the holiday:&lt;/p&gt; 
+
+&lt;embed src=&quot;http://cloud.video.taobao.com/play/u/1095264730482/e/1/t/1/p/1/32081242.swf&quot; quality=&quot;high&quot; width=&quot;100%&quot; height=&quot;500&quot; align=&quot;middle&quot; allowScriptAccess=&quot;never&quot; allowFullScreen=&quot;true&quot; type=&quot;application/x-shockwave-flash&quot;&gt;&lt;/embed&gt;</content>
+ </entry>
  
  <entry>
    <title>Create Image Zoom Style Like Medium</title>
